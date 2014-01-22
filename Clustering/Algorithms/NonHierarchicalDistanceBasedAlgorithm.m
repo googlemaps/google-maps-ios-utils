@@ -6,7 +6,7 @@
 
 @implementation NonHierarchicalDistanceBasedAlgorithm
 
-int MAX_DISTANCE_AT_ZOOM = 100; // essentially 100 dp.
+int MAX_DISTANCE_AT_ZOOM = 10000;
 
 - (id)init {
     if (self = [super init]) {
@@ -19,8 +19,7 @@ int MAX_DISTANCE_AT_ZOOM = 100; // essentially 100 dp.
 - (void)addItem:(id <GClusterItem>) item {
     GQuadItem *quadItem = [[GQuadItem alloc] initWithItem:item];
     [items addObject:quadItem];
-    bool result = [quadTree add:quadItem];
-    int i =0;
+    [quadTree add:quadItem];
 }
 
 - (NSSet*)getClusters:(float)zoom {

@@ -1,11 +1,3 @@
-//
-//  GStaticCluster.m
-//  Parkingmobility
-//
-//  Created by Colin Edwards on 1/18/14.
-//  Copyright (c) 2014 Colin Edwards. All rights reserved.
-//
-
 #import "GStaticCluster.h"
 
 @implementation GStaticCluster
@@ -13,24 +5,29 @@
 - (id)initWithLocation:(GQTPoint)location {
     if (self = [super init]) {
         point = location;
+        items = [[NSMutableSet alloc] init];
     }
     return self;
 }
 
-- (void)add:(id <GQTPointQuadTreeItem>)item {
-    
+- (void)add:(GQuadItem*)item {
+    [items addObject:item];
+}
+
+- (void)remove:(GQuadItem*)item {
+    [items removeObject:item];
 }
 
 - (GQTPoint)point {
     return point;
 }
 
-- (NSArray*)getItems {
-    return nil;
+- (NSSet*)getItems {
+    return items;
 }
 
-- (int)getSize {
-    return 1;
+- (int)count {
+    return [items count];
 }
 
 - (CLLocationCoordinate2D)position {

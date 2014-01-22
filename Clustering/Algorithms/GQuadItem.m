@@ -1,11 +1,3 @@
-//
-//  GQuadItem.m
-//  Parkingmobility
-//
-//  Created by Colin Edwards on 1/21/14.
-//  Copyright (c) 2014 Colin Edwards. All rights reserved.
-//
-
 #import "GQuadItem.h"
 
 @implementation GQuadItem 
@@ -32,6 +24,14 @@
 
 - (CLLocationCoordinate2D)position {
     return CLLocationCoordinate2DMake(point.y, point.x);
+}
+
+- (int)count {
+    return 1;
+}
+
+- (NSSet*)getItems {
+    return [[NSSet alloc] initWithObjects:item, nil];
 }
 
 @end

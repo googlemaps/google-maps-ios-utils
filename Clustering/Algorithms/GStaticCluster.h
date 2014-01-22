@@ -1,26 +1,16 @@
-//
-//  GStaticCluster.h
-//  Parkingmobility
-//
-//  Created by Colin Edwards on 1/18/14.
-//  Copyright (c) 2014 Colin Edwards. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
-#import "GQTPointQuadTreeItem.h"
+#import "GCluster.h"
+#import "GQuadItem.h"
 
-@interface GStaticCluster : NSObject <GQTPointQuadTreeItem> {
+@interface GStaticCluster : NSObject <GCluster> {
     GQTPoint point;
+    NSMutableSet *items;
 }
 
 - (id)initWithLocation:(GQTPoint)location;
 
-- (NSArray*)getItems;
+- (void)add:(GQuadItem*)item;
 
-- (int)getSize;
-
-- (void)add:(id <GQTPointQuadTreeItem>)item;
-
-- (CLLocationCoordinate2D)position;
+- (void)remove:(GQuadItem*)item;
 
 @end

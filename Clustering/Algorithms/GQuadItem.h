@@ -1,16 +1,10 @@
-//
-//  GQuadItem.h
-//  Parkingmobility
-//
-//  Created by Colin Edwards on 1/21/14.
-//  Copyright (c) 2014 Colin Edwards. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "GQTPointQuadTreeItem.h"
 #import "GClusterItem.h"
+#import "GClusterAlgorithm.h"
+#import "GCluster.h"
 
-@interface GQuadItem : NSObject <GQTPointQuadTreeItem, NSCopying> {
+@interface GQuadItem : NSObject <GCluster, GQTPointQuadTreeItem, NSCopying> {
     id <GClusterItem> item;
     GQTPoint point;
 }
