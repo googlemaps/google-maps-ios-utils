@@ -13,20 +13,16 @@
 }
 
 - (void)clustersChanged:(NSSet*)clusters {
+    for (GMSMarker *marker in markerCache) {
+        marker.map = nil;
+    }
     
-    int cacheCount = [markerCache count];
-    int cacheItem = 0;
+    [markerCache removeAllObjects];
     
     for (id <GCluster> cluster in clusters) {
         GMSMarker *marker;
-        if (cacheCount - cacheItem > 0) {
-            marker = [markerCache objectAtIndex:cacheItem];
-            cacheItem++;
-        }
-        else {
-            marker = [[GMSMarker alloc] init];
-            [markerCache addObject:marker];
-        }
+        marker = [[GMSMarker alloc] init];
+        [markerCache addObject:marker];
         
         if ([cluster count] > 1) {
             marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
@@ -36,11 +32,6 @@
         }
         marker.position = cluster.position;
         marker.map = map;
-    }
-    
-    for (int i=cacheItem; i<cacheCount; i++) {
-        GMSMarker *marker = [markerCache objectAtIndex:i];
-        marker.map = nil;
     }
 }
 
