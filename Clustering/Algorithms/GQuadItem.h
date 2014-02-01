@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "GQTPointQuadTreeItem.h"
 #import "GClusterItem.h"
 #import "GClusterAlgorithm.h"
