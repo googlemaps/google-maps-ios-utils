@@ -34,4 +34,25 @@
     return [[NSSet alloc] initWithObjects:item, nil];
 }
 
+- (BOOL)isEqualToQuadItem:(GQuadItem *)other {
+    return [item isEqual:other->item]
+            && point.x == other->point.x
+            && point.y == other->point.y;
+}
+
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)other {
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToQuadItem:other];
+}
+
+- (NSUInteger)hash {
+    return [item hash];
+}
+
 @end
