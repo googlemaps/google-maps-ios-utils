@@ -5,6 +5,9 @@
 @interface NonHierarchicalDistanceBasedAlgorithm : NSObject<GClusterAlgorithm> {
     NSMutableArray *items;
     GQTPointQuadTree *quadTree;
+    int maxDistanceAtZoom;
 }
+
+- (id)initWithMaxDistanceAtZoom:(NSInteger)maxDistanceAtZoom;
 
 @end

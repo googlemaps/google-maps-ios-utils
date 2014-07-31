@@ -6,14 +6,17 @@
 
 @implementation NonHierarchicalDistanceBasedAlgorithm
 
-int MAX_DISTANCE_AT_ZOOM = 10000;
-
-- (id)init {
+- (id)initWithMaxDistanceAtZoom:(NSInteger)aMaxDistanceAtZoom {
     if (self = [super init]) {
         items = [[NSMutableArray alloc] init];
         quadTree = [[GQTPointQuadTree alloc] initWithBounds:(GQTBounds){-180,-90,180,90}];
+        maxDistanceAtZoom = aMaxDistanceAtZoom;
     }
     return self;
+}
+
+- (id)init {
+    return [self initWithMaxDistanceAtZoom:10000];
 }
 
 - (void)addItem:(id <GClusterItem>) item {
@@ -25,7 +28,7 @@ int MAX_DISTANCE_AT_ZOOM = 10000;
 - (NSSet*)getClusters:(float)zoom {
     int discreteZoom = (int) zoom;
     
-    double zoomSpecificSpan = MAX_DISTANCE_AT_ZOOM / pow(2, discreteZoom) / 256;
+    double zoomSpecificSpan = maxDistanceAtZoom / pow(2, discreteZoom) / 256;
     
     NSMutableSet *visitedCandidates = [[NSMutableSet alloc] init];
     NSMutableSet *results = [[NSMutableSet alloc] init];
