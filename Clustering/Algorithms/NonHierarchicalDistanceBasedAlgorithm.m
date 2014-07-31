@@ -61,7 +61,8 @@ int MAX_DISTANCE_AT_ZOOM = 10000;
                 }
                 
                 // Move item to the closer cluster.
-                [itemToCluster removeObjectForKey:[itemToCluster objectForKey:clusterItem]];
+                GStaticCluster *oldCluster = [itemToCluster objectForKey:clusterItem];
+                [oldCluster remove:clusterItem];
             }
             [distanceToCluster setObject:[NSNumber numberWithDouble:distance] forKey:clusterItem];
             [cluster add:clusterItem];
