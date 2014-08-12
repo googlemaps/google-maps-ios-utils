@@ -25,6 +25,12 @@
     [quadTree add:quadItem];
 }
 
+- (void)removeItems
+{
+  [items removeAllObjects];
+  [quadTree clear];
+}
+
 - (NSSet*)getClusters:(float)zoom {
     int discreteZoom = (int) zoom;
     

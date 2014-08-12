@@ -18,6 +18,11 @@
     [algorithm addItem:item];
 }
 
+- (void)removeItems
+{
+  [algorithm removeItems];
+}
+
 - (void)cluster {
     NSSet *clusters = [algorithm getClusters:map.camera.zoom];
     [renderer clustersChanged:clusters];

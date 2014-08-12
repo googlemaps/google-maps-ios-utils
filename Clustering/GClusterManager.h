@@ -19,6 +19,8 @@
 
 - (void)addItem:(id <GClusterItem>) item;
 
+- (void)removeItems;
+
 - (void)cluster;
 
 @end
