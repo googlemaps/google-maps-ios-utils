@@ -1,43 +1,42 @@
 #import "GQuadItem.h"
 
-@implementation GQuadItem 
+@implementation GQuadItem{
+    id <GClusterItem> _item;
+    GQTPoint _point;
+}
 
 - (id)initWithItem:(id <GClusterItem>)clusterItem {
     if (self = [super init]) {
-        point.y = clusterItem.position.latitude;
-        point.x = clusterItem.position.longitude;
-        item = clusterItem;
+        _point.y = clusterItem.position.latitude;
+        _point.x = clusterItem.position.longitude;
+        _item = clusterItem;
     }
     return self;
 }
 
 - (GQTPoint)point {
-    return point;
+    return _point;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
     GQuadItem *newGQuadItem = [[self class] allocWithZone:zone];
-    newGQuadItem->point = point;
-    newGQuadItem->item = item;
+    newGQuadItem->_point = _point;
+    newGQuadItem->_item = _item;
     return newGQuadItem;
 }
 
 - (CLLocationCoordinate2D)position {
-    return CLLocationCoordinate2DMake(point.y, point.x);
+    return CLLocationCoordinate2DMake(_point.y, _point.x);
 }
 
-- (int)count {
-    return 1;
-}
-
-- (NSSet*)getItems {
-    return [[NSSet alloc] initWithObjects:item, nil];
+- (NSSet*)items {
+    return [NSSet setWithObject:_item];
 }
 
 - (BOOL)isEqualToQuadItem:(GQuadItem *)other {
-    return [item isEqual:other->item]
-            && point.x == other->point.x
-            && point.y == other->point.y;
+    return [_item isEqual:other->_item]
+            && _point.x == other->_point.x
+            && _point.y == other->_point.y;
 }
 
 #pragma mark - NSObject
@@ -52,7 +51,7 @@
 }
 
 - (NSUInteger)hash {
-    return [item hash];
+    return [_item hash];
 }
 
 @end

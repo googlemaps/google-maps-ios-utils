@@ -44,7 +44,7 @@
     clusterManager = [[GClusterManager alloc] init];
     [clusterManager setMapView:mapView_];
     [clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
-    [clusterManager setClusterRenderer:[[GDefaultClusterRenderer alloc] initWithGoogleMap:mapView_]];
+    [clusterManager setClusterRenderer:[[GDefaultClusterRenderer alloc] initWithMapView:mapView_]];
     
     [mapView_ setDelegate:clusterManager];
     

@@ -1,37 +1,36 @@
 #import "GStaticCluster.h"
 
-@implementation GStaticCluster
+@implementation GStaticCluster {
+    GQTPoint _point;
+    NSMutableSet *_items;
+}
 
 - (id)initWithLocation:(GQTPoint)location {
     if (self = [super init]) {
-        point = location;
-        items = [[NSMutableSet alloc] init];
+        _point = location;
+        _items = [[NSMutableSet alloc] init];
     }
     return self;
 }
 
 - (void)add:(GQuadItem*)item {
-    [items addObject:item];
+    [_items addObject:item];
 }
 
 - (void)remove:(GQuadItem*)item {
-    [items removeObject:item];
+    [_items removeObject:item];
 }
 
 - (GQTPoint)point {
-    return point;
+    return _point;
 }
 
-- (NSSet*)getItems {
-    return items;
-}
-
-- (int)count {
-    return [items count];
+- (NSSet*)items {
+    return _items;
 }
 
 - (CLLocationCoordinate2D)position {
-    return CLLocationCoordinate2DMake(point.y, point.x);
+    return CLLocationCoordinate2DMake(_point.y, _point.x);
 }
 
 @end

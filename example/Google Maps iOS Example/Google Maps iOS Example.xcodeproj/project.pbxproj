@@ -14,11 +14,6 @@
 		673DE253189CD51100CAB180 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE252189CD51100CAB180 /* main.m */; };
 		673DE257189CD51100CAB180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE256189CD51100CAB180 /* AppDelegate.m */; };
 		673DE259189CD51100CAB180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 673DE258189CD51100CAB180 /* Images.xcassets */; };
-		673DE260189CD51100CAB180 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE25F189CD51100CAB180 /* XCTest.framework */; };
-		673DE261189CD51100CAB180 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE246189CD51000CAB180 /* Foundation.framework */; };
-		673DE262189CD51100CAB180 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE24A189CD51100CAB180 /* UIKit.framework */; };
-		673DE26A189CD51100CAB180 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 673DE268189CD51100CAB180 /* InfoPlist.strings */; };
-		673DE26C189CD51100CAB180 /* Google_Maps_iOS_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE26B189CD51100CAB180 /* Google_Maps_iOS_ExampleTests.m */; };
 		673DE28E189CD52400CAB180 /* GQuadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE279189CD52400CAB180 /* GQuadItem.m */; };
 		673DE28F189CD52400CAB180 /* GStaticCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE27B189CD52400CAB180 /* GStaticCluster.m */; };
 		673DE290189CD52400CAB180 /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE27D189CD52400CAB180 /* NonHierarchicalDistanceBasedAlgorithm.m */; };
@@ -28,7 +23,6 @@
 		673DE294189CD52400CAB180 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE28C189CD52400CAB180 /* GQTPointQuadTreeChild.m */; };
 		673DE297189CD8B500CAB180 /* ClusterMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE296189CD8B500CAB180 /* ClusterMapViewController.m */; };
 		673DE29A189CDF1700CAB180 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 673DE299189CDF1700CAB180 /* Spot.m */; };
-		673DE29C189CE0E400CAB180 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE29B189CE0E400CAB180 /* GoogleMaps.framework */; };
 		673DE29E189CE11800CAB180 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE29D189CE11800CAB180 /* AVFoundation.framework */; };
 		673DE2A0189CE12600CAB180 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE29F189CE12600CAB180 /* CoreData.framework */; };
 		673DE2A2189CE12A00CAB180 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE2A1189CE12A00CAB180 /* CoreLocation.framework */; };
@@ -41,17 +35,8 @@
 		673DE2B0189CE16E00CAB180 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE2AF189CE16E00CAB180 /* QuartzCore.framework */; };
 		673DE2B2189CE18100CAB180 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE2B1189CE18100CAB180 /* SystemConfiguration.framework */; };
 		673DE2B5189CE41900CAB180 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 673DE2B4189CE41900CAB180 /* GoogleMaps.bundle */; };
+		B3199FF119A8D2E4005B31CA /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3199FF019A8D2E4005B31CA /* GoogleMaps.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		673DE263189CD51100CAB180 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 673DE23B189CD51000CAB180 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 673DE242189CD51000CAB180;
-			remoteInfo = "Google Maps iOS Example";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		673DE243189CD51000CAB180 /* Google Maps iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Google Maps iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,11 +50,7 @@
 		673DE255189CD51100CAB180 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		673DE256189CD51100CAB180 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		673DE258189CD51100CAB180 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		673DE25E189CD51100CAB180 /* Google Maps iOS ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Google Maps iOS ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673DE25F189CD51100CAB180 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		673DE267189CD51100CAB180 /* Google Maps iOS ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google Maps iOS ExampleTests-Info.plist"; sourceTree = "<group>"; };
-		673DE269189CD51100CAB180 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		673DE26B189CD51100CAB180 /* Google_Maps_iOS_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Google_Maps_iOS_ExampleTests.m; sourceTree = "<group>"; };
 		673DE277189CD52400CAB180 /* GClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GClusterAlgorithm.h; sourceTree = "<group>"; };
 		673DE278189CD52400CAB180 /* GQuadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQuadItem.h; sourceTree = "<group>"; };
 		673DE279189CD52400CAB180 /* GQuadItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQuadItem.m; sourceTree = "<group>"; };
@@ -95,7 +76,6 @@
 		673DE296189CD8B500CAB180 /* ClusterMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterMapViewController.m; sourceTree = "<group>"; };
 		673DE298189CDF1700CAB180 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spot.h; sourceTree = "<group>"; };
 		673DE299189CDF1700CAB180 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
-		673DE29B189CE0E400CAB180 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		673DE29D189CE11800CAB180 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		673DE29F189CE12600CAB180 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		673DE2A1189CE12A00CAB180 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -108,6 +88,7 @@
 		673DE2AF189CE16E00CAB180 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		673DE2B1189CE18100CAB180 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		673DE2B4189CE41900CAB180 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		B3199FF019A8D2E4005B31CA /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +99,7 @@
 				673DE2B2189CE18100CAB180 /* SystemConfiguration.framework in Frameworks */,
 				673DE2AC189CE16000CAB180 /* libz.dylib in Frameworks */,
 				673DE2B0189CE16E00CAB180 /* QuartzCore.framework in Frameworks */,
+				B3199FF119A8D2E4005B31CA /* GoogleMaps.framework in Frameworks */,
 				673DE2AE189CE16B00CAB180 /* OpenGLES.framework in Frameworks */,
 				673DE2AA189CE14D00CAB180 /* libc++.dylib in Frameworks */,
 				673DE2A8189CE13D00CAB180 /* ImageIO.framework in Frameworks */,
@@ -128,18 +110,7 @@
 				673DE29E189CE11800CAB180 /* AVFoundation.framework in Frameworks */,
 				673DE249189CD51100CAB180 /* CoreGraphics.framework in Frameworks */,
 				673DE24B189CD51100CAB180 /* UIKit.framework in Frameworks */,
-				673DE29C189CE0E400CAB180 /* GoogleMaps.framework in Frameworks */,
 				673DE247189CD51100CAB180 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		673DE25B189CD51100CAB180 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				673DE260189CD51100CAB180 /* XCTest.framework in Frameworks */,
-				673DE262189CD51100CAB180 /* UIKit.framework in Frameworks */,
-				673DE261189CD51100CAB180 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +120,8 @@
 		673DE23A189CD51000CAB180 = {
 			isa = PBXGroup;
 			children = (
-				673DE275189CD52400CAB180 /* Clustering */,
-				673DE286189CD52400CAB180 /* QuadTree */,
-				673DE24C189CD51100CAB180 /* Google Maps iOS Example */,
-				673DE265189CD51100CAB180 /* Google Maps iOS ExampleTests */,
+				B3199FF219A8D426005B31CA /* GClustering */,
+				673DE24C189CD51100CAB180 /* Example */,
 				673DE245189CD51000CAB180 /* Frameworks */,
 				673DE244189CD51000CAB180 /* Products */,
 			);
@@ -162,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				673DE243189CD51000CAB180 /* Google Maps iOS Example.app */,
-				673DE25E189CD51100CAB180 /* Google Maps iOS ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +138,7 @@
 		673DE245189CD51000CAB180 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3199FF019A8D2E4005B31CA /* GoogleMaps.framework */,
 				673DE2B1189CE18100CAB180 /* SystemConfiguration.framework */,
 				673DE2AF189CE16E00CAB180 /* QuartzCore.framework */,
 				673DE2AD189CE16B00CAB180 /* OpenGLES.framework */,
@@ -182,7 +151,6 @@
 				673DE29F189CE12600CAB180 /* CoreData.framework */,
 				673DE29D189CE11800CAB180 /* AVFoundation.framework */,
 				673DE2B4189CE41900CAB180 /* GoogleMaps.bundle */,
-				673DE29B189CE0E400CAB180 /* GoogleMaps.framework */,
 				673DE246189CD51000CAB180 /* Foundation.framework */,
 				673DE248189CD51100CAB180 /* CoreGraphics.framework */,
 				673DE24A189CD51100CAB180 /* UIKit.framework */,
@@ -191,7 +159,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		673DE24C189CD51100CAB180 /* Google Maps iOS Example */ = {
+		673DE24C189CD51100CAB180 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				673DE255189CD51100CAB180 /* AppDelegate.h */,
@@ -203,6 +171,7 @@
 				673DE298189CDF1700CAB180 /* Spot.h */,
 				673DE299189CDF1700CAB180 /* Spot.m */,
 			);
+			name = Example;
 			path = "Google Maps iOS Example";
 			sourceTree = "<group>";
 		};
@@ -213,24 +182,6 @@
 				673DE24F189CD51100CAB180 /* InfoPlist.strings */,
 				673DE252189CD51100CAB180 /* main.m */,
 				673DE254189CD51100CAB180 /* Google Maps iOS Example-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		673DE265189CD51100CAB180 /* Google Maps iOS ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				673DE26B189CD51100CAB180 /* Google_Maps_iOS_ExampleTests.m */,
-				673DE266189CD51100CAB180 /* Supporting Files */,
-			);
-			path = "Google Maps iOS ExampleTests";
-			sourceTree = "<group>";
-		};
-		673DE266189CD51100CAB180 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				673DE267189CD51100CAB180 /* Google Maps iOS ExampleTests-Info.plist */,
-				673DE268189CD51100CAB180 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -288,6 +239,15 @@
 			path = ../../QuadTree;
 			sourceTree = "<group>";
 		};
+		B3199FF219A8D426005B31CA /* GClustering */ = {
+			isa = PBXGroup;
+			children = (
+				673DE275189CD52400CAB180 /* Clustering */,
+				673DE286189CD52400CAB180 /* QuadTree */,
+			);
+			name = GClustering;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,24 +268,6 @@
 			productReference = 673DE243189CD51000CAB180 /* Google Maps iOS Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		673DE25D189CD51100CAB180 /* Google Maps iOS ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 673DE272189CD51100CAB180 /* Build configuration list for PBXNativeTarget "Google Maps iOS ExampleTests" */;
-			buildPhases = (
-				673DE25A189CD51100CAB180 /* Sources */,
-				673DE25B189CD51100CAB180 /* Frameworks */,
-				673DE25C189CD51100CAB180 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				673DE264189CD51100CAB180 /* PBXTargetDependency */,
-			);
-			name = "Google Maps iOS ExampleTests";
-			productName = "Google Maps iOS ExampleTests";
-			productReference = 673DE25E189CD51100CAB180 /* Google Maps iOS ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -333,11 +275,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				TargetAttributes = {
-					673DE25D189CD51100CAB180 = {
-						TestTargetID = 673DE242189CD51000CAB180;
-					};
-				};
 			};
 			buildConfigurationList = 673DE23E189CD51000CAB180 /* Build configuration list for PBXProject "Google Maps iOS Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -352,7 +289,6 @@
 			projectRoot = "";
 			targets = (
 				673DE242189CD51000CAB180 /* Google Maps iOS Example */,
-				673DE25D189CD51100CAB180 /* Google Maps iOS ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -365,14 +301,6 @@
 				673DE2B5189CE41900CAB180 /* GoogleMaps.bundle in Resources */,
 				673DE251189CD51100CAB180 /* InfoPlist.strings in Resources */,
 				673DE259189CD51100CAB180 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		673DE25C189CD51100CAB180 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				673DE26A189CD51100CAB180 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,37 +325,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		673DE25A189CD51100CAB180 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				673DE26C189CD51100CAB180 /* Google_Maps_iOS_ExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		673DE264189CD51100CAB180 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 673DE242189CD51000CAB180 /* Google Maps iOS Example */;
-			targetProxy = 673DE263189CD51100CAB180 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		673DE24F189CD51100CAB180 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				673DE250189CD51100CAB180 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		673DE268189CD51100CAB180 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				673DE269189CD51100CAB180 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -439,7 +343,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -468,7 +371,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -478,7 +380,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -501,7 +402,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -514,7 +414,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ddrboxman/Development/google-maps-ios-utils/example/Google\\ Maps\\ iOS\\ Example",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Google Maps iOS Example/Google Maps iOS Example-Prefix.pch";
@@ -532,7 +432,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ddrboxman/Development/google-maps-ios-utils/example/Google\\ Maps\\ iOS\\ Example",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Google Maps iOS Example/Google Maps iOS Example-Prefix.pch";
@@ -540,48 +440,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		673DE273189CD51100CAB180 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Google Maps iOS Example.app/Google Maps iOS Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Google Maps iOS Example/Google Maps iOS Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Google Maps iOS ExampleTests/Google Maps iOS ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		673DE274189CD51100CAB180 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Google Maps iOS Example.app/Google Maps iOS Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Google Maps iOS Example/Google Maps iOS Example-Prefix.pch";
-				INFOPLIST_FILE = "Google Maps iOS ExampleTests/Google Maps iOS ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -604,14 +462,7 @@
 				673DE271189CD51100CAB180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		673DE272189CD51100CAB180 /* Build configuration list for PBXNativeTarget "Google Maps iOS ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				673DE273189CD51100CAB180 /* Debug */,
-				673DE274189CD51100CAB180 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

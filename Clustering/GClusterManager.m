@@ -1,34 +1,42 @@
 #import "GClusterManager.h"
 
-@implementation GClusterManager
+@implementation GClusterManager {
+    GMSCameraPosition *previousCameraPosition;
+}
 
 - (void)setMapView:(GMSMapView*)mapView {
-    map = mapView;
+    previousCameraPosition = nil;
+    _mapView = mapView;
 }
 
 - (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm {
-    algorithm = clusterAlgorithm;
+    previousCameraPosition = nil;
+    _clusterAlgorithm = clusterAlgorithm;
 }
 
 - (void)setClusterRenderer:(id <GClusterRenderer>)clusterRenderer {
-    renderer = clusterRenderer;
+    previousCameraPosition = nil;
+    _clusterRenderer = clusterRenderer;
 }
 
 - (void)addItem:(id <GClusterItem>) item {
-    [algorithm addItem:item];
+    [_clusterAlgorithm addItem:item];
 }
 
-- (void)removeItems
-{
-  [algorithm removeItems];
+- (void)removeItems {
+  [_clusterAlgorithm removeItems];
 }
 
 - (void)cluster {
-    NSSet *clusters = [algorithm getClusters:map.camera.zoom];
-    [renderer clustersChanged:clusters];
+    NSSet *clusters = [_clusterAlgorithm getClusters:_mapView.camera.zoom];
+    [_clusterRenderer clustersChanged:clusters];
 }
 
+#pragma mark mapview delegate
+
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
+    assert(mapView == _mapView);
+    
     // Don't re-compute clusters if the map has just been panned/tilted/rotated.
     GMSCameraPosition *position = [mapView camera];
     if (previousCameraPosition != nil && previousCameraPosition.zoom == position.zoom) {
@@ -37,6 +45,20 @@
     previousCameraPosition = [mapView camera];
     
     [self cluster];
+}
+
+#pragma mark convenience
+
++ (instancetype)managerWithMapView:(GMSMapView*)googleMap
+                         algorithm:(id<GClusterAlgorithm>)algorithm
+                          renderer:(id<GClusterRenderer>)renderer {
+    GClusterManager *mgr = [[[self class] alloc] init];
+    if(mgr) {
+        mgr.mapView = googleMap;
+        mgr.clusterAlgorithm = algorithm;
+        mgr.clusterRenderer = renderer;
+    }
+    return mgr;
 }
 
 @end

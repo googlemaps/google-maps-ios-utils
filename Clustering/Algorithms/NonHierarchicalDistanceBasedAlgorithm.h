@@ -2,11 +2,7 @@
 #import "GClusterAlgorithm.h"
 #import "GQTPointQuadTree.h"
 
-@interface NonHierarchicalDistanceBasedAlgorithm : NSObject<GClusterAlgorithm> {
-    NSMutableArray *items;
-    GQTPointQuadTree *quadTree;
-    int maxDistanceAtZoom;
-}
+@interface NonHierarchicalDistanceBasedAlgorithm : NSObject<GClusterAlgorithm> 
 
 - (id)initWithMaxDistanceAtZoom:(NSInteger)maxDistanceAtZoom;
 

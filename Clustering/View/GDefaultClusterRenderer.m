@@ -3,40 +3,44 @@
 #import "GQuadItem.h"
 #import "GCluster.h"
 
-@implementation GDefaultClusterRenderer
+@implementation GDefaultClusterRenderer {
+    GMSMapView *_map;
+    NSMutableArray *_markerCache;
+}
 
-- (id)initWithGoogleMap:(GMSMapView*)googleMap {
+- (id)initWithMapView:(GMSMapView*)googleMap {
     if (self = [super init]) {
-        map = googleMap;
-        markerCache = [[NSMutableArray alloc] init];
+        _map = googleMap;
+        _markerCache = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)clustersChanged:(NSSet*)clusters {
-    for (GMSMarker *marker in markerCache) {
+    for (GMSMarker *marker in _markerCache) {
         marker.map = nil;
     }
     
-    [markerCache removeAllObjects];
+    [_markerCache removeAllObjects];
     
     for (id <GCluster> cluster in clusters) {
         GMSMarker *marker;
         marker = [[GMSMarker alloc] init];
-        [markerCache addObject:marker];
+        [_markerCache addObject:marker];
         
-        if ([cluster count] > 1) {
-            marker.icon = [self generateClusterIconWithCount:[cluster count]];
+        NSUInteger count = cluster.items.count;
+        if (count > 1) {
+            marker.icon = [self generateClusterIconWithCount:count];
         }
         else {
             marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
         }
         marker.position = cluster.position;
-        marker.map = map;
+        marker.map = _map;
     }
 }
 
-- (UIImage*) generateClusterIconWithCount:(int)count {
+- (UIImage*) generateClusterIconWithCount:(NSUInteger)count {
     
     int diameter = 40;
     float inset = 3;
@@ -67,7 +71,7 @@
                     [UIColor whiteColor], (id)kCTForegroundColorAttributeName, nil];
 
     // create a naked string
-    NSString *string = [[NSString alloc] initWithFormat:@"%d", count];
+    NSString *string = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)count];
 
     NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:string
                                                                        attributes:attributesDict];
