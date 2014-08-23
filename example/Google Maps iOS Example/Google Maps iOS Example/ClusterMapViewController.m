@@ -7,16 +7,15 @@
 //
 
 #import "ClusterMapViewController.h"
-@import CoreLocation;
+
 #import "Spot.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "GDefaultClusterRenderer.h"
 
-@interface ClusterMapViewController ()
-
-@end
-
-@implementation ClusterMapViewController
+@implementation ClusterMapViewController {
+    GMSMapView *mapView_;
+    GClusterManager *clusterManager_;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,19 +40,18 @@
     mapView_.settings.compassButton = YES;
     self.view = mapView_;
     
-    clusterManager = [[GClusterManager alloc] init];
-    [clusterManager setMapView:mapView_];
-    [clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
-    [clusterManager setClusterRenderer:[[GDefaultClusterRenderer alloc] initWithMapView:mapView_]];
-    
-    [mapView_ setDelegate:clusterManager];
+    clusterManager_ = [GClusterManager managerWithMapView:mapView_
+                                               algorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]
+                                                renderer:[[GDefaultClusterRenderer alloc] initWithMapView:mapView_]];
+
+    [mapView_ setDelegate:clusterManager_];
     
     for (int i=0; i<12; i++) {
         Spot* spot = [self generateSpot];
-        [clusterManager addItem:spot];
+        [clusterManager_ addItem:spot];
     }
     
-    [clusterManager cluster];
+    [clusterManager_ cluster];
 }
 
 - (void)didReceiveMemoryWarning

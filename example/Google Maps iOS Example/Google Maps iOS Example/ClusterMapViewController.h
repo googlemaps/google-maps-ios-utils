@@ -10,10 +10,6 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "GClusterManager.h"
 
-@interface ClusterMapViewController : UIViewController<GMSMapViewDelegate> {
-    GMSMapView *mapView_;
-    
-    GClusterManager *clusterManager;
-}
+@interface ClusterMapViewController : UIViewController<GMSMapViewDelegate>
 
 @end
