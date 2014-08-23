@@ -4,13 +4,17 @@
 #import "GStaticCluster.h"
 #import "GQuadItem.h"
 
-@implementation NonHierarchicalDistanceBasedAlgorithm
+@implementation NonHierarchicalDistanceBasedAlgorithm {
+    NSMutableArray *_items;
+    GQTPointQuadTree *_quadTree;
+    NSInteger _maxDistanceAtZoom;
+}
 
 - (id)initWithMaxDistanceAtZoom:(NSInteger)aMaxDistanceAtZoom {
     if (self = [super init]) {
-        items = [[NSMutableArray alloc] init];
-        quadTree = [[GQTPointQuadTree alloc] initWithBounds:(GQTBounds){-180,-90,180,90}];
-        maxDistanceAtZoom = aMaxDistanceAtZoom;
+        _items = [[NSMutableArray alloc] init];
+        _quadTree = [[GQTPointQuadTree alloc] initWithBounds:(GQTBounds){-180,-90,180,90}];
+        _maxDistanceAtZoom = aMaxDistanceAtZoom;
     }
     return self;
 }
@@ -21,34 +25,34 @@
 
 - (void)addItem:(id <GClusterItem>) item {
     GQuadItem *quadItem = [[GQuadItem alloc] initWithItem:item];
-    [items addObject:quadItem];
-    [quadTree add:quadItem];
+    [_items addObject:quadItem];
+    [_quadTree add:quadItem];
 }
 
 - (void)removeItems
 {
-  [items removeAllObjects];
-  [quadTree clear];
+  [_items removeAllObjects];
+  [_quadTree clear];
 }
 
 - (NSSet*)getClusters:(float)zoom {
     int discreteZoom = (int) zoom;
     
-    double zoomSpecificSpan = maxDistanceAtZoom / pow(2, discreteZoom) / 256;
+    double zoomSpecificSpan = _maxDistanceAtZoom / pow(2, discreteZoom) / 256;
     
     NSMutableSet *visitedCandidates = [[NSMutableSet alloc] init];
     NSMutableSet *results = [[NSMutableSet alloc] init];
     NSMutableDictionary *distanceToCluster = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *itemToCluster = [[NSMutableDictionary alloc] init];
     
-    for (GQuadItem* candidate in items) {
+    for (GQuadItem* candidate in _items) {
         if ([visitedCandidates containsObject:candidate]) {
             // Candidate is already part of another cluster.
             continue;
         }
         
         GQTBounds bounds = [self createBoundsFromSpan:candidate.point span:zoomSpecificSpan];
-        NSArray *clusterItems  = [quadTree searchWithBounds:bounds];
+        NSArray *clusterItems  = [_quadTree searchWithBounds:bounds];
         if ([clusterItems count] == 1) {
             // Only the current marker is in range. Just add the single item to the results.
             [results addObject:candidate];

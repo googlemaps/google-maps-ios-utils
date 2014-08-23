@@ -3,10 +3,8 @@
 
 @protocol GCluster <NSObject>
 
-- (CLLocationCoordinate2D)position;
+@property(nonatomic, assign, readonly) CLLocationCoordinate2D position;
 
-- (int)count;
-
-- (NSSet*)getItems;
+@property(nonatomic, strong, readonly) NSSet *items;
 
 @end

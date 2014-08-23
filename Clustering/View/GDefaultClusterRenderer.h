@@ -10,11 +10,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "GClusterRenderer.h"
 
-@interface GDefaultClusterRenderer : NSObject <GClusterRenderer> {
-    GMSMapView *map;
-    NSMutableArray *markerCache;
-}
+@interface GDefaultClusterRenderer : NSObject <GClusterRenderer> 
 
-- (id)initWithGoogleMap:(GMSMapView*)googleMap;
+- (id)initWithMapView:(GMSMapView*)googleMap;
 
 @end

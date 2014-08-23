@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "GQTPointQuadTreeItem.h"
-#import "GStaticCluster.h"
 
 @protocol GClusterRenderer <NSObject>
 

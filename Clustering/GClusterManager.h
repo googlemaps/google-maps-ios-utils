@@ -4,23 +4,21 @@
 #import "GClusterRenderer.h"
 #import "GQTPointQuadTreeItem.h"
 
-@interface GClusterManager : NSObject <GMSMapViewDelegate> {
-    GMSMapView *map;
-    id <GClusterAlgorithm> algorithm;
-    id <GClusterRenderer> renderer;
-    GMSCameraPosition *previousCameraPosition;
-}
+@interface GClusterManager : NSObject <GMSMapViewDelegate> 
 
-- (void)setMapView:(GMSMapView*)mapView;
-
-- (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm;
-
-- (void)setClusterRenderer:(id <GClusterRenderer>)clusterRenderer;
+@property(nonatomic, strong) GMSMapView *mapView;
+@property(nonatomic, strong) id<GClusterAlgorithm> clusterAlgorithm;
+@property(nonatomic, strong) id<GClusterRenderer> clusterRenderer;
 
 - (void)addItem:(id <GClusterItem>) item;
-
 - (void)removeItems;
 
 - (void)cluster;
+
+//convenience
+
++ (instancetype)managerWithMapView:(GMSMapView*)googleMap
+                         algorithm:(id<GClusterAlgorithm>)algorithm
+                          renderer:(id<GClusterRenderer>)renderer;
 
 @end
