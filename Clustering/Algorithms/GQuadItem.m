@@ -1,14 +1,18 @@
 #import "GQuadItem.h"
+#import "SphericalMercatorProjection.h"
 
 @implementation GQuadItem{
     id <GClusterItem> _item;
     GQTPoint _point;
+    CLLocationCoordinate2D _position;
 }
 
 - (id)initWithItem:(id <GClusterItem>)clusterItem {
     if (self = [super init]) {
-        _point.y = clusterItem.position.latitude;
-        _point.x = clusterItem.position.longitude;
+        SphericalMercatorProjection *projection = [[SphericalMercatorProjection alloc] initWithWorldWidth:1];
+
+        _position = clusterItem.position;
+        _point = [projection coordinateToPoint:_position];
         _item = clusterItem;
     }
     return self;
@@ -22,11 +26,12 @@
     GQuadItem *newGQuadItem = [[self class] allocWithZone:zone];
     newGQuadItem->_point = _point;
     newGQuadItem->_item = _item;
+    newGQuadItem->_position = _position;
     return newGQuadItem;
 }
 
 - (CLLocationCoordinate2D)position {
-    return CLLocationCoordinate2DMake(_point.y, _point.x);
+    return _position;
 }
 
 - (NSSet*)items {

@@ -1,13 +1,13 @@
 #import "GStaticCluster.h"
 
 @implementation GStaticCluster {
-    GQTPoint _point;
+    CLLocationCoordinate2D _position;
     NSMutableSet *_items;
 }
 
-- (id)initWithLocation:(GQTPoint)location {
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
     if (self = [super init]) {
-        _point = location;
+        _position = coordinate;
         _items = [[NSMutableSet alloc] init];
     }
     return self;
@@ -20,17 +20,12 @@
 - (void)remove:(GQuadItem*)item {
     [_items removeObject:item];
 }
-
-- (GQTPoint)point {
-    return _point;
-}
-
 - (NSSet*)items {
     return _items;
 }
 
 - (CLLocationCoordinate2D)position {
-    return CLLocationCoordinate2DMake(_point.y, _point.x);
+    return _position;
 }
 
 @end
