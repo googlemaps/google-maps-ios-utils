@@ -35,8 +35,8 @@
 		673DE2B0189CE16E00CAB180 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE2AF189CE16E00CAB180 /* QuartzCore.framework */; };
 		673DE2B2189CE18100CAB180 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673DE2B1189CE18100CAB180 /* SystemConfiguration.framework */; };
 		673DE2B5189CE41900CAB180 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 673DE2B4189CE41900CAB180 /* GoogleMaps.bundle */; };
+		6792B17D19AEDEE4004538D8 /* SphericalMercatorProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6792B17C19AEDEE4004538D8 /* SphericalMercatorProjection.m */; };
 		B3199FF119A8D2E4005B31CA /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3199FF019A8D2E4005B31CA /* GoogleMaps.framework */; };
-		BAC6931F84A49E9D894E3531 /* SphericalMercatorProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC690D22334E0EC74D1BAB1 /* SphericalMercatorProjection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,9 +89,9 @@
 		673DE2AF189CE16E00CAB180 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		673DE2B1189CE18100CAB180 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		673DE2B4189CE41900CAB180 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		6792B17B19AEDEE4004538D8 /* SphericalMercatorProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericalMercatorProjection.h; sourceTree = "<group>"; };
+		6792B17C19AEDEE4004538D8 /* SphericalMercatorProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericalMercatorProjection.m; sourceTree = "<group>"; };
 		B3199FF019A8D2E4005B31CA /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		BAC690D22334E0EC74D1BAB1 /* SphericalMercatorProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericalMercatorProjection.m; sourceTree = "<group>"; };
-		BAC69321D0748203F669459E /* SphericalMercatorProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericalMercatorProjection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,23 +242,24 @@
 			path = ../../QuadTree;
 			sourceTree = "<group>";
 		};
+		6792B17A19AEDEE4004538D8 /* Projection */ = {
+			isa = PBXGroup;
+			children = (
+				6792B17B19AEDEE4004538D8 /* SphericalMercatorProjection.h */,
+				6792B17C19AEDEE4004538D8 /* SphericalMercatorProjection.m */,
+			);
+			name = Projection;
+			path = ../../Projection;
+			sourceTree = "<group>";
+		};
 		B3199FF219A8D426005B31CA /* GClustering */ = {
 			isa = PBXGroup;
 			children = (
+				6792B17A19AEDEE4004538D8 /* Projection */,
 				673DE275189CD52400CAB180 /* Clustering */,
 				673DE286189CD52400CAB180 /* QuadTree */,
-				BAC69B8F7D15A09271ED34BE /* Projection */,
 			);
 			name = GClustering;
-			sourceTree = "<group>";
-		};
-		BAC69B8F7D15A09271ED34BE /* Projection */ = {
-			isa = PBXGroup;
-			children = (
-				BAC690D22334E0EC74D1BAB1 /* SphericalMercatorProjection.m */,
-				BAC69321D0748203F669459E /* SphericalMercatorProjection.h */,
-			);
-			path = Projection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				673DE28F189CD52400CAB180 /* GStaticCluster.m in Sources */,
+				6792B17D19AEDEE4004538D8 /* SphericalMercatorProjection.m in Sources */,
 				673DE257189CD51100CAB180 /* AppDelegate.m in Sources */,
 				673DE297189CD8B500CAB180 /* ClusterMapViewController.m in Sources */,
 				673DE294189CD52400CAB180 /* GQTPointQuadTreeChild.m in Sources */,
@@ -335,7 +337,6 @@
 				673DE253189CD51100CAB180 /* main.m in Sources */,
 				673DE293189CD52400CAB180 /* GQTPointQuadTree.m in Sources */,
 				673DE292189CD52400CAB180 /* GDefaultClusterRenderer.m in Sources */,
-				BAC6931F84A49E9D894E3531 /* SphericalMercatorProjection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
