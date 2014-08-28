@@ -1,3 +1,4 @@
+#import <GoogleMaps/GoogleMaps.h>
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "GQTBounds.h"
 #import "GQTPoint.h"
@@ -13,14 +14,14 @@
 - (id)initWithMaxDistanceAtZoom:(NSInteger)aMaxDistanceAtZoom {
     if (self = [super init]) {
         _items = [[NSMutableArray alloc] init];
-        _quadTree = [[GQTPointQuadTree alloc] initWithBounds:(GQTBounds){-180,-90,180,90}];
+        _quadTree = [[GQTPointQuadTree alloc] initWithBounds:(GQTBounds){0,0,1,1}];
         _maxDistanceAtZoom = aMaxDistanceAtZoom;
     }
     return self;
 }
 
 - (id)init {
-    return [self initWithMaxDistanceAtZoom:10000];
+    return [self initWithMaxDistanceAtZoom:50];
 }
 
 - (void)addItem:(id <GClusterItem>) item {
@@ -61,7 +62,7 @@
             continue;
         }
         
-        GStaticCluster *cluster = [[GStaticCluster alloc] initWithLocation:candidate.point];
+        GStaticCluster *cluster = [[GStaticCluster alloc] initWithCoordinate:candidate.position];
         [results addObject:cluster];
         
         for (GQuadItem* clusterItem in clusterItems) {

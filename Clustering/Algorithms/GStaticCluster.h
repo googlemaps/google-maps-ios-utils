@@ -4,7 +4,7 @@
 
 @interface GStaticCluster : NSObject <GCluster> 
 
-- (id)initWithLocation:(GQTPoint)location;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 
 - (void)add:(GQuadItem*)item;
 - (void)remove:(GQuadItem*)item;
