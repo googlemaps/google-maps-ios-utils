@@ -54,6 +54,8 @@
         
         GQTBounds bounds = [self createBoundsFromSpan:candidate.point span:zoomSpecificSpan];
         NSArray *clusterItems  = [_quadTree searchWithBounds:bounds];
+        for (GStaticCluster *cluster in clusterItems)
+            NSLog(@"Position: %f, %f", cluster.position.longitude, cluster.marker.position.latitude);
         if ([clusterItems count] == 1) {
             // Only the current marker is in range. Just add the single item to the results.
             [results addObject:candidate];
@@ -62,7 +64,7 @@
             continue;
         }
         
-        GStaticCluster *cluster = [[GStaticCluster alloc] initWithCoordinate:candidate.position];
+        GStaticCluster *cluster = [[GStaticCluster alloc] initWithCoordinate:candidate.position andMarker:candidate.marker];
         [results addObject:cluster];
         
         for (GQuadItem* clusterItem in clusterItems) {

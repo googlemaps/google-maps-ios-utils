@@ -33,9 +33,10 @@
             marker.icon = [self generateClusterIconWithCount:count];
         }
         else {
-            marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+            marker.icon = cluster.marker.icon;
         }
-        marker.position = cluster.position;
+        
+        marker.position = cluster.marker.position;
         marker.map = _map;
     }
 }

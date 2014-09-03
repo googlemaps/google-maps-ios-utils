@@ -8,6 +8,8 @@
 
 - (id)initWithItem:(id <GClusterItem>)item;
 
-@property(nonatomic, assign, readonly) CLLocationCoordinate2D position;
+@property(nonatomic, assign) CLLocationCoordinate2D position;
+
+@property (nonatomic,strong) GMSMarker *marker;
 
 @end
