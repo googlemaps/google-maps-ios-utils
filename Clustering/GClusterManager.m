@@ -28,6 +28,10 @@
   [_clusterAlgorithm removeItems];
 }
 
+- (void)removeItemsNotInRectangle:(CGRect)rect {
+    [_clusterAlgorithm removeItemsNotInRectangle:rect];
+}
+
 - (void)cluster {
     NSSet *clusters = [_clusterAlgorithm getClusters:_mapView.camera.zoom];
 //    for (id <GCluster> cluster in clusters)

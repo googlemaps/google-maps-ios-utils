@@ -12,6 +12,7 @@
 
 - (void)addItem:(id <GClusterItem>) item;
 - (void)removeItems;
+- (void)removeItemsNotInRectangle:(CGRect)rect;
 
 - (void)cluster;
 
