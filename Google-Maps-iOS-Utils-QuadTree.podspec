@@ -12,8 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.author       = { "Brett Morgan" => "brettmorgan@google.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git", 
-                     :tag => "0.1" }
+  s.source       = { :git => "https://github.com/thedazed/google-maps-ios-utils.git"}
   s.source_files = '{QuadTree,Clustering,Projection}/**/*.{h,m}'
   s.requires_arc = true
 
