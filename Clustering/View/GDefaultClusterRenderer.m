@@ -45,7 +45,7 @@
 
 - (UIImage*) generateClusterIconWithCount:(NSUInteger)count {
     
-    int diameter = 32;
+    int diameter = 30;
     float inset = 2;
     
     CGRect rect = CGRectMake(0, 0, diameter, diameter);
@@ -70,7 +70,7 @@
     CGContextFillEllipseInRect(ctx, circleRect);
     CGContextStrokeEllipseInRect(ctx, circleRect);
 
-    CTFontRef myFont = CTFontCreateWithName( (CFStringRef)@"Helvetica-Bold", 14.0f, NULL);
+    CTFontRef myFont = CTFontCreateWithName( (CFStringRef)@"Helvetica-Bold", 12.0f, NULL);
     
     UIColor *fontColor;
     if ((count < 100) && count > 10) fontColor = [UIColor blackColor];
@@ -78,7 +78,7 @@
     
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
             (__bridge id)myFont, (id)kCTFontAttributeName,
-                    [UIColor whiteColor], (id)kCTForegroundColorAttributeName, nil];
+                    fontColor, (id)kCTForegroundColorAttributeName, nil];
 
     // create a naked string
     NSString *string = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)count];
