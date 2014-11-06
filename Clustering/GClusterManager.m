@@ -34,8 +34,6 @@
 
 - (void)cluster {
     NSSet *clusters = [_clusterAlgorithm getClusters:_mapView.camera.zoom];
-//    for (id <GCluster> cluster in clusters)
-//        NSLog(@"In cluster function: %f, %f", cluster.marker.position.longitude, cluster.marker.position.latitude);
     [_clusterRenderer clustersChanged:clusters];
 }
 

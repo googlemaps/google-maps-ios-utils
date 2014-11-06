@@ -6,7 +6,6 @@
 #import "GQuadItem.h"
 
 @implementation NonHierarchicalDistanceBasedAlgorithm {
-    NSMutableArray *_items;
     GQTPointQuadTree *_quadTree;
     NSInteger _maxDistanceAtZoom;
 }
@@ -62,6 +61,8 @@
     NSMutableDictionary *itemToCluster = [[NSMutableDictionary alloc] init];
     
     for (GQuadItem* candidate in _items) {
+        if (candidate.hidden) continue;
+        
         if ([visitedCandidates containsObject:candidate]) {
             // Candidate is already part of another cluster.
             continue;

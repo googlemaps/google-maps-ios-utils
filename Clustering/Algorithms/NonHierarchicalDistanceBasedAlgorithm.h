@@ -4,6 +4,8 @@
 
 @interface NonHierarchicalDistanceBasedAlgorithm : NSObject<GClusterAlgorithm> 
 
+@property (nonatomic, strong) NSMutableArray *items;
+
 - (id)initWithMaxDistanceAtZoom:(NSInteger)maxDistanceAtZoom;
 
 @end

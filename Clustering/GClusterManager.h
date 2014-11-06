@@ -9,6 +9,7 @@
 @property(nonatomic, strong) GMSMapView *mapView;
 @property(nonatomic, strong) id<GClusterAlgorithm> clusterAlgorithm;
 @property(nonatomic, strong) id<GClusterRenderer> clusterRenderer;
+@property(nonatomic, strong) NSMutableArray *items;
 
 - (void)addItem:(id <GClusterItem>) item;
 - (void)removeItems;
