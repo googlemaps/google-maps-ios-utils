@@ -43,7 +43,7 @@
     }
 }
 
-- (UIImage*) generateClusterIconWithCount:(NSUInteger)count {
+- (UIImage*)generateClusterIconWithCount:(NSUInteger)count {
     
     int diameter = 30;
     float inset = 2;
@@ -58,7 +58,7 @@
     
     if (count > 100) [[UIColor orangeColor] setFill];
     else if (count > 10) [[UIColor yellowColor] setFill];
-    else [[UIColor blueColor] setFill];
+    else [[UIColor colorWithRed:0.0/255.0 green:100.0/255.0 blue:255.0/255.0 alpha:1] setFill];
 
     CGContextSetLineWidth(ctx, inset);
 
