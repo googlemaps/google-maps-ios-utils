@@ -82,6 +82,7 @@
         [results addObject:cluster];
         
         for (GQuadItem* clusterItem in clusterItems) {
+            if (clusterItem.hidden) continue;
             NSNumber *existingDistance = [distanceToCluster objectForKey:clusterItem];
             double distance = [self distanceSquared:clusterItem.point :candidate.point];
             if (existingDistance != nil) {
