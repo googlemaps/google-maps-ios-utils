@@ -7,6 +7,7 @@
 @interface GClusterManager : NSObject <GMSMapViewDelegate> 
 
 @property(nonatomic, strong) GMSMapView *mapView;
+@property(nonatomic, weak) id<GMSMapViewDelegate> delegate;
 @property(nonatomic, strong) id<GClusterAlgorithm> clusterAlgorithm;
 @property(nonatomic, strong) id<GClusterRenderer> clusterRenderer;
 @property(nonatomic, strong) NSMutableArray *items;
