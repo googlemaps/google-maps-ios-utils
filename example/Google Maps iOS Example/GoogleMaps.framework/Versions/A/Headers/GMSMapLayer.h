@@ -31,7 +31,7 @@
  *       [CABasicAnimation animationWithKeyPath:kGMSLayerCameraBearingKey];
  *   animation.duration = 2.0f;
  *   animation.timingFunction = curve;
- *   animation.toValue = @(20);
+ *   animation.toValue = @20;
  *   [mapView_.layer addAnimation:animation forKey:kGMSLayerCameraBearingKey];
  *
  * To control several implicit animations, Core Animation's transaction support

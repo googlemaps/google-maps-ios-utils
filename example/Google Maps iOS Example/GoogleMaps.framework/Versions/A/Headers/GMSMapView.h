@@ -14,6 +14,10 @@
 #import <GoogleMaps/GMSMapLayer.h>
 #import <GoogleMaps/GMSUISettings.h>
 
+#ifndef __GMS_AVAILABLE_BUT_DEPRECATED
+#define __GMS_AVAILABLE_BUT_DEPRECATED __deprecated
+#endif
+
 @class GMSCameraPosition;
 @class GMSCameraUpdate;
 @class GMSCoordinateBounds;
@@ -115,6 +119,19 @@
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker;
 
 /**
+ * Called when mapView:markerInfoWindow: returns nil. If this method returns a
+ * view, it will be placed within the default info window frame. If this method
+ * returns nil, then the default rendering will be used instead.
+ *
+ * @param mapView The map view that was pressed.
+ * @param marker The marker that was pressed.
+ * @return The custom view to disaply as contents in the info window, or null to
+ * use the default content rendering instead
+ */
+
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker;
+
+/**
  * Called when dragging has been initiated on a marker.
  */
 - (void)mapView:(GMSMapView *)mapView didBeginDraggingMarker:(GMSMarker *)marker;
@@ -128,6 +145,15 @@
  * Called while a marker is dragged.
  */
 - (void)mapView:(GMSMapView *)mapView didDragMarker:(GMSMarker *)marker;
+
+/**
+ * Called when the My Location button is tapped.
+ *
+ * @return YES if the listener has consumed the event (i.e., the default behavior should not occur),
+ *         NO otherwise (i.e., the default behavior should occur). The default behavior is for the
+ *         camera to move such that it is centered on the user location.
+ */
+- (BOOL)didTapMyLocationButtonForMapView:(GMSMapView *)mapView;
 
 @end
 
@@ -174,7 +200,7 @@ typedef enum {
  * Controls the camera, which defines how the map is oriented. Modification of
  * this property is instantaneous.
  */
-@property(nonatomic, strong) GMSCameraPosition *camera;
+@property(nonatomic, copy) GMSCameraPosition *camera;
 
 /**
  * Returns a GMSProjection object that you can use to convert between screen
@@ -336,3 +362,13 @@ typedef enum {
 - (void)moveCamera:(GMSCameraUpdate *)update;
 
 @end
+
+/**
+ * Accessibility identifier for the compass button.
+ */
+extern NSString *const kGMSAccessibilityCompass;
+
+/**
+ * Accessibility identifier for the "my location" button.
+ */
+extern NSString *const kGMSAccessibilityMyLocation;

@@ -32,7 +32,7 @@
  * As animateToCameraPosition:, but changes only the zoom level of the camera.
  * This value is clamped by [kGMSMinZoomLevel, kGMSMaxZoomLevel].
  */
-- (void)animateToZoom:(CGFloat)zoom;
+- (void)animateToZoom:(float)zoom;
 
 /**
  * As animateToCameraPosition:, but changes only the bearing of the camera (in
