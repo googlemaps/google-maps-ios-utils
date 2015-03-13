@@ -11,22 +11,18 @@
 #import <CoreLocation/CoreLocation.h>
 
 /**
- * Metadata for a specific panorama.
- * You can't instantiate this class directly;
- * use GMSPanoramaService to obtain an instance.
+ * GMSPanorama represents metadata for a specific panorama on the Earth. This class is not
+ * instantiable directly and is obtained via GMSPanoramaService or GMSPanoramaView.
  */
 @interface GMSPanorama : NSObject
 
 /** The precise location of this panorama. */
 @property(nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
-/**
- * The ID of this panorama.
- * The panorama ID may change so please do not store this persistently.
- */
-@property(nonatomic, readonly) NSString *panoramaID;
+/** The ID of this panorama. Panoramas may change ID over time, so this should not be persisted */
+@property(nonatomic, copy, readonly) NSString *panoramaID;
 
-/** An array of |GMSPanoramaLink| containing the neighboring panoramas. */
-@property(nonatomic, readonly) NSArray *links;
+/** An array of GMSPanoramaLink describing the neighboring panoramas. */
+@property(nonatomic, copy, readonly) NSArray *links;
 
 @end

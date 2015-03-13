@@ -6,7 +6,6 @@
 #import "GQuadItem.h"
 
 @implementation NonHierarchicalDistanceBasedAlgorithm {
-    NSMutableArray *_items;
     GQTPointQuadTree *_quadTree;
     NSInteger _maxDistanceAtZoom;
 }
@@ -36,6 +35,21 @@
   [_quadTree clear];
 }
 
+- (void)removeItemsNotInRectangle:(CGRect)rect
+{
+    NSMutableArray *newItems = [[NSMutableArray alloc] init];
+    [_quadTree clear];
+    
+    for (GQuadItem *item in _items)
+        if (CGRectContainsPoint(rect, CGPointMake(item.position.latitude, item.position.longitude)))
+        {
+            [newItems addObject:item];
+            [_quadTree add:item];
+        }
+    
+    _items = newItems;
+}
+
 - (NSSet*)getClusters:(float)zoom {
     int discreteZoom = (int) zoom;
     
@@ -47,6 +61,8 @@
     NSMutableDictionary *itemToCluster = [[NSMutableDictionary alloc] init];
     
     for (GQuadItem* candidate in _items) {
+        if (candidate.hidden) continue;
+        
         if ([visitedCandidates containsObject:candidate]) {
             // Candidate is already part of another cluster.
             continue;
@@ -62,10 +78,11 @@
             continue;
         }
         
-        GStaticCluster *cluster = [[GStaticCluster alloc] initWithCoordinate:candidate.position];
+        GStaticCluster *cluster = [[GStaticCluster alloc] initWithCoordinate:candidate.position andMarker:candidate.marker];
         [results addObject:cluster];
         
         for (GQuadItem* clusterItem in clusterItems) {
+            if (clusterItem.hidden) continue;
             NSNumber *existingDistance = [distanceToCluster objectForKey:clusterItem];
             double distance = [self distanceSquared:clusterItem.point :candidate.point];
             if (existingDistance != nil) {

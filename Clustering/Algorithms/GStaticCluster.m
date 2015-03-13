@@ -5,10 +5,11 @@
     NSMutableSet *_items;
 }
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate andMarker:(GMSMarker *)marker{
     if (self = [super init]) {
         _position = coordinate;
         _items = [[NSMutableSet alloc] init];
+        _marker = marker;
     }
     return self;
 }

@@ -14,6 +14,7 @@
         _position = clusterItem.position;
         _point = [projection coordinateToPoint:_position];
         _item = clusterItem;
+        _marker = clusterItem.marker;
     }
     return self;
 }

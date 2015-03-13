@@ -14,4 +14,6 @@
 
 @property (nonatomic) CLLocationCoordinate2D location;
 
+@property (nonatomic, strong) GMSMarker *marker;
+
 @end

@@ -52,6 +52,12 @@
     }
     
     [clusterManager_ cluster];
+    [clusterManager_ setDelegate:self];
+}
+
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+    [[[UIAlertView alloc] initWithTitle:@"DidTapMarker" message:marker.title delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,10 +67,16 @@
 }
 
 - (Spot*)generateSpot {
+    
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.title = [NSString stringWithFormat:@"Test %f", [self getRandomNumberBetween:1 maxNumber:100]];
+    marker.position = CLLocationCoordinate2DMake(
+                                                 [self getRandomNumberBetween:51.38494009999999 maxNumber:51.6723432],
+                                                 [self getRandomNumberBetween:-0.3514683 maxNumber:0.148271]);
+    
     Spot* spot = [[Spot alloc] init];
-    spot.location = CLLocationCoordinate2DMake(
-                                               [self getRandomNumberBetween:51.38494009999999 maxNumber:51.6723432],
-                                               [self getRandomNumberBetween:-0.3514683 maxNumber:0.148271]);
+    spot.location = marker.position;
+    spot.marker = marker;
     return spot;
 }
 

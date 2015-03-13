@@ -33,17 +33,20 @@
             marker.icon = [self generateClusterIconWithCount:count];
         }
         else {
-            marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+            marker.icon = cluster.marker.icon;
         }
-        marker.position = cluster.position;
+        
+        marker.userData = cluster.marker.userData;
+        
+        marker.position = cluster.marker.position;
         marker.map = _map;
     }
 }
 
-- (UIImage*) generateClusterIconWithCount:(NSUInteger)count {
+- (UIImage*)generateClusterIconWithCount:(NSUInteger)count {
     
-    int diameter = 40;
-    float inset = 3;
+    int diameter = 30;
+    float inset = 2;
     
     CGRect rect = CGRectMake(0, 0, diameter, diameter);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -52,7 +55,10 @@
 
     // set stroking color and draw circle
     [[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8] setStroke];
-    [[UIColor blueColor] setFill];
+    
+    if (count > 100) [[UIColor orangeColor] setFill];
+    else if (count > 10) [[UIColor yellowColor] setFill];
+    else [[UIColor colorWithRed:0.0/255.0 green:100.0/255.0 blue:255.0/255.0 alpha:1] setFill];
 
     CGContextSetLineWidth(ctx, inset);
 
@@ -64,11 +70,15 @@
     CGContextFillEllipseInRect(ctx, circleRect);
     CGContextStrokeEllipseInRect(ctx, circleRect);
 
-    CTFontRef myFont = CTFontCreateWithName( (CFStringRef)@"Helvetica-Bold", 18.0f, NULL);
+    CTFontRef myFont = CTFontCreateWithName( (CFStringRef)@"Helvetica-Bold", 12.0f, NULL);
+    
+    UIColor *fontColor;
+    if ((count < 100) && count > 10) fontColor = [UIColor blackColor];
+    else fontColor = [UIColor whiteColor];
     
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
             (__bridge id)myFont, (id)kCTFontAttributeName,
-                    [UIColor whiteColor], (id)kCTForegroundColorAttributeName, nil];
+                    fontColor, (id)kCTForegroundColorAttributeName, nil];
 
     // create a naked string
     NSString *string = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)count];
