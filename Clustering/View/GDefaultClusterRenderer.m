@@ -36,9 +36,21 @@
             marker.icon = cluster.marker.icon;
         }
         
-        marker.userData = cluster.marker.userData;
-        
         marker.position = cluster.marker.position;
+        marker.snippet = cluster.marker.snippet;
+        marker.groundAnchor = cluster.marker.groundAnchor;
+        marker.infoWindowAnchor = cluster.marker.infoWindowAnchor;
+        marker.appearAnimation = cluster.marker.appearAnimation;
+        marker.draggable = cluster.marker.draggable;
+        marker.flat = cluster.marker.flat;
+        marker.rotation = cluster.marker.rotation;
+        marker.opacity = cluster.marker.opacity;
+        marker.userData = cluster.marker.userData;
+        marker.panoramaView = cluster.marker.panoramaView;
+        marker.title = cluster.marker.title;
+        marker.tappable = cluster.marker.tappable;
+        marker.zIndex = cluster.marker.zIndex;
+        
         marker.map = _map;
     }
 }
