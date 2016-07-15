@@ -1,0 +1,4 @@
+#include "GMU-Common.xcconfig"
+
+HEADER_SEARCH_PATHS = $(HEADER_SEARCH_PATHS) "${SRCROOT}/../test"
+
