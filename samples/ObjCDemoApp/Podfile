@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ObjCDemoApp' do
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+end
