@@ -14,8 +14,9 @@ Pod::Spec.new do |s|
   s.authors      = "Google Inc."
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
-                     :tag => s.version }
+                     :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
+  s.dependency 'GoogleMaps'
 
   s.subspec 'QuadTree' do |sp|
     sp.source_files = 'src/QuadTree/**/*.{h,m}'
