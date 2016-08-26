@@ -55,6 +55,9 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   // Stores previous zoom level to determine zooming direction (in/out).
   float _previousZoom;
+    
+  // Allows clusters to utilize a zIndex value.
+  float _zIndex;
 
   // Lookup map from cluster item to an old cluster.
   NSMutableDictionary<GMUWrappingDictionaryKey *, id<GMUCluster>> *_itemToOldClusterMap;
@@ -72,6 +75,16 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     _renderedClusters = [[NSMutableSet alloc] init];
     _renderedClusterItems = [[NSMutableSet alloc] init];
     _animatesClusters = YES;
+    _zIndex = 1;
+  }
+  return self;
+}
+
+- (instancetype)initWithMapView:(GMSMapView *)mapView
+           clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator
+                         zIndex:(float)zIndex {
+  if ((self = [self initWithMapView:mapView clusterIconGenerator:iconGenerator])) {
+    _zIndex = zIndex;
   }
   return self;
 }
@@ -299,6 +312,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     marker.icon = clusterIcon;
     marker.groundAnchor = CGPointMake(0.5, 0.5);
   }
+  marker.zIndex = _zIndex;
   marker.map = _mapView;
 
   if (animated) {
