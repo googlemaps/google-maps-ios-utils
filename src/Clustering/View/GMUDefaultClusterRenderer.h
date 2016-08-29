@@ -57,21 +57,19 @@ NS_ASSUME_NONNULL_BEGIN
  * Default to YES.
  */@property(nonatomic) BOOL animatesClusters;
 
-- (instancetype)initWithMapView:(GMSMapView *)mapView
-           clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator;
-
 /**
  * Allows setting a zIndex value for the clusters.  This becomes useful
  * when using multiple cluster data sets on the map and require a predictable
  * way of displaying multiple sets with a predictable layering order.
  *
- * If no specific zIndex is not specified during the initialization, the 
+ * If no specific zIndex is not specified during the initialization, the
  * default zIndex is '1'.  Larger zIndex values are drawn over lower ones
  * similar to the zIndex value of GMSMarkers.
- */
+ */@property(nonatomic) float zIndex;
+
 - (instancetype)initWithMapView:(GMSMapView *)mapView
-           clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator
-                         zIndex:(float)zIndex;
+           clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator;
+
 /**
  * If returns NO, cluster items will be expanded and rendered as normal markers.
  * Subclass can override this method to provide custom logic.

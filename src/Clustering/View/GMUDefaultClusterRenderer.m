@@ -80,15 +80,6 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   return self;
 }
 
-- (instancetype)initWithMapView:(GMSMapView *)mapView
-           clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator
-                         zIndex:(float)zIndex {
-  if ((self = [self initWithMapView:mapView clusterIconGenerator:iconGenerator])) {
-    _zIndex = zIndex;
-  }
-  return self;
-}
-
 - (void)dealloc {
   [self clear];
 }
