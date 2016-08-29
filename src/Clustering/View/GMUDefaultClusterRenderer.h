@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  * If no specific zIndex is not specified during the initialization, the
  * default zIndex is '1'.  Larger zIndex values are drawn over lower ones
  * similar to the zIndex value of GMSMarkers.
- */@property(nonatomic) float zIndex;
+ */@property(nonatomic) int zIndex;
 
 - (instancetype)initWithMapView:(GMSMapView *)mapView
            clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator;
