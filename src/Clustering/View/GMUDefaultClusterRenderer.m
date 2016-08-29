@@ -55,9 +55,6 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   // Stores previous zoom level to determine zooming direction (in/out).
   float _previousZoom;
-    
-  // Allows clusters to utilize a zIndex value.
-  float _zIndex;
 
   // Lookup map from cluster item to an old cluster.
   NSMutableDictionary<GMUWrappingDictionaryKey *, id<GMUCluster>> *_itemToOldClusterMap;
