@@ -72,6 +72,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     _renderedClusters = [[NSMutableSet alloc] init];
     _renderedClusterItems = [[NSMutableSet alloc] init];
     _animatesClusters = YES;
+    _zIndex = 1;
   }
   return self;
 }
@@ -299,6 +300,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     marker.icon = clusterIcon;
     marker.groundAnchor = CGPointMake(0.5, 0.5);
   }
+  marker.zIndex = _zIndex;
   marker.map = _mapView;
 
   if (animated) {
