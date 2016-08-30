@@ -55,7 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
  * should add up however.
  *
  * Default to YES.
- */@property(nonatomic) BOOL animatesClusters;
+ */
+@property(nonatomic) BOOL animatesClusters;
 
 /**
  * Allows setting a zIndex value for the clusters.  This becomes useful
@@ -65,7 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
  * If no specific zIndex is not specified during the initialization, the
  * default zIndex is '1'.  Larger zIndex values are drawn over lower ones
  * similar to the zIndex value of GMSMarkers.
- */@property(nonatomic) int zIndex;
+ */
+@property(nonatomic) int zIndex;
 
 - (instancetype)initWithMapView:(GMSMapView *)mapView
            clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator;
