@@ -1,0 +1,5 @@
+// Custom project config.
+IPHONEOS_DEPLOYMENT_TARGET = 7.0
+USE_HEADERMAP = YES
+HEADER_SEARCH_PATHS = $(inherited) "${SRCROOT}/../src" "${SRCROOT}/../test"
+CLANG_ENABLE_MODULES = NO

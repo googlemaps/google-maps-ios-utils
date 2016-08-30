@@ -1,8 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 
-pod 'GoogleMaps'
+target 'DevApp' do
+  pod 'GoogleMaps'
+end
 
 target 'UnitTest' do
+  pod 'GoogleMaps'
   pod 'OCMock'
 end
