@@ -14,9 +14,12 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 For more information, check out the detailed guide on the
 [Google Developers site][devsite-guide].
 
-To contribute to the library, see [Contributing][contributing].
+**Notes:**
+* [Contributing to the library][contributing].
+* [Integrating with Swift][swift].
 
 [contributing]: CONTRIBUTING.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
 [sdk]: https://developers.google.com/maps/documentation/ios-sdk
 [issues]: https://github.com/googlemaps/google-maps-ios-utils/issues
+[swift]: Swift.md
