@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GMUClusterItem.h"
+#import "Clustering/GMUClusterItem.h"
 
 // Point of Interest Item which implements the GMUClusterItem protocol.
 @interface POIItem : NSObject<GMUClusterItem>

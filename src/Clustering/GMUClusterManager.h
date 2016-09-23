@@ -17,9 +17,9 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-#import "GMUClusterAlgorithm.h"
+#import "Algo/GMUClusterAlgorithm.h"
 #import "GMUClusterItem.h"
-#import "GMUClusterRenderer.h"
+#import "View/GMUClusterRenderer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
