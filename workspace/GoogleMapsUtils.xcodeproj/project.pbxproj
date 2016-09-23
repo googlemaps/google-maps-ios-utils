@@ -28,6 +28,7 @@
 		02847D021CF3F61400508850 /* GMUDefaultClusterRendererTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02847D011CF3F61400508850 /* GMUDefaultClusterRendererTest.m */; };
 		02847D0A1CF4053200508850 /* GMUTestClusterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 02847D091CF4053200508850 /* GMUTestClusterItem.m */; };
 		02847D0C1CF5239900508850 /* GMUClusterManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02847D0B1CF5239900508850 /* GMUClusterManagerTest.m */; };
+		029EAC2D1D93AF9100797AE7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 029EAC2C1D93AF9100797AE7 /* libOCMock.a */; };
 		02BB27601D741A5300DE1EF0 /* GMU-Target.common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */; };
 		02DEA4C61CFBC0B900ACF7D8 /* GQTPointQuadTreeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DEA4C51CFBC0B900ACF7D8 /* GQTPointQuadTreeTest.m */; };
 		02DEA4C81CFC0DDF00ACF7D8 /* GMUDefaultClusterIconGeneratorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DEA4C71CFC0DDF00ACF7D8 /* GMUDefaultClusterIconGeneratorTest.m */; };
@@ -121,6 +122,7 @@
 		02847D081CF4053200508850 /* GMUTestClusterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMUTestClusterItem.h; path = ../test/common/Model/GMUTestClusterItem.h; sourceTree = "<group>"; };
 		02847D091CF4053200508850 /* GMUTestClusterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMUTestClusterItem.m; path = ../test/common/Model/GMUTestClusterItem.m; sourceTree = "<group>"; };
 		02847D0B1CF5239900508850 /* GMUClusterManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUClusterManagerTest.m; sourceTree = "<group>"; };
+		029EAC2C1D93AF9100797AE7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "Pods/../build/Debug-iphoneos/OCMock/libOCMock.a"; sourceTree = "<group>"; };
 		02B36A9D1D124FD900EA3A86 /* GMUClusterManager+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUClusterManager+Testing.h"; sourceTree = "<group>"; };
 		02B36A9E1D1253C100EA3A86 /* GMUDefaultClusterIconGenerator+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterIconGenerator+Testing.h"; sourceTree = "<group>"; };
 		02B36A9F1D125E7A00EA3A86 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029EAC2D1D93AF9100797AE7 /* libOCMock.a in Frameworks */,
 				0242D1E91C7C1CC100557130 /* libGoogleMapsUtils.a in Frameworks */,
 				49CAD6F870C5583C82B43593 /* libPods-DevApp.a in Frameworks */,
 			);
@@ -414,6 +417,7 @@
 		456BADDE8195197F06EDEE32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				029EAC2C1D93AF9100797AE7 /* libOCMock.a */,
 				0242D2201C7EC1A900557130 /* libOCMock.a */,
 				0242D21E1C7E7BA300557130 /* libOCMock.a */,
 				50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */,
@@ -839,6 +843,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OCMock",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -852,6 +860,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OCMock",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

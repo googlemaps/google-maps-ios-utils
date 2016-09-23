@@ -22,7 +22,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "GMUClusterIconGenerator.h"
-#import "GMUWrappingDictionaryKey.h"
+#import "../Algo/GMUWrappingDictionaryKey.h"
 
 // Clusters smaller than this threshold will be expanded.
 static const NSUInteger kGMUMinClusterSize = 4;
@@ -248,7 +248,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 - (void)renderCluster:(id<GMUCluster>)cluster animated:(BOOL)animated {
   float zoom = _mapView.camera.zoom;
   if ([self shouldRenderAsCluster:cluster atZoom:zoom]) {
-    CLLocationCoordinate2D fromPosition;
+    CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
     if (animated) {
       id<GMUCluster> fromCluster =
           [self overlappingClusterForCluster:cluster itemMap:_itemToOldClusterMap];
@@ -265,7 +265,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     [_markers addObject:marker];
   } else {
     for (id<GMUClusterItem> item in cluster.items) {
-      CLLocationCoordinate2D fromPosition;
+      CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
       BOOL shouldAnimate = animated;
       if (shouldAnimate) {
         GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];

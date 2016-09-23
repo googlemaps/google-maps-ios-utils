@@ -21,11 +21,11 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-#import "GMUClusterManager.h"
-#import "GMUDefaultClusterIconGenerator.h"
-#import "GMUDefaultClusterRenderer.h"
-#import "GMUGridBasedClusterAlgorithm.h"
-#import "GMUNonHierarchicalDistanceBasedAlgorithm.h"
+#import "Clustering/GMUClusterManager.h"
+#import "Clustering/View/GMUDefaultClusterIconGenerator.h"
+#import "Clustering/View/GMUDefaultClusterRenderer.h"
+#import "Clustering/Algo/GMUGridBasedClusterAlgorithm.h"
+#import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"
 #import "POIItem.h"
 
 static const NSUInteger kClusterItemCount = 10000;
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, ClusterAlgorithmMode) {
   [super viewDidLoad];
 
   id<GMUClusterAlgorithm> algorithm = [self algorithmForMode:kClusterAlgorithmQuadTreeBased];
-  id<GMUClusterIconGenerator> iconGenerator = [self iconGeneratorWithImages];
+  id<GMUClusterIconGenerator> iconGenerator = [self defaultIconGenerator];
   id<GMUClusterRenderer> renderer =
       [[GMUDefaultClusterRenderer alloc] initWithMapView:_mapView
                                     clusterIconGenerator:iconGenerator];
