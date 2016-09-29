@@ -17,28 +17,25 @@
 #error "This file requires ARC support."
 #endif
 
-#import "AppDelegate.h"
+#import "Samples.h"
 
-#import "AppApiKey.h"
-#import "MasterViewController.h"
+#import "BasicViewController.h"
+#import "CustomMarkerViewController.h"
 
-#import <GoogleMaps/GoogleMaps.h>
+@implementation Samples
 
-@interface AppDelegate ()
-@end
++ (NSArray *)loadDemos {
+  NSArray *demos = @[
+    [self newDemo:[BasicViewController class] withTitle:@"Basic" andDescription:nil],
+    [self newDemo:[CustomMarkerViewController class] withTitle:@"Custom Markers" andDescription:nil]
+  ];
+  return demos;
+}
 
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application
-    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [GMSServices provideAPIKey:kMapsAPIKey];
-
-  MasterViewController *rootViewController = [[MasterViewController alloc] init];
-  UINavigationController *navigationController =
-      [[UINavigationController alloc] initWithRootViewController:rootViewController];
-  navigationController.navigationBar.translucent = NO;
-  self.window.rootViewController = navigationController;
-  return YES;
++ (NSDictionary *)newDemo:(Class) class
+                withTitle:(NSString *)title
+           andDescription:(NSString *)description {
+  return @{ @"controller" : class, @"title" : title, @"description" : description ?: @"" };
 }
 
 @end
