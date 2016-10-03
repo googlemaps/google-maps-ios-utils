@@ -1,0 +1,19 @@
+Version 1.1.1 - October 2016
+===========================
+Resolved Issues:
+- Added missing CHANGELOG.
+
+Version 1.1.0 - October 2016
+============================
+Features:
+- Allowed easy customization of markers by introducing GMUClusterRendererDelegate
+delegate on GMUDefaultClusterRenderer.
+
+Version 1.0.1 - July 2016
+=========================
+Resolved Issues:
+- Added a workaround for cocoapods issue with GoogleMaps 2.0.0.
+
+Version 1.0.0 - July 2016
+=========================
+Initial release of Marker Clustering.
