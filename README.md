@@ -17,9 +17,11 @@ For more information, check out the detailed guide on the
 **Notes:**
 * [Contributing to the library][contributing].
 * [Integrating with Swift][swift].
+* [Customizing markers][customizing-markers].
 
 [contributing]: CONTRIBUTING.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
 [sdk]: https://developers.google.com/maps/documentation/ios-sdk
 [issues]: https://github.com/googlemaps/google-maps-ios-utils/issues
 [swift]: Swift.md
+[customizing-markers]: CustomMarkers.md
