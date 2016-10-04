@@ -1,6 +1,6 @@
 Customize cluster and item markers
 ==================================
-As of version 1.0.2 we have added new features for easy customization of
+As of version 1.1.0 we have added new features for easy customization of
 markers. There is a new delegate [GMUClusterRendererDelegate]
 [gmuclusterrendererdelegate] on ```GMUDefaultClusterRenderer``` which allows
 developers to customize properties of a marker before and after it is added
