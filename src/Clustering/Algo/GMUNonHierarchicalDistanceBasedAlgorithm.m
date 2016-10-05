@@ -21,10 +21,10 @@
 
 #import <GoogleMaps/GMSGeometryUtils.h>
 
-#import "../GMUStaticCluster.h"
-#import "../GMUClusterItem.h"
+#import "GMUStaticCluster.h"
+#import "GMUClusterItem.h"
 #import "GMUWrappingDictionaryKey.h"
-#import "../../QuadTree/GQTPointQuadTree.h"
+#import "GQTPointQuadTree.h"
 
 static const NSUInteger kGMUClusterDistancePoints = 100;
 static const double kGMUMapPointWidth = 2.0;  // MapPoint is in a [-1,1]x[-1,1] space.

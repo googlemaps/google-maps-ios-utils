@@ -22,7 +22,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "GMUClusterIconGenerator.h"
-#import "../Algo/GMUWrappingDictionaryKey.h"
+#import "GMUWrappingDictionaryKey.h"
 
 // Clusters smaller than this threshold will be expanded.
 static const NSUInteger kGMUMinClusterSize = 4;
