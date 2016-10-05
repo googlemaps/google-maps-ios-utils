@@ -19,8 +19,8 @@
 
 #import "GMUSimpleClusterAlgorithm.h"
 
-#import "../GMUStaticCluster.h"
-#import "../GMUClusterItem.h"
+#import "GMUStaticCluster.h"
+#import "GMUClusterItem.h"
 
 static const NSUInteger kClusterCount = 10;
 

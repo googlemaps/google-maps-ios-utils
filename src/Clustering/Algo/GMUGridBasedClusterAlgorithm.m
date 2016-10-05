@@ -21,8 +21,8 @@
 
 #import <GoogleMaps/GMSGeometryUtils.h>
 
-#import "../GMUStaticCluster.h"
-#import "../GMUClusterItem.h"
+#import "GMUStaticCluster.h"
+#import "GMUClusterItem.h"
 
 // Grid cell dimension in pixels to keep clusters about 100 pixels apart on screen.
 static const NSUInteger kGMUGridCellSizePoints = 100;

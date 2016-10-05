@@ -15,8 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "../GMUCluster.h"
-#import "../GMUClusterItem.h"
+#import "GMUCluster.h"
+#import "GMUClusterItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

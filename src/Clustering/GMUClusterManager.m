@@ -19,8 +19,8 @@
 
 #import "GMUClusterManager+Testing.h"
 
-#import "Algo/GMUSimpleClusterAlgorithm.h"
-#import "View/GMUClusterRenderer.h"
+#import "GMUSimpleClusterAlgorithm.h"
+#import "GMUClusterRenderer.h"
 
 static NSString *const kGMUCameraKeyPath = @"camera";
 
