@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
                    renderer:(id<GMUClusterRenderer>)renderer;
 
 /** Gets the clustering algorithm. */
-@property(nonatomic, readonly) id<GMUClusterAlgorithm> algorithm;
+@property(nonatomic, readonly, nullable) id<GMUClusterAlgorithm> algorithm;
 
 /**
  * GMUClusterManager |delegate|.
