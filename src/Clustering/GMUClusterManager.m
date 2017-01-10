@@ -50,16 +50,6 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
   id<GMUClusterRenderer> _renderer;
 }
 
-// Disables init.
-- (instancetype)init {
-  self = [self initWithNullableMap:nil algorithm:nil renderer:nil];
-  if (self) {
-    [self doesNotRecognizeSelector:_cmd];
-    self = nil;
-  }
-  return self;
-}
-
 - (instancetype)initWithMap:(GMSMapView *)mapView
                   algorithm:(id<GMUClusterAlgorithm>)algorithm
                    renderer:(id<GMUClusterRenderer>)renderer {

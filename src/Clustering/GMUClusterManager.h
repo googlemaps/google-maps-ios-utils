@@ -45,13 +45,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GMUClusterManager : NSObject<GMSMapViewDelegate>
 
+/** Disallow default initializer */
+- (id)init __attribute__((unavailable("Use initWithMap:algorithm:renderer: instead.")));
+
 /** Initializer with the |mapView|, |algorithm| and |renderer|. */
 - (instancetype)initWithMap:(GMSMapView *)mapView
                   algorithm:(id<GMUClusterAlgorithm>)algorithm
                    renderer:(id<GMUClusterRenderer>)renderer;
 
 /** Gets the clustering algorithm. */
-@property(nonatomic, readonly, nullable) id<GMUClusterAlgorithm> algorithm;
+@property(nonatomic, readonly) id<GMUClusterAlgorithm> algorithm;
 
 /**
  * GMUClusterManager |delegate|.
