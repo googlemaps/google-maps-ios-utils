@@ -15,8 +15,8 @@
 
 #import "GMUClusterManager.h"
 
-/** 
- * Extensions for testing purposes only. 
+/**
+ * Extensions for testing purposes only.
  */
 @interface GMUClusterManager (Testing)
 

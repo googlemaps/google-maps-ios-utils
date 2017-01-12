@@ -58,7 +58,7 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
                   options:NSKeyValueObservingOptionNew
                   context:nil];
   }
-    
+
   return self;
 }
 
