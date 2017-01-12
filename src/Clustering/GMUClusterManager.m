@@ -28,14 +28,6 @@ static NSString *const kGMUCameraKeyPath = @"camera";
 // to avoid continuous clustering when the camera is moving which can affect performance.
 static const double kGMUClusterWaitIntervalSeconds = 0.2;
 
-@interface GMUClusterManager ()
-
-- (instancetype)initWithNullableMap:(GMSMapView *)mapView
-                          algorithm:(id<GMUClusterAlgorithm>)algorithm
-                           renderer:(id<GMUClusterRenderer>)renderer NS_DESIGNATED_INITIALIZER;
-
-@end
-
 @implementation GMUClusterManager {
   // The map view that this object is associated with.
   __weak GMSMapView *_mapView;
@@ -50,36 +42,23 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
   id<GMUClusterRenderer> _renderer;
 }
 
-// Disables init.
-- (instancetype)init {
-  self = [self initWithNullableMap:nil algorithm:nil renderer:nil];
-  if (self) {
-    [self doesNotRecognizeSelector:_cmd];
-    self = nil;
-  }
-  return self;
-}
-
 - (instancetype)initWithMap:(GMSMapView *)mapView
                   algorithm:(id<GMUClusterAlgorithm>)algorithm
                    renderer:(id<GMUClusterRenderer>)renderer {
-  return [self initWithNullableMap:mapView algorithm:algorithm renderer:renderer];
-}
 
-- (instancetype)initWithNullableMap:(GMSMapView *)mapView
-                          algorithm:(id<GMUClusterAlgorithm>)algorithm
-                           renderer:(id<GMUClusterRenderer>)renderer {
   if ((self = [super init])) {
     _algorithm = [[GMUSimpleClusterAlgorithm alloc] init];
     _mapView = mapView;
     _previousCamera = _mapView.camera;
     _algorithm = algorithm;
     _renderer = renderer;
+
     [_mapView addObserver:self
                forKeyPath:kGMUCameraKeyPath
                   options:NSKeyValueObservingOptionNew
                   context:nil];
   }
+    
   return self;
 }
 

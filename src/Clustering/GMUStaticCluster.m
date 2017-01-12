@@ -23,16 +23,6 @@
   NSMutableArray<id<GMUClusterItem>> *_items;
 }
 
-// Disables init.
-- (instancetype)init {
-  self = [super init];
-  if (self) {
-    [self doesNotRecognizeSelector:_cmd];
-    self = nil;
-  }
-  return self;
-}
-
 - (instancetype)initWithPosition:(CLLocationCoordinate2D)position {
   if ((self = [super init])) {
     _items = [[NSMutableArray alloc] init];
