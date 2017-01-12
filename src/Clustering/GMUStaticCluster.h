@@ -24,7 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GMUStaticCluster : NSObject<GMUCluster>
 
-- (instancetype)initWithPosition:(CLLocationCoordinate2D)position;
+/**
+ * The default initializer is not available. Use initWithPosition: instead.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ * Returns a new instance of the GMUStaticCluster class defined by it's position.
+ */
+- (instancetype)initWithPosition:(CLLocationCoordinate2D)position NS_DESIGNATED_INITIALIZER;
 
 /**
  * Returns the position of the cluster.
