@@ -58,7 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Returns a new instance of the GMUClusterManager class defined by it's |algorithm| and |renderer|.
  */
-- (instancetype)initWithMap:(GMSMapView *)mapView algorithm:(id<GMUClusterAlgorithm>)algorithm renderer:(id<GMUClusterRenderer>)renderer NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithMap:(GMSMapView *)mapView
+                  algorithm:(id<GMUClusterAlgorithm>)algorithm
+                   renderer:(id<GMUClusterRenderer>)renderer NS_DESIGNATED_INITIALIZER;
 
 /**
  * Returns the clustering algorithm.
@@ -91,7 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
  * In this example self will receive type-safe GMUClusterManagerDelegate
  * events and other map events will be forwarded to the current map delegate.
  */
-- (void)setDelegate:(id<GMUClusterManagerDelegate> _Nullable)delegate mapDelegate:(id<GMSMapViewDelegate> _Nullable)mapDelegate;
+- (void)setDelegate:(id<GMUClusterManagerDelegate> _Nullable)delegate
+        mapDelegate:(id<GMSMapViewDelegate> _Nullable)mapDelegate;
 
 /**
  * Adds a cluster item to the collection. 
