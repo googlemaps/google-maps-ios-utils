@@ -205,6 +205,42 @@ static const double kCameraZoom = 10.0;
   [_clusterManager mapView:_mapView didTapMarker:marker];
 }
 
+- (void)testTapOnClusterItemMarkerDelegateRetusnNOEventRaisedOnMapDelegate {
+  id<GMUClusterItem> item1 = OCMProtocolMock(@protocol(GMUClusterItem));
+  GMSMarker *marker = [[GMSMarker alloc] init];
+  marker.map = _mapView;
+  marker.userData = item1;
+  [_clusterManager setDelegate:_delegate mapDelegate:_mapDelegate];
+
+  // Expect and reject.
+  [[_delegate reject] clusterManager:_clusterManager didTapCluster:OCMOCK_ANY];
+
+  // Set _delegate to not handle the event.
+  [[[_delegate stub] andReturnValue:OCMOCK_VALUE(NO)] clusterManager:_clusterManager
+                                                   didTapClusterItem:item1];
+  [[_mapDelegate expect] mapView:_mapView didTapMarker:marker];
+
+  // Act.
+  [_clusterManager mapView:_mapView didTapMarker:marker];
+}
+
+- (void)testTapOnClusterMarkerDelegateRetusnNOEventRaisedOnMapDelegate {
+  id<GMUCluster> cluster1 = OCMProtocolMock(@protocol(GMUCluster));
+  GMSMarker *marker = [[GMSMarker alloc] init];
+  marker.map = _mapView;
+  marker.userData = cluster1;
+
+  // Expect and reject.
+  // Set _delegate to not handle the event.
+  [[[_delegate stub] andReturnValue:OCMOCK_VALUE(NO)] clusterManager:_clusterManager
+                                                       didTapCluster:cluster1];
+  [[_delegate reject] clusterManager:_clusterManager didTapClusterItem:OCMOCK_ANY];
+  [[_mapDelegate expect] mapView:_mapView didTapMarker:marker];
+
+  // Act.
+  [_clusterManager mapView:_mapView didTapMarker:marker];
+}
+
 - (void)testTapOnNormalMarkerEventRaisedOnMapDelegate {
   GMSMarker *marker = [[GMSMarker alloc] init];
   marker.map = _mapView;

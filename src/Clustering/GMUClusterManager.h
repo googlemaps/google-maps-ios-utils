@@ -34,13 +34,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Called when the user taps on a cluster marker.
+ * @return YES if this delegate handled the tap event,
+ * and NO to pass this tap event to other handlers.
  */
-- (void)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster;
+- (BOOL)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster;
 
 /**
  * Called when the user taps on a cluster item marker.
+ * @return YES if this delegate handled the tap event,
+ * and NO to pass this tap event to other handlers.
  */
-- (void)clusterManager:(GMUClusterManager *)clusterManager
+- (BOOL)clusterManager:(GMUClusterManager *)clusterManager
      didTapClusterItem:(id<GMUClusterItem>)clusterItem;
 
 @end
