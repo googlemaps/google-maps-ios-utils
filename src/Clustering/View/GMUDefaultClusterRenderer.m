@@ -222,68 +222,63 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 // - inside the visible region of the camera.
 // - not yet already added.
 - (void)addOrUpdateClusters:(NSArray<id<GMUCluster>> *)clusters animated:(BOOL)animated {
-  GMSCoordinateBounds *visibleBounds =
-      [[GMSCoordinateBounds alloc] initWithRegion:[_mapView.projection visibleRegion]];
-
-  for (id<GMUCluster> cluster in clusters) {
-    if ([_renderedClusters containsObject:cluster]) continue;
-
-    BOOL shouldShowCluster = [visibleBounds containsCoordinate:cluster.position];
-    if (!shouldShowCluster && animated) {
-      for (id<GMUClusterItem> item in cluster.items) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
-        if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
-          shouldShowCluster = YES;
-          break;
+    GMSCoordinateBounds *visibleBounds = [[GMSCoordinateBounds alloc] initWithRegion:[_mapView.projection visibleRegion]];
+    float zoom = _mapView.camera.zoom;
+    
+    for (id<GMUCluster> cluster in clusters) {
+        if ([_renderedClusters containsObject:cluster]) {
+            continue;
         }
-      }
+        
+        if ([self shouldRenderAsCluster:cluster atZoom:zoom]) {
+            if (![visibleBounds containsCoordinate:cluster.position]) {
+                continue;
+            }
+            
+            CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
+            if (animated) {
+                id<GMUCluster> fromCluster =
+                [self overlappingClusterForCluster:cluster itemMap:_itemToOldClusterMap];
+                animated = fromCluster != nil;
+                fromPosition = fromCluster.position;
+            }
+            
+            UIImage *icon = [_clusterIconGenerator iconForSize:cluster.count];
+            GMSMarker *marker = [self markerWithPosition:cluster.position
+                                                    from:fromPosition
+                                                userData:cluster
+                                             clusterIcon:icon
+                                                animated:animated];
+            [_markers addObject:marker];
+            
+        } else {
+            for (id<GMUClusterItem> item in cluster.items) {
+                if (![visibleBounds containsCoordinate:item.position]) {
+                    continue;
+                }
+                
+                CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
+                BOOL shouldAnimate = animated;
+                if (shouldAnimate) {
+                    GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
+                    id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
+                    shouldAnimate = fromCluster != nil;
+                    fromPosition = fromCluster.position;
+                }
+                
+                GMSMarker *marker = [self markerWithPosition:item.position
+                                                        from:fromPosition
+                                                    userData:item
+                                                 clusterIcon:nil
+                                                    animated:shouldAnimate];
+                [_markers addObject:marker];
+                [_renderedClusterItems addObject:item];
+            }
+            
+        }
+        
+        [_renderedClusters addObject:cluster];
     }
-    if (shouldShowCluster) {
-      [self renderCluster:cluster animated:animated];
-    }
-  }
-}
-
-- (void)renderCluster:(id<GMUCluster>)cluster animated:(BOOL)animated {
-  float zoom = _mapView.camera.zoom;
-  if ([self shouldRenderAsCluster:cluster atZoom:zoom]) {
-    CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
-    if (animated) {
-      id<GMUCluster> fromCluster =
-          [self overlappingClusterForCluster:cluster itemMap:_itemToOldClusterMap];
-      animated = fromCluster != nil;
-      fromPosition = fromCluster.position;
-    }
-
-    UIImage *icon = [_clusterIconGenerator iconForSize:cluster.count];
-    GMSMarker *marker = [self markerWithPosition:cluster.position
-                                            from:fromPosition
-                                        userData:cluster
-                                     clusterIcon:icon
-                                        animated:animated];
-    [_markers addObject:marker];
-  } else {
-    for (id<GMUClusterItem> item in cluster.items) {
-      CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
-      BOOL shouldAnimate = animated;
-      if (shouldAnimate) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
-        shouldAnimate = fromCluster != nil;
-        fromPosition = fromCluster.position;
-      }
-
-      GMSMarker *marker = [self markerWithPosition:item.position
-                                              from:fromPosition
-                                          userData:item
-                                       clusterIcon:nil
-                                          animated:shouldAnimate];
-      [_markers addObject:marker];
-      [_renderedClusterItems addObject:item];
-    }
-  }
-  [_renderedClusters addObject:cluster];
 }
 
 - (GMSMarker *)markerForObject:(id)object {
