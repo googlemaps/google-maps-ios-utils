@@ -226,11 +226,11 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     float zoom = _mapView.camera.zoom;
     
     for (id<GMUCluster> cluster in clusters) {
-        if ([_renderedClusters containsObject:cluster]) {
-            continue;
-        }
-        
         if ([self shouldRenderAsCluster:cluster atZoom:zoom]) {
+            if ([_renderedClusters containsObject:cluster]) {
+                continue;
+            }
+            
             if (![visibleBounds containsCoordinate:cluster.position]) {
                 continue;
             }
