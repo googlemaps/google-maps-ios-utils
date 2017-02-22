@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <Polygon>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            10.0,10.0,1
+            10.0,20.0,1
+            20.0,20.0,1
+            20.0,10.0,1
+            10.0,10.0,1
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+      <innerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            12.5,12.5,1
+            12.5,17.5,1
+            17.5,17.5,1
+            17.5,12.5,1
+            12.5,12.5,1
+          </coordinates>
+        </LinearRing>
+      </innerBoundaryIs>
+    </Polygon>
+  </Placemark>
+</kml>

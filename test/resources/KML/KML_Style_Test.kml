@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Style id="Test Style">
+    <BalloonStyle>
+      <text>A Point title</text>
+    </BalloonStyle>
+    <IconStyle>
+      <scale>2.5</scale>
+      <heading>45.0</heading>
+      <hotSpot x="0.25" y="0.75" xunits="fraction" yunits="fraction"/>
+      <Icon>
+        <href>https://maps.google.com/mapfiles/kml/pal3/icon55.png</href>
+      </Icon>
+    </IconStyle>
+    <LineStyle>
+      <color>ff0000ff</color>
+      <width>5</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>ffff0000</color>
+      <colorMode>normal</colorMode>
+      <fill>1</fill>
+      <outline>1</outline>
+    </PolyStyle>
+  </Style>
+</kml>

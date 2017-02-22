@@ -21,13 +21,18 @@
 
 #import "BasicViewController.h"
 #import "CustomMarkerViewController.h"
+#import "GeoJSONViewController.h"
+#import "KMLViewController.h"
 
 @implementation Samples
 
 + (NSArray *)loadDemos {
   NSArray *demos = @[
     [self newDemo:[BasicViewController class] withTitle:@"Basic" andDescription:nil],
-    [self newDemo:[CustomMarkerViewController class] withTitle:@"Custom Markers" andDescription:nil]
+    [self newDemo:[CustomMarkerViewController class] withTitle:@"Custom Markers"
+                                                andDescription:nil],
+    [self newDemo:[KMLViewController class] withTitle:@"KML Import" andDescription:nil],
+    [self newDemo:[GeoJSONViewController class] withTitle:@"GeoJSON Import" andDescription:nil]
   ];
   return demos;
 }
