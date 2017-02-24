@@ -106,7 +106,7 @@ static NSString *const kGMUGeometryRegex =
 
 - (instancetype)initWithURL:(NSURL *)url {
   if (self = [super init]) {
-    _data = [[NSData alloc] initWithContentsOfURL:url];
+    _stream = [[NSInputStream alloc] initWithURL:url];
     [self sharedInit];
   }
   return self;
