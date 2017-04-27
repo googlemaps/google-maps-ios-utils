@@ -11,8 +11,11 @@ to work around the issue.
 - In your project create a group named 'Google-Maps-iOS-Utils'.
 - Download the repo into your local computer.
 - Add the folders inside the src directory into your project by right clicking
-on the 'Google-Maps-iOS-Utils' group and selecting "Add Files to ..." (Make sure
-you select the target as your app target to avoid undefined symbols issue).
+on the 'Google-Maps-iOS-Utils' group and selecting "Add Files to ..." 
+- Expand the 'options' tab in the file explorer, use the following settings:
+  + 'Copy items if needed' should be deselected
+  + 'Added folders' should be set to 'Create groups'
+  + 'Add to targets' should be set to your app target to avoid undefined symbols issues
 - Make sure "Use Header Map" is ON for your app target in XCode Settings (it is
 ON by default in XCode).
 - Add a bridging header file with ```#import "GMUMarkerClustering.h"``` (*note
