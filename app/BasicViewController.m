@@ -85,18 +85,19 @@ typedef NS_ENUM(NSInteger, ClusterAlgorithmMode) {
 #pragma mark GMUClusterManagerDelegate
 
 // Zooms in on the cluster being tapped.
-- (void)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
+- (BOOL)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
   GMSCameraPosition *newCamera =
       [GMSCameraPosition cameraWithTarget:cluster.position zoom:_mapView.camera.zoom + 1];
   GMSCameraUpdate *update = [GMSCameraUpdate setCamera:newCamera];
   [_mapView moveCamera:update];
+  return YES;
 }
 
 #pragma mark GMSMapViewDelegate
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-  POIItem *poiItem = marker.userData;
-  if (poiItem != nil) {
+  if ([marker.userData isKindOfClass:[POIItem class]]) {
+    POIItem *poiItem = marker.userData;
     NSLog(@"Did tap marker for cluster item %@", poiItem.name);
   } else {
     NSLog(@"Did tap a normal marker");
