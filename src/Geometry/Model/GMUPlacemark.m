@@ -17,6 +17,8 @@
 
 @implementation GMUPlacemark
 
+@synthesize geometry = _geometry;
+
 @synthesize style = _style;
 
 - (instancetype)initWithGeometry:(id<GMUGeometry>)geometry

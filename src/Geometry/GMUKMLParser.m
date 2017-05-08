@@ -499,7 +499,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else if ([attribute isEqual:kGMURotationElementName]) {
     [self parseEndRotation];
   } else if ([attribute isEqual:kGMUDrawOrderElementName]) {
-    [_attributes setObject:[NSNumber numberWithInt:[_characters intValue]]
+    [_attributes setObject:@([_characters intValue])
                     forKey:kGMUZIndexElementName];
   } else if ([attribute isEqual:kGMUHrefElementName]) {
     if ([self isParsing:kGMUParserStateStyle]) {
@@ -536,7 +536,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else {
     rotation = 360 - rotation;
   }
-  [_attributes setObject:[NSNumber numberWithDouble:rotation] forKey:kGMURotationElementName];
+  [_attributes setObject:@(rotation) forKey:kGMURotationElementName];
 }
 
 - (void)parseEndCoordinates {
@@ -564,11 +564,11 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     didStartElement:(nonnull NSString *)elementName
        namespaceURI:(nullable NSString *)namespaceURI
       qualifiedName:(nullable NSString *)qualifiedName
-         attributes:(nonnull NSDictionary<NSString *,NSString *> *)attributeDict {
+         attributes:(nonnull NSDictionary<NSString *, NSString *> *)attributeDict {
   _characters = nil;
   if ([_styleRegex firstMatchInString:elementName
-                                     options:0
-                                       range:NSMakeRange(0, elementName.length)]) {
+                              options:0
+                                range:NSMakeRange(0, elementName.length)]) {
     [self parseBeginStyleWithElementName:elementName
                                  styleID:[attributeDict objectForKey:kGMUIdAttributeName]];
   } else if ([elementName isEqual:kGMUPlacemarkElementName] ||

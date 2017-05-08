@@ -36,11 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, nullable, readonly) NSString *snippet;
 
 /**
- * The geometry contained within the placemark.
- */
-@property(nonatomic, nullable, readonly) id<GMUGeometry> geometry;
-
-/**
  * The StyleUrl element of the placemark; used to reference a style defined in the file.
  */
 @property(nonatomic, nullable, readonly) NSString *styleUrl;
