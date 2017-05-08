@@ -39,12 +39,6 @@ static const CLLocationCoordinate2D kClusterPosition = {-35, 151};
                        @"Cluster position failed to initialize.");
 }
 
-- (void)testInitShouldThrow {
-  XCTAssertThrowsSpecificNamed([[GMUStaticCluster alloc] init], NSException,
-                               @"NSInvalidArgumentException",
-                               @"Should throw an exception when calling parameterless init");
-}
-
 - (void)testAddItem {
   GMUStaticCluster *cluster = [[GMUStaticCluster alloc] initWithPosition:kClusterPosition];
 
