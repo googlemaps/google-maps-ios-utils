@@ -14,3 +14,5 @@
  */
 
 #import <Google-Maps-iOS-Utils/GMUMarkerClustering.h>
+#import <Google-Maps-iOS-Utils/GMUKMLParser.h>
+#import <Google-Maps-iOS-Utils/GMUGeometryRenderer.h>

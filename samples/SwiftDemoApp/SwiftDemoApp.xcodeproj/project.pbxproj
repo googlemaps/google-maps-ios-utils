@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0237C7991EC2E9EB00744F5F /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 0237C7981EC2E9EB00744F5F /* KML_Sample.kml */; };
+		0237C79B1EC3F08700744F5F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79A1EC3F08700744F5F /* MasterViewController.swift */; };
+		0237C79D1EC3F75000744F5F /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79C1EC3F75000744F5F /* Samples.swift */; };
+		0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79E1EC3FC3500744F5F /* KMLViewController.swift */; };
 		02B36AD21D190D7E00EA3A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */; };
-		02B36AD41D190D7E00EA3A86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B36AD31D190D7E00EA3A86 /* ViewController.swift */; };
+		02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */; };
 		02B36AD71D190D7E00EA3A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AD51D190D7E00EA3A86 /* Main.storyboard */; };
-		02B36AD91D190D7E00EA3A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AD81D190D7E00EA3A86 /* Assets.xcassets */; };
 		02B36ADC1D190D7E00EA3A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */; };
 		02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AE91D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig */; };
 		02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AEA1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig */; };
@@ -18,11 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0237C7981EC2E9EB00744F5F /* KML_Sample.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KML_Sample.kml; sourceTree = "<group>"; };
+		0237C79A1EC3F08700744F5F /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		0237C79C1EC3F75000744F5F /* Samples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
+		0237C79E1EC3FC3500744F5F /* KMLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMLViewController.swift; sourceTree = "<group>"; };
 		02B36ACE1D190D7E00EA3A86 /* SwiftDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02B36AD31D190D7E00EA3A86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusteringViewController.swift; sourceTree = "<group>"; };
 		02B36AD61D190D7E00EA3A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		02B36AD81D190D7E00EA3A86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02B36ADB1D190D7E00EA3A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B36ADD1D190D7E00EA3A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B36AE31D19167800EA3A86 /* SwiftDemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -66,12 +72,15 @@
 			isa = PBXGroup;
 			children = (
 				02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */,
-				02B36AD31D190D7E00EA3A86 /* ViewController.swift */,
-				02B36AD51D190D7E00EA3A86 /* Main.storyboard */,
-				02B36AD81D190D7E00EA3A86 /* Assets.xcassets */,
-				02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */,
 				02B36ADD1D190D7E00EA3A86 /* Info.plist */,
+				02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */,
+				02B36AD51D190D7E00EA3A86 /* Main.storyboard */,
+				0237C79A1EC3F08700744F5F /* MasterViewController.swift */,
+				0237C7981EC2E9EB00744F5F /* KML_Sample.kml */,
+				0237C79E1EC3FC3500744F5F /* KMLViewController.swift */,
+				0237C79C1EC3F75000744F5F /* Samples.swift */,
 				02B36AE31D19167800EA3A86 /* SwiftDemoApp-Bridging-Header.h */,
+				02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */,
 			);
 			path = SwiftDemoApp;
 			sourceTree = "<group>";
@@ -129,6 +138,7 @@
 				TargetAttributes = {
 					02B36ACD1D190D7E00EA3A86 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -156,9 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */,
+				0237C7991EC2E9EB00744F5F /* KML_Sample.kml in Resources */,
 				02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */,
 				02B36ADC1D190D7E00EA3A86 /* LaunchScreen.storyboard in Resources */,
-				02B36AD91D190D7E00EA3A86 /* Assets.xcassets in Resources */,
 				02B36AD71D190D7E00EA3A86 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,8 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B36AD41D190D7E00EA3A86 /* ViewController.swift in Sources */,
+				02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */,
+				0237C79D1EC3F75000744F5F /* Samples.swift in Sources */,
+				0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */,
 				02B36AD21D190D7E00EA3A86 /* AppDelegate.swift in Sources */,
+				0237C79B1EC3F08700744F5F /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemoApp/SwiftDemoApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -354,6 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemoApp/SwiftDemoApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

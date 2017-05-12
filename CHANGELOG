@@ -1,3 +1,13 @@
+Version 2.0.0 - May 2017
+========================
+Features:
+- KML and GeoJSON rendering.
+- Changed GMUClusterManagerDelegate's methods to return a BOOL to indicate
+whether the event should pass through to other handlers. This will give
+applications the ability to allow the default info window to be shown
+when tapping on a marker. Please note this is a breaking change so existing
+code needs to be updated.
+
 Version 1.1.2 - October 2016
 ============================
 Resolved Issues:
