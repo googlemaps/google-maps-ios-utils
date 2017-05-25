@@ -59,8 +59,8 @@
 
 /**
  * Split the contents of this Quad over four child quads.
- * @param ownBounds    The bounds of this node.
- * @param accumulator  The results of the search.
+ * @param ownBounds The bounds of this node.
+ * @param depth     The depth of this node.
  */
 - (void)splitWithOwnBounds:(GQTBounds)ownBounds atDepth:(NSUInteger)depth;
 
