@@ -16,25 +16,22 @@
 import GoogleMaps
 import UIKit
 
-class KMLViewController: UIViewController {
+class GeoJSONViewController: UIViewController {
   private var mapView: GMSMapView!
   private var renderer: GMUGeometryRenderer!
-  private var kmlParser: GMUKMLParser!
   private var geoJsonParser: GMUGeoJSONParser!
 
   override func loadView() {
-    let camera = GMSCameraPosition.camera(withLatitude: 37.4220, longitude: -122.0841, zoom: 17)
+    let camera = GMSCameraPosition.camera(withLatitude: -28, longitude: 137, zoom: 4)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     self.view = mapView
 
-    let path = Bundle.main.path(forResource: "KML_Sample", ofType: "kml")
+    let path = Bundle.main.path(forResource: "GeoJSON_sample", ofType: "json")
     let url = URL(fileURLWithPath: path!)
-    kmlParser = GMUKMLParser(url: url)
-    kmlParser.parse()
+    geoJsonParser = GMUGeoJSONParser(url: url)
+    geoJsonParser.parse()
 
-    renderer = GMUGeometryRenderer(map: mapView,
-                                   geometries: kmlParser.placemarks,
-                                   styles: kmlParser.styles)
+    renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
 
     renderer.render()
   }

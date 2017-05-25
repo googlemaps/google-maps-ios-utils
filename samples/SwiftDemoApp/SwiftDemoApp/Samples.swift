@@ -22,7 +22,10 @@ class Samples {
                      description: "Marker Clustering"),
              newDemo(controller: KMLViewController.self,
                      title: "KML",
-                     description: "KML Rendering") ]
+                     description: "KML Rendering"),
+             newDemo(controller: GeoJSONViewController.self,
+                     title: "GeoJSON",
+                     description: "GeoJSON Rendering")]
   }
 
   class func newDemo(controller: AnyClass!, title: String!, description: String!) -> NSDictionary! {
