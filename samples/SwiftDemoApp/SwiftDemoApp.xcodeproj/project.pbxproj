@@ -17,6 +17,8 @@
 		02B36ADC1D190D7E00EA3A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */; };
 		02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AE91D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig */; };
 		02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AEA1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig */; };
+		E5D4DFA71ED77042003096B4 /* GeoJSON_sample.json in Resources */ = {isa = PBXBuildFile; fileRef = E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */; };
+		E5D4DFA91ED7735A003096B4 /* GeoJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */; };
 		EBB8274BF9F8BD96F1C9A9A1 /* libPods-SwiftDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDBF8DC68B04F2B33CFB347 /* libPods-SwiftDemoApp.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		02B36AEA1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemoApp/Pods-SwiftDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		140BD18A05C0889DC5C41E03 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDBF8DC68B04F2B33CFB347 /* libPods-SwiftDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeoJSON_sample.json; sourceTree = "<group>"; };
+		E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSONViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				0237C79C1EC3F75000744F5F /* Samples.swift */,
 				02B36AE31D19167800EA3A86 /* SwiftDemoApp-Bridging-Header.h */,
 				02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */,
+				E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */,
+				E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */,
 			);
 			path = SwiftDemoApp;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 				02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */,
 				0237C7991EC2E9EB00744F5F /* KML_Sample.kml in Resources */,
 				02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */,
+				E5D4DFA71ED77042003096B4 /* GeoJSON_sample.json in Resources */,
 				02B36ADC1D190D7E00EA3A86 /* LaunchScreen.storyboard in Resources */,
 				02B36AD71D190D7E00EA3A86 /* Main.storyboard in Resources */,
 			);
@@ -203,7 +210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6DB2DE912035DC43C1A4FD9E /* [CP] Copy Pods Resources */ = {
@@ -228,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D4DFA91ED7735A003096B4 /* GeoJSONViewController.swift in Sources */,
 				02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */,
 				0237C79D1EC3F75000744F5F /* Samples.swift in Sources */,
 				0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */,
