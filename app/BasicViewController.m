@@ -164,6 +164,8 @@ typedef NS_ENUM(NSInteger, ClusterAlgorithmMode) {
   _clusterManager = nil;
 }
 
+#pragma mark GMUClusterRendererDelegate
+
 - (void)renderer:(id<GMUClusterRenderer>)renderer willRenderMarker:(GMSMarker *)marker {
   if ([marker.userData isKindOfClass:[POIItem class]]) {
     POIItem *item = marker.userData;
