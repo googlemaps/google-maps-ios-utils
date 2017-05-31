@@ -20,5 +20,6 @@
 #import <Google-Maps-iOS-Utils/GMUDefaultClusterRenderer.h>
 #import <Google-Maps-iOS-Utils/GMUGridBasedClusterAlgorithm.h>
 #import <Google-Maps-iOS-Utils/GMUNonHierarchicalDistanceBasedAlgorithm.h>
+#import <Google-Maps-iOS-Utils/GMUStaticCluster.h>
 
 #import "Google-Maps-iOS-Utils/GQTPointQuadTree.h"
