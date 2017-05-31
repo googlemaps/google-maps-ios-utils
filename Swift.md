@@ -1,5 +1,10 @@
 Integrating with Swift projects which use 'use_frameworks!' in the Podfile
 ==========================================================================
+
+**Note:** These instructions are only for the case where you have a `PodFile`
+that declares `use_frameworks!` in it. If your `Podfile` doesn't have 
+`use_frameworks!` in it, please use the `Google-Maps-iOS-Utils` cocoapod directly.
+
 It is a known issue that adding the utility library to a Podfile which has
 'use_frameworks!' will cause the error, "target has transitive dependencies
 that include static binaries". Until GoogleMaps is a dynamic framework (when we
