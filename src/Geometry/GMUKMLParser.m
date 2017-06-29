@@ -298,9 +298,9 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 - (UIColor *)randomColorFromColor:(UIColor *)color {
   CGFloat red, green, blue, alpha;
   [color getRed:&red green:&green blue:&blue alpha:&alpha];
-  red = ((CGFloat)arc4random_uniform((uint32_t)(red * 255))) / 255.0;
-  green = ((CGFloat)arc4random_uniform((uint32_t)(green * 255))) / 255.0;
-  blue = ((CGFloat)arc4random_uniform((uint32_t)(blue * 255))) / 255.0;
+  red = ((CGFloat)arc4random_uniform((uint32_t)(red * 255))) / 255.0f;
+  green = ((CGFloat)arc4random_uniform((uint32_t)(green * 255))) / 255.0f;
+  blue = ((CGFloat)arc4random_uniform((uint32_t)(blue * 255))) / 255.0f;
   return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
@@ -322,7 +322,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else {
     isValidHotspot = NO;
   }
-  _anchor = isValidHotspot ? CGPointMake(x, y) : CGPointMake(0.5f, 1.0f);
+  _anchor = isValidHotspot ? CGPointMake((CGFloat)x, (CGFloat)y) : CGPointMake(0.5f, 1.0f);
 }
 
 - (void)parseBeginBoundaryWithElementName:(NSString *)elementName {

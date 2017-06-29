@@ -20,9 +20,9 @@
 #import "GMUDefaultClusterIconGenerator+Testing.h"
 
 #define UIColorFromHEX(hexValue)                                         \
-  [UIColor colorWithRed:((CGFloat)((hexValue & 0xff0000) >> 16)) / 255.0 \
-                  green:((CGFloat)((hexValue & 0x00ff00) >> 8)) / 255.0  \
-                   blue:((CGFloat)((hexValue & 0x0000ff) >> 0)) / 255.0  \
+  [UIColor colorWithRed:((CGFloat)((hexValue & 0xff0000) >> 16)) / 255.0f \
+                  green:((CGFloat)((hexValue & 0x00ff00) >> 8)) / 255.0f  \
+                   blue:((CGFloat)((hexValue & 0x0000ff) >> 0)) / 255.0f  \
                   alpha:1.0]
 
 // Default bucket background colors when no background images are set.

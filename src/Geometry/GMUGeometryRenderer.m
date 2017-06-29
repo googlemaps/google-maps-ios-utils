@@ -158,10 +158,10 @@
   } else {
     marker.title = style.title;
   }
-  if (style.anchor.x && style.anchor.y) {
+  if (style.anchor.x != 0 && style.anchor.y != 0) {
     marker.groundAnchor = style.anchor;
   }
-  if (style.heading) {
+  if (style.heading != 0) {
     marker.rotation = style.heading;
   }
   if (style.iconUrl) {
@@ -191,7 +191,7 @@
                container:(id<GMUGeometryContainer>)container
                    style:(GMUStyle *)style {
   GMSPolyline *line = [GMSPolyline polylineWithPath:lineString.path];
-  if (style.width) {
+  if (style.width != 0) {
     line.strokeWidth = style.width;
   }
   if (style.strokeColor) {
@@ -226,7 +226,7 @@
     if (style.strokeColor) {
       poly.strokeColor = style.strokeColor;
     }
-    if (style.width) {
+    if (style.width != 0) {
       poly.strokeWidth = style.width;
     }
   }

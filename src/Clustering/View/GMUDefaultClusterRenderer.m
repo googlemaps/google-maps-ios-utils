@@ -166,7 +166,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   }
 
   // Clears existing markers after animation has presumably ended.
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kGMUAnimationDuration * NSEC_PER_SEC),
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kGMUAnimationDuration * NSEC_PER_SEC)),
                  dispatch_get_main_queue(), ^{
                    [self clearMarkers:markers];
                  });
