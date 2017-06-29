@@ -51,14 +51,14 @@ static const NSUInteger kClusterCount = 10;
   NSMutableArray<id<GMUCluster>> *clusters =
       [[NSMutableArray alloc] initWithCapacity:kClusterCount];
 
-  for (int i = 0; i < kClusterCount; ++i) {
+  for (NSUInteger i = 0; i < kClusterCount; ++i) {
     if (i >= _items.count) break;
     id<GMUClusterItem> item = _items[i];
     [clusters addObject:[[GMUStaticCluster alloc] initWithPosition:item.position]];
   }
 
   NSUInteger clusterIndex = 0;
-  for (int i = kClusterCount; i < _items.count; ++i) {
+  for (NSUInteger i = kClusterCount; i < _items.count; ++i) {
     id<GMUClusterItem> item = _items[i];
     GMUStaticCluster *cluster = clusters[clusterIndex % kClusterCount];
     [cluster addItem:item];

@@ -298,9 +298,9 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 - (UIColor *)randomColorFromColor:(UIColor *)color {
   CGFloat red, green, blue, alpha;
   [color getRed:&red green:&green blue:&blue alpha:&alpha];
-  red = ((CGFloat)arc4random_uniform((int)(red * 255))) / 255.0;
-  green = ((CGFloat)arc4random_uniform((int)(green * 255))) / 255.0;
-  blue = ((CGFloat)arc4random_uniform((int)(blue * 255))) / 255.0;
+  red = ((CGFloat)arc4random_uniform((uint32_t)(red * 255))) / 255.0;
+  green = ((CGFloat)arc4random_uniform((uint32_t)(green * 255))) / 255.0;
+  blue = ((CGFloat)arc4random_uniform((uint32_t)(blue * 255))) / 255.0;
   return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 

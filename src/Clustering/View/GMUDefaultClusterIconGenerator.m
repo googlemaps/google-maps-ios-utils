@@ -71,13 +71,13 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
     if (buckets.count == 0) {
       [NSException raise:NSInvalidArgumentException format:@"buckets are empty"];
     }
-    for (int i = 0; i < buckets.count; ++i) {
+    for (NSUInteger i = 0; i < buckets.count; ++i) {
       if (buckets[i].longLongValue <= 0) {
         [NSException raise:NSInvalidArgumentException
                     format:@"buckets have non positive values"];
       }
     }
-    for (int i = 0; i < buckets.count - 1; ++i) {
+    for (NSUInteger i = 0; i < buckets.count - 1; ++i) {
       if (buckets[i].longLongValue >= buckets[i+1].longLongValue) {
         [NSException raise:NSInvalidArgumentException
                     format:@"buckets are not strictly increasing"];
