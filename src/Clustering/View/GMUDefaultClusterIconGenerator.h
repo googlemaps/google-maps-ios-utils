@@ -50,6 +50,16 @@ NS_ASSUME_NONNULL_BEGIN
                backgroundImages:(NSArray<UIImage *> *)backgroundImages;
 
 /**
+ * Initializes the class with a list of buckets and the corresponding background colors.
+ *
+ * Notes:
+ * - |buckets| should be strictly increasing. For example: @[@10, @20, @100, @1000].
+ * - |buckets| and |backgroundColors| must have equal non zero lengths.
+ */
+- (instancetype)initWithBuckets:(NSArray<NSNumber *> *)buckets
+               backgroundColors:(NSArray<UIColor *> *)backgroundColors;
+
+/**
  * Generates an icon with the given size.
  */
 - (UIImage *)iconForSize:(NSUInteger)size;

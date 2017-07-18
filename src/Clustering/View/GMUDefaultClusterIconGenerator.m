@@ -66,6 +66,20 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   return self;
 }
 
+- (instancetype)initWithBuckets:(NSArray<NSNumber *> *)buckets
+               backgroundColors:(NSArray<UIColor *> *)backgroundColors {
+  if ((self = [self initWithBuckets:buckets]) != nil) {
+    if (buckets.count != backgroundColors.count) {
+      [NSException raise:NSInvalidArgumentException
+                  format:@"buckets' size: %lu is not equal to backgroundColors' size: %lu",
+                         (unsigned long) buckets.count, (unsigned long) backgroundColors.count];
+    }
+
+    kGMUBucketBackgroundColors = [backgroundColors copy];
+  }
+  return self;
+}
+
 - (instancetype)initWithBuckets:(NSArray<NSNumber *> *)buckets {
   if ((self = [self init]) != nil) {
     if (buckets.count == 0) {
