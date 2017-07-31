@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Note that changing a marker's position is not recommended because it will
  * interfere with the marker animation.
  */
-- (GMSMarker *)renderer:(id<GMUClusterRenderer>)renderer markerForObject:(id)object;
+- (nullable GMSMarker *)renderer:(id<GMUClusterRenderer>)renderer markerForObject:(id)object;
 
 /**
  * Raised when a marker (for a cluster or an item) is about to be added to the map.
