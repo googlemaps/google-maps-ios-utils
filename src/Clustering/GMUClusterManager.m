@@ -181,6 +181,12 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
   return nil;
 }
 
+- (void)mapView:(GMSMapView *)mapView didTapPOIWithPlaceID:(NSString *)placeID name:(NSString *)name location:(CLLocationCoordinate2D)location {
+    if ([_mapDelegate respondsToSelector:@selector(mapView:didTapPOIWithPlaceID:name:location:)]) {
+        [_mapDelegate mapView:mapView didTapPOIWithPlaceID:placeID name:name location:location];
+    }
+}
+
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker {
   if ([_mapDelegate respondsToSelector:@selector(mapView:markerInfoContents:)]) {
     return [_mapDelegate mapView:mapView markerInfoContents:marker];
