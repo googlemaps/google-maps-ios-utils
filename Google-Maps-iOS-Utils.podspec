@@ -32,4 +32,8 @@ Pod::Spec.new do |s|
     sp.source_files = 'src/Geometry/**/*.{h,m}'
   end
 
+  s.subspec 'Heatmap' do |sp|
+    sp.source_files = 'src/Heatmap/**/*.{h,m}'
+    sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
+  end
 end
