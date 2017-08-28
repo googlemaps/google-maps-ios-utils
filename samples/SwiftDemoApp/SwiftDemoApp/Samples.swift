@@ -25,7 +25,10 @@ class Samples {
                      description: "KML Rendering"),
              newDemo(controller: GeoJSONViewController.self,
                      title: "GeoJSON",
-                     description: "GeoJSON Rendering")]
+                     description: "GeoJSON Rendering"),
+             newDemo(controller: HeatmapViewController.self,
+                     title: "Heatmaps",
+                     description: "Heatmaps")]
   }
 
   class func newDemo(controller: AnyClass!, title: String!, description: String!) -> NSDictionary! {
