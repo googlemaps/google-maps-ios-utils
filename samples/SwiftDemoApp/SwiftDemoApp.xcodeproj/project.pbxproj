@@ -19,6 +19,8 @@
 		02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AEA1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig */; };
 		E5D4DFA71ED77042003096B4 /* GeoJSON_sample.json in Resources */ = {isa = PBXBuildFile; fileRef = E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */; };
 		E5D4DFA91ED7735A003096B4 /* GeoJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */; };
+		E5D7697F1F54BA6200288D02 /* HeatmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7697E1F54BA6200288D02 /* HeatmapViewController.swift */; };
+		E5D769811F54BAC100288D02 /* police_stations.json in Resources */ = {isa = PBXBuildFile; fileRef = E5D769801F54BAC100288D02 /* police_stations.json */; };
 		EBB8274BF9F8BD96F1C9A9A1 /* libPods-SwiftDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDBF8DC68B04F2B33CFB347 /* libPods-SwiftDemoApp.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		7DDBF8DC68B04F2B33CFB347 /* libPods-SwiftDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GeoJSON_sample.json; sourceTree = "<group>"; };
 		E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSONViewController.swift; sourceTree = "<group>"; };
+		E5D7697E1F54BA6200288D02 /* HeatmapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapViewController.swift; sourceTree = "<group>"; };
+		E5D769801F54BAC100288D02 /* police_stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = police_stations.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		02B36AD01D190D7E00EA3A86 /* SwiftDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5D769801F54BAC100288D02 /* police_stations.json */,
 				02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */,
 				02B36ADD1D190D7E00EA3A86 /* Info.plist */,
 				02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */,
@@ -87,6 +92,7 @@
 				02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */,
 				E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */,
 				E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */,
+				E5D7697E1F54BA6200288D02 /* HeatmapViewController.swift */,
 			);
 			path = SwiftDemoApp;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */,
+				E5D769811F54BAC100288D02 /* police_stations.json in Resources */,
 				0237C7991EC2E9EB00744F5F /* KML_Sample.kml in Resources */,
 				02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */,
 				E5D4DFA71ED77042003096B4 /* GeoJSON_sample.json in Resources */,
@@ -239,6 +246,7 @@
 				02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */,
 				0237C79D1EC3F75000744F5F /* Samples.swift in Sources */,
 				0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */,
+				E5D7697F1F54BA6200288D02 /* HeatmapViewController.swift in Sources */,
 				02B36AD21D190D7E00EA3A86 /* AppDelegate.swift in Sources */,
 				0237C79B1EC3F08700744F5F /* MasterViewController.swift in Sources */,
 			);
