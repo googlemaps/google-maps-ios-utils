@@ -13,6 +13,8 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 - **Geometry libraries** - KML and GeoJSON rendering
 <p align="center"><img width="90%" vspace="20" src="https://cloud.githubusercontent.com/assets/16808355/25834988/ca7c3566-34be-11e7-8f07-16c3ae9de63a.png"></p>
 
+- **Heatmaps** - Heatmap rendering
+<p align="center"><img width="90%" vspace="20" src="https://user-images.githubusercontent.com/16808355/30678820-54243eb6-9ed8-11e7-81b4-c1afe3df37b3.png"></p>
 
 For more information, check out the detailed guide on the
 [Google Developers site][devsite-guide].
@@ -22,6 +24,7 @@ For more information, check out the detailed guide on the
 * [Integrating with Swift][swift].
 * [Customizing markers][customizing-markers].
 * [KML and GeoJSON rendering][geometry-rendering]
+* [Heatmap rendering][heatmap-rendering]
 
 [contributing]: CONTRIBUTING.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
@@ -30,3 +33,4 @@ For more information, check out the detailed guide on the
 [swift]: Swift.md
 [customizing-markers]: CustomMarkers.md
 [geometry-rendering]: GeometryRendering.md
+[heatmap-rendering]: HeatmapRendering.md
