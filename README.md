@@ -1,4 +1,4 @@
-Google Maps SDK for iOS utility library
+Google Maps SDK for iOS Utility Library
 =======================================
 
 This open-source library contains classes that are useful for a wide
