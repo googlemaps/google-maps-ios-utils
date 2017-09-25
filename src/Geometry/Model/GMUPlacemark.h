@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param geometry The geometry of the placemark.
  * @param title The title of the placemark.
  * @param snippet The snippet text of the placemark.
- * @param inlineStyle The inline style of the placemark.
+ * @param style The inline style of the placemark.
  * @param styleUrl The url to the style of the placemark.
  */
 - (instancetype)initWithGeometry:(id<GMUGeometry> _Nullable)geometry
