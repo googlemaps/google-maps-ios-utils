@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Initializes a GMULineString object with a path.
  *
- * @param coordinates The path of the LineString.
+ * @param path The path of the LineString.
  */
 - (instancetype)initWithPath:(GMSPath *)path;
 
