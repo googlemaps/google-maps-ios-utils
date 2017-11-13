@@ -32,6 +32,7 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   NSCache *_iconCache;
   NSArray<NSNumber *> *_buckets;
   NSArray<UIImage *> *_backgroundImages;
+  NSArray<UIImage *> *_backgroundColors;
 }
 
 + (void)initialize {
@@ -48,6 +49,7 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   if ((self = [super init]) != nil) {
     _iconCache = [[NSCache alloc] init];
     _buckets = @[ @10, @50, @100, @200, @1000 ];
+    _backgroundColors = [kGMUBucketBackgroundColors copy];
   }
   return self;
 }
@@ -75,7 +77,7 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
                          (unsigned long) buckets.count, (unsigned long) backgroundColors.count];
     }
 
-    kGMUBucketBackgroundColors = [backgroundColors copy];
+    _backgroundColors = [backgroundColors copy];
   }
   return self;
 }
@@ -189,8 +191,8 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
   CGContextRef ctx = UIGraphicsGetCurrentContext();
   CGContextSaveGState(ctx);
-  bucketIndex = MIN(bucketIndex, kGMUBucketBackgroundColors.count - 1);
-  UIColor *backColor = kGMUBucketBackgroundColors[bucketIndex];
+  bucketIndex = MIN(bucketIndex, _backgroundColors.count - 1);
+  UIColor *backColor = _backgroundColors[bucketIndex];
   CGContextSetFillColorWithColor(ctx, backColor.CGColor);
   CGContextFillEllipseInRect(ctx, rect);
   CGContextRestoreGState(ctx);
