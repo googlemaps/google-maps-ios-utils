@@ -32,7 +32,7 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   NSCache *_iconCache;
   NSArray<NSNumber *> *_buckets;
   NSArray<UIImage *> *_backgroundImages;
-  NSArray<UIImage *> *_backgroundColors;
+  NSArray<UIColor *> *_backgroundColors;
 }
 
 + (void)initialize {
