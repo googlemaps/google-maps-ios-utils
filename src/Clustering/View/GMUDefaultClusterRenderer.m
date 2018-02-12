@@ -229,7 +229,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     if ([_renderedClusters containsObject:cluster]) continue;
 
     BOOL shouldShowCluster = [visibleBounds containsCoordinate:cluster.position];
-    BOOL shouldRenderAsCluster [self shouldRenderAsCluster:cluster atZoom: _mapView.camera.zoom];
+    BOOL shouldRenderAsCluster = [self shouldRenderAsCluster:cluster atZoom: _mapView.camera.zoom];
 
     if (!shouldShowCluster) {
       for (id<GMUClusterItem> item in cluster.items) {
