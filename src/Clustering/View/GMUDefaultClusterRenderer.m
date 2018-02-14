@@ -233,8 +233,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
     if (!shouldShowCluster) {
       for (id<GMUClusterItem> item in cluster.items) {
-        BOOL itemIsVisible = [visibleBounds containsCoordinate:item.position];
-        if (!shouldRenderAsCluster && itemIsVisible) {
+        if (!shouldRenderAsCluster && [visibleBounds containsCoordinate:item.position]) {
           shouldShowCluster = YES;
           break;
         }
