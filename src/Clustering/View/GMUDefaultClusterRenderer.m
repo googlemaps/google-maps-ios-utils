@@ -198,7 +198,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     for (id<GMUCluster> cluster in _clusters) {
       if (![self shouldRenderAsCluster:cluster atZoom:zoom]
           && ![self shouldRenderAsCluster:cluster atZoom:_previousZoom]) {
-          continue;
+        continue;
       }
       for (id<GMUClusterItem> clusterItem in cluster.items) {
         GMUWrappingDictionaryKey *key =
