@@ -107,7 +107,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   BOOL isZoomingIn = zoom > _previousZoom;
 
   [self prepareClustersForAnimation:clusters isZoomingIn:isZoomingIn];
-    
+
   _previousZoom = zoom;
 
   _clusters = [clusters copy];
