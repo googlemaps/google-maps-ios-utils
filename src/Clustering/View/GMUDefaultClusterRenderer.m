@@ -241,7 +241,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
         if (animated) {
           GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
           id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
-          if (oldCluster != nil && itemIsVisible) {
+          if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
             shouldShowCluster = YES;
             break;
           }
