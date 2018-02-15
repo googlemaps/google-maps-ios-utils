@@ -105,9 +105,10 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 - (void)renderAnimatedClusters:(NSArray<id<GMUCluster>> *)clusters {
   float zoom = _mapView.camera.zoom;
   BOOL isZoomingIn = zoom > _previousZoom;
-  _previousZoom = zoom;
 
   [self prepareClustersForAnimation:clusters isZoomingIn:isZoomingIn];
+
+  _previousZoom = zoom;
 
   _clusters = [clusters copy];
 
@@ -195,7 +196,10 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     _itemToOldClusterMap =
         [[NSMutableDictionary<GMUWrappingDictionaryKey *, id<GMUCluster>> alloc] init];
     for (id<GMUCluster> cluster in _clusters) {
-      if (![self shouldRenderAsCluster:cluster atZoom:zoom]) continue;
+      if (![self shouldRenderAsCluster:cluster atZoom:zoom]
+          && ![self shouldRenderAsCluster:cluster atZoom:_previousZoom]) {
+        continue;
+      }
       for (id<GMUClusterItem> clusterItem in cluster.items) {
         GMUWrappingDictionaryKey *key =
             [[GMUWrappingDictionaryKey alloc] initWithObject:clusterItem];
