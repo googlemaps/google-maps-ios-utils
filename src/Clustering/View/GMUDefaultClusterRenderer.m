@@ -229,13 +229,21 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     if ([_renderedClusters containsObject:cluster]) continue;
 
     BOOL shouldShowCluster = [visibleBounds containsCoordinate:cluster.position];
-    if (!shouldShowCluster && animated) {
+    BOOL shouldRenderAsCluster = [self shouldRenderAsCluster:cluster atZoom: _mapView.camera.zoom];
+
+    if (!shouldShowCluster) {
       for (id<GMUClusterItem> item in cluster.items) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
-        if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
+        if (!shouldRenderAsCluster && [visibleBounds containsCoordinate:item.position]) {
           shouldShowCluster = YES;
           break;
+        }
+        if (animated) {
+          GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
+          id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
+          if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
+            shouldShowCluster = YES;
+            break;
+          }
         }
       }
     }
