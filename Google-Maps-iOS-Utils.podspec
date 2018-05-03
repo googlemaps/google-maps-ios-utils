@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
                      :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
   s.dependency 'GoogleMaps'
-  s.compiler_flags = '-fno-modules'
 
   s.subspec 'QuadTree' do |sp|
     sp.source_files = 'src/QuadTree/**/*.{h,m}'
