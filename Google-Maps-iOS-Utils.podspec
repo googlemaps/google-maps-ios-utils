@@ -1,3 +1,5 @@
+load 'scripts/generated/icons.rb'
+
 Pod::Spec.new do |s|
 
   s.name         = "Google-Maps-iOS-Utils"
