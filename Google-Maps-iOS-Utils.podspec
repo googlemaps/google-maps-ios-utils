@@ -1,4 +1,4 @@
-load 'scripts/generated/icons.rb'
+
 
 Pod::Spec.new do |s|
 
