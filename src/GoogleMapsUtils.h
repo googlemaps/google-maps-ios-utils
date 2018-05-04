@@ -23,7 +23,6 @@
 #import <GoogleMapsUtils/GMUClusterItem.h>
 #import <GoogleMapsUtils/GMUClusterManager.h>
 #import <GoogleMapsUtils/GMUClusterManager+Testing.h>
-#import <GoogleMapsUtils/GMUMarkerClustering.h>
 #import <GoogleMapsUtils/GMUStaticCluster.h>
 #import <GoogleMapsUtils/GMUClusterIconGenerator.h>
 #import <GoogleMapsUtils/GMUClusterRenderer.h>
