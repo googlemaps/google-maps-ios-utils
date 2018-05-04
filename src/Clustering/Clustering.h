@@ -22,7 +22,6 @@
 #import "GMUClusterItem.h"
 #import "GMUClusterManager.h"
 #import "GMUClusterManager+Testing.h"
-#import "GMUMarkerClustering.h"
 #import "GMUStaticCluster.h"
 #import "GMUClusterIconGenerator.h"
 #import "GMUClusterRenderer.h"
