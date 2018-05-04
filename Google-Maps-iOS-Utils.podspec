@@ -18,8 +18,12 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
                      :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
+  s.module_name = "GoogleMapsUtils"
+  
   s.dependency 'GoogleMaps'
+  s.static_framework = true
 
+  
   s.subspec 'QuadTree' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
     sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
@@ -28,8 +32,8 @@ Pod::Spec.new do |s|
   s.subspec 'Clustering' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
     sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
+    sp.exclude_files = "src/#{sp.base_name}/GMUMarkerClustering.h"
     sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
-    sp.dependency 'GoogleMaps'
   end
 
   s.subspec 'Geometry' do |sp|
@@ -41,6 +45,5 @@ Pod::Spec.new do |s|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
     sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
     sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
-    sp.dependency 'GoogleMaps'
   end
 end
