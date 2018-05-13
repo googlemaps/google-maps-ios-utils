@@ -44,6 +44,12 @@ NS_ASSUME_NONNULL_BEGIN
 // The gradient used to map smoothed intensities to colors in the tiles.
 @property(nonatomic) GMUGradient *gradient;
 
+// The minimum zoom intensity used for normalizing intensities, defaults to 5
+@property(nonatomic) NSUInteger minimumZoomIntensity;
+
+// The maximum zoom intensity used for normalizing intensities, defaults to 10
+@property(nonatomic) NSUInteger maximumZoomIntensity;
+
 @end
 
 NS_ASSUME_NONNULL_END
