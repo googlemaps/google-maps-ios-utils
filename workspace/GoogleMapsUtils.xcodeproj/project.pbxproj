@@ -89,10 +89,10 @@
 		3491C84F1E5D2DB200A2FA04 /* GeoJSON_Sample.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 3491C84C1E5D2DB200A2FA04 /* GeoJSON_Sample.geojson */; };
 		3491C8501E5D2DB200A2FA04 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 3491C84E1E5D2DB200A2FA04 /* KML_Sample.kml */; };
 		49CAD6F870C5583C82B43593 /* libPods-DevApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662F6FAE156096701716AEEC /* libPods-DevApp.a */; };
+		720C7E5D20B59CB500F026F6 /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945351F02180900FBF534 /* GMUGradient.m */; };
+		720C7E5E20B59CB500F026F6 /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */; };
+		720C7E5F20B59CB500F026F6 /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945361F02180900FBF534 /* GMUWeightedLatLng.m */; };
 		8869518CED7812A43442DF2E /* libPods-UnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */; };
-		B4F945371F02180900FBF534 /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */; };
-		B4F945381F02180900FBF534 /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945351F02180900FBF534 /* GMUGradient.m */; };
-		B4F945391F02180900FBF534 /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945361F02180900FBF534 /* GMUWeightedLatLng.m */; };
 		B4F9453C1F02181900FBF534 /* HeatmapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F9453A1F02181900FBF534 /* HeatmapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -969,6 +969,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720C7E5D20B59CB500F026F6 /* GMUGradient.m in Sources */,
+				720C7E5E20B59CB500F026F6 /* GMUHeatmapTileLayer.m in Sources */,
+				720C7E5F20B59CB500F026F6 /* GMUWeightedLatLng.m in Sources */,
 				0242D1A81C7C19E600557130 /* GMUStaticCluster.m in Sources */,
 				3491C8061E5D192400A2FA04 /* GMUKMLParser.m in Sources */,
 				0242D1AA1C7C19E600557130 /* GMUDefaultClusterRenderer.m in Sources */,
@@ -1004,11 +1007,8 @@
 				3491C84A1E5D2D5300A2FA04 /* KMLViewController.m in Sources */,
 				B4F9453C1F02181900FBF534 /* HeatmapViewController.m in Sources */,
 				02F87BFB1D20B61000C65016 /* main.m in Sources */,
-				B4F945381F02180900FBF534 /* GMUGradient.m in Sources */,
 				0229C0FD1D9B4C0800551202 /* CustomMarkerViewController.m in Sources */,
 				3491C8491E5D2D5300A2FA04 /* GeoJSONViewController.m in Sources */,
-				B4F945371F02180900FBF534 /* GMUHeatmapTileLayer.m in Sources */,
-				B4F945391F02180900FBF534 /* GMUWeightedLatLng.m in Sources */,
 				02F87BFC1D20B61000C65016 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
