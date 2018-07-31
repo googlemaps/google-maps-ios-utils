@@ -37,7 +37,6 @@
   NSUInteger count_;
 }
 
-
 - (id)initWithBounds:(GQTBounds)bounds {
   if (self = [super init]) {
     bounds_ = bounds;
@@ -57,9 +56,7 @@
   }
 
   GQTPoint point = item.point;
-  if (point.x > bounds_.maxX ||
-      point.x < bounds_.minX ||
-      point.y > bounds_.maxY ||
+  if (point.x > bounds_.maxX || point.x < bounds_.minX || point.y > bounds_.maxY ||
       point.y < bounds_.minY) {
     return NO;
   }
@@ -78,9 +75,7 @@
  */
 - (BOOL)remove:(id<GQTPointQuadTreeItem>)item {
   GQTPoint point = item.point;
-  if (point.x > bounds_.maxX ||
-      point.x < bounds_.minX ||
-      point.y > bounds_.maxY ||
+  if (point.x > bounds_.maxX || point.x < bounds_.minX || point.y > bounds_.maxY ||
       point.y < bounds_.minY) {
     return NO;
   }
@@ -108,7 +103,6 @@
  * @param searchBounds The bounds of the search box.
  */
 - (NSArray *)searchWithBounds:(GQTBounds)searchBounds {
-
   NSMutableArray *results = [NSMutableArray array];
   [root_ searchWithBounds:searchBounds withOwnBounds:bounds_ results:results];
   return results;
@@ -119,4 +113,3 @@
 }
 
 @end
-

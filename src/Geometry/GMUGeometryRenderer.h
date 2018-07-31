@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithMap:(GMSMapView *)map
                  geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
-                     styles:(NSArray<GMUStyle *> * _Nullable)styles;
+                     styles:(NSArray<GMUStyle *> *_Nullable)styles;
 /**
  * Renders the geometries onto the Google Map.
  */

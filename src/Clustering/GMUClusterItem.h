@@ -26,4 +26,3 @@
 @property(nonatomic, readonly) CLLocationCoordinate2D position;
 
 @end
-

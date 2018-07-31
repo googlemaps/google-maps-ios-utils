@@ -14,11 +14,10 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "GQTPointQuadTreeItem.h"
 #import "GQTBounds.h"
+#import "GQTPointQuadTreeItem.h"
 
 @interface GQTPointQuadTree : NSObject
-
 
 /**
  * Create a QuadTree with bounds. Please note, this class is not thread safe.
@@ -72,4 +71,3 @@
 - (NSUInteger)count;
 
 @end
-

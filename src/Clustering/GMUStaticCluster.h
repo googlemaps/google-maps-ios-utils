@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Defines a cluster where its position is fixed upon construction.
  */
-@interface GMUStaticCluster : NSObject<GMUCluster>
+@interface GMUStaticCluster : NSObject <GMUCluster>
 
 /**
  * The default initializer is not available. Use initWithPosition: instead.
@@ -62,4 +62,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-
