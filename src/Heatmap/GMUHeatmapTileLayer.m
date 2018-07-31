@@ -54,7 +54,7 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
     _radius = 20;
     _minimumZoomIntensity = 5;
     _maximumZoomIntensity = 10;
-      
+
     NSArray<UIColor *> *gradientColors = @[
       [UIColor colorWithRed:102.f / 255.f green:225.f / 255.f blue:0 alpha:1],
       [UIColor colorWithRed:1.0f green:0 blue:0 alpha:1]

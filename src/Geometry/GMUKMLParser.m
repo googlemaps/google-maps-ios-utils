@@ -35,7 +35,7 @@ static NSString *const kGMUMultiGeometryElementName = @"MultiGeometry";
 static NSString *const kGMUInnerBoundariesAttributeName = @"innerBoundaries";
 static NSString *const kGMUOuterBoundariesAttributeName = @"outerBoundaries";
 static NSString *const kGMUHotspotElementName = @"hotSpot";
-static NSString *const kGMUCoordinatesElementName= @"coordinates";
+static NSString *const kGMUCoordinatesElementName = @"coordinates";
 static NSString *const kGMURandomAttributeValue = @"random";
 static NSString *const kGMUFractionAttributeValue = @"fraction";
 static NSString *const kGMUNameElementName = @"name";
@@ -185,7 +185,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   GMUParserState _parserState;
 }
 
-- (instancetype)initWithParser:(NSXMLParser*)parser {
+- (instancetype)initWithParser:(NSXMLParser *)parser {
   if (self = [super init]) {
     _parser = parser;
     _placemarks = [[NSMutableArray alloc] init];
@@ -252,7 +252,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 
 - (CLLocation *)locationFromString:(NSString *)string {
   NSString *trimmedString =
-    [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+      [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   NSArray *coordinateStrings = [trimmedString componentsSeparatedByString:@","];
   CLLocationDegrees longitude = [coordinateStrings[0] doubleValue];
   CLLocationDegrees latitude = [coordinateStrings[1] doubleValue];
@@ -280,10 +280,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   unsigned long long color;
   NSScanner *scanner = [NSScanner scannerWithString:string];
   [scanner scanHexLongLong:&color];
-  CGFloat alpha = ((CGFloat) ((color >> 24) & 0xff)) / 255;
-  CGFloat blue = ((CGFloat) ((color >> 16) & 0xff)) / 255;
-  CGFloat green = ((CGFloat) ((color >> 8) & 0xff)) / 255;
-  CGFloat red = ((CGFloat) (color & 0xff)) / 255;
+  CGFloat alpha = ((CGFloat)((color >> 24) & 0xff)) / 255;
+  CGFloat blue = ((CGFloat)((color >> 16) & 0xff)) / 255;
+  CGFloat green = ((CGFloat)((color >> 8) & 0xff)) / 255;
+  CGFloat red = ((CGFloat)(color & 0xff)) / 255;
   return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
@@ -326,15 +326,14 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 }
 
 - (void)parseBeginBoundaryWithElementName:(NSString *)elementName {
-  if([elementName isEqual:kGMUOuterBoundaryIsElementName]) {
+  if ([elementName isEqual:kGMUOuterBoundaryIsElementName]) {
     _parserState |= kGMUParserStateOuterBoundary;
   } else {
     _parserState &= ~kGMUParserStateOuterBoundary;
   }
 }
 
-- (void)parseBeginStyleWithElementName:(NSString *)elementName
-                               styleID:(NSString *)styleID {
+- (void)parseBeginStyleWithElementName:(NSString *)elementName styleID:(NSString *)styleID {
   if ([elementName isEqual:kGMUStyleElementName]) {
     _styleID = [NSString stringWithFormat:@"#%@", styleID];
     _parserState |= kGMUParserStateStyle;
@@ -499,8 +498,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else if ([attribute isEqual:kGMURotationElementName]) {
     [self parseEndRotation];
   } else if ([attribute isEqual:kGMUDrawOrderElementName]) {
-    [_attributes setObject:@([_characters intValue])
-                    forKey:kGMUZIndexElementName];
+    [_attributes setObject:@([_characters intValue]) forKey:kGMUZIndexElementName];
   } else if ([attribute isEqual:kGMUHrefElementName]) {
     if ([self isParsing:kGMUParserStateStyle]) {
       _iconUrl = [_characters copy];
@@ -551,9 +549,8 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     if ([self isParsing:kGMUParserStateOuterBoundary]) {
       [_attributes setObject:boundary forKey:kGMUOuterBoundariesAttributeName];
     } else {
-      NSMutableArray *innerBoundaries =
-          [NSMutableArray
-              arrayWithArray:[_attributes objectForKey:kGMUInnerBoundariesAttributeName]];
+      NSMutableArray *innerBoundaries = [NSMutableArray
+          arrayWithArray:[_attributes objectForKey:kGMUInnerBoundariesAttributeName]];
       [innerBoundaries addObject:boundary];
       [_attributes setObject:innerBoundaries forKey:kGMUInnerBoundariesAttributeName];
     }
@@ -572,7 +569,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [self parseBeginStyleWithElementName:elementName
                                  styleID:[attributeDict objectForKey:kGMUIdAttributeName]];
   } else if ([elementName isEqual:kGMUPlacemarkElementName] ||
-                 [elementName isEqual:kGMUGroundOverlayElementName]) {
+             [elementName isEqual:kGMUGroundOverlayElementName]) {
     [self parseBeginPlacemark];
   } else if ([elementName isEqual:kGMUHotspotElementName]) {
     [self parseBeginHotspotWithAttributes:attributeDict];
@@ -588,12 +585,12 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else if ([_styleAttributeRegex firstMatchInString:elementName
                                               options:0
                                                 range:NSMakeRange(0, elementName.length)] ||
-                 [_geometryAttributeRegex firstMatchInString:elementName
-                                                     options:0
-                                                       range:NSMakeRange(0, elementName.length)] ||
-                     [_compassRegex firstMatchInString:elementName
-                                               options:0
-                                                 range:NSMakeRange(0, elementName.length)]) {
+             [_geometryAttributeRegex firstMatchInString:elementName
+                                                 options:0
+                                                   range:NSMakeRange(0, elementName.length)] ||
+             [_compassRegex firstMatchInString:elementName
+                                       options:0
+                                         range:NSMakeRange(0, elementName.length)]) {
     [self parseBeginLeafNode];
   }
 }

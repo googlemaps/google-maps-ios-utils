@@ -122,8 +122,7 @@
   }
 }
 
-- (void)renderGeometryContainer:(id<GMUGeometryContainer>)container
-                          style:(GMUStyle *)style {
+- (void)renderGeometryContainer:(id<GMUGeometryContainer>)container style:(GMUStyle *)style {
   id<GMUGeometry> geometry = container.geometry;
   if ([geometry isKindOfClass:[GMUGeometryCollection class]]) {
     [self renderMultiGeometry:geometry container:container style:style];
@@ -211,8 +210,7 @@
   GMSPath *outerBoundaries = polygon.paths.firstObject;
   NSArray *innerBoundaries = [[NSArray alloc] init];
   if (polygon.paths.count > 1) {
-    innerBoundaries =
-        [polygon.paths subarrayWithRange:NSMakeRange(1, polygon.paths.count - 1)];
+    innerBoundaries = [polygon.paths subarrayWithRange:NSMakeRange(1, polygon.paths.count - 1)];
   }
   NSMutableArray<GMSPath *> *holes = [[NSMutableArray alloc] init];
   for (GMSPath *hole in innerBoundaries) {

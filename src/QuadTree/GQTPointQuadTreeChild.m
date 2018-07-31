@@ -25,7 +25,7 @@ static const unsigned kMaxDepth = 30;
 #include "GQTBounds.h"
 
 static GQTPoint boundsMidpoint(GQTBounds bounds) {
-  return (GQTPoint){(bounds.minX + bounds.maxX)/2, (bounds.minY + bounds.maxY)/2};
+  return (GQTPoint){(bounds.minX + bounds.maxX) / 2, (bounds.minY + bounds.maxY) / 2};
 }
 
 static GQTBounds boundsTopRightChildQuadBounds(GQTBounds parentBounds) {
@@ -70,7 +70,6 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
 }
 
 @implementation GQTPointQuadTreeChild {
-
   /** Top Right child quad. Nil until this node is split. */
   GQTPointQuadTreeChild *topRight_;
 
@@ -88,24 +87,22 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
    * will be nil, likewise, if we have children then items_ will be nil.
    */
   NSMutableArray *items_;
-
 }
 
 - (id)init {
   if (self = [super init]) {
-    topRight_    = nil;
-    topLeft_     = nil;
+    topRight_ = nil;
+    topLeft_ = nil;
     bottomRight_ = nil;
-    bottomLeft_  = nil;
-    items_       = [NSMutableArray array];
+    bottomLeft_ = nil;
+    items_ = [NSMutableArray array];
   }
   return self;
 }
 
-
--    (void)add:(id<GQTPointQuadTreeItem>)item
- withOwnBounds:(GQTBounds)bounds
-       atDepth:(NSUInteger)depth {
+- (void)add:(id<GQTPointQuadTreeItem>)item
+    withOwnBounds:(GQTBounds)bounds
+          atDepth:(NSUInteger)depth {
   if (item == nil) {
     // Note, this should not happen, as GQTPointQuadTree's add method also does a nil check.
     [NSException raise:@"Invalid item argument" format:@"item must not be null"];
@@ -121,15 +118,19 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
 
     if (itemPoint.y > midPoint.y) {
       if (itemPoint.x > midPoint.x) {
-        [topRight_ add:item withOwnBounds:boundsTopRightChildQuadBounds(bounds) atDepth:depth+1];
+        [topRight_ add:item withOwnBounds:boundsTopRightChildQuadBounds(bounds) atDepth:depth + 1];
       } else {
-        [topLeft_ add:item withOwnBounds:boundsTopLeftChildQuadBounds(bounds) atDepth:depth+1];
+        [topLeft_ add:item withOwnBounds:boundsTopLeftChildQuadBounds(bounds) atDepth:depth + 1];
       }
     } else {
       if (itemPoint.x > midPoint.x) {
-        [bottomRight_ add:item withOwnBounds:boundsBottomRightChildQuadBounds(bounds) atDepth:depth+1];
+        [bottomRight_ add:item
+            withOwnBounds:boundsBottomRightChildQuadBounds(bounds)
+                  atDepth:depth + 1];
       } else {
-        [bottomLeft_ add:item withOwnBounds:boundsBottomLeftChildQuadBounds(bounds) atDepth:depth+1];
+        [bottomLeft_ add:item
+            withOwnBounds:boundsBottomLeftChildQuadBounds(bounds)
+                  atDepth:depth + 1];
       }
     }
   } else {
@@ -140,10 +141,10 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
 - (void)splitWithOwnBounds:(GQTBounds)ownBounds atDepth:(NSUInteger)depth {
   assert(items_ != nil);
 
-  topRight_    = [[GQTPointQuadTreeChild alloc] init];
-  topLeft_     = [[GQTPointQuadTreeChild alloc] init];
+  topRight_ = [[GQTPointQuadTreeChild alloc] init];
+  topLeft_ = [[GQTPointQuadTreeChild alloc] init];
   bottomRight_ = [[GQTPointQuadTreeChild alloc] init];
-  bottomLeft_  = [[GQTPointQuadTreeChild alloc] init];
+  bottomLeft_ = [[GQTPointQuadTreeChild alloc] init];
 
   NSArray *items = items_;
   items_ = nil;
@@ -185,22 +186,17 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
 - (void)searchWithBounds:(GQTBounds)searchBounds
            withOwnBounds:(GQTBounds)ownBounds
                  results:(NSMutableArray *)accumulator {
-
   if (topRight_ != nil) {
-    GQTBounds topRightBounds    = boundsTopRightChildQuadBounds(ownBounds);
-    GQTBounds topLeftBounds     = boundsTopLeftChildQuadBounds(ownBounds);
+    GQTBounds topRightBounds = boundsTopRightChildQuadBounds(ownBounds);
+    GQTBounds topLeftBounds = boundsTopLeftChildQuadBounds(ownBounds);
     GQTBounds bottomRightBounds = boundsBottomRightChildQuadBounds(ownBounds);
-    GQTBounds bottomLeftBounds  = boundsBottomLeftChildQuadBounds(ownBounds);
+    GQTBounds bottomLeftBounds = boundsBottomLeftChildQuadBounds(ownBounds);
 
     if (boundsIntersectsBounds(topRightBounds, searchBounds)) {
-      [topRight_ searchWithBounds:searchBounds
-                    withOwnBounds:topRightBounds
-                          results:accumulator];
+      [topRight_ searchWithBounds:searchBounds withOwnBounds:topRightBounds results:accumulator];
     }
     if (boundsIntersectsBounds(topLeftBounds, searchBounds)) {
-      [topLeft_ searchWithBounds:searchBounds
-                   withOwnBounds:topLeftBounds
-                         results:accumulator];
+      [topLeft_ searchWithBounds:searchBounds withOwnBounds:topLeftBounds results:accumulator];
     }
     if (boundsIntersectsBounds(bottomRightBounds, searchBounds)) {
       [bottomRight_ searchWithBounds:searchBounds
@@ -215,10 +211,8 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
   } else {
     for (id<GQTPointQuadTreeItem> item in items_) {
       GQTPoint point = item.point;
-      if (point.x <= searchBounds.maxX &&
-          point.x >= searchBounds.minX &&
-          point.y <= searchBounds.maxY &&
-          point.y >= searchBounds.minY) {
+      if (point.x <= searchBounds.maxX && point.x >= searchBounds.minX &&
+          point.y <= searchBounds.maxY && point.y >= searchBounds.minY) {
         [accumulator addObject:item];
       }
     }
@@ -226,4 +220,3 @@ static BOOL boundsIntersectsBounds(GQTBounds bounds1, GQTBounds bounds2) {
 }
 
 @end
-

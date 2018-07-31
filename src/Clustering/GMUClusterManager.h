@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Delegate for events on the GMUClusterManager.
  */
-@protocol GMUClusterManagerDelegate<NSObject>
+@protocol GMUClusterManagerDelegate <NSObject>
 
 @optional
 
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  * This class groups many items on a map based on zoom level.
  * Cluster items should be added to the map via this class.
  */
-@interface GMUClusterManager : NSObject<GMSMapViewDelegate>
+@interface GMUClusterManager : NSObject <GMSMapViewDelegate>
 
 /**
  * The default initializer is not available. Use initWithMap:algorithm:renderer instead.
@@ -130,6 +130,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 NS_ASSUME_NONNULL_END
-
