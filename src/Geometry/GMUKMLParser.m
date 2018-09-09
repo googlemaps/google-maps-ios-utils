@@ -23,10 +23,13 @@
 #import "GMUPoint.h"
 #import "GMUPolygon.h"
 #import "GMUStyle.h"
+#import "GMUPair.h"
+#import "GMUStyleMap.h"
 
 static NSString *const kGMUPlacemarkElementName = @"Placemark";
 static NSString *const kGMUGroundOverlayElementName = @"GroundOverlay";
 static NSString *const kGMUStyleElementName = @"Style";
+static NSString *const kGMUStyleMapElementName = @"StyleMap";
 static NSString *const kGMULineStyleElementName = @"LineStyle";
 static NSString *const kGMUPointElementName = @"Point";
 static NSString *const kGMULineStringElementName = @"LineString";
@@ -63,12 +66,15 @@ static NSString *const kGMUOutlineElementName = @"outline";
 static NSString *const kGMUWidthElementName = @"width";
 static NSString *const kGMUColorElementName = @"color";
 static NSString *const kGMUColorModeElementName = @"colorMode";
+static NSString *const kGMUPairElementName = @"Pair";
+static NSString *const kGMUKeyAttributeValue = @"key";
+static NSString *const kGMUPairAttributeRegex = @"^(key|styleUrl)$";
 static NSString *const kGMUGeometryRegex = @"^(Point|LineString|Polygon|MultiGeometry)$";
 static NSString *const kGMUGeometryAttributeRegex =
     @"^(coordinates|name|description|rotation|drawOrder|href|styleUrl)$";
 static NSString *const kGMUCompassRegex = @"^(north|east|south|west)$";
 static NSString *const kGMUBoundaryRegex = @"^(outerBoundaryIs|innerBoundaryIs)$";
-static NSString *const kGMUStyleRegex = @"^(Style|LineStyle)$";
+static NSString *const kGMUStyleRegex = @"^(Style|StyleMap|LineStyle)$";
 static NSString *const kGMUStyleAttributeRegex =
     @"^(text|scale|heading|fill|outline|width|color|colorMode)$";
 static NSString *const kGMUStyleUrlRegex = @"#.+";
@@ -82,8 +88,9 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   kGMUParserStateOuterBoundary = 1 << 1,
   kGMUParserStateMultiGeometry = 1 << 2,
   kGMUParserStateStyle = 1 << 3,
-  kGMUParserStateLineStyle = 1 << 4,
-  kGMUParserStateLeafNode = 1 << 5,
+  kGMUParserStateStyleMap = 1 << 4,
+  kGMUParserStateLineStyle = 1 << 5,
+  kGMUParserStateLeafNode = 1 << 6,
 };
 
 @interface GMUKMLParser () <NSXMLParserDelegate>
@@ -132,6 +139,11 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   NSRegularExpression *_geometryAttributeRegex;
 
   /**
+   * The format that a pair in a style map may take
+   */
+  NSRegularExpression *_pairAttributeRegex;
+
+  /**
    * The list of placemarks that have been parsed.
    */
   NSMutableArray<GMUPlacemark *> *_placemarks;
@@ -140,6 +152,16 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
    * The list of styles that have been parsed.
    */
   NSMutableArray<GMUStyle *> *_styles;
+
+  /**
+   * The list of styles maps that have been parsed.
+   */
+  NSMutableArray<GMUStyleMap *> *_styleMaps;
+
+  /**
+   * The list of pairs that currently parsed style map contains
+   */
+  NSMutableArray<GMUPair *> *_pairs;
 
   /**
    * The characters contained within the element being parsed.
@@ -180,6 +202,11 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   NSString *_geometryType;
 
   /**
+   * The properties to be propagated into the KMLPair object being parsed.
+   */
+  NSString *_key;
+
+  /**
    * The current state of the parser.
    */
   GMUParserState _parserState;
@@ -190,6 +217,8 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     _parser = parser;
     _placemarks = [[NSMutableArray alloc] init];
     _styles = [[NSMutableArray alloc] init];
+    _styleMaps = [[NSMutableArray alloc] init];
+    _pairs = [[NSMutableArray alloc] init];
     _geometries = [[NSMutableArray alloc] init];
     _attributes = [[NSMutableDictionary alloc] init];
 
@@ -215,6 +244,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     _styleUrlRegex = [NSRegularExpression regularExpressionWithPattern:kGMUStyleUrlRegex
                                                                options:0
                                                                  error:nil];
+
+    _pairAttributeRegex = [NSRegularExpression regularExpressionWithPattern:kGMUPairAttributeRegex
+                                                                    options:0
+                                                                      error:nil];
     _hasFill = YES;
     _hasStroke = YES;
     [_parser setDelegate:self];
@@ -240,6 +273,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 
 - (NSArray<GMUStyle *> *)styles {
   return _styles;
+}
+
+- (NSArray<GMUStyleMap *> *)styleMaps {
+  return _styleMaps;
 }
 
 - (void)parse {
@@ -337,6 +374,9 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   if ([elementName isEqual:kGMUStyleElementName]) {
     _styleID = [NSString stringWithFormat:@"#%@", styleID];
     _parserState |= kGMUParserStateStyle;
+  } else if ([elementName isEqual:kGMUStyleMapElementName]) {
+    _styleID = [NSString stringWithFormat:@"#%@", styleID];
+    _parserState |= kGMUParserStateStyleMap;
   } else if ([elementName isEqual:kGMULineStyleElementName]) {
     _parserState |= kGMUParserStateLineStyle;
   }
@@ -345,6 +385,14 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 - (void)parseEndStyle {
   if ([self isParsing:kGMUParserStateLineStyle]) {
     _parserState &= ~kGMUParserStateLineStyle;
+  } else if([self isParsing:kGMUParserStateStyleMap]) {
+    _parserState &= ~kGMUParserStateStyleMap;
+    
+    GMUStyleMap *styleMap = [[GMUStyleMap alloc] initWithId:_styleID
+                                                      pairs: [_pairs copy]];
+    
+    [_styleMaps addObject:styleMap];
+    [_pairs removeAllObjects];
   } else {
     _parserState &= ~kGMUParserStateStyle;
     if ([_fillColorMode isEqual:kGMURandomAttributeValue]) {
@@ -555,6 +603,23 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
       [_attributes setObject:innerBoundaries forKey:kGMUInnerBoundariesAttributeName];
     }
   }
+}
+
+- (void)parseEndPairAttribute:(NSString *)attribute {
+  if ([attribute isEqual:kGMUKeyAttributeValue]) {
+    _key = [_characters copy];
+  } else if ([attribute isEqual:kGMUStyleUrlElementName]) {
+    _styleUrl = [_characters copy];
+  }
+}
+
+- (void)parseEndPair {
+    GMUPair *pair = [[GMUPair alloc] initWithKey:_key
+                                        styleUrl:_styleUrl];
+    _key = nil;
+    _styleUrl = nil;
+
+    [_pairs addObject:pair];
 }
 
 - (void)parser:(NSXMLParser *)parser
