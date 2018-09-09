@@ -19,6 +19,7 @@
 
 #import "GMUGeometryContainer.h"
 #import "GMUStyle.h"
+#import "GMUStyleMap.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,6 +48,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithMap:(GMSMapView *)map
                  geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
                      styles:(NSArray<GMUStyle *> *_Nullable)styles;
+/**
+ * Initializes a new renderer.
+ *
+ * @param map the Google Map layer to render the geometries onto.
+ * @param geometries the geometries to be rendered.
+ * @param styles the styles to be applied to the geometries.
+ * @param styleMaps the styleMaps to be applied to the geometries
+ */
+- (instancetype)initWithMap:(GMSMapView *)map
+                 geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
+                     styles:(NSArray<GMUStyle *> * _Nullable)styles
+                  styleMaps:(NSArray<GMUStyleMap *> *_Nullable)styleMaps;
 /**
  * Renders the geometries onto the Google Map.
  */
