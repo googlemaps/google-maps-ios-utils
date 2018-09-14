@@ -90,6 +90,8 @@
 		3491C8501E5D2DB200A2FA04 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 3491C84E1E5D2DB200A2FA04 /* KML_Sample.kml */; };
 		49CAD6F870C5583C82B43593 /* libPods-DevApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662F6FAE156096701716AEEC /* libPods-DevApp.a */; };
 		8869518CED7812A43442DF2E /* libPods-UnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */; };
+		94FDE761214B36480028D11E /* GMUStyleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FDE75E214B36480028D11E /* GMUStyleMap.m */; };
+		94FDE762214B36480028D11E /* GMUPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FDE75F214B36480028D11E /* GMUPair.m */; };
 		B4F945371F02180900FBF534 /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */; };
 		B4F945381F02180900FBF534 /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945351F02180900FBF534 /* GMUGradient.m */; };
 		B4F945391F02180900FBF534 /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945361F02180900FBF534 /* GMUWeightedLatLng.m */; };
@@ -263,6 +265,10 @@
 		50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E708BD83DBC2004DAEB2D44 /* Pods-UnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTest/Pods-UnitTest.debug.xcconfig"; sourceTree = "<group>"; };
 		662F6FAE156096701716AEEC /* libPods-DevApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94FDE75D214B36420028D11E /* GMUStyleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUStyleMap.h; sourceTree = "<group>"; };
+		94FDE75E214B36480028D11E /* GMUStyleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUStyleMap.m; sourceTree = "<group>"; };
+		94FDE75F214B36480028D11E /* GMUPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUPair.m; sourceTree = "<group>"; };
+		94FDE760214B36480028D11E /* GMUPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUPair.h; sourceTree = "<group>"; };
 		B4F945311F02180900FBF534 /* GMUHeatmapTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUHeatmapTileLayer.h; sourceTree = "<group>"; };
 		B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUHeatmapTileLayer.m; sourceTree = "<group>"; };
 		B4F945331F02180900FBF534 /* GMUGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUGradient.h; sourceTree = "<group>"; };
@@ -573,6 +579,10 @@
 		3491C7C51E5D184A00A2FA04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				94FDE760214B36480028D11E /* GMUPair.h */,
+				94FDE75F214B36480028D11E /* GMUPair.m */,
+				94FDE75D214B36420028D11E /* GMUStyleMap.h */,
+				94FDE75E214B36480028D11E /* GMUStyleMap.m */,
 				3491C7C61E5D184A00A2FA04 /* GMUFeature.h */,
 				3491C7C71E5D184A00A2FA04 /* GMUFeature.m */,
 				3491C7C81E5D184A00A2FA04 /* GMUGeometry.h */,
@@ -741,7 +751,6 @@
 				0242D1C91C7C1C1F00557130 /* Frameworks */,
 				0242D1CA1C7C1C1F00557130 /* Resources */,
 				0242D1EE1C7C1DA100557130 /* [CP] Copy Pods Resources */,
-				E84278B72CDE3575AD7B6524 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -761,7 +770,6 @@
 				0242D1FA1C7D3AC300557130 /* Sources */,
 				0242D1FB1C7D3AC300557130 /* Frameworks */,
 				0242D1FC1C7D3AC300557130 /* Resources */,
-				A0C45CB836CAEA392A23DFAF /* [CP] Embed Pods Frameworks */,
 				B8127CEBA35B34A191546CA3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -896,21 +904,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A0C45CB836CAEA392A23DFAF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnitTest/Pods-UnitTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8127CEBA35B34A191546CA3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -927,21 +920,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnitTest/Pods-UnitTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E84278B72CDE3575AD7B6524 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevApp/Pods-DevApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EFE3051142D4EFE6BF973A90 /* [CP] Check Pods Manifest.lock */ = {
@@ -971,7 +949,9 @@
 			files = (
 				0242D1A81C7C19E600557130 /* GMUStaticCluster.m in Sources */,
 				3491C8061E5D192400A2FA04 /* GMUKMLParser.m in Sources */,
+				94FDE761214B36480028D11E /* GMUStyleMap.m in Sources */,
 				0242D1AA1C7C19E600557130 /* GMUDefaultClusterRenderer.m in Sources */,
+				94FDE762214B36480028D11E /* GMUPair.m in Sources */,
 				0242D1B31C7C19F700557130 /* GQTPointQuadTree.m in Sources */,
 				023320831CB20086008024F2 /* GMUWrappingDictionaryKey.m in Sources */,
 				3491C8101E5D199500A2FA04 /* GMUStyle.m in Sources */,
