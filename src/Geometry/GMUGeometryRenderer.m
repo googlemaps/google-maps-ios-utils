@@ -68,7 +68,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
 - (instancetype)initWithMap:(GMSMapView *)map
                  geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
                      styles:(NSArray<GMUStyle *> *)styles {
-    return [self initWithMap:map geometries:geometries styles:nil styleMaps:nil];
+    return [self initWithMap:map geometries:geometries styles:styles styleMaps:nil];
 }
 
 - (instancetype)initWithMap:(GMSMapView *)map
