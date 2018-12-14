@@ -53,6 +53,8 @@
 #import <GoogleMapsUtils/GMUGeometryRenderer+Testing.h>
 #import <GoogleMapsUtils/GMUGeometryRenderer.h>
 #import <GoogleMapsUtils/GMUKMLParser.h>
+#import <GoogleMapsUtils/GMUStyleMap.h>
+#import <GoogleMapsUtils/GMUPair.h>
 
 // QuadTree
 #import <GoogleMapsUtils/GQTBounds.h>
