@@ -1,4 +1,4 @@
-/* Copyright (c) 2016 Google Inc.
+/* Copyright (c) 2018 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,20 @@
  * limitations under the License.
  */
 
-#import <CoreLocation/CoreLocation.h>
+#import "GMUPair.h"
 
-/**
- * This protocol defines the contract for a cluster item.
- */
-@protocol GMUClusterItem <NSObject>
+@implementation GMUPair
 
-/**
- * Returns the position of the item.
- */
-@property(nonatomic, readonly) CLLocationCoordinate2D position;
+@synthesize key = _key;
+@synthesize styleUrl = _styleUrl;
+
+- (instancetype)initWithKey:(NSString *)key
+                   styleUrl:(NSString *)styleUrl {
+    if (self = [super init]) {
+        _key = key;
+        _styleUrl = styleUrl;
+    }
+    return self;
+}
 
 @end

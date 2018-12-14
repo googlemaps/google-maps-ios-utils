@@ -43,8 +43,7 @@
       return nil;
     }
     if (mapSize < 2) {
-      [NSException raise:NSInvalidArgumentException
-                  format:@"mapSize is less than 2."];
+      [NSException raise:NSInvalidArgumentException format:@"mapSize is less than 2."];
       return nil;
     }
     _colors = [colors copy];

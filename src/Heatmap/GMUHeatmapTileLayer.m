@@ -24,8 +24,6 @@
 
 static const int kGMUTileSize = 512;
 static const int kGMUMaxZoom = 22;
-static const int kGMUMinZoomIntensity = 5;
-static const int kGMUMaxZoomIntensity = 10;
 
 static void FreeDataProviderData(void *info, const void *data, size_t size) { free((void *)data); }
 
@@ -35,6 +33,8 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
   GQTPointQuadTree *_quadTree;
   GQTBounds _bounds;
   NSUInteger _radius;
+  NSUInteger _minimumZoomIntensity;
+  NSUInteger _maximumZoomIntensity;
   NSArray<UIColor *> *_colorMap;
   NSArray<NSNumber *> *_maxIntensities;
   NSArray<NSNumber *> *_kernel;
@@ -52,6 +52,9 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
 - (instancetype)init {
   if ((self = [super init])) {
     _radius = 20;
+    _minimumZoomIntensity = 5;
+    _maximumZoomIntensity = 10;
+
     NSArray<UIColor *> *gradientColors = @[
       [UIColor colorWithRed:102.f / 255.f green:225.f / 255.f blue:0 alpha:1],
       [UIColor colorWithRed:1.0f green:0 blue:0 alpha:1]
@@ -73,6 +76,16 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
 
 - (void)setGradient:(GMUGradient *)gradient {
   _gradient = gradient;
+  _dirty = YES;
+}
+
+- (void)setMinimumZoomIntensity:(NSUInteger)minimumZoomIntensity {
+  _minimumZoomIntensity = minimumZoomIntensity;
+  _dirty = YES;
+}
+
+- (void)setMaximumZoomIntensity:(NSUInteger)maximumZoomIntensity {
+  _maximumZoomIntensity = maximumZoomIntensity;
   _dirty = YES;
 }
 
@@ -111,7 +124,7 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
   return result;
 }
 
-- (NSNumber *)maxValueForZoom:(int)zoom {
+- (NSNumber *)maxValueForZoom:(NSUInteger)zoom {
   // Bucket data in to areas equal to twice radius at the given zoom.
   // At zoom 0, one tile covers the entire range of -1 to 1.
   // So for zoom 0 bucket size should be 2*2*radius/512.
@@ -147,17 +160,17 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
   NSMutableArray<NSNumber *> *intensities = [NSMutableArray arrayWithCapacity:kGMUMaxZoom];
   // Populate the array up to the min intensity with place holders until the min intensity is
   // calculated.
-  for (int i = 0; i < kGMUMinZoomIntensity; i++) {
+  for (NSUInteger i = 0; i < _minimumZoomIntensity; i++) {
     intensities[i] = @0;
   }
-  for (int i = kGMUMinZoomIntensity; i <= kGMUMaxZoomIntensity; i++) {
+  for (NSUInteger i = _minimumZoomIntensity; i <= _maximumZoomIntensity; i++) {
     intensities[i] = [self maxValueForZoom:i];
   }
-  for (int i = 0; i < kGMUMinZoomIntensity; i++) {
-    intensities[i] = intensities[kGMUMinZoomIntensity];
+  for (NSUInteger i = 0; i < _minimumZoomIntensity; i++) {
+    intensities[i] = intensities[_minimumZoomIntensity];
   }
-  for (int i = kGMUMaxZoomIntensity + 1; i < kGMUMaxZoom; i++) {
-    intensities[i] = intensities[kGMUMaxZoomIntensity];
+  for (NSUInteger i = _maximumZoomIntensity + 1; i < kGMUMaxZoom; i++) {
+    intensities[i] = intensities[_maximumZoomIntensity];
   }
   return intensities;
 }

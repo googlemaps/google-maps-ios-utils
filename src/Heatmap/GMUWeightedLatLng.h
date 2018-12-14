@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // A quad tree item which represents a data point of given intensity at a given point on the earth's
 // surface.
-@interface GMUWeightedLatLng : NSObject<GQTPointQuadTreeItem>
+@interface GMUWeightedLatLng : NSObject <GQTPointQuadTreeItem>
 
 // The intensity of the data point.  Scale is arbitrary but assumed to be linear. Intensity three
 // should be equivalent to three co-located points of intensity one.

@@ -24,6 +24,8 @@
 #import "GMUPolygon.h"
 #import "GMUStyle.h"
 
+static NSString *const kStyleMapDefaultState = @"normal";
+
 @implementation GMUGeometryRenderer {
   NSMutableArray<GMSOverlay *> *_mapOverlays;
 
@@ -41,6 +43,11 @@
    * The list of parsed styles to be applied to the placemarks.
    */
   NSDictionary<NSString *, GMUStyle *> *_styles;
+
+  /**
+   * The list of parsed style maps to be applied to the placemarks.
+   */
+  NSDictionary<NSString *, GMUStyleMap *> *_styleMaps;
 
   /**
    * The dispatch queue used to download images for ground overlays and point icons.
@@ -61,10 +68,18 @@
 - (instancetype)initWithMap:(GMSMapView *)map
                  geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
                      styles:(NSArray<GMUStyle *> *)styles {
+    return [self initWithMap:map geometries:geometries styles:nil styleMaps:nil];
+}
+
+- (instancetype)initWithMap:(GMSMapView *)map
+                 geometries:(NSArray<id<GMUGeometryContainer>> *)geometries
+                     styles:(NSArray<GMUStyle *> *)styles
+                  styleMaps:(NSArray<GMUStyleMap *> *)styleMaps {
   if (self = [super init]) {
     _map = map;
     _geometryContainers = geometries;
     _styles = [[self class] stylesDictionaryFromArray:styles];
+    _styleMaps = [[self class] styleMapsDictionaryFromArray: styleMaps];
     _mapOverlays = [[NSMutableArray alloc] init];
     _queue = dispatch_queue_create("com.google.gmsutils", DISPATCH_QUEUE_CONCURRENT);
   }
@@ -96,6 +111,14 @@
   return dict;
 }
 
++ (NSDictionary<NSString *, GMUStyleMap *> *)styleMapsDictionaryFromArray:(NSArray<GMUStyleMap *> *)styleMaps {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:styleMaps.count];
+    for (GMUStyleMap *styleMap in styleMaps) {
+        [dict setObject:styleMap forKey:styleMap.styleMapId];
+    }
+    return dict;
+}
+
 + (UIImage *)imageFromPath:(NSString *)path {
   // URLWithString returns nil for a path formatted as a local file reference.
   NSURL *url = [NSURL URLWithString:path];
@@ -111,19 +134,32 @@
   return [UIImage imageWithData:data];
 }
 
+- (GMUStyle *)getStyleFromStyleMaps:(NSString *)styleUrl {
+    GMUStyleMap *styleMap = [_styleMaps objectForKey:styleUrl];
+    if (styleMap) {
+        for (GMUPair *pair in styleMap.pairs) {
+            if ([pair.key isEqual:kStyleMapDefaultState]) {
+                return [_styles objectForKey:pair.styleUrl];
+            }
+        }
+    }
+    return nil;
+}
+
 - (void)renderGeometryContainers:(NSArray<id<GMUGeometryContainer>> *)containers {
   for (id<GMUGeometryContainer> container in containers) {
     GMUStyle *style = container.style;
     if (!style && [container isKindOfClass:[GMUPlacemark class]]) {
       GMUPlacemark *placemark = container;
       style = [_styles objectForKey:placemark.styleUrl];
+      // If not found, look it up in one of the StyleMaps
+      style = style ?: [self getStyleFromStyleMaps:placemark.styleUrl];
     }
     [self renderGeometryContainer:container style:style];
   }
 }
 
-- (void)renderGeometryContainer:(id<GMUGeometryContainer>)container
-                          style:(GMUStyle *)style {
+- (void)renderGeometryContainer:(id<GMUGeometryContainer>)container style:(GMUStyle *)style {
   id<GMUGeometry> geometry = container.geometry;
   if ([geometry isKindOfClass:[GMUGeometryCollection class]]) {
     [self renderMultiGeometry:geometry container:container style:style];
@@ -211,8 +247,7 @@
   GMSPath *outerBoundaries = polygon.paths.firstObject;
   NSArray *innerBoundaries = [[NSArray alloc] init];
   if (polygon.paths.count > 1) {
-    innerBoundaries =
-        [polygon.paths subarrayWithRange:NSMakeRange(1, polygon.paths.count - 1)];
+    innerBoundaries = [polygon.paths subarrayWithRange:NSMakeRange(1, polygon.paths.count - 1)];
   }
   NSMutableArray<GMSPath *> *holes = [[NSMutableArray alloc] init];
   for (GMSPath *hole in innerBoundaries) {

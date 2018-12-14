@@ -234,9 +234,9 @@ static NSString *const kGMUGeometryRegex =
   id<GMUGeometry> geometry = [self geometryFromDict:JSONGeometry];
   if (geometry) {
     return [[GMUFeature alloc] initWithGeometry:geometry
-                                            identifier:nil
-                                            properties:nil
-                                           boundingBox:nil];
+                                     identifier:nil
+                                     properties:nil
+                                    boundingBox:nil];
   }
   return nil;
 }

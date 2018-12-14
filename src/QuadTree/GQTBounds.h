@@ -21,5 +21,3 @@ typedef struct {
   double maxX;
   double maxY;
 } GQTBounds;
-
-

@@ -13,14 +13,10 @@
  * limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GMUClusterManager+Testing.h"
 
-#import "GMUSimpleClusterAlgorithm.h"
 #import "GMUClusterRenderer.h"
+#import "GMUSimpleClusterAlgorithm.h"
 
 static NSString *const kGMUCameraKeyPath = @"camera";
 
@@ -45,7 +41,6 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
 - (instancetype)initWithMap:(GMSMapView *)mapView
                   algorithm:(id<GMUClusterAlgorithm>)algorithm
                    renderer:(id<GMUClusterRenderer>)renderer {
-
   if ((self = [super init])) {
     _algorithm = [[GMUSimpleClusterAlgorithm alloc] init];
     _mapView = mapView;
@@ -181,10 +176,13 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
   return nil;
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapPOIWithPlaceID:(NSString *)placeID name:(NSString *)name location:(CLLocationCoordinate2D)location {
-    if ([_mapDelegate respondsToSelector:@selector(mapView:didTapPOIWithPlaceID:name:location:)]) {
-        [_mapDelegate mapView:mapView didTapPOIWithPlaceID:placeID name:name location:location];
-    }
+- (void)mapView:(GMSMapView *)mapView
+    didTapPOIWithPlaceID:(NSString *)placeID
+                    name:(NSString *)name
+                location:(CLLocationCoordinate2D)location {
+  if ([_mapDelegate respondsToSelector:@selector(mapView:didTapPOIWithPlaceID:name:location:)]) {
+    [_mapDelegate mapView:mapView didTapPOIWithPlaceID:placeID name:name location:location];
+  }
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker {
@@ -280,4 +278,3 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
 }
 
 @end
-

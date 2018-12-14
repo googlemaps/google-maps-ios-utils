@@ -1,4 +1,4 @@
-/* Copyright (c) 2016 Google Inc.
+/* Copyright (c) 2018 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,21 @@
  * limitations under the License.
  */
 
-#import <CoreLocation/CoreLocation.h>
+#import "GMUPair.h"
+#import "GMUStyleMap.h"
 
-/**
- * This protocol defines the contract for a cluster item.
- */
-@protocol GMUClusterItem <NSObject>
+@implementation GMUStyleMap
 
-/**
- * Returns the position of the item.
- */
-@property(nonatomic, readonly) CLLocationCoordinate2D position;
+@synthesize styleMapId = _id;
+@synthesize pairs = _pairs;
+
+- (instancetype)initWithId:(NSString *)styleMapId
+                     pairs:(NSArray<GMUPair *> *)pairs {
+    if (self = [super init]) {
+        _id = styleMapId;
+        _pairs = pairs;
+    }
+    return self;
+}
 
 @end

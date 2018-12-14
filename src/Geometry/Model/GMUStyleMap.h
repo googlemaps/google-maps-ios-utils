@@ -1,4 +1,4 @@
-/* Copyright (c) 2016 Google Inc.
+/* Copyright (c) 2018 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,32 +13,19 @@
  * limitations under the License.
  */
 
-#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
-#import "GMUClusterItem.h"
+#import "GMUPair.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * Defines a generic cluster object.
- */
-@protocol GMUCluster <NSObject>
+@interface GMUStyleMap : NSObject
 
-/**
- * Returns the position of the cluster.
- */
-@property(nonatomic, readonly) CLLocationCoordinate2D position;
+@property(nonatomic, readonly) NSString *styleMapId;
+@property(nonatomic, readonly) NSArray<GMUPair *> *pairs;
 
-/**
- * Returns the number of items in the cluster.
- */
-@property(nonatomic, readonly) NSUInteger count;
-
-/**
- * Returns a copy of the list of items in the cluster.
- */
-@property(nonatomic, readonly) NSArray<id<GMUClusterItem>> *items;
+- (instancetype)initWithId:(NSString *)styleMapId
+                   pairs:(NSArray<GMUPair *> *)pairs;
 
 @end
 

@@ -14,8 +14,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "GQTPointQuadTreeItem.h"
 #import "GQTBounds.h"
+#import "GQTPointQuadTreeItem.h"
 
 /**
  * This is an internal class, use |GQTPointQuadTree| instead.
@@ -33,9 +33,9 @@
  * @param bounds The bounds of this node.
  * @param depth The depth of this node.
  */
--    (void)add:(id<GQTPointQuadTreeItem>)item
- withOwnBounds:(GQTBounds)bounds
-       atDepth:(NSUInteger)depth;
+- (void)add:(id<GQTPointQuadTreeItem>)item
+    withOwnBounds:(GQTBounds)bounds
+          atDepth:(NSUInteger)depth;
 
 /**
  * Delete an item from this PointQuadTree.
@@ -65,4 +65,3 @@
 - (void)splitWithOwnBounds:(GQTBounds)ownBounds atDepth:(NSUInteger)depth;
 
 @end
-
