@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0229C0F91D9A461000551202 /* GMU-DevApp.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */; };
-		0229C0FA1D9A461000551202 /* GMU-DevApp.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */; };
 		0229C0FD1D9B4C0800551202 /* CustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0229C0FC1D9B4C0800551202 /* CustomMarkerViewController.m */; };
 		0233207D1CACF991008024F2 /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0233207C1CACF991008024F2 /* GMUNonHierarchicalDistanceBasedAlgorithm.m */; };
 		023320831CB20086008024F2 /* GMUWrappingDictionaryKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 023320821CB20086008024F2 /* GMUWrappingDictionaryKey.m */; };
@@ -32,7 +30,6 @@
 		02847D0C1CF5239900508850 /* GMUClusterManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02847D0B1CF5239900508850 /* GMUClusterManagerTest.m */; };
 		028A1BBE1D9A3B1900C4A4FF /* Samples.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A1BBD1D9A3B1900C4A4FF /* Samples.m */; };
 		029EAC301D9A353D00797AE7 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029EAC2F1D9A353D00797AE7 /* MasterViewController.m */; };
-		02BB27601D741A5300DE1EF0 /* GMU-Target.common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */; };
 		02DEA4C61CFBC0B900ACF7D8 /* GQTPointQuadTreeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DEA4C51CFBC0B900ACF7D8 /* GQTPointQuadTreeTest.m */; };
 		02DEA4C81CFC0DDF00ACF7D8 /* GMUDefaultClusterIconGeneratorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DEA4C71CFC0DDF00ACF7D8 /* GMUDefaultClusterIconGeneratorTest.m */; };
 		02F87BF91D20B61000C65016 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F87BE01D20B53B00C65016 /* BasicViewController.m */; };
@@ -788,7 +785,7 @@
 		0242D1721C7C16A400557130 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Google;
 				TargetAttributes = {
 					0242D1791C7C16A400557130 = {
@@ -833,12 +830,9 @@
 				02F87BFE1D20B64100C65016 /* m2.png in Resources */,
 				02F87BFD1D20B63D00C65016 /* m1.png in Resources */,
 				02F87C071D20B68F00C65016 /* LaunchScreen.storyboard in Resources */,
-				0229C0FA1D9A461000551202 /* GMU-DevApp.debug.xcconfig in Resources */,
-				02BB27601D741A5300DE1EF0 /* GMU-Target.common.xcconfig in Resources */,
 				02F87C001D20B64100C65016 /* m4.png in Resources */,
 				02F87BFF1D20B64100C65016 /* m3.png in Resources */,
 				3491C84F1E5D2DB200A2FA04 /* GeoJSON_Sample.geojson in Resources */,
-				0229C0F91D9A461000551202 /* GMU-DevApp.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,13 +1058,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1106,13 +1110,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1138,6 +1152,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1148,6 +1163,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1158,7 +1174,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1172,7 +1187,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1224,6 +1238,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D1871C7C18CA00557130 /* GMU-UnitTest.debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1238,6 +1253,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
