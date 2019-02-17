@@ -72,6 +72,10 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     _renderedClusters = [[NSMutableSet alloc] init];
     _renderedClusterItems = [[NSMutableSet alloc] init];
     _animatesClusters = YES;
+    _minimumClusterSize = kGMUMinClusterSize;
+    _maximumClusterZoom = kGMUMaxClusterZoom;
+    _animationDuration = kGMUAnimationDuration;
+
     _zIndex = 1;
   }
   return self;
@@ -82,7 +86,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 }
 
 - (BOOL)shouldRenderAsCluster:(id<GMUCluster>)cluster atZoom:(float)zoom {
-  return cluster.count >= kGMUMinClusterSize && zoom <= kGMUMaxClusterZoom;
+  return cluster.count >= _minimumClusterSize && zoom <= _maximumClusterZoom;
 }
 
 #pragma mark GMUClusterRenderer
@@ -159,7 +163,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
     // All is good, perform the animation.
     [CATransaction begin];
-    [CATransaction setAnimationDuration:kGMUAnimationDuration];
+    [CATransaction setAnimationDuration:_animationDuration];
     CLLocationCoordinate2D toPosition = toCluster.position;
     marker.layer.latitude = toPosition.latitude;
     marker.layer.longitude = toPosition.longitude;
@@ -167,7 +171,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   }
 
   // Clears existing markers after animation has presumably ended.
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kGMUAnimationDuration * NSEC_PER_SEC),
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, _animationDuration * NSEC_PER_SEC),
                  dispatch_get_main_queue(), ^{
                    [self clearMarkers:markers];
                  });
@@ -330,7 +334,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   if (animated) {
     [CATransaction begin];
-    [CATransaction setAnimationDuration:kGMUAnimationDuration];
+    [CATransaction setAnimationDuration:_animationDuration];
     marker.layer.latitude = position.latitude;
     marker.layer.longitude = position.longitude;
     [CATransaction commit];

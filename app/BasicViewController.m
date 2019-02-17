@@ -62,6 +62,12 @@ typedef NS_ENUM(NSInteger, ClusterAlgorithmMode) {
       [[GMUDefaultClusterRenderer alloc] initWithMapView:_mapView
                                     clusterIconGenerator:iconGenerator];
   renderer.delegate = self;
+
+  // The following properties can be used to fine-tune the cluster rendering (using defaults):
+  renderer.animationDuration = 0.5;
+  renderer.minimumClusterSize = 4;
+  renderer.maximumClusterZoom = 20;
+
   _clusterManager =
       [[GMUClusterManager alloc] initWithMap:_mapView algorithm:algorithm renderer:renderer];
 
