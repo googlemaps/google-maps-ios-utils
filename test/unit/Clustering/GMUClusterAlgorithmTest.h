@@ -17,7 +17,7 @@
 
 #import "Clustering/GMUClusterItem.h"
 
-#import "Common/Model/GMUTestClusterItem.h"
+#import "common/Model/GMUTestClusterItem.h"
 
 @protocol GMUCluster;
 

@@ -21,7 +21,7 @@
 
 #import "Clustering/GMUStaticCluster.h"
 #import "Clustering/View/GMUClusterIconGenerator.h"
-#import "Common/Model/GMUTestClusterItem.h"
+#import "common/Model/GMUTestClusterItem.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
@@ -74,22 +74,22 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
   GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
   [clusters addObject:cluster1];
-
+  
   GMUStaticCluster *cluster2 =
-      [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
-                                                             kCameraPosition.longitude)
-                            count:4];
+  [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
+                                                         kCameraPosition.longitude)
+                        count:4];
   [clusters addObject:cluster2];
-
+  
   // Act.
   [_renderer renderClusters:clusters];
-
+  
   // Assert.
   NSArray<GMSMarker *> *markers = [_renderer markers];
   XCTAssertEqual(markers.count, 2);
   XCTAssertTrue([markers[0].userData conformsToProtocol:@protocol(GMUCluster)]);
   XCTAssertEqual(markers[0].map, _mapView);
-
+  
   XCTAssertTrue([markers[1].userData conformsToProtocol:@protocol(GMUCluster)]);
   XCTAssertEqual(markers[1].map, _mapView);
 }

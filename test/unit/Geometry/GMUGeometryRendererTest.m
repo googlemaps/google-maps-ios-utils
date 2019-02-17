@@ -189,7 +189,7 @@ static NSString *const kStyleId = @"#style";
   CLLocationCoordinate2D position = CLLocationCoordinate2DMake(45.123, 90.456);
   GMUPoint *point = [[GMUPoint alloc] initWithCoordinate:position];
   GMUPlacemark *placemark = [[GMUPlacemark alloc] initWithGeometry:point
-                                                             title:nil
+                                                             title:kTitleText
                                                            snippet:nil
                                                              style:nil
                                                           styleUrl:kStyleId];
