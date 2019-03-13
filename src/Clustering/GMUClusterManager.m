@@ -26,7 +26,7 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
 
 @implementation GMUClusterManager {
   // The map view that this object is associated with.
-  __weak GMSMapView *_mapView;
+  GMSMapView *_mapView;
 
   // Position of the camera on the previous cluster invocation.
   GMSCameraPosition *_previousCamera;
