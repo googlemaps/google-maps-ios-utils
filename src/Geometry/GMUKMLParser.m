@@ -655,7 +655,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
                                                    range:NSMakeRange(0, elementName.length)] ||
              [_compassRegex firstMatchInString:elementName
                                        options:0
-                                         range:NSMakeRange(0, elementName.length)]) {
+                                         range:NSMakeRange(0, elementName.length)] ||
+             [_pairAttributeRegex firstMatchInString:elementName
+                                            options:0
+                                       range:NSMakeRange(0, elementName.length)]) {
     [self parseBeginLeafNode];
   }
 }
@@ -672,6 +675,12 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
                                               options:0
                                                 range:NSMakeRange(0, elementName.length)]) {
     [self parseEndStyleAttribute:elementName];
+  } else if ([elementName isEqual:kGMUPairElementName]) {
+      [self parseEndPair];
+  } else if ([_pairAttributeRegex firstMatchInString:elementName
+                                     options:0
+                                       range:NSMakeRange(0, elementName.length)]) {
+      [self parseEndPairAttribute:elementName];
   } else if ([elementName isEqual:kGMUPlacemarkElementName]) {
     [self parseEndPlacemark];
   } else if ([elementName isEqual:kGMUGroundOverlayElementName]) {
