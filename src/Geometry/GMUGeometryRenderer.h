@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GMUGeometryRenderer : NSObject
 
 /**
+ * The overlays array returned from the GMUGeometryRenderer, use after render function.
+ */
+- (NSArray<GMSOverlay *> *)mapOverlays;
+/**
  * Initializes a new renderer.
  *
  * @param map the Google Map layer to render the geometries onto.
