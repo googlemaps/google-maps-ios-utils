@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The properties of the geometry in the feature.
  */
-@property(nonatomic, nullable, readonly) NSDictionary<NSString *, NSString *> *properties;
+@property(nonatomic, nullable, readonly) NSDictionary<NSString *, NSObject *> *properties;
 
 /**
  * The bounding box of the geometry in the feature.
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithGeometry:(id<GMUGeometry>)geometry
                       identifier:(NSString * _Nullable)identifier
-                      properties:(NSDictionary<NSString *, NSString *> * _Nullable)properties
+                      properties:(NSDictionary<NSString *, NSObject *> * _Nullable)properties
                      boundingBox:(GMSCoordinateBounds * _Nullable)boundingBox;
 
 @end
