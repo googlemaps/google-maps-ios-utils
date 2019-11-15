@@ -45,7 +45,7 @@ static const double kCameraZoom = 10.0;
   _mapView = OCMClassMock([GMSMapView class]);
   _camera = [GMSCameraPosition cameraWithTarget:kCameraPosition zoom:kCameraZoom];
   [[[_mapView stub] andDo:^(NSInvocation *invocation) {
-    [invocation setReturnValue:&_camera];
+    [invocation setReturnValue:&self->_camera];
   }] camera];
 
   _algorithm = OCMProtocolMock(@protocol(GMUClusterAlgorithm));
