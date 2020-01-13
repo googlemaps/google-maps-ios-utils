@@ -83,11 +83,11 @@ static const double kCameraLongitude = 151.2;
 
 #pragma mark GMUClusterManagerDelegate
 
-- (void)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
-  GMSCameraPosition *newCamera =
-      [GMSCameraPosition cameraWithTarget:cluster.position zoom:_mapView.camera.zoom + 1];
+- (BOOL)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
+  GMSCameraPosition *newCamera = [GMSCameraPosition cameraWithTarget:cluster.position zoom:_mapView.camera.zoom + 1];
   GMSCameraUpdate *update = [GMSCameraUpdate setCamera:newCamera];
   [_mapView moveCamera:update];
+  return true;
 }
 
 #pragma mark GMSMapViewDelegate
