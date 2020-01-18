@@ -5,7 +5,7 @@ target 'DevApp' do
   pod 'GoogleMaps'
 end
 
-target 'UnitTest' do
+target 'GoogleMapsUtilsUnitTests' do
   pod 'GoogleMaps'
   pod 'OCMock'
 end
