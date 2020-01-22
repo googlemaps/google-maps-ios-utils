@@ -89,9 +89,9 @@
 		8869518CED7812A43442DF2E /* libPods-UnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */; };
 		94FDE761214B36480028D11E /* GMUStyleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FDE75E214B36480028D11E /* GMUStyleMap.m */; };
 		94FDE762214B36480028D11E /* GMUPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FDE75F214B36480028D11E /* GMUPair.m */; };
-		B4F945371F02180900FBF534 /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */; };
-		B4F945381F02180900FBF534 /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945351F02180900FBF534 /* GMUGradient.m */; };
-		B4F945391F02180900FBF534 /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945361F02180900FBF534 /* GMUWeightedLatLng.m */; };
+		AA3976D723CE702500833FFC /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945351F02180900FBF534 /* GMUGradient.m */; };
+		AA3976D823CE702A00833FFC /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */; };
+		AA3976D923CE702D00833FFC /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F945361F02180900FBF534 /* GMUWeightedLatLng.m */; };
 		B4F9453C1F02181900FBF534 /* HeatmapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F9453A1F02181900FBF534 /* HeatmapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -959,11 +959,14 @@
 				3491C80F1E5D199200A2FA04 /* GMUPolygon.m in Sources */,
 				3491C80E1E5D199000A2FA04 /* GMUPoint.m in Sources */,
 				3491C8071E5D192600A2FA04 /* GMUGeometryRenderer.m in Sources */,
+				AA3976D823CE702A00833FFC /* GMUHeatmapTileLayer.m in Sources */,
 				0242D1A91C7C19E600557130 /* GMUDefaultClusterIconGenerator.m in Sources */,
 				3491C8081E5D192900A2FA04 /* GMUGeoJSONParser.m in Sources */,
 				0242D1A51C7C19E600557130 /* GMUGridBasedClusterAlgorithm.m in Sources */,
+				AA3976D923CE702D00833FFC /* GMUWeightedLatLng.m in Sources */,
 				0242D1B41C7C19F700557130 /* GQTPointQuadTreeChild.m in Sources */,
 				3491C80A1E5D198600A2FA04 /* GMUGeometryCollection.m in Sources */,
+				AA3976D723CE702500833FFC /* GMUGradient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,11 +981,8 @@
 				3491C84A1E5D2D5300A2FA04 /* KMLViewController.m in Sources */,
 				B4F9453C1F02181900FBF534 /* HeatmapViewController.m in Sources */,
 				02F87BFB1D20B61000C65016 /* main.m in Sources */,
-				B4F945381F02180900FBF534 /* GMUGradient.m in Sources */,
 				0229C0FD1D9B4C0800551202 /* CustomMarkerViewController.m in Sources */,
 				3491C8491E5D2D5300A2FA04 /* GeoJSONViewController.m in Sources */,
-				B4F945371F02180900FBF534 /* GMUHeatmapTileLayer.m in Sources */,
-				B4F945391F02180900FBF534 /* GMUWeightedLatLng.m in Sources */,
 				02F87BFC1D20B61000C65016 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1175,7 +1175,7 @@
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1188,7 +1188,7 @@
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/../app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
