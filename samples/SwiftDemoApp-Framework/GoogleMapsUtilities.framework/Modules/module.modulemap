@@ -1,0 +1,6 @@
+framework module GoogleMapsUtilities {
+  umbrella header "GoogleMapsUtilities.h"
+
+  export *
+  module * { export * }
+}
