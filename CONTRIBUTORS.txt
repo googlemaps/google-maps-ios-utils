@@ -9,9 +9,11 @@
 # Names should be added to this file as:
 #     Name <email address>
 
-Son Nguyen <sonnguyen@google.com>
 Brett Morgan <brettmorgan@google.com>
-Michael Lapuebla <chainedtothewoods@gmail.com>
-Daniel Kostrzynski <kostrzynski@google.com>
 Christian Ihle <blurpy@gmail.com>
+Christopher Arriola <chrisarriola@google.com>
+Daniel Kostrzynski <kostrzynski@google.com>
 Gareth Pearce <garethpearce@google.com>
+Michael Lapuebla <chainedtothewoods@gmail.com>
+Son Nguyen <sonnguyen@google.com>
+Xurxo Mendez <sonxurxo@gmail.com>

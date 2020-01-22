@@ -17,20 +17,18 @@ import GoogleMaps
 import UIKit
 
 // Change this key to a valid key registered with the demo app bundle id.
-let kMapsAPIKey = ""
+let mapsAPIKey = ""
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
-
-  func application(_ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    if kMapsAPIKey.isEmpty {
-      fatalError("Please provide an API Key using kMapsAPIKey")
+  
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    if mapsAPIKey.isEmpty {
+      fatalError("Please provide an API Key using mapsAPIKey")
     }
-    GMSServices.provideAPIKey(kMapsAPIKey)
+    GMSServices.provideAPIKey(mapsAPIKey)
     let masterViewControler = MasterViewController()
     let navigationController = UINavigationController(rootViewController: masterViewControler)
     window?.rootViewController = navigationController
