@@ -2,6 +2,7 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '9.0'
 
 target 'SwiftDemoApp' do
+  use_frameworks!
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils', :path => '../..'
 end
