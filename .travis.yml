@@ -1,0 +1,11 @@
+osx_image: xcode11.3
+language: objective-c
+xcode_project: workspace/GoogleMapsUtils.xcodeproj
+xcode_scheme: UnitTest
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+
+cache: cocoapods
+podfile: workspace/Podfile
+before_install:
+- gem install cocoapods
+- pod install --project-directory=workspace/
