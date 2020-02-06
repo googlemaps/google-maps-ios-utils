@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import "QuadTree/GQTPointQuadTree.h"
+#import <GoogleMapsUtils/GQTPointQuadTree.h>
 
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>

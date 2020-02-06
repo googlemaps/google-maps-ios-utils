@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"
+#import <GoogleMapsUtils/GMUNonHierarchicalDistanceBasedAlgorithm.h>
 
 #import "GMUClusterAlgorithmTest.h"
 

@@ -13,6 +13,16 @@
  * limitations under the License.
  */
 
+#import <UIKit/UIKit.h>
+
+//! Project version number for GoogleMapsUtils.
+FOUNDATION_EXPORT double GoogleMapsUtilsVersionNumber;
+
+//! Project version string for GoogleMapsUtils.
+FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <GoogleMapsUtils/PublicHeader.h>
+
 #import <GoogleMaps/GoogleMaps.h>
 
 // Heatmap
@@ -34,9 +44,7 @@
 #import <GoogleMapsUtils/GMUClusterIconGenerator.h>
 #import <GoogleMapsUtils/GMUClusterRenderer.h>
 #import <GoogleMapsUtils/GMUDefaultClusterIconGenerator.h>
-#import <GoogleMapsUtils/GMUDefaultClusterIconGenerator+Testing.h>
 #import <GoogleMapsUtils/GMUDefaultClusterRenderer.h>
-#import <GoogleMapsUtils/GMUDefaultClusterRenderer+Testing.h>
 
 // Geometry
 #import <GoogleMapsUtils/GMUFeature.h>
@@ -50,11 +58,8 @@
 #import <GoogleMapsUtils/GMUPolygon.h>
 #import <GoogleMapsUtils/GMUStyle.h>
 #import <GoogleMapsUtils/GMUGeoJSONParser.h>
-#import <GoogleMapsUtils/GMUGeometryRenderer+Testing.h>
 #import <GoogleMapsUtils/GMUGeometryRenderer.h>
 #import <GoogleMapsUtils/GMUKMLParser.h>
-#import <GoogleMapsUtils/GMUStyleMap.h>
-#import <GoogleMapsUtils/GMUPair.h>
 
 // QuadTree
 #import <GoogleMapsUtils/GQTBounds.h>
@@ -62,6 +67,4 @@
 #import <GoogleMapsUtils/GQTPointQuadTree.h>
 #import <GoogleMapsUtils/GQTPointQuadTreeChild.h>
 #import <GoogleMapsUtils/GQTPointQuadTreeItem.h>
-
-
 

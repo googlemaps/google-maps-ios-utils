@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import "Clustering/GMUClusterManager+Testing.h"
+#import "GMUClusterManager+Testing.h"
 
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
