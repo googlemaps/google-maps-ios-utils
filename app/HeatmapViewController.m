@@ -20,9 +20,8 @@
 #import "HeatmapViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-
-#import "Heatmap/GMUHeatmapTileLayer.h"
-#import "Heatmap/GMUWeightedLatLng.h"
+#import <GoogleMapsUtilities/GMUHeatmapTileLayer.h>
+#import <GoogleMapsUtilities/GMUWeightedLatLng.h>
 
 static const NSUInteger kHeatmapItemCount = 10000;
 static const double kCameraLatitude = -33.8;

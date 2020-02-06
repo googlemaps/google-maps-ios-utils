@@ -20,6 +20,7 @@
 #import "BasicViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
+#import <GoogleMapsUtilities/GoogleMapsUtilities.h>
 
 #import "Clustering/Algo/GMUGridBasedClusterAlgorithm.h"
 #import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"

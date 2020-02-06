@@ -20,6 +20,7 @@
 #import "CustomMarkerViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
+#import <GoogleMapsUtilities/GMUClusterAlgorithm.h>
 
 #import "Clustering/Algo/GMUGridBasedClusterAlgorithm.h"
 #import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"

@@ -31,6 +31,9 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  if (kMapsAPIKey.length == 0) {
+    [NSException raise:NSInvalidArgumentException format:@"Please provide your GMP API key"];
+  }
   [GMSServices provideAPIKey:kMapsAPIKey];
 
   MasterViewController *rootViewController = [[MasterViewController alloc] init];
