@@ -60,6 +60,8 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 #import <GoogleMapsUtils/GMUGeoJSONParser.h>
 #import <GoogleMapsUtils/GMUGeometryRenderer.h>
 #import <GoogleMapsUtils/GMUKMLParser.h>
+#import <GoogleMapsUtils/GMUStyleMap.h>
+#import <GoogleMapsUtils/GMUPair.h>
 
 // QuadTree
 #import <GoogleMapsUtils/GQTBounds.h>
