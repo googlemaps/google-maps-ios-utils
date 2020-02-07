@@ -20,12 +20,7 @@
 #import "CustomMarkerViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-
-#import "Clustering/Algo/GMUGridBasedClusterAlgorithm.h"
-#import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"
-#import "Clustering/GMUClusterManager.h"
-#import "Clustering/View/GMUDefaultClusterIconGenerator.h"
-#import "Clustering/View/GMUDefaultClusterRenderer.h"
+#import <GoogleMapsUtils/GoogleMapsUtils.h>
 
 static const double kCameraLatitude = -33.8;
 static const double kCameraLongitude = 151.2;

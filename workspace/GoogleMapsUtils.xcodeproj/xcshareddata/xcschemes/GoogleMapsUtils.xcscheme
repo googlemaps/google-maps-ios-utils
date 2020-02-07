@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F849455A209C15CE00C60C05"
-               BuildableName = "GoogleMapsUtilities.framework"
-               BlueprintName = "GoogleMapsUtilities"
+               BuildableName = "GoogleMapsUtils.framework"
+               BlueprintName = "GoogleMapsUtils"
                ReferencedContainer = "container:GoogleMapsUtils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F849455A209C15CE00C60C05"
-            BuildableName = "GoogleMapsUtilities.framework"
-            BlueprintName = "GoogleMapsUtilities"
+            BuildableName = "GoogleMapsUtils.framework"
+            BlueprintName = "GoogleMapsUtils"
             ReferencedContainer = "container:GoogleMapsUtils.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import "Clustering/View/GMUDefaultClusterIconGenerator+Testing.h"
+#import "GMUDefaultClusterIconGenerator+Testing.h"
 
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>

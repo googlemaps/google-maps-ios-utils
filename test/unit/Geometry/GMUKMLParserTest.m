@@ -15,13 +15,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "GMUGeometryCollection.h"
-#import "GMUGroundOverlay.h"
-#import "GMULineString.h"
-#import "GMUPlacemark.h"
-#import "GMUPoint.h"
-#import "GMUPolygon.h"
-#import "GMUStyle.h"
+#import <GoogleMapsUtils/GoogleMapsUtils.h>
 
 #import "GMUKMLParser.h"
 

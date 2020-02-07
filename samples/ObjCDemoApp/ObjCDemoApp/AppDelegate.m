@@ -17,8 +17,8 @@
 
 @import GoogleMaps;
 
-#error Change this key to a valid key registered with the demo app bundle id. Then delete this line.
-static NSString *const kMapsAPIKey = @"";
+//#error Change this key to a valid key registered with the demo app bundle id. Then delete this line.
+static NSString *const kMapsAPIKey = @"laskdhjf";
 
 @implementation AppDelegate
 

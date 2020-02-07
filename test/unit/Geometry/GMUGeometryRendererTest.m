@@ -16,12 +16,7 @@
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
 
-#import "GMUFeature.h"
-#import "GMUGeometryCollection.h"
-#import "GMULineString.h"
-#import "GMUPlacemark.h"
-#import "GMUPoint.h"
-#import "GMUPolygon.h"
+#import <GoogleMapsUtils/GoogleMapsUtils.h>
 
 #import "GMUGeometryRenderer+Testing.h"
 

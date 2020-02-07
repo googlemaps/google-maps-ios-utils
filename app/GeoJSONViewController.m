@@ -20,9 +20,7 @@
 #import "GeoJSONViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-
-#import "GMUGeoJSONParser.h"
-#import "GMUGeometryRenderer.h"
+#import <GoogleMapsUtils/GoogleMapsUtils.h>
 
 static const double kCameraLatitude = 37.4220;
 static const double kCameraLongitude = -122.0841;

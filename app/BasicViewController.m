@@ -20,13 +20,9 @@
 #import "BasicViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-
-#import "Clustering/Algo/GMUGridBasedClusterAlgorithm.h"
-#import "Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h"
-#import "Clustering/GMUClusterManager.h"
-#import "Clustering/View/GMUDefaultClusterIconGenerator.h"
-#import "Clustering/View/GMUDefaultClusterRenderer.h"
+#import <GoogleMapsUtils/GoogleMapsUtils.h>
 #import "POIItem.h"
+
 
 static const NSUInteger kClusterItemCount = 10000;
 static const double kCameraLatitude = -33.8;
