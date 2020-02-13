@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/googlemaps/google-maps-ios-utils.svg?branch=master)](https://travis-ci.org/googlemaps/google-maps-ios-utils)
+![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
+![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
 Google Maps SDK for iOS Utility Library
 =======================================
