@@ -23,8 +23,6 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <GoogleMapsUtils/PublicHeader.h>
 
-#import <GoogleMaps/GoogleMaps.h>
-
 // Heatmap
 #import <GoogleMapsUtils/GMUGradient.h>
 #import <GoogleMapsUtils/GMUHeatmapTileLayer.h>

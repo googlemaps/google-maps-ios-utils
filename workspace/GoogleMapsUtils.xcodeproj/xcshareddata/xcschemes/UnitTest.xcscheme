@@ -21,6 +21,14 @@
                BlueprintName = "UnitTest"
                ReferencedContainer = "container:GoogleMapsUtils.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "GMUGeoJSONParserTest/testParseFeature">
+               </Test>
+               <Test
+                  Identifier = "GMUGeometryRendererTest/testRenderPolygon">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
