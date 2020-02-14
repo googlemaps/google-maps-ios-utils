@@ -15,7 +15,7 @@
 
 import GoogleMaps
 import UIKit
-import GoogleMapsUtils.QuadTree
+import GoogleMapsUtils
 
 class GeoJSONViewController: UIViewController {
   private var mapView: GMSMapView!
