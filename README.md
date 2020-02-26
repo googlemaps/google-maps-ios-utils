@@ -19,13 +19,6 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 <p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/16808355/16646253/77feeb96-446c-11e6-9ec1-19e12a7fb3ae.png"></p>
 
-<p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/16808355/25834988/ca7c3566-34be-11e7-8f07-16c3ae9de63a.png"></p>
-
-<p align="center"><img width=“80%" vspace=“10" src="https://user-images.githubusercontent.com/16808355/30678820-54243eb6-9ed8-11e7-81b4-c1afe3df37b3.png"></p>
-
-For more information, check out the detailed guide on the
-[Google Developers site][devsite-guide].
-
 ## Requirements
 
 * iOS 9.0+
@@ -63,6 +56,9 @@ If you find a bug or have a feature request, please file an [issue].
 Or, if you'd like to contribute, please refer to our [contributing guide][contributing] and our [code of conduct].
 
 You can also reach us on our [Discord channel].
+
+For more information, check out the detailed guide on the
+[Google Developers site][devsite-guide].
 
 [#249]: https://github.com/googlemaps/google-maps-ios-utils/issues/249
 [Discord channel]: https://discord.gg/9fwRNWg
