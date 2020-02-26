@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/googlemaps/google-maps-ios-utils.svg?branch=master)](https://travis-ci.org/googlemaps/google-maps-ios-utils)
+[![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
@@ -26,7 +27,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Installation
 
-### [CocoaPods]((https://guides.cocoapods.org/using/using-cocoapods.html))
+### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
 In your `Podfile`:
 
@@ -46,7 +47,7 @@ $ pod install
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
-_Coming soon!_ See [#249].
+Coming soon! See [#249].
 
 ## Support
 
