@@ -147,6 +147,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, nullable, weak) id<GMUClusterRendererDelegate> delegate;
 
 /**
+ * Returns currently active markers.
+ */
+@property(nonatomic, readonly) NSArray<GMSMarker *> *markers;
+
+/**
  * If returns NO, cluster items will be expanded and rendered as normal markers.
  * Subclass can override this method to provide custom logic.
  */

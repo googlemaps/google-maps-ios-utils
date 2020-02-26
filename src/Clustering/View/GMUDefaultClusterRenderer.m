@@ -17,10 +17,9 @@
 #error "This file requires ARC support."
 #endif
 
-#import "GMUDefaultClusterRenderer+Testing.h"
-
 #import <GoogleMaps/GoogleMaps.h>
 
+#import "GMUDefaultClusterRenderer.h"
 #import "GMUClusterIconGenerator.h"
 #import "GMUWrappingDictionaryKey.h"
 
@@ -39,7 +38,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   __weak GMSMapView *_mapView;
 
   // Collection of markers added to the map.
-  NSMutableArray<GMSMarker *> *_markers;
+  NSMutableArray<GMSMarker *> *_mutableMarkers;
 
   // Icon generator used to create cluster icon.
   id<GMUClusterIconGenerator> _clusterIconGenerator;
@@ -67,7 +66,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
            clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator {
   if ((self = [super init])) {
     _mapView = mapView;
-    _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+    _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
     _clusterIconGenerator = iconGenerator;
     _renderedClusters = [[NSMutableSet alloc] init];
     _renderedClusterItems = [[NSMutableSet alloc] init];
@@ -100,8 +99,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   } else {
     // No animation, just remove existing markers and add new ones.
     _clusters = [clusters copy];
-    [self clearMarkers:_markers];
-    _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+    [self clearMarkers:_mutableMarkers];
+    _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
     [self addOrUpdateClusters:clusters animated:NO];
   }
 }
@@ -116,8 +115,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   _clusters = [clusters copy];
 
-  NSArray *existingMarkers = _markers;
-  _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+  NSArray *existingMarkers = _mutableMarkers;
+  _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
 
   [self addOrUpdateClusters:clusters animated:isZoomingIn];
 
@@ -183,10 +182,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   [self addOrUpdateClusters:_clusters animated:NO];
 }
 
-#pragma mark Testing
-
 - (NSArray<GMSMarker *> *)markers {
-  return _markers;
+  return [_mutableMarkers copy];
 }
 
 #pragma mark Private
@@ -278,7 +275,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
                                         userData:cluster
                                      clusterIcon:icon
                                         animated:animated];
-    [_markers addObject:marker];
+    [_mutableMarkers addObject:marker];
   } else {
     for (id<GMUClusterItem> item in cluster.items) {
       CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
@@ -295,7 +292,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
                                           userData:item
                                        clusterIcon:nil
                                           animated:shouldAnimate];
-      [_markers addObject:marker];
+      [_mutableMarkers addObject:marker];
       [_renderedClusterItems addObject:item];
     }
   }
@@ -379,8 +376,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
 // Removes all existing markers from the attached map.
 - (void)clear {
-  [self clearMarkers:_markers];
-  [_markers removeAllObjects];
+  [self clearMarkers:_mutableMarkers];
+  [_mutableMarkers removeAllObjects];
   [_renderedClusters removeAllObjects];
   [_renderedClusterItems removeAllObjects];
   [_itemToNewClusterMap removeAllObjects];
