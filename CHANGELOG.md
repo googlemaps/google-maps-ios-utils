@@ -2,6 +2,15 @@
 
 ## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.0...HEAD)
 
+## [Version 3.0.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.0...v3.0.1) - February 27, 2020
+
+### Features
+
+* Expose markers in GMUDefaultClusterRenderer. ([#271](https://github.com/googlemaps/google-maps-ios-utils/issues/271)) ([e9dac24](https://github.com/googlemaps/google-maps-ios-utils/commit/e9dac243927a1c07e4ffbcac6dc53d5835325179))
+
+### Bug Fixes
+* Fix broken Swift sample. ([b05b1f4](https://github.com/googlemaps/google-maps-ios-utils/commit/b05b1f4))
+
 ## [Version 3.0.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v2.1.0...v3.0.0) - January 2020
 ### BREAKING CHANGES
 
