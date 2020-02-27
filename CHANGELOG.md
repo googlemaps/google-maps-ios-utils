@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.0...HEAD)
+## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.1...HEAD)
 
 ## [Version 3.0.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.0...v3.0.1) - February 27, 2020
 
