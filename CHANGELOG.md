@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.1...HEAD)
+## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.2...HEAD)
+
+## [Version 3.0.2](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.1...v3.0.2) - March 5, 2020
+
+### Features
+
+* Remove version from podspec dependency. ([#277](https://github.com/googlemaps/google-maps-ios-utils/issues/277)) ([9798ff2](https://github.com/googlemaps/google-maps-ios-utils/commit/9798ff2af52c2edd1b69bd8947f55f078e0e320e))
 
 ## [Version 3.0.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.0...v3.0.1) - February 27, 2020
 
