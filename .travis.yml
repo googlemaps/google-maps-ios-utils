@@ -3,11 +3,22 @@ language: objective-c
 xcode_workspace: workspace/GoogleMapsUtils.xcworkspace
 xcode_scheme: UnitTest
 xcode_destination: platform=iOS Simulator,OS=13.3,name=iPhone 8
-
 cache: cocoapods
 podfile: workspace/Podfile
+
 before_install:
-    - gem install cocoapods
-    - pod install --project-directory=workspace/
+  - gem install cocoapods
+  - pod install --project-directory=workspace/
+
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
+
+env:
+  secure: IsMOleJwO/y0TckyuZZqLXpd0ukmSW+40H1LDAEI34m9w13lqlqZ8E/RMgFS2tlHg6VDjHZ6QSVbHjSuLk0akFWSB+ASLilNKJoMvn4uVbYNI0/fh+Sj42GGWQPeg65puXcNKaqUzBdJY77o77yfmhHXcFjvqTdaVk75mLPItho=
+
+deploy:
+  provider: script
+  script: 
+    - pod trunk push
+  on:
+    tags: true
