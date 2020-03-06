@@ -49,6 +49,32 @@ $ pod install
 
 Coming soon! See [#249].
 
+## Example Usage
+
+e.g. Displaying KML data
+
+```swift
+import GoogleMapsUtils
+
+func renderKml() {
+    // Parse KML
+    let path: String = // Path to your KML file...
+    let kmlUrl = URL(fileURLWithPath: path)
+    let kmlParser = GMUKmlParser(url: kmlUrl)
+    kmlParser.parse()
+
+    // Render parsed KML
+    let renderer = GMUGeometryRenderer(
+        map: mapView,
+        geometries: kmlParser.placemarks,
+        styles: kmlParser.styles
+    )
+    renderer.render()
+}
+```
+
+You can see more example usages in the [Swift sample][swift-sample] project.
+
 ## Support
 
 Encounter an issue while using this library?
@@ -71,3 +97,4 @@ For more information, check out the detailed guide on the
 [customizing-markers]: CustomMarkers.md
 [geometry-rendering]: GeometryRendering.md
 [heatmap-rendering]: HeatmapRendering.md
+[swift-sample]: https://github.com/googlemaps/google-maps-ios-utils/tree/master/samples/SwiftDemoApp
