@@ -9,6 +9,7 @@
 # Names should be added to this file as:
 #     Name <email address>
 
+Artem Boboshko <boboshkoa@meta.ua>
 Brett Morgan <brettmorgan@google.com>
 Christian Ihle <blurpy@gmail.com>
 Christopher Arriola <chrisarriola@google.com>
