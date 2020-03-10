@@ -135,15 +135,15 @@ static NSString *const kStyleMapDefaultState = @"normal";
 }
 
 - (GMUStyle *)getStyleFromStyleMaps:(NSString *)styleUrl {
-    GMUStyleMap *styleMap = [_styleMaps objectForKey:styleUrl];
-    if (styleMap) {
-        for (GMUPair *pair in styleMap.pairs) {
-            if ([pair.key isEqual:kStyleMapDefaultState]) {
-                return [_styles objectForKey:pair.styleUrl];
-            }
-        }
-    }
-    return nil;
+  GMUStyleMap *styleMap = [_styleMaps objectForKey:styleUrl];
+  if (styleMap) {
+      for (GMUPair *pair in styleMap.pairs) {
+          if ([pair.key isEqual:kStyleMapDefaultState]) {
+              return [_styles objectForKey:pair.styleUrl];
+          }
+      }
+  }
+  return nil;
 }
 
 - (void)renderGeometryContainers:(NSArray<id<GMUGeometryContainer>> *)containers {

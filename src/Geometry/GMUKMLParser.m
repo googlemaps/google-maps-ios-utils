@@ -74,7 +74,7 @@ static NSString *const kGMUGeometryAttributeRegex =
     @"^(coordinates|name|description|rotation|drawOrder|href|styleUrl)$";
 static NSString *const kGMUCompassRegex = @"^(north|east|south|west)$";
 static NSString *const kGMUBoundaryRegex = @"^(outerBoundaryIs|innerBoundaryIs)$";
-static NSString *const kGMUStyleRegex = @"^(Style|StyleMap|LineStyle)$";
+static NSString *const kGMUStyleRegex = @"^(Style|StyleMap|LineStyle|Pair)$";
 static NSString *const kGMUStyleAttributeRegex =
     @"^(text|scale|heading|fill|outline|width|color|colorMode)$";
 static NSString *const kGMUStyleUrlRegex = @"#.+";
@@ -90,7 +90,8 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   kGMUParserStateStyle = 1 << 3,
   kGMUParserStateStyleMap = 1 << 4,
   kGMUParserStateLineStyle = 1 << 5,
-  kGMUParserStateLeafNode = 1 << 6,
+  kGMUParserStatePair = 1 << 6,
+  kGMUParserStateLeafNode = 1 << 7,
 };
 
 @interface GMUKMLParser () <NSXMLParserDelegate>
@@ -379,12 +380,17 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     _parserState |= kGMUParserStateStyleMap;
   } else if ([elementName isEqual:kGMULineStyleElementName]) {
     _parserState |= kGMUParserStateLineStyle;
+  } else if ([elementName isEqual:kGMUPairElementName]) {
+    _parserState |= kGMUParserStatePair;
   }
 }
 
 - (void)parseEndStyle {
   if ([self isParsing:kGMUParserStateLineStyle]) {
     _parserState &= ~kGMUParserStateLineStyle;
+  } else if ([self isParsing:kGMUParserStatePair]) {
+    _parserState &= ~kGMUParserStatePair;
+    [self parseEndPair];
   } else if([self isParsing:kGMUParserStateStyleMap]) {
     _parserState &= ~kGMUParserStateStyleMap;
     
@@ -622,7 +628,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [_pairs addObject:pair];
 }
 
-# pragma mark - NSXMLParserDelegate
+#pragma mark - NSXMLParserDelegate
 
 - (void)parser:(NSXMLParser *)parser
     didStartElement:(nonnull NSString *)elementName
@@ -657,7 +663,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
                                                    range:NSMakeRange(0, elementName.length)] ||
              [_compassRegex firstMatchInString:elementName
                                        options:0
-                                         range:NSMakeRange(0, elementName.length)]) {
+                                         range:NSMakeRange(0, elementName.length)] ||
+             [_pairAttributeRegex firstMatchInString:elementName
+                                             options:0
+                                               range:NSMakeRange(0, elementName.length)]) {
     [self parseBeginLeafNode];
   }
 }
@@ -676,6 +685,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [self parseEndStyleAttribute:elementName];
   } else if ([elementName isEqual:kGMUPlacemarkElementName]) {
     [self parseEndPlacemark];
+  } else if ([_pairAttributeRegex firstMatchInString:elementName
+                                             options:0
+                                               range:NSMakeRange(0, elementName.length)]) {
+    [self parseEndPairAttribute:elementName];
   } else if ([elementName isEqual:kGMUGroundOverlayElementName]) {
     [self parseEndGroundOverlay];
   } else if ([_geometryRegex firstMatchInString:elementName

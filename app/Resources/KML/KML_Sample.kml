@@ -2,6 +2,34 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
     <name>KmlFile</name>
+    <StyleMap id="line-FF0000-5000-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF0000-5000-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF0000-5000-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF0000-5000-nodesc-normal">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>5</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF0000-5000-nodesc-highlight">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>7.5</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
     <Style id="transGreenPoly">
       <LineStyle>
         <width>1.5</width>
@@ -34,6 +62,77 @@
         <color>7d00ffff</color>
       </PolyStyle>
     </Style>
+   
+    <Folder>
+      <name>Valencia</name>
+      <Placemark>
+        <name>Trayectoria de la ruta.</name>
+        <styleUrl>#line-FF0000-5000-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -0.37594,39.47947,0
+            -0.37471,39.47892,0
+            -0.37494,39.47765,0
+            -0.37519,39.47667,0
+            -0.3759,39.4767,0
+            -0.37664,39.47682,0
+            -0.3768,39.47703,0
+            -0.37686,39.47661,0
+            -0.37505,39.47618,0
+            -0.37581,39.47526,0
+            -0.3755,39.4753,0
+            -0.37584,39.47448,0
+            -0.37576,39.47427,0
+            -0.37555,39.47434,0
+            -0.37532,39.47419,0
+            -0.37519,39.47478,0
+            -0.37433,39.47598,0
+            -0.37365,39.47652,0
+            -0.37355,39.47649,0
+            -0.37346,39.47633,0
+            -0.37353,39.47585,0
+            -0.37363,39.47584,0
+            -0.37457,39.47401,0
+            -0.37425,39.47394,0
+            -0.37432,39.47317,0
+            -0.37451,39.47251,0
+            -0.37443,39.47251,0
+            -0.37442,39.47274,0
+            -0.37388,39.47269,0
+            -0.374485,39.47273,0
+            -0.374978,39.472908,0
+            -0.375343,39.473036,0
+            -0.375756,39.473045,0
+            -0.37611,39.47318,0
+            -0.37682,39.47219,0
+            -0.37671,39.47123,0
+            -0.37604,39.4702,0
+            -0.37586,39.46981,0
+            -0.37577,39.46941,0
+            -0.37604,39.46917,0
+            -0.37685,39.46927,0
+            -0.37677,39.47161,0
+            -0.37687,39.47218,0
+            -0.37742,39.47291,0
+            -0.37804,39.47361,0
+            -0.37784,39.47345,0
+            -0.3773,39.47386,0
+            -0.37802,39.47434,0
+            -0.37888,39.47523,0
+            -0.37904,39.47529,0
+            -0.37919,39.47523,0
+            -0.37946,39.47489,0
+            -0.37982,39.47503,0
+            -0.38023,39.476,0
+            -0.38038,39.47599,0
+            -0.38041,39.47633,0
+            -0.38391,39.47576,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    
     <Folder>
       <name>Google Campus</name>
       <visibility>1</visibility>
