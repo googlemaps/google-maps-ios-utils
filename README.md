@@ -49,7 +49,7 @@ $ pod install
 
 Coming soon! See [#249].
 
-## Example Usage
+## Samples and Example Usage
 
 e.g. Displaying KML data
 
@@ -73,7 +73,7 @@ func renderKml() {
 }
 ```
 
-You can see more example usages in the [Swift sample][swift-sample] project.
+You can see more example usages in our [sample][samples] projects.
 
 ## Support
 
@@ -97,4 +97,4 @@ For more information, check out the detailed guide on the
 [customizing-markers]: CustomMarkers.md
 [geometry-rendering]: GeometryRendering.md
 [heatmap-rendering]: HeatmapRendering.md
-[swift-sample]: https://github.com/googlemaps/google-maps-ios-utils/tree/master/samples/SwiftDemoApp
+[samples]: https://github.com/googlemaps/google-maps-ios-utils/tree/master/samples

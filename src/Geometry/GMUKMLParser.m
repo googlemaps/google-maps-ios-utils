@@ -622,6 +622,8 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [_pairs addObject:pair];
 }
 
+# pragma mark - NSXMLParserDelegate
+
 - (void)parser:(NSXMLParser *)parser
     didStartElement:(nonnull NSString *)elementName
        namespaceURI:(nullable NSString *)namespaceURI
