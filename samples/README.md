@@ -12,8 +12,10 @@ To view the Swift samples:
 ```
 cd SwiftDemoApp
 pod install 
-open SwiftDemoApp.xcodeproj
+open SwiftDemoApp.xcworkspace
 ```
+
+Lastly, copy and paste the API key that you created and replace the value of `mapsAPIKey` in `AppDelegate.swift`
 
 ## Objective-C
 
@@ -22,5 +24,7 @@ To view the Objective-C samples:
 ```
 cd ObjCDemoApp
 pod install 
-open ObjCDemoApp.xcodeprof
+open ObjCDemoApp.xcworkspace
 ```
+
+Lastly, copy and paste the API key that you created and replace the value of `kMapsAPIKey` in `AppDelegate.m`
