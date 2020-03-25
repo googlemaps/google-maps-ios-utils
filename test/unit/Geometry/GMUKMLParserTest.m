@@ -44,7 +44,6 @@
   return [self parserWithResource:resource].styles;
 }
 
-
 - (void)testInitWithURL {
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"KML_Point_Test"
                                                                     ofType:@"kml"];
@@ -150,6 +149,26 @@
   XCTAssertTrue(style.hasStroke);
 }
 
+- (void)testParseStyleMap {
+  GMUKMLParser *parser = [self parserWithResource:@"KML_StyleMap_Test"];
+  XCTAssertEqual(1, parser.styleMaps.count);
+  XCTAssertEqual(2, parser.styles.count);
+  XCTAssertEqual(2, parser.styleMaps.firstObject.pairs.count);
+  
+  GMUStyle *style1 = [self findStyleWithName:@"#line-FF0000-5000-nodesc-normal" inArray:parser.styles];
+  XCTAssertEqualObjects(style1.strokeColor, [[UIColor alloc] initWithRed:1.0 green:0 blue:0 alpha:1.0]);
+  
+  GMUStyle *style2 = [self findStyleWithName:@"#line-FF0000-5000-nodesc-highlight" inArray:parser.styles];
+  XCTAssertEqualObjects(style2.strokeColor, [[UIColor alloc] initWithRed:1.0 green:0 blue:0 alpha:1.0]);
+}
+
+- (GMUStyle *)findStyleWithName:(NSString *) name inArray:(NSArray<GMUStyle *>*)array
+{
+  NSUInteger idx = [array indexOfObjectPassingTest:^BOOL(GMUStyle * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    return [obj.styleID isEqualToString:name];
+  }];
+  return [array objectAtIndex:idx];
+}
 
 - (void)testParsePlacemark {
   NSArray<GMUPlacemark *> *placemarks = [self placemarksWithResource:@"KML_Placemark_Test"];

@@ -64,6 +64,7 @@
 		3491C8501E5D2DB200A2FA04 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 3491C84E1E5D2DB200A2FA04 /* KML_Sample.kml */; };
 		49CAD6F870C5583C82B43593 /* libPods-DevApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662F6FAE156096701716AEEC /* libPods-DevApp.a */; };
 		8869518CED7812A43442DF2E /* libPods-UnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */; };
+		AA45094F241816EA006A2CB5 /* KML_StyleMap_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AA45094D241815A8006A2CB5 /* KML_StyleMap_Test.kml */; };
 		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		AA53FFBD23EC82C1002059E2 /* GMUDefaultClusterIconGenerator+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B36A9E1D1253C100EA3A86 /* GMUDefaultClusterIconGenerator+Testing.h */; };
 		AA53FFBF23EC82C1002059E2 /* GMUClusterManager+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B36A9D1D124FD900EA3A86 /* GMUClusterManager+Testing.h */; };
@@ -294,6 +295,7 @@
 		94FDE75E214B36480028D11E /* GMUStyleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUStyleMap.m; sourceTree = "<group>"; };
 		94FDE75F214B36480028D11E /* GMUPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUPair.m; sourceTree = "<group>"; };
 		94FDE760214B36480028D11E /* GMUPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUPair.h; sourceTree = "<group>"; };
+		AA45094D241815A8006A2CB5 /* KML_StyleMap_Test.kml */ = {isa = PBXFileReference; lastKnownFileType = text; path = KML_StyleMap_Test.kml; sourceTree = "<group>"; };
 		B4F945311F02180900FBF534 /* GMUHeatmapTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUHeatmapTileLayer.h; sourceTree = "<group>"; };
 		B4F945321F02180900FBF534 /* GMUHeatmapTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUHeatmapTileLayer.m; sourceTree = "<group>"; };
 		B4F945331F02180900FBF534 /* GMUGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUGradient.h; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				3491C8221E5D1A1000A2FA04 /* KML_Point_Test.kml */,
 				3491C8231E5D1A1000A2FA04 /* KML_Polygon_Test.kml */,
 				3491C8241E5D1A1000A2FA04 /* KML_Style_Test.kml */,
+				AA45094D241815A8006A2CB5 /* KML_StyleMap_Test.kml */,
 			);
 			path = KML;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 			files = (
 				3491C8381E5D1A1D00A2FA04 /* GeoJSON_LineString_Test.geojson in Resources */,
 				3491C8371E5D1A1D00A2FA04 /* GeoJSON_GeometryCollection_Test.geojson in Resources */,
+				AA45094F241816EA006A2CB5 /* KML_StyleMap_Test.kml in Resources */,
 				3491C83C1E5D1A1D00A2FA04 /* GeoJSON_Point_Test.geojson in Resources */,
 				3491C8361E5D1A1D00A2FA04 /* GeoJSON_FeatureCollection_Test.geojson in Resources */,
 				3491C83B1E5D1A1D00A2FA04 /* GeoJSON_MultiPolygon_Test.geojson in Resources */,
