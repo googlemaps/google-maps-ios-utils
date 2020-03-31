@@ -67,7 +67,8 @@ func renderKml() {
     let renderer = GMUGeometryRenderer(
         map: mapView,
         geometries: kmlParser.placemarks,
-        styles: kmlParser.styles
+        styles: kmlParser.styles,
+        styleMaps: kmlParser.styleMaps
     )
     renderer.render()
 }
