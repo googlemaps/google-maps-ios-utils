@@ -30,4 +30,9 @@
  */
 @interface GMUNonHierarchicalDistanceBasedAlgorithm : NSObject<GMUClusterAlgorithm>
 
+/**
+ * Initializes this GMUNonHierarchicalDistanceBasedAlgorithm with the provided distance for clustering items (the default value is 100).
+ */
+- (instancetype)initWithClusterDistancePoints:(NSUInteger)clusterDistancePoints;
+
 @end
