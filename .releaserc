@@ -13,7 +13,7 @@ plugins:
         - files:
             - "./workspace/GoogleMapsUtils.xcodeproj/project.pbxproj"
           from: "MARKETING_VERSION = .*;"
-          to: "MARKETING_VERSION = ${nextRelease.version};
+          to: "MARKETING_VERSION = ${nextRelease.version};"
 
         - files:
             - "README.md"
