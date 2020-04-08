@@ -26,7 +26,7 @@
 #import "GMUWrappingDictionaryKey.h"
 #import "GQTPointQuadTree.h"
 
-static const NSUInteger kGMUClusterDistancePoints = 100;
+static const NSUInteger kGMUDefaultClusterDistancePoints = 100;
 static const double kGMUMapPointWidth = 2.0;  // MapPoint is in a [-1,1]x[-1,1] space.
 
 #pragma mark Utilities Classes
@@ -80,15 +80,21 @@ static const double kGMUMapPointWidth = 2.0;  // MapPoint is in a [-1,1]x[-1,1] 
 @implementation GMUNonHierarchicalDistanceBasedAlgorithm {
   NSMutableArray<id<GMUClusterItem>> *_items;
   GQTPointQuadTree *_quadTree;
+  NSUInteger _clusterDistancePoints;
 }
 
 - (instancetype)init {
-  if ((self = [super init])) {
-    _items = [[NSMutableArray alloc] init];
-    GQTBounds bounds = {-1, -1, 1, 1};
-    _quadTree = [[GQTPointQuadTree alloc] initWithBounds:bounds];
-  }
-  return self;
+  return [self initWithClusterDistancePoints:kGMUDefaultClusterDistancePoints];
+}
+
+- (instancetype)initWithClusterDistancePoints:(NSUInteger)clusterDistancePoints {
+    if ((self = [super init])) {
+      _items = [[NSMutableArray alloc] init];
+      GQTBounds bounds = {-1, -1, 1, 1};
+      _quadTree = [[GQTPointQuadTree alloc] initWithBounds:bounds];
+      _clusterDistancePoints = clusterDistancePoints;
+    }
+    return self;
 }
 
 - (void)addItems:(NSArray<id<GMUClusterItem>> *)items {
@@ -139,7 +145,7 @@ static const double kGMUMapPointWidth = 2.0;  // MapPoint is in a [-1,1]x[-1,1] 
 
     // Query for items within a fixed point distance from the current item to make up a cluster
     // around it.
-    double radius = kGMUClusterDistancePoints * kGMUMapPointWidth / pow(2.0, zoom + 8.0);
+    double radius = _clusterDistancePoints * kGMUMapPointWidth / pow(2.0, zoom + 8.0);
     GQTBounds bounds = {point.x - radius, point.y - radius, point.x + radius, point.y + radius};
     NSArray *nearbyItems = [_quadTree searchWithBounds:bounds];
     for (GMUClusterItemQuadItem *quadItem in nearbyItems) {
