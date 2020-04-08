@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.2...HEAD)
+## [Unreleased](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.1.0...HEAD)
+
+# [Version 3.1.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.2...v3.1.0) - April 8, 2020
+
+### Bug Fixes
+
+* Parse StyleMap in KML ([#287](https://github.com/googlemaps/google-maps-ios-utils/issues/287)) ([af22960](https://github.com/googlemaps/google-maps-ios-utils/commit/af22960d09f8cec3a38891b4a9122eadcd80cf4f))
 
 ## [Version 3.0.2](https://github.com/googlemaps/google-maps-ios-utils/compare/v3.0.1...v3.0.2) - March 5, 2020
 
