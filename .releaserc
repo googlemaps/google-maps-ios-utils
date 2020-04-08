@@ -1,0 +1,29 @@
+branches:
+  - master
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - - "@google/semantic-release-replace-plugin"
+    - replacements:
+        - files:
+            - "./Google-Maps-iOS-Utils.podspec"
+          from: "s.version      = \".*\""
+          to: "s.version      = \"${nextRelease.version}\""
+
+        - files:
+            - "./workspace/GoogleMapsUtils.xcodeproj/project.pbxproj"
+          from: "MARKETING_VERSION = .*;"
+          to: "MARKETING_VERSION = ${nextRelease.version};
+
+        - files:
+            - "README.md"
+          from: "~> [0-9].[0-9].[0-9]"
+          to: "~> ${nextRelease.version}"
+  - - "@semantic-release/git"
+    - assets:
+        - "./Google-Maps-iOS-Utils.podspec"
+        - "./workspace/GoogleMapsUtils.xcodeproj/project.pbxproj"
+        - "*.md"
+  - "@semantic-release/github"
+options:
+  debug: true
