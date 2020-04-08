@@ -1,0 +1,46 @@
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# A workflow that runs tests on every new pull request
+name: Run unit tests
+
+on:
+  repository_dispatch:
+    types: [test]
+  pull_request:
+    branches: ['*']
+
+jobs:
+  test:
+    runs-on: macOS-latest
+
+  steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout google-maps-ios-utils
+      uses: actions/checkout@v2
+
+    - name: Install CocoaPods
+      run: |
+        sudo gem install cocoapods
+
+    - name: Run pod install
+      run: |
+        pod install --project-directory=workspace/
+
+    - name: Run unit tests
+      run: |
+        xcodebuild -workspace workspace/GoogleMapsUtils.xcworkspace \
+        -scheme UnitTest \
+        -destination platform\=iOS\ Simulator,OS\=13.3,name\=iPhone\ 8 build test | xcpretty
+
