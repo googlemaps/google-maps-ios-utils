@@ -44,3 +44,6 @@ jobs:
         -scheme UnitTest \
         -destination platform\=iOS\ Simulator,OS\=13.3,name\=iPhone\ 8 build test | xcpretty
 
+    - name: Upload test results to CodeCov
+      run: |
+        bash <(curl -s https://codecov.io/bash)
