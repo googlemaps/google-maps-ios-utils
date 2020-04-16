@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/googlemaps/google-maps-ios-utils.svg?branch=master)](https://travis-ci.org/googlemaps/google-maps-ios-utils)
+![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Run%20unit%20tests/badge.svg)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
