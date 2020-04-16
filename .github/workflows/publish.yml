@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # A workflow that pushes artifacts to Sonatype
-name: Publish build to Sonatype
+name: Publish to CocoaPods
 
 on:
   push:
