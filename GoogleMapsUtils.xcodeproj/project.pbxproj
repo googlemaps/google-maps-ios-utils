@@ -64,7 +64,6 @@
 		3491C8501E5D2DB200A2FA04 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 3491C84E1E5D2DB200A2FA04 /* KML_Sample.kml */; };
 		AA45094F241816EA006A2CB5 /* KML_StyleMap_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AA45094D241815A8006A2CB5 /* KML_StyleMap_Test.kml */; };
 		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
-		AA8DE31D245791AA003DBA7B /* GMUDefaultClusterIconGenerator+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEC424578CAC0015D8C6 /* GMUDefaultClusterIconGenerator+Testing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA8DE31E245791AE003DBA7B /* GMUGeometryRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEEB24578CAC0015D8C6 /* GMUGeometryRenderer+Testing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
@@ -897,7 +896,6 @@
 				AAA1DE4B245790C0001CB03C /* GMUHeatmapTileLayer.h in Headers */,
 				AAA1DE53245790D0001CB03C /* GQTBounds.h in Headers */,
 				AAA1DE4A245790C0001CB03C /* GMUGradient.h in Headers */,
-				AA8DE31D245791AA003DBA7B /* GMUDefaultClusterIconGenerator+Testing.h in Headers */,
 				AAA1DE1624579019001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */,
 				AAA1DE4C245790C0001CB03C /* GMUWeightedLatLng.h in Headers */,
 				AAA1DE1C24579037001CB03C /* GMUWrappingDictionaryKey.h in Headers */,
