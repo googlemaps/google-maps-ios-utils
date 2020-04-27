@@ -1,2 +1,1 @@
-#include "../Pods/Target Support Files/Pods-DevApp/Pods-DevApp.debug.xcconfig"
 #include "GMU-Target.common.xcconfig"
