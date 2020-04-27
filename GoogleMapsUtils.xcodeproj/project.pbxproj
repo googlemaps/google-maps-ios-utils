@@ -167,6 +167,7 @@
 		AADB9A49245780CD000C86E1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB9A48245780CD000C86E1 /* QuartzCore.framework */; };
 		AADB9A4B245780D5000C86E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB9A4A245780D5000C86E1 /* SystemConfiguration.framework */; };
 		AADB9A4D245780DA000C86E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB9A4C245780DA000C86E1 /* UIKit.framework */; };
+		AAE83A31245794B20064204E /* GMUClusterManager+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEBC24578CAC0015D8C6 /* GMUClusterManager+Testing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4F9453C1F02181900FBF534 /* HeatmapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F9453A1F02181900FBF534 /* HeatmapViewController.m */; };
 		F849455F209C15CE00C60C05 /* GoogleMapsUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F849455D209C15CE00C60C05 /* GoogleMapsUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -923,6 +924,7 @@
 				AAA1DE52245790D0001CB03C /* GQTPointQuadTreeChild.h in Headers */,
 				AAA1DE2124579061001CB03C /* GMUClusterRenderer.h in Headers */,
 				AAA1DE1524579014001CB03C /* GMUClusterAlgorithm.h in Headers */,
+				AAE83A31245794B20064204E /* GMUClusterManager+Testing.h in Headers */,
 				AAA1DE2024579059001CB03C /* GMUClusterIconGenerator.h in Headers */,
 				AAA1DE40245790AC001CB03C /* GMUGeometry.h in Headers */,
 				AAA1DE1D2457903D001CB03C /* GMUClusterManager.h in Headers */,
