@@ -29,21 +29,20 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout google-maps-ios-utils
       uses: actions/checkout@v2
-  
-    - name: Install CocoaPods
-      run: |
-        sudo gem install cocoapods
-  
-    - name: Run pod install
-      run: |
-        pod install --project-directory=workspace/
-  
+
+    - name: Install Carthage
+      run: sudo brew install carthage
+
+    - name: Carthage build
+      run: carthage build --no-skip-current
+
+    - name: Carthage update
+      run: carthage update --platform iOS
+
     - name: Run unit tests
       run: |
-        xcodebuild -workspace workspace/GoogleMapsUtils.xcworkspace \
-        -scheme UnitTest \
+        xcodebuild scheme UnitTest
         -destination platform\=iOS\ Simulator,OS\=13.3,name\=iPhone\ 8 build test | xcpretty
 
     - name: Upload test results to CodeCov
-      run: |
-        bash <(curl -s https://codecov.io/bash)
+      run: bash <(curl -s https://codecov.io/bash)

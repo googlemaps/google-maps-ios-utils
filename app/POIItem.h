@@ -15,8 +15,7 @@
 
 
 #import <Foundation/Foundation.h>
-
-#import "Clustering/GMUClusterItem.h"
+@import GoogleMapsUtils.GMUClusterItem;
 
 // Point of Interest Item which implements the GMUClusterItem protocol.
 @interface POIItem : NSObject<GMUClusterItem>
