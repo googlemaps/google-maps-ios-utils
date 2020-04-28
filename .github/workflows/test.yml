@@ -32,8 +32,8 @@ jobs:
 
     - name: Install Dependencies
       run: |
+        brew install carthage
         sudo gem install cocoapods
-        sudo brew install carthage
 
     - name: Carthage update
       run: carthage update --platform iOS
