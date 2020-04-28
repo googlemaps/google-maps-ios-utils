@@ -30,14 +30,19 @@ jobs:
     - name: Checkout google-maps-ios-utils
       uses: actions/checkout@v2
 
-    - name: Install Carthage
-      run: sudo brew install carthage
+    - name: Install Dependencies
+      run: |
+        sudo gem install cocoapods
+        sudo brew install carthage
+
+    - name: Carthage update
+      run: carthage update --platform iOS
 
     - name: Carthage build
       run: carthage build --no-skip-current
 
-    - name: Carthage update
-      run: carthage update --platform iOS
+    - name: CocoaPods spec lint
+      run: pod spec lint
 
     - name: Run unit tests
       run: |
