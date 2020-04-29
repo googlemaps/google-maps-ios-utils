@@ -1376,6 +1376,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1395,6 +1396,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1447,7 +1449,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D1871C7C18CA00557130 /* GMU-UnitTest.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1468,7 +1471,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
