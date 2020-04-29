@@ -46,7 +46,7 @@ jobs:
 
     - name: Run unit tests
       run: |
-        xcodebuild -scheme UnitTest
+        xcodebuild -scheme UnitTest -configuration Debug
         -destination platform\=iOS\ Simulator,OS\=13.3,name\=iPhone\ 8 build test | xcpretty
 
     - name: Upload test results to CodeCov
