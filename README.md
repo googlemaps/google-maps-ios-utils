@@ -1,5 +1,6 @@
 ![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Run%20unit%20tests/badge.svg)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
@@ -47,7 +48,13 @@ $ pod install
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
-Coming soon! See [#249].
+In your `Cartfile`:
+
+```
+github "googlemaps/google-maps-ios-utils"
+```
+
+See the [Carthage doc] for further installation instructions.
 
 ## Samples and Example Usage
 
@@ -88,7 +95,7 @@ You can also reach us on our [Discord channel].
 For more information, check out the detailed guide on the
 [Google Developers site][devsite-guide].
 
-[#249]: https://github.com/googlemaps/google-maps-ios-utils/issues/249
+[Carthage doc]: Carthage.md
 [Discord channel]: https://discord.gg/9fwRNWg
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
