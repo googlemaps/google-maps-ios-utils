@@ -80,6 +80,23 @@
 		AAA1DE52245790D0001CB03C /* GQTPointQuadTreeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEAB24578CAC0015D8C6 /* GQTPointQuadTreeChild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA1DE53245790D0001CB03C /* GQTBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEAC24578CAC0015D8C6 /* GQTBounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAB7CC9B24592D3400127E16 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE6BA4E2458CBFE0051CD31 /* OCMock.framework */; };
+		AAB7CC9E24592E8A00127E16 /* GeoJSON_MultiLineString_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9F92458C9EA0051CD31 /* GeoJSON_MultiLineString_Test.geojson */; };
+		AAB7CC9F24592E8A00127E16 /* GeoJSON_MultiPolygon_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FA2458C9EA0051CD31 /* GeoJSON_MultiPolygon_Test.geojson */; };
+		AAB7CCA024592E8A00127E16 /* GeoJSON_Point_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FB2458C9EA0051CD31 /* GeoJSON_Point_Test.geojson */; };
+		AAB7CCA124592E8A00127E16 /* GeoJSON_FeatureCollection_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FC2458C9EA0051CD31 /* GeoJSON_FeatureCollection_Test.geojson */; };
+		AAB7CCA224592E8A00127E16 /* GeoJSON_MultiPoint_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FD2458C9EB0051CD31 /* GeoJSON_MultiPoint_Test.geojson */; };
+		AAB7CCA324592E8A00127E16 /* GeoJSON_GeometryCollection_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FE2458C9EB0051CD31 /* GeoJSON_GeometryCollection_Test.geojson */; };
+		AAB7CCA424592E8A00127E16 /* GeoJSON_LineString_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FF2458C9EB0051CD31 /* GeoJSON_LineString_Test.geojson */; };
+		AAB7CCA524592E8A00127E16 /* GeoJSON_Feature_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA002458C9EB0051CD31 /* GeoJSON_Feature_Test.geojson */; };
+		AAB7CCA624592E8A00127E16 /* GeoJSON_Polygon_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA012458C9EB0051CD31 /* GeoJSON_Polygon_Test.geojson */; };
+		AAB7CCA724592F0000127E16 /* KML_Polygon_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA032458C9EB0051CD31 /* KML_Polygon_Test.kml */; };
+		AAB7CCA824592F0000127E16 /* KML_GroundOverlay_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA042458C9EB0051CD31 /* KML_GroundOverlay_Test.kml */; };
+		AAB7CCA924592F0000127E16 /* KML_Point_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA052458C9EB0051CD31 /* KML_Point_Test.kml */; };
+		AAB7CCAA24592F0000127E16 /* KML_MultiGeometry_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA062458C9EB0051CD31 /* KML_MultiGeometry_Test.kml */; };
+		AAB7CCAB24592F0000127E16 /* KML_Placemark_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA072458C9EB0051CD31 /* KML_Placemark_Test.kml */; };
+		AAB7CCAC24592F0000127E16 /* KML_StyleMap_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA082458C9EB0051CD31 /* KML_StyleMap_Test.kml */; };
+		AAB7CCAD24592F0000127E16 /* KML_Style_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA092458C9EB0051CD31 /* KML_Style_Test.kml */; };
+		AAB7CCAE24592F0000127E16 /* KML_LineString_Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = AAE6BA0A2458C9EB0051CD31 /* KML_LineString_Test.kml */; };
 		AABFFE8B245787390015D8C6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABFFE8A245787390015D8C6 /* Accelerate.framework */; };
 		AABFFE8D245787510015D8C6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABFFE8C245787510015D8C6 /* CoreData.framework */; };
 		AABFFE8F245787560015D8C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABFFE8E245787560015D8C6 /* CoreGraphics.framework */; };
@@ -1071,6 +1088,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB7CCAA24592F0000127E16 /* KML_MultiGeometry_Test.kml in Resources */,
+				AAB7CCA224592E8A00127E16 /* GeoJSON_MultiPoint_Test.geojson in Resources */,
+				AAB7CCA124592E8A00127E16 /* GeoJSON_FeatureCollection_Test.geojson in Resources */,
+				AAB7CCA724592F0000127E16 /* KML_Polygon_Test.kml in Resources */,
+				AAB7CCAB24592F0000127E16 /* KML_Placemark_Test.kml in Resources */,
+				AAB7CC9F24592E8A00127E16 /* GeoJSON_MultiPolygon_Test.geojson in Resources */,
+				AAB7CCAC24592F0000127E16 /* KML_StyleMap_Test.kml in Resources */,
+				AAB7CCAD24592F0000127E16 /* KML_Style_Test.kml in Resources */,
+				AAB7CCA924592F0000127E16 /* KML_Point_Test.kml in Resources */,
+				AAB7CCA424592E8A00127E16 /* GeoJSON_LineString_Test.geojson in Resources */,
+				AAB7CCA824592F0000127E16 /* KML_GroundOverlay_Test.kml in Resources */,
+				AAB7CCA324592E8A00127E16 /* GeoJSON_GeometryCollection_Test.geojson in Resources */,
+				AAB7CC9E24592E8A00127E16 /* GeoJSON_MultiLineString_Test.geojson in Resources */,
+				AAB7CCAE24592F0000127E16 /* KML_LineString_Test.kml in Resources */,
+				AAB7CCA524592E8A00127E16 /* GeoJSON_Feature_Test.geojson in Resources */,
+				AAB7CCA024592E8A00127E16 /* GeoJSON_Point_Test.geojson in Resources */,
+				AAB7CCA624592E8A00127E16 /* GeoJSON_Polygon_Test.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
