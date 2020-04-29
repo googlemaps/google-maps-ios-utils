@@ -47,7 +47,13 @@ $ pod install
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
-Coming soon! See [#249].
+In your `Cartfile`:
+
+```
+github "googlemaps/google-maps-ios-utils"
+```
+
+See the [Carthage doc] for further installation instructions.
 
 ## Samples and Example Usage
 
@@ -88,7 +94,7 @@ You can also reach us on our [Discord channel].
 For more information, check out the detailed guide on the
 [Google Developers site][devsite-guide].
 
-[#249]: https://github.com/googlemaps/google-maps-ios-utils/issues/249
+[Carthage doc]: Carthage.md
 [Discord channel]: https://discord.gg/9fwRNWg
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
