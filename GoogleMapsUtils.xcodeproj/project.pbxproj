@@ -222,6 +222,8 @@
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
 		50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D7847D2463893500437147 /* GMSMarker+GMUClusterItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GMSMarker+GMUClusterItem.m"; path = "../../../../../codelabs/ios-101/codelab-ios-101/Google Maps Platform 101: iOS/Pods/Google-Maps-iOS-Utils/GMSMarker+GMUClusterItem.m"; sourceTree = "<group>"; };
+		54D7847E2463893600437147 /* GMSMarker+GMUClusterItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GMSMarker+GMUClusterItem.h"; path = "../../../../../codelabs/ios-101/codelab-ios-101/Google Maps Platform 101: iOS/Pods/Google-Maps-iOS-Utils/GMSMarker+GMUClusterItem.h"; sourceTree = "<group>"; };
 		662F6FAE156096701716AEEC /* libPods-DevApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Carthage/Build/iOS/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Carthage/Build/iOS/GoogleMapsCore.framework; sourceTree = "<group>"; };
@@ -652,6 +654,8 @@
 				AABFFEC024578CAC0015D8C6 /* GMUDefaultClusterRenderer.m */,
 				AABFFEC124578CAC0015D8C6 /* GMUDefaultClusterIconGenerator.h */,
 				AABFFEC224578CAC0015D8C6 /* GMUDefaultClusterIconGenerator.m */,
+				54D7847E2463893600437147 /* GMSMarker+GMUClusterItem.h */,
+				54D7847D2463893500437147 /* GMSMarker+GMUClusterItem.m */,
 				AABFFEC324578CAC0015D8C6 /* GMUDefaultClusterRenderer.h */,
 				AABFFEC424578CAC0015D8C6 /* GMUDefaultClusterIconGenerator+Testing.h */,
 			);

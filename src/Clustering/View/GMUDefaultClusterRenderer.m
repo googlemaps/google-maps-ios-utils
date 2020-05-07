@@ -278,20 +278,29 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     [_mutableMarkers addObject:marker];
   } else {
     for (id<GMUClusterItem> item in cluster.items) {
-      CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
-      BOOL shouldAnimate = animated;
-      if (shouldAnimate) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
-        shouldAnimate = fromCluster != nil;
-        fromPosition = fromCluster.position;
+      GMSMarker *marker;
+      if ([item class] == [GMSMarker class]) {
+        marker = (GMSMarker<GMUClusterItem> *)item;
+        marker.map = _mapView;
+      } else {
+        CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
+        BOOL shouldAnimate = animated;
+        if (shouldAnimate) {
+          GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
+          id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
+          shouldAnimate = fromCluster != nil;
+          fromPosition = fromCluster.position;
+        }
+        marker = [self markerWithPosition:item.position
+                                     from:fromPosition
+                                 userData:item
+                              clusterIcon:nil
+                                 animated:shouldAnimate];
+        if (item.title && item.snippet) {
+          marker.title = item.title;
+          marker.snippet = item.snippet;
+        }
       }
-
-      GMSMarker *marker = [self markerWithPosition:item.position
-                                              from:fromPosition
-                                          userData:item
-                                       clusterIcon:nil
-                                          animated:shouldAnimate];
       [_mutableMarkers addObject:marker];
       [_renderedClusterItems addObject:item];
     }
