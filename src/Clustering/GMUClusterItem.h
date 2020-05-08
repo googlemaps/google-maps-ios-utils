@@ -26,9 +26,9 @@
 @property(nonatomic, readonly) CLLocationCoordinate2D position;
 
 @optional
-@property(nonatomic, readonly) NSString* title;
+@property(nonatomic, nullable, readonly) NSString* title;
 
 @optional
-@property(nonatomic, readonly) NSString* snippet;
+@property(nonatomic, nullable, readonly) NSString* snippet;
 
 @end
