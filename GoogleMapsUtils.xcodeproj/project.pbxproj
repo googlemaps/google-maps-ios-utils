@@ -624,6 +624,8 @@
 				AABFFEBC24578CAC0015D8C6 /* GMUClusterManager+Testing.h */,
 				AABFFEBD24578CAC0015D8C6 /* View */,
 				AABFFEC524578CAC0015D8C6 /* GMUStaticCluster.m */,
+				54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */,
+				54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */,
 				AABFFEC624578CAC0015D8C6 /* GMUCluster.h */,
 				AABFFEC724578CAC0015D8C6 /* GMUClusterItem.h */,
 			);
@@ -657,8 +659,6 @@
 				AABFFEC224578CAC0015D8C6 /* GMUDefaultClusterIconGenerator.m */,
 				AABFFEC324578CAC0015D8C6 /* GMUDefaultClusterRenderer.h */,
 				AABFFEC424578CAC0015D8C6 /* GMUDefaultClusterIconGenerator+Testing.h */,
-				54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */,
-				54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
