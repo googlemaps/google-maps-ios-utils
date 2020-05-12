@@ -11,7 +11,7 @@ plugins:
           to: "s.version      = \"${nextRelease.version}\""
 
         - files:
-            - "./workspace/GoogleMapsUtils.xcodeproj/project.pbxproj"
+            - "./GoogleMapsUtils.xcodeproj/project.pbxproj"
           from: "MARKETING_VERSION = .*;"
           to: "MARKETING_VERSION = ${nextRelease.version};"
 
@@ -22,7 +22,7 @@ plugins:
   - - "@semantic-release/git"
     - assets:
         - "./Google-Maps-iOS-Utils.podspec"
-        - "./workspace/GoogleMapsUtils.xcodeproj/project.pbxproj"
+        - "./GoogleMapsUtils.xcodeproj/project.pbxproj"
         - "*.md"
   - "@semantic-release/github"
 options:
