@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543C4FB7246A1F9700821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
+		543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
 		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
@@ -222,6 +226,8 @@
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
 		50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMSMarker+GMUClusteritem.h"; sourceTree = "<group>"; };
+		54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GMSMarker+GMUClusteritem.m"; sourceTree = "<group>"; };
 		662F6FAE156096701716AEEC /* libPods-DevApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Carthage/Build/iOS/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Carthage/Build/iOS/GoogleMapsCore.framework; sourceTree = "<group>"; };
@@ -621,6 +627,8 @@
 				AABFFEBC24578CAC0015D8C6 /* GMUClusterManager+Testing.h */,
 				AABFFEBD24578CAC0015D8C6 /* View */,
 				AABFFEC524578CAC0015D8C6 /* GMUStaticCluster.m */,
+				54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */,
+				54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */,
 				AABFFEC624578CAC0015D8C6 /* GMUCluster.h */,
 				AABFFEC724578CAC0015D8C6 /* GMUClusterItem.h */,
 			);
@@ -896,6 +904,7 @@
 			files = (
 				AAA1DE1E24579041001CB03C /* GMUClusterManager+Testing.h in Headers */,
 				AAE6BA592458CC670051CD31 /* GMUClusterAlgorithmTest.h in Headers */,
+				543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */,
 				AAE6BA6B2458CD510051CD31 /* GMUTestClusterItem.h in Headers */,
 				AAA1DE3024579092001CB03C /* GMUGeometryRenderer+Testing.h in Headers */,
 				AAA1DE262457906A001CB03C /* GMUDefaultClusterIconGenerator+Testing.h in Headers */,
@@ -932,6 +941,7 @@
 				AAA1DE3F245790AC001CB03C /* GMULineString.h in Headers */,
 				AAA1DE4F245790D0001CB03C /* GQTPointQuadTreeItem.h in Headers */,
 				AAA1DE41245790AC001CB03C /* GMUGeometryCollection.h in Headers */,
+				543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */,
 				AAA1DE1924579027001CB03C /* GMUGridBasedClusterAlgorithm.h in Headers */,
 				AAA1DE52245790D0001CB03C /* GQTPointQuadTreeChild.h in Headers */,
 				AAA1DE2124579061001CB03C /* GMUClusterRenderer.h in Headers */,
@@ -1181,6 +1191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE6BA622458CCA50051CD31 /* GMUFeatureTest.m in Sources */,
+				543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */,
 				AAE6BA552458CC670051CD31 /* GMUClusterManagerTest.m in Sources */,
 				AAE6BA532458CC670051CD31 /* GMUGridBasedClusterAlgorithmTest.m in Sources */,
 				AAE6BA652458CCA50051CD31 /* GMUGeometryCollectionTest.m in Sources */,
@@ -1211,6 +1222,7 @@
 				AAA1DE34245790A0001CB03C /* GMUStyleMap.m in Sources */,
 				AAA1DE272457906F001CB03C /* GMUStaticCluster.m in Sources */,
 				AAA1DE3A245790A0001CB03C /* GMULineString.m in Sources */,
+				543C4FB7246A1F9700821017 /* GMSMarker+GMUClusteritem.m in Sources */,
 				AAA1DE1724579020001CB03C /* GMUWrappingDictionaryKey.m in Sources */,
 				AAA1DE2424579067001CB03C /* GMUDefaultClusterRenderer.m in Sources */,
 				AAA1DE4E245790CA001CB03C /* GQTPointQuadTreeChild.m in Sources */,
