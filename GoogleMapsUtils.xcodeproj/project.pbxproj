@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54D784812464DAAC00437147 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
+		543C4FB7246A1F9700821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
 		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
@@ -1173,7 +1173,6 @@
 				AAE6B9E82458C92B0051CD31 /* KMLViewController.m in Sources */,
 				AAE6B9E32458C92B0051CD31 /* Samples.m in Sources */,
 				AAE6B9E92458C92B0051CD31 /* CustomMarkerViewController.m in Sources */,
-				54D784812464DAAC00437147 /* GMSMarker+GMUClusteritem.m in Sources */,
 				AAE6B9F42458C92B0051CD31 /* HeatmapViewController.m in Sources */,
 				AAE6B9E62458C92B0051CD31 /* AppDelegate.m in Sources */,
 				AAE6B9E42458C92B0051CD31 /* BasicViewController.m in Sources */,
@@ -1217,6 +1216,7 @@
 				AAA1DE34245790A0001CB03C /* GMUStyleMap.m in Sources */,
 				AAA1DE272457906F001CB03C /* GMUStaticCluster.m in Sources */,
 				AAA1DE3A245790A0001CB03C /* GMULineString.m in Sources */,
+				543C4FB7246A1F9700821017 /* GMSMarker+GMUClusteritem.m in Sources */,
 				AAA1DE1724579020001CB03C /* GMUWrappingDictionaryKey.m in Sources */,
 				AAA1DE2424579067001CB03C /* GMUDefaultClusterRenderer.m in Sources */,
 				AAA1DE4E245790CA001CB03C /* GQTPointQuadTreeChild.m in Sources */,
