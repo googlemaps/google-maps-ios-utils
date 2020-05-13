@@ -296,9 +296,11 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
                                  userData:item
                               clusterIcon:nil
                                  animated:shouldAnimate];
-        if (item.title && item.snippet) {
-          marker.title = item.title;
-          marker.snippet = item.snippet;
+        if ([item respondsToSelector:@selector(title)]) {
+            marker.title = item.title;
+        }
+        if ([item respondsToSelector:@selector(snippet)]) {
+            marker.snippet = item.snippet;
         }
       }
       [_mutableMarkers addObject:marker];
