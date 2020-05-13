@@ -52,7 +52,7 @@ class ClusteringViewController: UIViewController, GMUClusterManagerDelegate, GMS
     let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
     let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
     clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
-
+    
     // Generate and add random items to the cluster manager.
     generateClusterItems()
 
