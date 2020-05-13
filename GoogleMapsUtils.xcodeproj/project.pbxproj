@@ -1536,7 +1536,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.1.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1583,7 +1583,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.1.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

@@ -36,7 +36,7 @@ In your `Podfile`:
 use_frameworks!
 
 target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '~> 3.1.3'
+    pod 'Google-Maps-iOS-Utils', '~> 3.1.4'
 end
 ```
 
