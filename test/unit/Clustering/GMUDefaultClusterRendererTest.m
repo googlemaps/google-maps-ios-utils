@@ -91,6 +91,22 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   XCTAssertEqual(markers[1].map, _mapView);
 }
 
+- (void)testAddingClusterItemsWithTitleAndSnippet {
+    NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
+    GMUStaticCluster *cluster = [self clusterAroundPosition:kCameraPosition count:1 title:@"Title" snippet:@"Snippet"];
+    [clusters addObject:cluster];
+    
+    [_renderer renderClusters:clusters];
+    NSArray<GMSMarker *> *markers = [_renderer markers];
+    XCTAssertEqual(1, markers.count);
+    
+    GMSMarker *marker = markers[0];
+    XCTAssertTrue([marker.userData conformsToProtocol:@protocol(GMUClusterItem)]);
+    XCTAssertEqual(_mapView, marker.map);
+    XCTAssertEqual(@"Title", marker.title);
+    XCTAssertEqual(@"Snippet", marker.snippet);
+}
+
 // Small clusters should be expanded into markers (one per cluster item).
 - (void)testRenderClustersSmallClustersExpanded {
   // Arrange.
@@ -213,16 +229,22 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
 // Returns a new cluster around a |position| with |count| items in it.
 - (GMUStaticCluster *)clusterAroundPosition:(CLLocationCoordinate2D)position
                                       count:(NSUInteger)count {
-  GMUStaticCluster *cluster = [[GMUStaticCluster alloc] initWithPosition:position];
-  while (count-- > 0) {
-    double deltaLatitude = (arc4random_uniform(200) - 100.0) / 100.0;
-    double deltaLongitude = (arc4random_uniform(200) - 100.0) / 100.0;
-    CLLocationCoordinate2D itemPosition = CLLocationCoordinate2DMake(
-        position.latitude + deltaLatitude, position.longitude + deltaLongitude);
-    [cluster addItem:[[GMUTestClusterItem alloc] initWithPosition:itemPosition]];
-  }
-  return cluster;
+    return [self clusterAroundPosition:position count:count title:nil snippet:nil];
+  
 }
 
+- (GMUStaticCluster *)clusterAroundPosition:(CLLocationCoordinate2D)position
+                                       count:(NSUInteger)count
+                                      title:(NSString *)title
+                                    snippet:(NSString *)snippet {
+    GMUStaticCluster *cluster = [[GMUStaticCluster alloc] initWithPosition:position];
+    while (count-- > 0) {
+        double deltaLatitude = (arc4random_uniform(200) - 100.0) / 100.0;
+        double deltaLongitude = (arc4random_uniform(200) - 100.0) / 100.0;
+        CLLocationCoordinate2D itemPosition = CLLocationCoordinate2DMake(position.latitude + deltaLatitude, position.longitude + deltaLongitude);
+        [cluster addItem:[[GMUTestClusterItem alloc] initWithPosition:itemPosition title: title snippet: snippet]];
+    }
+    return cluster;
+}
 @end
 

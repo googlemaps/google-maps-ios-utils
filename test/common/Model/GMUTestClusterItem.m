@@ -22,10 +22,14 @@
 @implementation GMUTestClusterItem
 
 - (instancetype)initWithPosition:(CLLocationCoordinate2D)position {
-  if ((self = [super init])) {
+    return [self initWithPosition:position title:nil snippet:nil];
+}
+
+- (instancetype)initWithPosition:(CLLocationCoordinate2D)position title:(NSString *)title snippet:(NSString *)snippet {
     _position = position;
-  }
-  return self;
+    _title = title;
+    _snippet = snippet;
+    return self;
 }
 
 @end
