@@ -17,7 +17,7 @@ import Foundation
 import UIKit
 
 class MasterViewController: UITableViewController {
-  var samples: NSArray!
+  var samples: [Any] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,24 +32,27 @@ class MasterViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
       UITableViewCell {
-    let cellIdentifier = "Cell"
-    var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-    if (cell == nil) {
-      cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-      cell!.accessoryType = .disclosureIndicator
-    }
+        let cellIdentifier = "Cell"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+       
+        if (cell == nil) {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            cell!.accessoryType = .disclosureIndicator
+        }
 
-    let sample = samples.object(at: indexPath.item) as! NSDictionary
-    cell!.textLabel!.text = sample.value(forKey: "title") as? String
-    cell!.detailTextLabel!.text = sample.value(forKey: "description") as? String
-
+        if let sample = samples[indexPath.item] as? [String: Any?] {
+            cell!.textLabel!.text = sample["title"] as? String
+            cell!.detailTextLabel!.text = sample["description"] as? String
+        }
+        
     return cell!;
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let sample = samples.object(at: indexPath.item) as! NSDictionary
-    let controllerClass = sample.value(forKey: "controller") as! UIViewController.Type
-    let viewController = controllerClass.init()
-    self.navigationController?.pushViewController(viewController, animated: true)
+    if let sample = samples[indexPath.item] as? [String: Any?],
+        let controllerClass = sample["controller"] as? UIViewController.Type {
+        let viewController = controllerClass.init()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
   }
 }

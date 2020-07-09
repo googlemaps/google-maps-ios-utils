@@ -16,7 +16,7 @@
 import Foundation
 
 class Samples {
-  class func loadSamples() -> NSArray! {
+  class func loadSamples() -> [Any] {
     return [ newDemo(controller: ClusteringViewController.self,
                      title: "Clustering",
                      description: "Marker Clustering"),
@@ -31,7 +31,7 @@ class Samples {
                      description: "Heatmaps")]
   }
 
-  class func newDemo(controller: AnyClass!, title: String!, description: String!) -> NSDictionary! {
+    class func newDemo(controller: AnyClass!, title: String!, description: String!) -> [String : Any?] {
     return [ "controller" : controller, "title" : title, "description" : description ]
   }
 }
