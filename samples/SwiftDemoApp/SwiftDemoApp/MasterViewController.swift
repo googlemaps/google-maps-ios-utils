@@ -33,12 +33,8 @@ class MasterViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
       UITableViewCell {
     let cellIdentifier = "Cell"
-    let cell: UITableViewCell = {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
-        return UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        }
-        return cell
-    }()
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ??
+        UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         
     cell.accessoryType = .disclosureIndicator
     if let sample = samples[indexPath.item] as? [String: Any?] {
