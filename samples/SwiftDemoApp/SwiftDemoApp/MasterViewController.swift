@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import Foundation
 import UIKit
 
 class MasterViewController: UITableViewController {
-  var samples: [Any] = []
+  var samples: [[String: Any]] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,19 +36,16 @@ class MasterViewController: UITableViewController {
         UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         
     cell.accessoryType = .disclosureIndicator
-    if let sample = samples[indexPath.item] as? [String: Any?] {
-      cell.textLabel?.text = sample["title"] as? String
-      cell.detailTextLabel?.text = sample["description"] as? String
+    if let title = samples[indexPath.item]["title"] as? String, let description = samples[indexPath.item]["description"] as? String{
+        cell.textLabel?.text = title
+        cell.detailTextLabel?.text = description
     }
-        
     return cell
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let sample = samples[indexPath.item] as? [String: Any?],
-        let controllerClass = sample["controller"] as? UIViewController.Type {
-        let viewController = controllerClass.init()
-        self.navigationController?.pushViewController(viewController, animated: true)
+    if let controllerClass = samples[indexPath.item]["controller"] as? UIViewController, let navigationController = navigationController{
+        navigationController.pushViewController(controllerClass, animated: true)
     }
   }
 }

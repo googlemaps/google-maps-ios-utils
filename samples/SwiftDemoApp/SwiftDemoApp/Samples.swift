@@ -13,25 +13,25 @@
  * limitations under the License.
  */
 
-import Foundation
+import UIKit
 
 class Samples {
-  class func loadSamples() -> [Any] {
-    return [ newDemo(controller: ClusteringViewController.self,
+    class func loadSamples() -> [[String: Any]] {
+    return [ newDemo(controller: ClusteringViewController(),
                      title: "Clustering",
                      description: "Marker Clustering"),
-             newDemo(controller: KMLViewController.self,
+             newDemo(controller: KMLViewController(),
                      title: "KML",
                      description: "KML Rendering"),
-             newDemo(controller: GeoJSONViewController.self,
+             newDemo(controller: GeoJSONViewController(),
                      title: "GeoJSON",
                      description: "GeoJSON Rendering"),
-             newDemo(controller: HeatmapViewController.self,
+             newDemo(controller: HeatmapViewController(),
                      title: "Heatmaps",
                      description: "Heatmaps")]
   }
 
-    class func newDemo(controller: AnyClass!, title: String!, description: String!) -> [String : Any?] {
+    class func newDemo(controller: UIViewController, title: String, description: String) -> [String : Any] {
     return [ "controller" : controller, "title" : title, "description" : description ]
   }
 }
