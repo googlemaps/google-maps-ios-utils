@@ -15,14 +15,14 @@
 
 import UIKit
 
-enum Samples: CaseIterable{
+enum Sample: CaseIterable {
   case Clustering
   case KML
   case GeoJSON
   case Heatmaps
 }
 
-extension Samples{
+extension Sample {
   var title: String {
     switch self {
     case .Clustering: return "Clustering"
@@ -41,7 +41,7 @@ extension Samples{
     }
   }
   
-  var controller: UIViewController.Type{
+  var controller: UIViewController.Type {
     switch self {
     case .Clustering: return ClusteringViewController.self
     case .KML: return KMLViewController.self

@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return Samples.allCases.count
+    return Sample.allCases.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
@@ -33,14 +33,14 @@ class MasterViewController: UITableViewController {
         UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
       
       cell.accessoryType = .disclosureIndicator
-      cell.textLabel?.text = Samples.allCases[indexPath.item].title
-      cell.detailTextLabel?.text = Samples.allCases[indexPath.item].description
+      cell.textLabel?.text = Sample.allCases[indexPath.item].title
+      cell.detailTextLabel?.text = Sample.allCases[indexPath.item].description
       return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let navigationController = navigationController{
-      let viewController = Samples.allCases[indexPath.item].controller.init()
+    if let navigationController = navigationController {
+      let viewController = Sample.allCases[indexPath.item].controller.init()
       navigationController.pushViewController(viewController, animated: true)
     }
   }
