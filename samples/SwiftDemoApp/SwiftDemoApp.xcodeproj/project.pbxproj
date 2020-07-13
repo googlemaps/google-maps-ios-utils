@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0237C7991EC2E9EB00744F5F /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 0237C7981EC2E9EB00744F5F /* KML_Sample.kml */; };
 		0237C79B1EC3F08700744F5F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79A1EC3F08700744F5F /* MasterViewController.swift */; };
-		0237C79D1EC3F75000744F5F /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79C1EC3F75000744F5F /* Samples.swift */; };
+		0237C79D1EC3F75000744F5F /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79C1EC3F75000744F5F /* Sample.swift */; };
 		0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237C79E1EC3FC3500744F5F /* KMLViewController.swift */; };
 		02B36AD21D190D7E00EA3A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */; };
 		02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		0237C7981EC2E9EB00744F5F /* KML_Sample.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KML_Sample.kml; sourceTree = "<group>"; };
 		0237C79A1EC3F08700744F5F /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		0237C79C1EC3F75000744F5F /* Samples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
+		0237C79C1EC3F75000744F5F /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		0237C79E1EC3FC3500744F5F /* KMLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMLViewController.swift; sourceTree = "<group>"; };
 		02B36ACE1D190D7E00EA3A86 /* SwiftDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B36AD11D190D7E00EA3A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				0237C79A1EC3F08700744F5F /* MasterViewController.swift */,
 				0237C7981EC2E9EB00744F5F /* KML_Sample.kml */,
 				0237C79E1EC3FC3500744F5F /* KMLViewController.swift */,
-				0237C79C1EC3F75000744F5F /* Samples.swift */,
+				0237C79C1EC3F75000744F5F /* Sample.swift */,
 				02B36AE31D19167800EA3A86 /* SwiftDemoApp-Bridging-Header.h */,
 				02B36AD31D190D7E00EA3A86 /* ClusteringViewController.swift */,
 				E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */,
@@ -236,7 +236,7 @@
 			files = (
 				E5D4DFA91ED7735A003096B4 /* GeoJSONViewController.swift in Sources */,
 				02B36AD41D190D7E00EA3A86 /* ClusteringViewController.swift in Sources */,
-				0237C79D1EC3F75000744F5F /* Samples.swift in Sources */,
+				0237C79D1EC3F75000744F5F /* Sample.swift in Sources */,
 				0237C79F1EC3FC3500744F5F /* KMLViewController.swift in Sources */,
 				E5D7697F1F54BA6200288D02 /* HeatmapViewController.swift in Sources */,
 				02B36AD21D190D7E00EA3A86 /* AppDelegate.swift in Sources */,
