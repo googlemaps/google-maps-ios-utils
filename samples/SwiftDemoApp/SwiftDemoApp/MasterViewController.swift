@@ -44,8 +44,9 @@ class MasterViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let controllerClass = samples[indexPath.item]["controller"] as? UIViewController, let navigationController = navigationController{
-        navigationController.pushViewController(controllerClass, animated: true)
+    if let controllerClass = samples[indexPath.item]["controller"] as? UIViewController.Type, let navigationController = navigationController{
+        let viewController = controllerClass.init()
+        navigationController.pushViewController(viewController, animated: true)
     }
   }
 }

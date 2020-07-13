@@ -17,21 +17,21 @@ import UIKit
 
 class Samples {
     class func loadSamples() -> [[String: Any]] {
-    return [ newDemo(controller: ClusteringViewController(),
+        return [ newDemo(controller: ClusteringViewController.self,
                      title: "Clustering",
                      description: "Marker Clustering"),
-             newDemo(controller: KMLViewController(),
+             newDemo(controller: KMLViewController.self,
                      title: "KML",
                      description: "KML Rendering"),
-             newDemo(controller: GeoJSONViewController(),
+             newDemo(controller: GeoJSONViewController.self,
                      title: "GeoJSON",
                      description: "GeoJSON Rendering"),
-             newDemo(controller: HeatmapViewController(),
+             newDemo(controller: HeatmapViewController.self,
                      title: "Heatmaps",
                      description: "Heatmaps")]
   }
 
-    class func newDemo(controller: UIViewController, title: String, description: String) -> [String : Any] {
+    class func newDemo(controller: UIViewController.Type, title: String, description: String) -> [String : Any] {
     return [ "controller" : controller, "title" : title, "description" : description ]
   }
 }
