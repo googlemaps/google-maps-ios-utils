@@ -15,23 +15,38 @@
 
 import UIKit
 
-class Samples {
-    class func loadSamples() -> [[String: Any]] {
-        return [ newDemo(controller: ClusteringViewController.self,
-                     title: "Clustering",
-                     description: "Marker Clustering"),
-             newDemo(controller: KMLViewController.self,
-                     title: "KML",
-                     description: "KML Rendering"),
-             newDemo(controller: GeoJSONViewController.self,
-                     title: "GeoJSON",
-                     description: "GeoJSON Rendering"),
-             newDemo(controller: HeatmapViewController.self,
-                     title: "Heatmaps",
-                     description: "Heatmaps")]
-  }
+enum Samples: CaseIterable{
+  case Clustering
+  case KML
+  case GeoJSON
+  case Heatmaps
+}
 
-    class func newDemo(controller: UIViewController.Type, title: String, description: String) -> [String : Any] {
-    return [ "controller" : controller, "title" : title, "description" : description ]
+extension Samples{
+  var title: String {
+    switch self {
+    case .Clustering: return "Clustering"
+    case .KML: return "KML"
+    case .GeoJSON: return "GeoJSON"
+    case .Heatmaps: return "Heatmaps"
+    }
+  }
+  
+  var description: String {
+    switch self {
+    case .Clustering: return "Marker Clustering"
+    case .KML: return "KML Rendering"
+    case .GeoJSON: return "GeoJSON Rendering"
+    case .Heatmaps: return "Heatmaps"
+    }
+  }
+  
+  var controller: UIViewController.Type{
+    switch self {
+    case .Clustering: return ClusteringViewController.self
+    case .KML: return KMLViewController.self
+    case .GeoJSON: return GeoJSONViewController.self
+    case .Heatmaps: return HeatmapViewController.self
+    }
   }
 }

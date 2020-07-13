@@ -16,37 +16,32 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-  var samples: [[String: Any]] = []
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
     self.title = "Demos"
-    samples = Samples.loadSamples()
   }
-
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return samples.count
+    return Samples.allCases.count
   }
-
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
-      UITableViewCell {
-    let cellIdentifier = "Cell"
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ??
+    UITableViewCell {
+      let cellIdentifier = "Cell"
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ??
         UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        
-    cell.accessoryType = .disclosureIndicator
-    if let title = samples[indexPath.item]["title"] as? String, let description = samples[indexPath.item]["description"] as? String{
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = description
-    }
-    return cell
+      
+      cell.accessoryType = .disclosureIndicator
+      cell.textLabel?.text = Samples.allCases[indexPath.item].title
+      cell.detailTextLabel?.text = Samples.allCases[indexPath.item].description
+      return cell
   }
-
+  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let controllerClass = samples[indexPath.item]["controller"] as? UIViewController.Type, let navigationController = navigationController{
-        let viewController = controllerClass.init()
-        navigationController.pushViewController(viewController, animated: true)
+    if let navigationController = navigationController{
+      let viewController = Samples.allCases[indexPath.item].controller.init()
+      navigationController.pushViewController(viewController, animated: true)
     }
   }
 }
