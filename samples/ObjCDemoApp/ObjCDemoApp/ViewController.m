@@ -81,23 +81,16 @@ static const double kCameraLongitude = 151.2;
   [_clusterManager setDelegate:self mapDelegate:self];
 }
 
-#pragma mark GMUClusterManagerDelegate
-
-- (BOOL)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
-  GMSCameraPosition *newCamera = [GMSCameraPosition cameraWithTarget:cluster.position zoom:_mapView.camera.zoom + 1];
-  GMSCameraUpdate *update = [GMSCameraUpdate setCamera:newCamera];
-  [_mapView moveCamera:update];
-  return true;
-}
-
 #pragma mark GMSMapViewDelegate
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
   if ([marker.userData conformsToProtocol:@protocol(GMUCluster)]) {
+    [_mapView animateToLocation:marker.position];
+    [_mapView animateToZoom:_mapView.camera.zoom +1];
     NSLog(@"Did tap marker cluster");
     return YES;
   }
-  NSLog(@"Did tap a normal marker");
+  NSLog(@"Did tap marker");
   return NO;
 }
 
@@ -112,7 +105,7 @@ static const double kCameraLongitude = 151.2;
     double lng = kCameraLongitude + extent * [self randomScale];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
-    [_clusterManager addItem:item];
+    [_clusterManager addItem:marker];
   }
 }
 
