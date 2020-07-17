@@ -84,8 +84,8 @@ static const double kCameraLongitude = 151.2;
 #pragma mark GMSMapViewDelegate
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+  [_mapView animateToLocation:marker.position];
   if ([marker.userData conformsToProtocol:@protocol(GMUCluster)]) {
-    [_mapView animateToLocation:marker.position];
     [_mapView animateToZoom:_mapView.camera.zoom +1];
     NSLog(@"Did tap marker cluster");
     return YES;

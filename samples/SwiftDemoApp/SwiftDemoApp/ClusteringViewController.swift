@@ -32,7 +32,7 @@ let kClusterItemCount = 10000
 let kCameraLatitude = -33.8
 let kCameraLongitude = 151.2
 
-class ClusteringViewController: UIViewController, GMUClusterManagerDelegate, GMSMapViewDelegate {
+class ClusteringViewController: UIViewController, GMSMapViewDelegate {
 
   private var mapView: GMSMapView!
   private var clusterManager: GMUClusterManager!
