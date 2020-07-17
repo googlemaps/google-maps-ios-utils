@@ -60,7 +60,7 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
     clusterManager.cluster()
 
     // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-    clusterManager.setDelegate(self, mapDelegate: self)
+    clusterManager.setMapDelegate(self)
   }
 
   // MARK: - GMUMapViewDelegate
