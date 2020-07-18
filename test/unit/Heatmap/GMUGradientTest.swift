@@ -35,6 +35,8 @@ class GMUGradientTest: XCTestCase {
   override func tearDown() {
     gradient = nil
     kGradientColor = nil
+    kStartPoints = nil
+    kColorMapSize = nil
   }
   
   func testInitWithColors() {
