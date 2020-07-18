@@ -13,7 +13,5 @@
 * limitations under the License.
 */
 
-
 #import <GoogleMaps/GoogleMaps.h>
-#import "GMUWeightedLatLng.h"
 #import "GMUObectiveCTestHelper.h"
