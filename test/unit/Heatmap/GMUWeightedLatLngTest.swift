@@ -34,7 +34,7 @@ class GMUWeightedLatLngTest: XCTestCase {
     kIntensity = nil
   }
   
-  func testInitWithCoordinate(){
+  func testInitWithCoordinate() {
     weightedLatLng = GMUWeightedLatLng(coordinate: kCoordinate, intensity: kIntensity)
     let mapPoint: GMSMapPoint = GMSProject(kCoordinate)
     XCTAssertEqual(weightedLatLng.intensity, kIntensity)

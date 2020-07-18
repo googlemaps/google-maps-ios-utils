@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
-		3E7A8F4524C2C620000318C3 /* UnitTest-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E7A8F4424C2C620000318C3 /* UnitTest-Bridging-Header.h */; };
+		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
+		3E7A8FC424C30CDB000318C3 /* GMUGradientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */; };
 		543C4FB7246A1F9700821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
 		543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -228,7 +229,10 @@
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
-		3E7A8F4424C2C620000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UnitTest-Bridging-Header.h"; path = "test/BridgingHeader/UnitTest-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		3E7A8FC024C30C54000318C3 /* GMUObectiveCTestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMUObectiveCTestHelper.h; sourceTree = "<group>"; };
+		3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMUObectiveCTestHelper.m; sourceTree = "<group>"; };
+		3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUGradientTest.swift; sourceTree = "<group>"; };
 		50EB71F39B4F31FF9127AD8B /* libPods-UnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMSMarker+GMUClusteritem.h"; sourceTree = "<group>"; };
 		54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GMSMarker+GMUClusteritem.m"; sourceTree = "<group>"; };
@@ -559,7 +563,8 @@
 		0242D2101C7E752B00557130 /* UnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				3E7A8F4324C2BD31000318C3 /* BridgingHeader */,
+				3E7A8FBF24C30C3A000318C3 /* Helper */,
+				3E7A8FBD24C30BDA000318C3 /* BridgingHeader */,
 				AAE6BA242458C9EB0051CD31 /* common */,
 				AAE6B9F72458C9EA0051CD31 /* resources */,
 				AAE6BA0B2458C9EB0051CD31 /* unit */,
@@ -571,16 +576,28 @@
 			isa = PBXGroup;
 			children = (
 				3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */,
+				3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */,
 			);
 			path = Heatmap;
 			sourceTree = "<group>";
 		};
-		3E7A8F4324C2BD31000318C3 /* BridgingHeader */ = {
+		3E7A8FBD24C30BDA000318C3 /* BridgingHeader */ = {
 			isa = PBXGroup;
 			children = (
-				3E7A8F4424C2C620000318C3 /* UnitTest-Bridging-Header.h */,
+				3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */,
 			);
-			path = BridgingHeader;
+			name = BridgingHeader;
+			path = test/unit/BridgingHeader;
+			sourceTree = "<group>";
+		};
+		3E7A8FBF24C30C3A000318C3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3E7A8FC024C30C54000318C3 /* GMUObectiveCTestHelper.h */,
+				3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */,
+			);
+			name = Helper;
+			path = test/unit/Helper;
 			sourceTree = "<group>";
 		};
 		456BADDE8195197F06EDEE32 /* Frameworks */ = {
@@ -929,7 +946,6 @@
 				543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */,
 				AAE6BA6B2458CD510051CD31 /* GMUTestClusterItem.h in Headers */,
 				AAA1DE3024579092001CB03C /* GMUGeometryRenderer+Testing.h in Headers */,
-				3E7A8F4524C2C620000318C3 /* UnitTest-Bridging-Header.h in Headers */,
 				AAA1DE262457906A001CB03C /* GMUDefaultClusterIconGenerator+Testing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1214,6 +1230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */,
 				AAE6BA622458CCA50051CD31 /* GMUFeatureTest.m in Sources */,
 				543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */,
 				AAE6BA552458CC670051CD31 /* GMUClusterManagerTest.m in Sources */,
@@ -1222,6 +1239,7 @@
 				AAE6BA612458CCA50051CD31 /* GMUPointTest.m in Sources */,
 				AAE6BA522458CC670051CD31 /* GMUDefaultClusterRendererTest.m in Sources */,
 				AAE6BA642458CCA50051CD31 /* GMUGroundOverlayTest.m in Sources */,
+				3E7A8FC424C30CDB000318C3 /* GMUGradientTest.swift in Sources */,
 				AAE6BA5B2458CCA50051CD31 /* GMUKMLParserTest.m in Sources */,
 				AAE6BA582458CC670051CD31 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.m in Sources */,
 				3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */,
@@ -1502,7 +1520,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "test/BridgingHeader/UnitTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "test/unit/BridgingHeader/UnitTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1528,7 +1546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "test/BridgingHeader/UnitTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "test/unit/BridgingHeader/UnitTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
