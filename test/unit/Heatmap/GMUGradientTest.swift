@@ -29,7 +29,7 @@ class GMUGradientTest: XCTestCase {
         UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
     ]
     kStartPoints = [NSNumber(value: 0.2), NSNumber(value: 1.0)]
-    kColorMapSize = 1000
+    kColorMapSize = 3
   }
   
   override func tearDown() {
@@ -116,4 +116,24 @@ class GMUGradientTest: XCTestCase {
     }
   }
   
+  func testGenerateColorMap() {
+    let gradientColor = [
+      UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1),
+      UIColor(red: 1.9, green: 1.5, blue: 1.6, alpha: 1),
+    ]
+    gradient = GMUGradient(colors: gradientColor, startPoints: kStartPoints, colorMapSize: kColorMapSize)
+    XCTAssertEqual(gradient.generateColorMap().count, Int(kColorMapSize))
+  }
+  
+  func testInterpolateColorHueDifferenceLessThanPointFive() {
+    let gradientColor = [
+      UIColor(red: 1.9, green: 1.5, blue: 1.6, alpha: 1),
+      UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1),
+      UIColor(red: 2.0, green: 2.0, blue: 2.0, alpha: 1)
+    ]
+    let startPoints = [NSNumber(value: 0.0), NSNumber(value: 0.5), NSNumber(value: 1.0)]
+    gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: kColorMapSize)
+    XCTAssertEqual(gradient.generateColorMap().count, Int(kColorMapSize))
+  }
+
 }
