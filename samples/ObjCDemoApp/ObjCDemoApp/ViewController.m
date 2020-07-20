@@ -44,7 +44,7 @@ static const NSUInteger kClusterItemCount = 10000;
 static const double kCameraLatitude = -33.8;
 static const double kCameraLongitude = 151.2;
 
-@interface ViewController ()<GMUClusterManagerDelegate, GMSMapViewDelegate>
+@interface ViewController ()<GMSMapViewDelegate>
 @end
 
 @implementation ViewController {
@@ -71,34 +71,26 @@ static const double kCameraLongitude = 151.2;
   _clusterManager =
       [[GMUClusterManager alloc] initWithMap:_mapView algorithm:algorithm renderer:renderer];
 
+  // Register self to listen to GMSMapViewDelegate events.
+  [_clusterManager setMapDelegate:self];
+  
   // Generate and add random items to the cluster manager.
   [self generateClusterItems];
 
   // Call cluster() after items have been added to perform the clustering and rendering on map.
   [_clusterManager cluster];
-
-  // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-  [_clusterManager setDelegate:self mapDelegate:self];
-}
-
-#pragma mark GMUClusterManagerDelegate
-
-- (BOOL)clusterManager:(GMUClusterManager *)clusterManager didTapCluster:(id<GMUCluster>)cluster {
-  GMSCameraPosition *newCamera = [GMSCameraPosition cameraWithTarget:cluster.position zoom:_mapView.camera.zoom + 1];
-  GMSCameraUpdate *update = [GMSCameraUpdate setCamera:newCamera];
-  [_mapView moveCamera:update];
-  return true;
 }
 
 #pragma mark GMSMapViewDelegate
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-  POIItem *poiItem = marker.userData;
-  if ([poiItem isKindOfClass:[POIItem class]] && poiItem != nil) {
-    NSLog(@"Did tap marker for cluster item %@", poiItem.name);
-  } else {
-    NSLog(@"Did tap a normal marker");
+  [_mapView animateToLocation:marker.position];
+  if ([marker.userData conformsToProtocol:@protocol(GMUCluster)]) {
+    [_mapView animateToZoom:_mapView.camera.zoom +1];
+    NSLog(@"Did tap marker cluster");
+    return YES;
   }
+  NSLog(@"Did tap marker");
   return NO;
 }
 
@@ -111,10 +103,9 @@ static const double kCameraLongitude = 151.2;
   for (int index = 1; index <= kClusterItemCount; ++index) {
     double lat = kCameraLatitude + extent * [self randomScale];
     double lng = kCameraLongitude + extent * [self randomScale];
-    NSString *name = [NSString stringWithFormat:@"Item %d", index];
-    id<GMUClusterItem> item =
-        [[POIItem alloc] initWithPosition:CLLocationCoordinate2DMake(lat, lng) name:name];
-    [_clusterManager addItem:item];
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    [_clusterManager addItem:marker];
   }
 }
 

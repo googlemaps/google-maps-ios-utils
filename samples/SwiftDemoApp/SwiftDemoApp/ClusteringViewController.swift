@@ -32,7 +32,7 @@ let kClusterItemCount = 10000
 let kCameraLatitude = -33.8
 let kCameraLongitude = 151.2
 
-class ClusteringViewController: UIViewController, GMUClusterManagerDelegate, GMSMapViewDelegate {
+class ClusteringViewController: UIViewController, GMSMapViewDelegate {
 
   private var mapView: GMSMapView!
   private var clusterManager: GMUClusterManager!
@@ -53,34 +53,26 @@ class ClusteringViewController: UIViewController, GMUClusterManagerDelegate, GMS
     let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
     clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
     
+    // Register self to listen to GMSMapViewDelegate events.
+    clusterManager.setMapDelegate(self)
+    
     // Generate and add random items to the cluster manager.
     generateClusterItems()
 
     // Call cluster() after items have been added to perform the clustering and rendering on map.
     clusterManager.cluster()
-
-    // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-    clusterManager.setDelegate(self, mapDelegate: self)
-  }
-
-  // MARK: - GMUClusterManagerDelegate
-
-  func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
-    let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
-      zoom: mapView.camera.zoom + 1)
-    let update = GMSCameraUpdate.setCamera(newCamera)
-    mapView.moveCamera(update)
-    return false
   }
 
   // MARK: - GMUMapViewDelegate
 
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-    if let poiItem = marker.userData as? POIItem {
-      NSLog("Did tap marker for cluster item \(poiItem.name)")
-    } else {
-      NSLog("Did tap a normal marker")
+    mapView.animate(toLocation: marker.position)
+    if let _ = marker.userData as? GMUCluster {
+      mapView.animate(toZoom: mapView.camera.zoom + 1)
+      NSLog("Did tap cluster")
+      return true
     }
+    NSLog("Did tap marker")
     return false
   }
 
@@ -90,12 +82,12 @@ class ClusteringViewController: UIViewController, GMUClusterManagerDelegate, GMS
   /// cluster manager.
   private func generateClusterItems() {
     let extent = 0.2
-    for index in 1...kClusterItemCount {
+    for _ in 1...kClusterItemCount {
       let lat = kCameraLatitude + extent * randomScale()
       let lng = kCameraLongitude + extent * randomScale()
-      let name = "Item \(index)"
-      let item = POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
-      clusterManager.add(item)
+      let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+      let marker = GMSMarker(position: position)
+      clusterManager.add(marker)
     }
   }
 
