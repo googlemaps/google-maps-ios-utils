@@ -61,6 +61,11 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
   [_mapView removeObserver:self forKeyPath:kGMUCameraKeyPath];
 }
 
+- (void) setMapDelegate:(id<GMSMapViewDelegate> _Nullable)mapDelegate {
+  _mapView.delegate = self;
+  _mapDelegate = mapDelegate;
+}
+
 - (void)setDelegate:(id<GMUClusterManagerDelegate>)delegate
         mapDelegate:(id<GMSMapViewDelegate> _Nullable)mapDelegate {
   _delegate = delegate;

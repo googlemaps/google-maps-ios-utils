@@ -71,14 +71,14 @@ static const double kCameraLongitude = 151.2;
   _clusterManager =
       [[GMUClusterManager alloc] initWithMap:_mapView algorithm:algorithm renderer:renderer];
 
+  // Register self to listen to GMSMapViewDelegate events.
+  [_clusterManager setMapDelegate:self];
+  
   // Generate and add random items to the cluster manager.
   [self generateClusterItems];
 
   // Call cluster() after items have been added to perform the clustering and rendering on map.
   [_clusterManager cluster];
-
-  // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-  [_clusterManager setDelegate:self mapDelegate:self];
 }
 
 #pragma mark GMSMapViewDelegate

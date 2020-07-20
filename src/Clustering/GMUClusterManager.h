@@ -85,6 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, weak, nullable) id<GMSMapViewDelegate> mapDelegate;
 
 /**
+ * Sets a |mapDelegate| to listen to forwarded map events.
+ */
+- (void)setMapDelegate:(id<GMSMapViewDelegate> _Nullable)mapDelegate;
+
+/**
  * Sets GMUClusterManagerDelegate |delegate| and optionally
  * provides a |mapDelegate| to listen to forwarded map events.
  *

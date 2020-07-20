@@ -53,14 +53,14 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
     let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
     clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
     
+    // Register self to listen to GMSMapViewDelegate events.
+    clusterManager.setMapDelegate(self)
+    
     // Generate and add random items to the cluster manager.
     generateClusterItems()
 
     // Call cluster() after items have been added to perform the clustering and rendering on map.
     clusterManager.cluster()
-
-    // Register self to listen to both GMUClusterManagerDelegate and GMSMapViewDelegate events.
-    clusterManager.setMapDelegate(self)
   }
 
   // MARK: - GMUMapViewDelegate
@@ -72,7 +72,7 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
       NSLog("Did tap cluster")
       return true
     }
-    NSLog("Did tap a normal marker")
+    NSLog("Did tap marker")
     return false
   }
 
