@@ -17,27 +17,26 @@ import XCTest
 @testable import GoogleMapsUtils
 
 class GMUWeightedLatLngTest: XCTestCase {
-
-  var weightedLatLng    : GMUWeightedLatLng!
-  var kCoordinate       : CLLocationCoordinate2D!
-  var kIntensity        : Float!
+  
+  private var coordinate       : CLLocationCoordinate2D!
+  private var intensity        : Float!
   
   override func setUp() {
-    weightedLatLng = GMUWeightedLatLng()
-    kCoordinate = CLLocationCoordinate2DMake(10.456, 98.122)
-    kIntensity = 10.0
+    super.setUp()
+    coordinate = CLLocationCoordinate2DMake(10.456, 98.122)
+    intensity = 10.0
   }
   
   override func tearDown() {
-    weightedLatLng = nil
-    kCoordinate = nil
-    kIntensity = nil
+    super.tearDown()
+    coordinate = nil
+    intensity = nil
   }
   
   func testInitWithCoordinate() {
-    weightedLatLng = GMUWeightedLatLng(coordinate: kCoordinate, intensity: kIntensity)
-    let mapPoint: GMSMapPoint = GMSProject(kCoordinate)
-    XCTAssertEqual(weightedLatLng.intensity, kIntensity)
+    let weightedLatLng = GMUWeightedLatLng(coordinate: coordinate, intensity: intensity)
+    let mapPoint: GMSMapPoint = GMSProject(coordinate)
+    XCTAssertEqual(weightedLatLng.intensity, intensity)
     XCTAssertEqual(weightedLatLng.point().x, mapPoint.x)
     XCTAssertEqual(weightedLatLng.point().y, mapPoint.y)
   }

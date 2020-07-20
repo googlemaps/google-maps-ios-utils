@@ -13,5 +13,5 @@
 * limitations under the License.
 */
 
-#import <GoogleMaps/GoogleMaps.h>
+@import GoogleMaps;
 #import "GMUObectiveCTestHelper.h"

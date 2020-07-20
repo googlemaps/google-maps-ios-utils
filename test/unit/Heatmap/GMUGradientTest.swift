@@ -18,38 +18,38 @@ import XCTest
 
 class GMUGradientTest: XCTestCase {
   
-  var gradient          : GMUGradient!
-  var kGradientColor    : [UIColor]!
-  var kStartPoints      : [NSNumber]!
-  var kColorMapSize     : UInt!
+  private var gradientColor    : [UIColor]!
+  private var startPoints      : [NSNumber]!
+  private var colorMapSize     : UInt!
   
   override func setUp() {
-    kGradientColor = [
+    super.setUp()
+    gradientColor = [
         UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
         UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
     ]
-    kStartPoints = [NSNumber(value: 0.2), NSNumber(value: 1.0)]
-    kColorMapSize = 3
+    startPoints = [NSNumber(value: 0.2), NSNumber(value: 1.0)]
+    colorMapSize = 3
   }
   
   override func tearDown() {
-    gradient = nil
-    kGradientColor = nil
-    kStartPoints = nil
-    kColorMapSize = nil
+    super.tearDown()
+    gradientColor = nil
+    startPoints = nil
+    colorMapSize = nil
   }
   
   func testInitWithColors() {
-    gradient = GMUGradient(colors: kGradientColor, startPoints: kStartPoints, colorMapSize: kColorMapSize)
+    let gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
     XCTAssertEqual(gradient.colors.count, gradient.startPoints.count)
   }
   
   func testInitWithEmptyColors() {
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: [], startPoints: self.kStartPoints, colorMapSize: self.kColorMapSize)
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: [], startPoints: self.startPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -61,10 +61,10 @@ class GMUGradientTest: XCTestCase {
         UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)
     ]
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: gradientColors, startPoints: self.kStartPoints, colorMapSize: self.kColorMapSize)
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: gradientColors, startPoints: self.startPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -77,10 +77,10 @@ class GMUGradientTest: XCTestCase {
     ]
     let nonDescendingStartPoints = [NSNumber(value: 1.0), NSNumber(value: 1.2), NSNumber(value: 0.1)]
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: gradientColors, startPoints: nonDescendingStartPoints, colorMapSize: self.kColorMapSize)
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: gradientColors, startPoints: nonDescendingStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -88,10 +88,10 @@ class GMUGradientTest: XCTestCase {
   func testInitWithColorsAndMapSizeLessThanTwo() {
     let colorMapSize = 1
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: self.kGradientColor, startPoints: self.kStartPoints, colorMapSize: UInt(colorMapSize))
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: self.gradientColor, startPoints: self.startPoints, colorMapSize: UInt(colorMapSize))
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -99,10 +99,10 @@ class GMUGradientTest: XCTestCase {
   func testInitWithColorsAndStarPointsLessThanZero() {
     let lessThanZeroStartPoints = [NSNumber(value: -1.0), NSNumber(value: 1.2)]
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: self.kGradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.kColorMapSize)
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -110,10 +110,10 @@ class GMUGradientTest: XCTestCase {
   func testInitWithColorsAndStarPointsGreaterThanOne() {
     let lessThanZeroStartPoints = [NSNumber(value: 1.0), NSNumber(value: 2.0)]
     do {
-      try GMUObectiveCTestHelper.catchObjectiveCException{
-        _ = GMUGradient(colors: self.kGradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.kColorMapSize)
+      try GMUObectiveCTestHelper.catchObjectiveCException {
+        _ = GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error{
+    } catch let error {
       XCTAssertNotNil(error)
     }
   }
@@ -123,8 +123,8 @@ class GMUGradientTest: XCTestCase {
       UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1),
       UIColor(red: 1.9, green: 1.5, blue: 1.6, alpha: 1),
     ]
-    gradient = GMUGradient(colors: gradientColor, startPoints: kStartPoints, colorMapSize: kColorMapSize)
-    XCTAssertEqual(gradient.generateColorMap().count, Int(kColorMapSize))
+    let gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+    XCTAssertEqual(gradient.generateColorMap().count, Int(colorMapSize))
   }
   
   func testInterpolateColorHueDifferenceLessThanPointFive() {
@@ -134,8 +134,8 @@ class GMUGradientTest: XCTestCase {
       UIColor(red: 2.0, green: 2.0, blue: 2.0, alpha: 1)
     ]
     let startPoints = [NSNumber(value: 0.0), NSNumber(value: 0.5), NSNumber(value: 1.0)]
-    gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: kColorMapSize)
-    XCTAssertEqual(gradient.generateColorMap().count, Int(kColorMapSize))
+    let gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+    XCTAssertEqual(gradient.generateColorMap().count, Int(colorMapSize))
   }
 
 }
