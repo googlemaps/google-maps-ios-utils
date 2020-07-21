@@ -28,9 +28,9 @@ class GMUWeightedLatLngTest: XCTestCase {
   }
   
   override func tearDown() {
-    super.tearDown()
     coordinate = nil
     intensity = nil
+    super.tearDown()
   }
   
   func testInitWithCoordinate() {
