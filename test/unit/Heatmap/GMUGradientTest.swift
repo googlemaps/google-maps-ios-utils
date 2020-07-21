@@ -49,8 +49,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: [], startPoints: self.startPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
@@ -64,8 +64,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: gradientColors, startPoints: self.startPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
@@ -80,8 +80,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: gradientColors, startPoints: nonDescendingStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
@@ -91,8 +91,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: self.gradientColor, startPoints: self.startPoints, colorMapSize: UInt(colorMapSize))
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
@@ -102,8 +102,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
@@ -113,8 +113,8 @@ class GMUGradientTest: XCTestCase {
       try GMUObectiveCTestHelper.catchObjectiveCException {
         _ = GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)
       }
-    } catch let error {
-      XCTAssertNotNil(error)
+    } catch let error as NSError {
+        XCTAssertEqual("NSInvalidArgumentException", error.domain)
     }
   }
   
