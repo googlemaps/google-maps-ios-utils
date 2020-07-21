@@ -18,8 +18,8 @@ import XCTest
 
 class GMUWeightedLatLngTest: XCTestCase {
   
-  private var coordinate       : CLLocationCoordinate2D!
-  private var intensity        : Float!
+  private var coordinate: CLLocationCoordinate2D!
+  private var intensity: Float!
   
   override func setUp() {
     super.setUp()

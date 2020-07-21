@@ -18,9 +18,9 @@ import XCTest
 
 class GMUGradientTest: XCTestCase {
   
-  private var gradientColor    : [UIColor]!
-  private var startPoints      : [NSNumber]!
-  private var colorMapSize     : UInt!
+  private var gradientColor: [UIColor]!
+  private var startPoints: [NSNumber]!
+  private var colorMapSize: UInt!
   
   override func setUp() {
     super.setUp()
@@ -54,7 +54,7 @@ class GMUGradientTest: XCTestCase {
     }
   }
   
-  func testInitWithNotEqualColorsAndStarPoints() {
+  func testInitWithNotEqualColorsAndStartPoints() {
     let gradientColors = [
         UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
         UIColor(red: 1.0, green: 0, blue: 0, alpha: 1),
@@ -69,7 +69,7 @@ class GMUGradientTest: XCTestCase {
     }
   }
   
-  func testInitWithColorsAndStarPointsNonDescending() {
+  func testInitWithColorsAndStartPointsNonDescending() {
     let gradientColors = [
         UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
         UIColor(red: 1.0, green: 0, blue: 0, alpha: 1),
@@ -96,7 +96,7 @@ class GMUGradientTest: XCTestCase {
     }
   }
   
-  func testInitWithColorsAndStarPointsLessThanZero() {
+  func testInitWithColorsAndStartPointsLessThanZero() {
     let lessThanZeroStartPoints = [NSNumber(value: -1.0), NSNumber(value: 1.2)]
     do {
       try GMUObectiveCTestHelper.catchObjectiveCException {
@@ -107,7 +107,7 @@ class GMUGradientTest: XCTestCase {
     }
   }
   
-  func testInitWithColorsAndStarPointsGreaterThanOne() {
+  func testInitWithColorsAndStartPointsGreaterThanOne() {
     let lessThanZeroStartPoints = [NSNumber(value: 1.0), NSNumber(value: 2.0)]
     do {
       try GMUObectiveCTestHelper.catchObjectiveCException {
