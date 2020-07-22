@@ -24,7 +24,7 @@ class GMUWeightedLatLngTest: XCTestCase {
   override func setUp() {
     super.setUp()
     coordinate = CLLocationCoordinate2DMake(10.456, 98.122)
-    intensity = 10.0
+    intensity = 11.0
   }
   
   override func tearDown() {
