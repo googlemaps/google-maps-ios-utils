@@ -47,7 +47,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     radius = 20
     minimumZoomIntensity = 5
     maximumZoomIntensity = 10
-    //Please provide your GMAP API here.
+    //Please provide your GMAP API Key here.
     mapsAPIKey = ""
   }
   
