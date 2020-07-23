@@ -89,7 +89,6 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     XCTAssertEqual(heatmapTileLayer.maximumZoomIntensity, maximumZoomIntensity)
   }
   
-  
   func testTileLayerForMinXLessThanMinusOneWithNotNilUIImage() {
     let heatmapTileLayer = GMUHeatmapTileLayer()
     XCTAssertEqual(heatmapTileLayer.tileFor(x: UInt(0.1), y: UInt(0.1), zoom: 0), UIImage())
