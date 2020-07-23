@@ -23,13 +23,6 @@ class GMUHeatmapTileLayerTest: XCTestCase {
   private var gradientColor: [UIColor]!
   private var firstTestCoordinate: CLLocationCoordinate2D!
   private var secondTestCoordinate: CLLocationCoordinate2D!
-  private var intensity: Float!
-  private var cameraLatitude: Double!
-  private var cameraLongitude: Double!
-  private var mapsAPIKey: String!
-  private var radius: UInt!
-  private var minimumZoomIntensity: UInt!
-  private var maximumZoomIntensity: UInt!
   
   override func setUp() {
     super.setUp()
@@ -39,16 +32,8 @@ class GMUHeatmapTileLayerTest: XCTestCase {
       UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
       UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
     ]
-    firstTestCoordinate = CLLocationCoordinate2DMake(10.456, 98.122)
-    secondTestCoordinate = CLLocationCoordinate2DMake(10.556, 98.422)
-    intensity = 10.0
-    cameraLatitude = -33.8
-    cameraLongitude = 151.2
-    radius = 20
-    minimumZoomIntensity = 5
-    maximumZoomIntensity = 10
-    //Please provide your GMAP API Key here.
-    mapsAPIKey = ""
+    firstTestCoordinate = CLLocationCoordinate2D(latitude: 10.456, longitude: 98.122)
+    secondTestCoordinate = CLLocationCoordinate2D(latitude: 10.556, longitude: 98.422)
   }
   
   override func tearDown() {
@@ -57,46 +42,45 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     colorMapSize = nil
     firstTestCoordinate = nil
     secondTestCoordinate = nil
-    intensity = nil
-    cameraLatitude = nil
-    cameraLongitude = nil
-    mapsAPIKey = nil
-    radius = nil
-    minimumZoomIntensity = nil
-    maximumZoomIntensity = nil
     super.tearDown()
   }
   
   func testInitWithValidGradientColorCount() {
     let heatmapTileLayer = GMUHeatmapTileLayer()
     heatmapTileLayer.gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
-    XCTAssertEqual(heatmapTileLayer.gradient.colors.count, gradientColor.count)
+    XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
   }
   
   func testHeatMapTileLayerDataPoints() {
-    //Please provide your GMAP API key, to run the test case.
-    guard let key = mapsAPIKey, !key.isEmpty else { return }
+    let intensity: Float = 10.0
+    let radius: UInt = 20
+    let minimumZoomIntensity: UInt = 5
+    let maximumZoomIntensity: UInt = 10
+    let mapsAPIKey: String = "randomGoogleMapsAPIKey"
+    let cameraLatitude: Double = -33.8
+    let cameraLongitude: Double = 151.2
+    let weightedData: [GMUWeightedLatLng] = [GMUWeightedLatLng(coordinate: secondTestCoordinate, intensity: intensity), GMUWeightedLatLng(coordinate: firstTestCoordinate, intensity: intensity)]
     GMSServices.provideAPIKey(mapsAPIKey)
     let heatmapTileLayer = GMUHeatmapTileLayer()
     heatmapTileLayer.gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
     heatmapTileLayer.weightedData = [GMUWeightedLatLng(coordinate: firstTestCoordinate, intensity: intensity), GMUWeightedLatLng(coordinate: secondTestCoordinate, intensity: intensity)]
     let camera = GMSCameraPosition.camera(withLatitude: cameraLatitude, longitude: cameraLongitude, zoom: 4)
     heatmapTileLayer.map = GMSMapView.map(withFrame: .zero, camera: camera)
-    XCTAssertEqual(heatmapTileLayer.weightedData.count, 2)
-    XCTAssertEqual(heatmapTileLayer.gradient.colors.count, 2)
-    XCTAssertEqual(heatmapTileLayer.radius, radius)
-    XCTAssertEqual(heatmapTileLayer.minimumZoomIntensity, minimumZoomIntensity)
-    XCTAssertEqual(heatmapTileLayer.maximumZoomIntensity, maximumZoomIntensity)
+    XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
+    XCTAssertNotEqual(weightedData, heatmapTileLayer.weightedData)
+    XCTAssertEqual(radius, heatmapTileLayer.radius)
+    XCTAssertEqual(minimumZoomIntensity, heatmapTileLayer.minimumZoomIntensity)
+    XCTAssertEqual(maximumZoomIntensity, heatmapTileLayer.maximumZoomIntensity)
   }
   
   func testTileLayerForMinXLessThanMinusOneWithNotNilUIImage() {
     let heatmapTileLayer = GMUHeatmapTileLayer()
-    XCTAssertEqual(heatmapTileLayer.tileFor(x: UInt(0.1), y: UInt(0.1), zoom: 0), UIImage())
+    XCTAssertNotNil(heatmapTileLayer.tileFor(x: UInt(0.1), y: UInt(0.1), zoom: 0))
   }
   
   func testTileLayerForMaxXGreaterThanOneWithNotNilUIImage() {
     let heatmapTileLayer = GMUHeatmapTileLayer()
-    XCTAssertEqual(heatmapTileLayer.tileFor(x: 10, y: 10, zoom: 0), UIImage())
+    XCTAssertNotNil(heatmapTileLayer.tileFor(x: 10, y: 10, zoom: 0))
   }
   
 }
