@@ -19,23 +19,26 @@ import XCTest
 class GMUSimpleClusterAlgorithmTest: GMUClusterAlgorithmTest {
   
   private var clustersCount: Int!
+  private var zoom: Float!
   
   override func setUp() {
     clustersCount = 10
+    zoom = 3
     super.setUp()
   }
   
   override func tearDown() {
     clustersCount = nil
+    zoom = nil
     super.tearDown()
   }
   
-  func testClustersAtZoomWithTenClusterCount() {
+  func testClustersAtZoomWithDefaultClusterCount() {
     let simpleClusterAlgorithm = GMUSimpleClusterAlgorithm()
     simpleClusterAlgorithm.add(self.simpleClusterItems())
     simpleClusterAlgorithm.add(self.simpleClusterItems())
     simpleClusterAlgorithm.add(self.simpleClusterItems())
-    let clusterItems = simpleClusterAlgorithm.clusters(atZoom: 3)
+    let clusterItems = simpleClusterAlgorithm.clusters(atZoom: zoom)
     XCTAssertEqual(clustersCount, clusterItems.count)
   }
   
@@ -46,7 +49,7 @@ class GMUSimpleClusterAlgorithmTest: GMUClusterAlgorithmTest {
     simpleClusterAlgorithm.add(self.simpleClusterItems())
     simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
     simpleClusterAlgorithm.clearItems()
-    let clusterItems = simpleClusterAlgorithm.clusters(atZoom: 3)
+    let clusterItems = simpleClusterAlgorithm.clusters(atZoom: zoom)
     XCTAssertEqual(0, clusterItems.count)
     XCTAssertNotEqual(clustersCount, clusterItems.count)
   }
