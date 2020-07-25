@@ -26,6 +26,10 @@
 static NSString *const kTitleText = @"Test Title";
 static NSString *const kSnippetText = @"Snippet Text";
 static NSString *const kStyleId = @"#style";
+static NSString *const kType = @"GroundOverlay";
+static NSString *const kHref = @"image.jpg";
+static const int kZIndex = 1;
+static const double kRotation = 45.0;
 
 @implementation GMUGeometryRendererTest {
   GMSMapView *_mapView;
@@ -107,6 +111,26 @@ static NSString *const kStyleId = @"#style";
   XCTAssertEqual(polyline.title, kTitleText);
   XCTAssertEqualObjects(polyline.strokeColor, strokeColor);
   XCTAssertEqual(polyline.strokeWidth, 1.0f);
+}
+
+- (void)testGroundOverlay {
+  CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(234.567, 345.678);
+  CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(123.456, 456.789);
+  GMUGroundOverlay *groundOverlay = [[GMUGroundOverlay alloc] initWithCoordinate:northEast
+                                                                       southWest:southWest
+                                                                          zIndex:kZIndex
+                                                                        rotation:kRotation
+                                                                            href:kHref];
+  GMUFeature *feature = [[GMUFeature alloc] initWithGeometry:groundOverlay
+                                                  identifier:nil
+                                                  properties:nil
+                                                 boundingBox:nil];
+  NSArray<GMUFeature *> *features = @[ feature ];
+  GMUGeometryRenderer *renderer = [[GMUGeometryRenderer alloc] initWithMap:_mapView
+                                                                geometries:features];
+  [renderer render];
+  NSArray *mapOverlays = renderer.mapOverlays;
+  XCTAssertEqual(mapOverlays.count, 1);
 }
 
 - (void)testRenderPolygon {
@@ -200,6 +224,48 @@ static NSString *const kStyleId = @"#style";
   GMSMarker *marker = mapOverlays.firstObject;
   XCTAssertEqualObjects(marker.map, _mapView);
   XCTAssertEqualObjects(marker.title, kTitleText);
+}
+
+-(void) testImageFromPathWithURL {
+  XCTAssertNotNil([GMUGeometryRenderer imageFromPath:@"https://maps.google.com/mapfiles/kml/pal3/icon55.png"]);
+}
+
+-(void) testGetStyleFromStyleMapsWithEqualStyleObjects {
+  CLLocationCoordinate2D position = CLLocationCoordinate2DMake(45.123, 90.456);
+  GMUPoint *point = [[GMUPoint alloc] initWithCoordinate:position];
+  GMUPlacemark *placemark = [[GMUPlacemark alloc] initWithGeometry:point
+                                                             title:kTitleText
+                                                           snippet:nil
+                                                             style:nil
+                                                          styleUrl:kStyleId];
+  NSArray<GMUPlacemark *> *placemarks = @[ placemark ];
+  GMUStyle *style = [self styleForTest];
+  NSArray<GMUStyle *> *styles = @[ style ];
+  
+  GMUPair *pair = [[GMUPair alloc] initWithKey:@"normal" styleUrl:@"#style"];
+  NSArray<GMUPair *> *pairArray = @[ pair ];
+  
+  GMUStyleMap *styleMap = [[GMUStyleMap alloc] initWithId:@"styles" pairs:pairArray];
+  NSArray<GMUStyleMap *> *styleMapArray = @[ styleMap ];
+  
+  GMUGeometryRenderer *renderer = [[GMUGeometryRenderer alloc] initWithMap:_mapView geometries:placemarks styles:styles styleMaps:styleMapArray];
+  XCTAssertEqualObjects(style, [renderer getStyleFromStyleMaps:@"styles"]);
+}
+
+-(void) testGetStyleFromStyleMapsWithEmptyURLAndNilStyleMapObject {
+  CLLocationCoordinate2D position = CLLocationCoordinate2DMake(45.123, 90.456);
+  GMUPoint *point = [[GMUPoint alloc] initWithCoordinate:position];
+  GMUPlacemark *placemark = [[GMUPlacemark alloc] initWithGeometry:point
+                                                             title:kTitleText
+                                                           snippet:nil
+                                                             style:nil
+                                                          styleUrl:kStyleId];
+  NSArray<GMUPlacemark *> *placemarks = @[ placemark ];
+  GMUStyle *style = [self styleForTest];
+  NSArray<GMUStyle *> *styles = @[ style ];
+  
+  GMUGeometryRenderer *renderer = [[GMUGeometryRenderer alloc] initWithMap:_mapView geometries:placemarks styles:styles styleMaps:nil];
+  XCTAssertNil([renderer getStyleFromStyleMaps:@""]);
 }
 
 - (GMUStyle *)styleForTest {
