@@ -45,7 +45,9 @@ class GMUSimpleClusterAlgorithmTest: GMUClusterAlgorithmTest {
   func testClustersAtZoomWithRemovingAndClearingClusterItems() {
     let simpleClusterAlgorithm = GMUSimpleClusterAlgorithm()
     simpleClusterAlgorithm.add(self.simpleClusterItems())
+    simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
     simpleClusterAlgorithm.add(self.simpleClusterItems())
+    simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
     simpleClusterAlgorithm.add(self.simpleClusterItems())
     simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
     simpleClusterAlgorithm.clearItems()
