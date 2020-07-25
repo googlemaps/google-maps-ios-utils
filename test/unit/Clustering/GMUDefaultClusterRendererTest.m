@@ -91,7 +91,7 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   XCTAssertEqual(markers[1].map, _mapView);
 }
 
-- (void)testRenderClustersWithAnimation {
+- (void)testRenderClustersWithAnimationAndClearingAllMarkers {
   // Arrange.
   NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
   GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
@@ -104,13 +104,31 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   [clusters addObject:cluster2];
   
   _renderer.animatesClusters = YES;
-  
   // Act.
   [_renderer renderClusters:clusters];
+  [_renderer update];
   
   // Assert.
   NSArray<GMSMarker *> *markers = [_renderer markers];
+  markers[0].position = CLLocationCoordinate2DMake(kCameraPosition.latitude + 20.0,kCameraPosition.longitude + 20.0);
+  [_renderer clearMarkersAnimated:markers];
   XCTAssertEqual(markers.count, 2);
+}
+
+-(void) testVisibleClustersFromClustersWithClustersArray {
+  // Arrange.
+  NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
+  GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
+  [clusters addObject:cluster1];
+  
+  GMUStaticCluster *cluster2 =
+  [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
+                                                         kCameraPosition.longitude)
+                        count:4];
+  [clusters addObject:cluster2];
+  
+  // Assert.
+  XCTAssertEqualObjects(clusters, [_renderer visibleClustersFromClusters:clusters]);
 }
 
 
