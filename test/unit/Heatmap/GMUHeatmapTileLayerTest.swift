@@ -64,6 +64,9 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     let heatmapTileLayer = GMUHeatmapTileLayer()
     heatmapTileLayer.gradient = GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
     heatmapTileLayer.weightedData = [GMUWeightedLatLng(coordinate: firstTestCoordinate, intensity: intensity), GMUWeightedLatLng(coordinate: secondTestCoordinate, intensity: intensity)]
+    heatmapTileLayer.radius = 20
+    heatmapTileLayer.minimumZoomIntensity = 5
+    heatmapTileLayer.maximumZoomIntensity = 10
     let camera = GMSCameraPosition.camera(withLatitude: cameraLatitude, longitude: cameraLongitude, zoom: 4)
     heatmapTileLayer.map = GMSMapView.map(withFrame: .zero, camera: camera)
     XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
