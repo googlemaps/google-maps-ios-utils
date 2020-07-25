@@ -91,6 +91,29 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   XCTAssertEqual(markers[1].map, _mapView);
 }
 
+- (void)testRenderClustersWithAnimation {
+  // Arrange.
+  NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
+  GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
+  [clusters addObject:cluster1];
+  
+  GMUStaticCluster *cluster2 =
+  [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
+                                                         kCameraPosition.longitude)
+                        count:4];
+  [clusters addObject:cluster2];
+  
+  _renderer.animatesClusters = YES;
+  
+  // Act.
+  [_renderer renderClusters:clusters];
+  
+  // Assert.
+  NSArray<GMSMarker *> *markers = [_renderer markers];
+  XCTAssertEqual(markers.count, 2);
+}
+
+
 - (void)testAddingClusterItemsWithTitleAndSnippet {
     NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
     GMUStaticCluster *cluster = [self clusterAroundPosition:kCameraPosition count:1 title:@"Title" snippet:@"Snippet"];
