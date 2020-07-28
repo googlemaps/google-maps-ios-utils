@@ -80,8 +80,10 @@
 
   [[[_mockGenerator expect] andReturn:nil] iconForText:@"1000+" withBucketIndex:4];
   [_generator iconForSize:1010];
-  
-  XCTAssertNotNil([_generator iconForText:@"1" withBucketIndex:0]);
+}
+
+- (void)testIconForTextWithNotNilUIImage {
+  XCTAssertNotNil([[GMUDefaultClusterIconGenerator alloc] iconForText:@"1" withBucketIndex:0]);
 }
 
 - (void)testIconForSizeGeneratorWithBackgroundImages {
@@ -115,8 +117,10 @@
 
   [[[_mockGenerator expect] andReturn:nil] iconForText:@"1000+" withBaseImage:_backgroundImages[4]];
   [_generator iconForSize:1010];
-  
-  XCTAssertNotNil([_generator iconForText:@"1" withBaseImage:_backgroundImages[0]]);
+}
+
+- (void)testIconForTextWithBaseImageNilAndNilUIImage {
+  XCTAssertNil([[GMUDefaultClusterIconGenerator alloc] iconForText:@"1000+" withBaseImage:nil]);
 }
 
 - (void)testInitThrowsWhenBucketsAndBackgroundImagesAreOfDifferentSize {
@@ -145,17 +149,17 @@
   NSArray *backgroundColors =
       @[ [[UIColor alloc] init], [[UIColor alloc] init], [[UIColor alloc] init] ];
   XCTAssertThrowsSpecificNamed(
-  [[GMUDefaultClusterIconGenerator alloc] initWithBuckets:buckets backgroundColors:backgroundColors],
-  NSException, NSInvalidArgumentException);
+   [[GMUDefaultClusterIconGenerator alloc] initWithBuckets:buckets backgroundColors:backgroundColors],
+   NSException, NSInvalidArgumentException);
 }
 
 - (void)testInitThrowsWhenBucketsAndBackgroundColorsAreEmpty {
   NSArray *buckets = @[];
-  NSArray *backgroundColors = @[ ];
+  NSArray *backgroundColors = @[];
       
   XCTAssertThrowsSpecificNamed(
-  [[GMUDefaultClusterIconGenerator alloc] initWithBuckets:buckets backgroundColors:backgroundColors],
-  NSException, NSInvalidArgumentException);
+   [[GMUDefaultClusterIconGenerator alloc] initWithBuckets:buckets backgroundColors:backgroundColors],
+   NSException, NSInvalidArgumentException);
 }
 
 - (void)testInitThrowsWhenBucketsAreNotStrictlyIncreasing {

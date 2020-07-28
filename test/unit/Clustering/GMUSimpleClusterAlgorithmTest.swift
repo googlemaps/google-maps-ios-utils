@@ -42,18 +42,13 @@ class GMUSimpleClusterAlgorithmTest: GMUClusterAlgorithmTest {
     XCTAssertEqual(clustersCount, clusterItems.count)
   }
   
-  func testClustersAtZoomWithRemovingAndClearingClusterItems() {
+  func testClustersAtZoomWithClearingClusterItems() {
     let simpleClusterAlgorithm = GMUSimpleClusterAlgorithm()
     simpleClusterAlgorithm.add(self.simpleClusterItems())
-    simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
-    simpleClusterAlgorithm.add(self.simpleClusterItems())
-    simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
-    simpleClusterAlgorithm.add(self.simpleClusterItems())
-    simpleClusterAlgorithm.remove(self.simpleClusterItems()[0])
     simpleClusterAlgorithm.clearItems()
-    let clusterItems = simpleClusterAlgorithm.clusters(atZoom: zoom)
-    XCTAssertEqual(0, clusterItems.count)
-    XCTAssertNotEqual(clustersCount, clusterItems.count)
+    let clusters = simpleClusterAlgorithm.clusters(atZoom: zoom)
+    XCTAssertEqual(0, clusters.count)
+    XCTAssertNotEqual(clustersCount, clusters.count)
   }
   
 }

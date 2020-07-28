@@ -112,7 +112,7 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   NSArray<GMSMarker *> *markers = [_renderer markers];
   markers[0].position = CLLocationCoordinate2DMake(kCameraPosition.latitude + 20.0,kCameraPosition.longitude + 20.0);
   [_renderer clearMarkersAnimated:markers];
-  XCTAssertEqual(markers.count, 2);
+  XCTAssertEqual(2, markers.count);
 }
 
 -(void) testVisibleClustersFromClustersWithClustersArray {

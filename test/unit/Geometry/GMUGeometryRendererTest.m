@@ -130,7 +130,7 @@ static const double kRotation = 45.0;
                                                                 geometries:features];
   [renderer render];
   NSArray *mapOverlays = renderer.mapOverlays;
-  XCTAssertEqual(mapOverlays.count, 1);
+  XCTAssertEqual(1, mapOverlays.count);
 }
 
 - (void)testRenderPolygon {
@@ -226,11 +226,11 @@ static const double kRotation = 45.0;
   XCTAssertEqualObjects(marker.title, kTitleText);
 }
 
--(void) testImageFromPathWithURL {
+-(void) testImageFromPathWithURLNotNil {
   XCTAssertNotNil([GMUGeometryRenderer imageFromPath:@"https://maps.google.com/mapfiles/kml/pal3/icon55.png"]);
 }
 
--(void) testGetStyleFromStyleMapsWithEqualStyleObjects {
+-(void) testGetStyleFromStyleMapsEqualsExpectedStyle {
   CLLocationCoordinate2D position = CLLocationCoordinate2DMake(45.123, 90.456);
   GMUPoint *point = [[GMUPoint alloc] initWithCoordinate:position];
   GMUPlacemark *placemark = [[GMUPlacemark alloc] initWithGeometry:point
