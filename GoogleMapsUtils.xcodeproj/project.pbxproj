@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
 		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
 		3E7A8FC424C30CDB000318C3 /* GMUGradientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */; };
@@ -232,6 +233,7 @@
 		0242D1FE1C7D3AC300557130 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
+		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
 		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		3E7A8FC024C30C54000318C3 /* GMUObectiveCTestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMUObectiveCTestHelper.h; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				AABFFEC224578CAC0015D8C6 /* GMUDefaultClusterIconGenerator.m */,
 				AABFFEC324578CAC0015D8C6 /* GMUDefaultClusterRenderer.h */,
 				AABFFEC424578CAC0015D8C6 /* GMUDefaultClusterIconGenerator+Testing.h */,
+				3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EE0C60624C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h in Headers */,
+				3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */,
 				AAA1DE1E24579041001CB03C /* GMUClusterManager+Testing.h in Headers */,
 				AAE6BA592458CC670051CD31 /* GMUClusterAlgorithmTest.h in Headers */,
 				543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */,

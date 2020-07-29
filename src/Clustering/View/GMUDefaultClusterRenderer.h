@@ -159,13 +159,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/* Extensions for testing purposes only. */
-@interface GMUDefaultClusterRenderer (Testing)
-
-- (NSArray<id<GMUCluster>> *)visibleClustersFromClusters:(NSArray<id<GMUCluster>> *)clusters;
-
-- (void)clearMarkersAnimated:(NSArray<GMSMarker *> *)markers;
-
-@end
-
 NS_ASSUME_NONNULL_END
