@@ -51,10 +51,25 @@ $ pod install
 In your `Cartfile`:
 
 ```
-github "googlemaps/google-maps-ios-utils"
+github "googlemaps/google-maps-ios-utils" ~> 3.1.4
 ```
 
 See the [Carthage doc] for further installation instructions.
+
+### [Swift Package Manager](https://github.com/ReactiveX/RxSwift#swift-package-manager)
+
+**Note**: This feature is only available with Swift 5.3 (Xcode 12) or later.
+
+Add the following to your `dependencies` value of your `Package.swift` file.
+
+```
+dependencies: [
+  .package(
+    url: "https://github.com/googlemaps/google-maps-ios-utils.git",
+    .upToNextMinor(from: "3.1.4")
+  )
+]
+```
 
 ## Samples and Example Usage
 
