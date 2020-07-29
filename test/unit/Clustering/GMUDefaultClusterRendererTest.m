@@ -19,6 +19,7 @@
 
 #import <GoogleMapsUtils/GoogleMapsUtils.h>
 #import "GMUTestClusterItem.h"
+#import "GMUDefaultClusterRenderer+Testing.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
