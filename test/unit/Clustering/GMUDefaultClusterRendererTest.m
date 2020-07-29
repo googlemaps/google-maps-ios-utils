@@ -19,6 +19,7 @@
 
 #import <GoogleMapsUtils/GoogleMapsUtils.h>
 #import "GMUTestClusterItem.h"
+#import "GMUDefaultClusterRenderer+Testing.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
@@ -90,6 +91,47 @@ static const CLLocationCoordinate2D kCameraPosition = {-35, 151};
   XCTAssertTrue([markers[1].userData conformsToProtocol:@protocol(GMUCluster)]);
   XCTAssertEqual(markers[1].map, _mapView);
 }
+
+- (void)testRenderClustersWithAnimationAndClearingAllMarkers {
+  // Arrange.
+  NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
+  GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
+  [clusters addObject:cluster1];
+  
+  GMUStaticCluster *cluster2 =
+  [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
+                                                         kCameraPosition.longitude)
+                        count:4];
+  [clusters addObject:cluster2];
+  
+  _renderer.animatesClusters = YES;
+  // Act.
+  [_renderer renderClusters:clusters];
+  [_renderer update];
+  
+  // Assert.
+  NSArray<GMSMarker *> *markers = [_renderer markers];
+  markers[0].position = CLLocationCoordinate2DMake(kCameraPosition.latitude + 20.0,kCameraPosition.longitude + 20.0);
+  [_renderer clearMarkersAnimated:markers];
+  XCTAssertEqual(2, markers.count);
+}
+
+-(void) testVisibleClustersFromClustersWithClustersArray {
+  // Arrange.
+  NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];
+  GMUStaticCluster *cluster1 = [self clusterAroundPosition:kCameraPosition count:10];
+  [clusters addObject:cluster1];
+  
+  GMUStaticCluster *cluster2 =
+  [self clusterAroundPosition:CLLocationCoordinate2DMake(kCameraPosition.latitude + 1.0,
+                                                         kCameraPosition.longitude)
+                        count:4];
+  [clusters addObject:cluster2];
+  
+  // Assert.
+  XCTAssertEqualObjects(clusters, [_renderer visibleClustersFromClusters:clusters]);
+}
+
 
 - (void)testAddingClusterItemsWithTitleAndSnippet {
     NSMutableArray<id<GMUCluster>> *clusters = [[NSMutableArray<id<GMUCluster>> alloc] init];

@@ -1,4 +1,4 @@
-/* Copyright (c) 2016 Google Inc.
+/* Copyright (c) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-#import "GMUGeometryRenderer.h"
+#import "GMUDefaultClusterRenderer.h"
 
 /* Extensions for testing purposes only. */
-@interface GMUGeometryRenderer (Testing)
+@interface GMUDefaultClusterRenderer (Testing)
 
-- (NSArray<GMSOverlay *> *)mapOverlays;
-+ (UIImage *)imageFromPath:(NSString *)path;
-- (GMUStyle *)getStyleFromStyleMaps:(NSString *)styleUrl;
+- (NSArray<id<GMUCluster>> *)visibleClustersFromClusters:(NSArray<id<GMUCluster>> *)clusters;
+
+- (void)clearMarkersAnimated:(NSArray<GMSMarker *> *)markers;
 
 @end
