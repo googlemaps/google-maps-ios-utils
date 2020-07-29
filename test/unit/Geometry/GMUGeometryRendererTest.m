@@ -230,6 +230,10 @@ static const double kRotation = 45.0;
   XCTAssertNotNil([GMUGeometryRenderer imageFromPath:@"https://maps.google.com/mapfiles/kml/pal3/icon55.png"]);
 }
 
+-(void) testImageFromPathWithURLNil {
+  XCTAssertNil([GMUGeometryRenderer imageFromPath:nil]);
+}
+
 -(void) testGetStyleFromStyleMapsEqualsExpectedStyle {
   CLLocationCoordinate2D position = CLLocationCoordinate2DMake(45.123, 90.456);
   GMUPoint *point = [[GMUPoint alloc] initWithCoordinate:position];
