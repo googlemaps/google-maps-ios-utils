@@ -46,10 +46,11 @@ jobs:
 
         echo "Creating XCFramework"
         xcodebuild -create-xcframework -framework ./Maps.framework-iphoneos.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -framework ./Maps.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -output ./GoogleMapsUtils.xcframework
+        zip ./GoogleMapsUtils.xcframework.zip ./GoogleMapsUtils.xcframework
 
     - name: Update Package.swift checksum
       run: |
-        CHECKSUM=$(swift package compute-checksum ./GoogleMapsUtils.xcframework)
+        CHECKSUM=$(swift package compute-checksum ./GoogleMapsUtils.xcframework.zip)
         sed -i '' "s/checksum: \"[a-z0-9]*\"/checksum: \"$CHECKSUM\"/g" $GITHUB_WORKSPACE/Package.swift
 
     - name: Semantic Release

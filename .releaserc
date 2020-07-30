@@ -37,7 +37,7 @@ plugins:
         - "Package.swift"
   - - "@semantic-release/github"
     - assets:
-        - "./GoogleMapsUtils.xcframework"
+        - "./GoogleMapsUtils.xcframework.zip"
 
 options:
   debug: true
