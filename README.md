@@ -36,7 +36,7 @@ In your `Podfile`:
 use_frameworks!
 
 target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '~> 3.1.4'
+    pod 'Google-Maps-iOS-Utils', '~> 3.2.0'
 end
 ```
 
@@ -51,7 +51,7 @@ $ pod install
 In your `Cartfile`:
 
 ```
-github "googlemaps/google-maps-ios-utils" ~> 3.1.4
+github "googlemaps/google-maps-ios-utils" ~> 3.2.0
 ```
 
 See the [Carthage doc] for further installation instructions.
@@ -66,7 +66,7 @@ Add the following to your `dependencies` value of your `Package.swift` file.
 dependencies: [
   .package(
     url: "https://github.com/googlemaps/google-maps-ios-utils.git",
-    .upToNextMinor(from: "3.1.4")
+    .upToNextMinor(from: "3.2.0")
   )
 ]
 ```
