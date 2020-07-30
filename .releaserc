@@ -27,8 +27,8 @@ plugins:
 
         - files:
             - "Package.swift"
-          from: "v[0-9].[0-9].[0-9]
-          to: "v${nextRelease.version}
+          from: "v[0-9].[0-9].[0-9]"
+          to: "v${nextRelease.version}"
   - - "@semantic-release/git"
     - assets:
         - "./Google-Maps-iOS-Utils.podspec"
