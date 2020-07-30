@@ -28,6 +28,14 @@ jobs:
     - name: Use Xcode 12
       run: sudo xcode-select -s /Applications/Xcode_12_beta.app/Contents/Developer
 
+    - name: Install Dependencies
+      run: |
+        brew install carthage
+
+    - name: Carthage update
+      run: |
+        carthage build
+
     - name: Create XCFramework
       run: |
         echo "Creating archive for an iOS Simulator"
