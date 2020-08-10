@@ -41,10 +41,10 @@ jobs:
     - name: Create XCFramework
       run: |
         echo "Creating archive for an iOS Simulator"
-        xcodebuild archive -project GoogleMapsUtils.xcodeproj -scheme GoogleMapsUtils -configuration Release -destination 'platform=iOS Simulator' -archivePath ./Maps.framework-iphonesimulator.xcarchive SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+        xcodebuild archive -project GoogleMapsUtils.xcodeproj -scheme GoogleMapsUtils -configuration Release -destination 'generic/platform=iOS Simulator' -archivePath ./Maps.framework-iphonesimulator.xcarchive SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
         echo "Creating archive for an iOS Device"
-        xcodebuild archive -project GoogleMapsUtils.xcodeproj -scheme GoogleMapsUtils -configuration Release -destination 'platform=iOS' -archivePath ./Maps.framework-iphoneos.xcarchive SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+        xcodebuild archive -project GoogleMapsUtils.xcodeproj -scheme GoogleMapsUtils -configuration Release -destination 'generic/platform=iOS' -archivePath ./Maps.framework-iphoneos.xcarchive SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
         echo "Creating XCFramework"
         xcodebuild -create-xcframework -framework ./Maps.framework-iphoneos.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -framework ./Maps.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -output ./GoogleMapsUtils.xcframework
