@@ -16,6 +16,8 @@ name: Release
 on:
   push:
     branches: [ master ]
+  repository_dispatch:
+    types: [release]
 jobs:
   release:
     runs-on: macos-latest
