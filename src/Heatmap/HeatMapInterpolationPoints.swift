@@ -342,8 +342,9 @@ class HeatMapInterpolationPoints {
         heatMapPoints.removeAll()
         heatMapLayer.map = nil
         
-        // Clusters is the list of clusters that we intend to return
+        // Clusters is the list of clusters found in the dataset 
         let clusters = kcluster()
+
         for cluster in clusters {
             let bounds = findBounds(input: cluster, n: n)
 
