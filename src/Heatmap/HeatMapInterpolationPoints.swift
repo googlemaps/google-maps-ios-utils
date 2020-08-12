@@ -100,7 +100,7 @@ class HeatMapInterpolationPoints {
         return sqrt(pow(abs(lat2 - lat1), 2) + pow(abs(long2 - long1), 2))
     }
     
-    /// A helper function that utilizes the k-cluster algorihtm to cluster the input data points together into reasonable sets; the number of
+    /// A helper function that utilizes the k-cluster algorithm to cluster the input data points together into reasonable sets; the number of
     /// clusters is set so that the maximum distance between the center and any point is less than a set constant value
     ///
     /// - Returns: A list of clusters, each of which is a list of CLLocationCoordinate2D objects.
