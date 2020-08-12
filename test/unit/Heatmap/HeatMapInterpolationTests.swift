@@ -46,9 +46,18 @@ class HeatMapInterpolationTests: XCTestCase {
     }
 
     func testWithTooSmallN() {
-        let newGMU = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20), intensity: 500)
-        let newGMU2 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20), intensity: 20)
-        let newGMU3 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20), intensity: 500)
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let newGMU2 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+            intensity: 20
+        )
+        let newGMU3 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+            intensity: 500
+        )
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
@@ -63,9 +72,18 @@ class HeatMapInterpolationTests: XCTestCase {
     }
 
     func testWithTooLargeN() {
-        let newGMU = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20), intensity: 500)
-        let newGMU2 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20), intensity: 20)
-        let newGMU3 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20), intensity: 500)
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let newGMU2 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+            intensity: 20
+        )
+        let newGMU3 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+            intensity: 500
+        )
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
@@ -80,9 +98,18 @@ class HeatMapInterpolationTests: XCTestCase {
     }
 
     func testWithAcceptableN() {
-        let newGMU = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20), intensity: 500)
-        let newGMU2 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20), intensity: 20)
-        let newGMU3 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20), intensity: 500)
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let newGMU2 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+            intensity: 20
+        )
+        let newGMU3 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+            intensity: 500
+        )
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
@@ -100,9 +127,18 @@ class HeatMapInterpolationTests: XCTestCase {
     }
 
     func testMultipleCalls() {
-        let newGMU = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20), intensity: 500)
-        let newGMU2 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20), intensity: 20)
-        let newGMU3 = GMUWeightedLatLng(coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20), intensity: 500)
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let newGMU2 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+            intensity: 20
+        )
+        let newGMU3 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+            intensity: 500
+        )
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
@@ -110,5 +146,35 @@ class HeatMapInterpolationTests: XCTestCase {
         let first = data.count
         data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
         XCTAssertEqual(first, data.count)
+    }
+
+    func testListOfPoints() {
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let newGMU2 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+            intensity: 20
+        )
+        let newGMU3 = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+            intensity: 500
+        )
+        let points = [newGMU, newGMU2, newGMU3]
+        interpolationController.addWeightedLatLngs(latlngs: points)
+        let data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        XCTAssertLessThan(0, data.count)
+    }
+
+    func testDuplicatePoint() {
+        let newGMU = GMUWeightedLatLng(
+            coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
+            intensity: 500
+        )
+        let points = [newGMU, newGMU, newGMU]
+        interpolationController.addWeightedLatLngs(latlngs: points)
+        let data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        XCTAssertLessThan(0, data.count)
     }
 }

@@ -319,7 +319,6 @@ class HeatMapInterpolationPoints {
                     if intensity[1] == 0 || intensity[0] < 3 {
                         continue
                     }
-                    
                     // Set the intensity based on IDW
                     let coords = GMUWeightedLatLng(
                         coordinate: CLLocationCoordinate2DMake(Double(i) / 10, Double(j) / 10),
