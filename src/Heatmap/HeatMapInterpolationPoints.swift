@@ -120,7 +120,7 @@ class HeatMapInterpolationPoints {
                 }
 
                 // 25 iterations of updating the center and recalculating the points in that cluster
-                // should be adequet, as k-means clustering has diminishing returns as the number of
+                // should be adequate, as k-means clustering has diminishing returns as the number of
                 // iterations increases
                 for _ in 0...clusterIterations {
 
@@ -241,7 +241,7 @@ class HeatMapInterpolationPoints {
     ///
     /// - Parameters:
     ///     - input: A list of points that are in a cluster.
-    ///     - n: The power value that determines the dropoff rate of intensities with respect to the distance from given points
+    ///     - n: The power value that determines the drop off rate of intensities with respect to the distance from given points
     /// - Returns: A list of four integers representing the minimum and maximum longitude and latitude values
     private func findBounds(input: [CLLocationCoordinate2D], n: Double) -> [Int] {
 
