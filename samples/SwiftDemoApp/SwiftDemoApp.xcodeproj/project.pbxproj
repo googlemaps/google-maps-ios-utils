@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		02B36ADC1D190D7E00EA3A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B36ADA1D190D7E00EA3A86 /* LaunchScreen.storyboard */; };
 		02B36AEB1D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AE91D1B922800EA3A86 /* Pods-SwiftDemoApp.debug.xcconfig */; };
 		02B36AEC1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 02B36AEA1D1B922800EA3A86 /* Pods-SwiftDemoApp.release.xcconfig */; };
+		AA78BB7324E35A7F00D0E5E7 /* GoogleMapsUtils in Frameworks */ = {isa = PBXBuildFile; productRef = AA78BB7224E35A7F00D0E5E7 /* GoogleMapsUtils */; };
 		E5D4DFA71ED77042003096B4 /* GeoJSON_sample.json in Resources */ = {isa = PBXBuildFile; fileRef = E5D4DFA61ED77042003096B4 /* GeoJSON_sample.json */; };
 		E5D4DFA91ED7735A003096B4 /* GeoJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4DFA81ED7735A003096B4 /* GeoJSONViewController.swift */; };
 		E5D7697F1F54BA6200288D02 /* HeatmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7697E1F54BA6200288D02 /* HeatmapViewController.swift */; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA78BB7324E35A7F00D0E5E7 /* GoogleMapsUtils in Frameworks */,
 				E925730EA15B6F4EB7331454 /* Pods_SwiftDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +135,9 @@
 			dependencies = (
 			);
 			name = SwiftDemoApp;
+			packageProductDependencies = (
+				AA78BB7224E35A7F00D0E5E7 /* GoogleMapsUtils */,
+			);
 			productName = SwiftDemoApp;
 			productReference = 02B36ACE1D190D7E00EA3A86 /* SwiftDemoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +169,9 @@
 				Base,
 			);
 			mainGroup = 02B36AC51D190D7E00EA3A86;
+			packageReferences = (
+				AA78BB7124E35A7F00D0E5E7 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
+			);
 			productRefGroup = 02B36ACF1D190D7E00EA3A86 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,7 +368,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -378,7 +389,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -409,6 +423,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA78BB7124E35A7F00D0E5E7 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:googlemaps/google-maps-ios-utils.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA78BB7224E35A7F00D0E5E7 /* GoogleMapsUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA78BB7124E35A7F00D0E5E7 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */;
+			productName = GoogleMapsUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 02B36AC61D190D7E00EA3A86 /* Project object */;
 }
