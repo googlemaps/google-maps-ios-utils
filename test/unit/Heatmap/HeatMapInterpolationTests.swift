@@ -61,13 +61,13 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(mapView: mapView, n: 1)
+        var data = interpolationController.generateHeatMaps(n: 1)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 0.5)
+        data = interpolationController.generateHeatMaps(n: 0.5)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 1.5)
+        data = interpolationController.generateHeatMaps(n: 1.5)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 1.99)
+        data = interpolationController.generateHeatMaps(n: 1.99)
         XCTAssertEqual(0, data.count)
     }
 
@@ -87,13 +87,13 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(mapView: mapView, n: 3)
+        var data = interpolationController.generateHeatMaps(n: 3)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 4)
+        data = interpolationController.generateHeatMaps(n: 4)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 100)
+        data = interpolationController.generateHeatMaps(n: 100)
         XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 2.50000001)
+        data = interpolationController.generateHeatMaps(n: 2.50000001)
         XCTAssertEqual(0, data.count)
     }
 
@@ -113,16 +113,16 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        var data = interpolationController.generateHeatMaps(n: 2)
         XCTAssertLessThan(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 2.4)
+        data = interpolationController.generateHeatMaps(n: 2.4)
         XCTAssertLessThan(0, data.count)
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 2.3)
+        data = interpolationController.generateHeatMaps(n: 2.3)
         XCTAssertLessThan(0, data.count)
     }
 
     func testNoDataset() {
-        let data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        let data = interpolationController.generateHeatMaps(n: 2)
         XCTAssertEqual(0, data.count)
     }
 
@@ -142,9 +142,9 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        var data = interpolationController.generateHeatMaps(n: 2)
         let first = data.count
-        data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        data = interpolationController.generateHeatMaps(n: 2)
         XCTAssertEqual(first, data.count)
     }
 
@@ -163,7 +163,7 @@ class HeatMapInterpolationTests: XCTestCase {
         )
         let points = [newGMU, newGMU2, newGMU3]
         interpolationController.addWeightedLatLngs(latlngs: points)
-        let data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        let data = interpolationController.generateHeatMaps(n: 2)
         XCTAssertLessThan(0, data.count)
     }
 
@@ -174,7 +174,7 @@ class HeatMapInterpolationTests: XCTestCase {
         )
         let points = [newGMU, newGMU, newGMU]
         interpolationController.addWeightedLatLngs(latlngs: points)
-        let data = interpolationController.generateHeatMaps(mapView: mapView, n: 2)
+        let data = interpolationController.generateHeatMaps(n: 2)
         XCTAssertLessThan(0, data.count)
     }
 }

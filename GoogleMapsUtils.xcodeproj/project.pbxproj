@@ -11,6 +11,7 @@
 		3A4F1C2324E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */; };
 		3A4F1C2524E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */; };
 		3A4F1C2624E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */; };
+		3A4F1C2824E5CDE9006AFA4D /* HeatMapInterpolationPoints.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
 		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
@@ -237,9 +238,9 @@
 		0242D1FE1C7D3AC300557130 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
-		3A4F1C2024E5CB4A006AFA4D /* Interpolation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Interpolation-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationPoints.swift; path = ../../../HeatMapInterpolation/HeatMapInterpolation/HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
 		3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationTests.swift; path = ../../../../HeatMapInterpolation/HeatMapInterpolationTests/HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
+		3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeatMapInterpolationPoints.h; sourceTree = "<group>"; };
 		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
 		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -727,6 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */,
+				3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */,
 				AABFFEC924578CAC0015D8C6 /* GMUGradient.h */,
 				AABFFECA24578CAC0015D8C6 /* GMUWeightedLatLng.m */,
 				AABFFECB24578CAC0015D8C6 /* GMUHeatmapTileLayer.h */,
@@ -734,7 +736,6 @@
 				AABFFECD24578CAC0015D8C6 /* GMUGradient.m */,
 				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				3EE0C60524C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h */,
-				3A4F1C2024E5CB4A006AFA4D /* Interpolation-Bridging-Header.h */,
 			);
 			name = Heatmap;
 			path = src/Heatmap;
@@ -986,6 +987,7 @@
 				AAA1DE4A245790C0001CB03C /* GMUGradient.h in Headers */,
 				AAA1DE1624579019001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */,
 				AAA1DE4C245790C0001CB03C /* GMUWeightedLatLng.h in Headers */,
+				3A4F1C2824E5CDE9006AFA4D /* HeatMapInterpolationPoints.h in Headers */,
 				AAA1DE1C24579037001CB03C /* GMUWrappingDictionaryKey.h in Headers */,
 				F849455F209C15CE00C60C05 /* GoogleMapsUtils.h in Headers */,
 				AAA1DE2D2457908C001CB03C /* GMUGeoJSONParser.h in Headers */,
