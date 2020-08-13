@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A4F1C2224E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */; };
-		3A4F1C2324E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */; };
-		3A4F1C2524E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */; };
-		3A4F1C2624E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */; };
-		3A4F1C2824E5CDE9006AFA4D /* HeatMapInterpolationPoints.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */; };
+		3A4F1C2F24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */; };
+		3A4F1C3124E5EED9006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
 		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
@@ -238,9 +235,9 @@
 		0242D1FE1C7D3AC300557130 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
-		3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationPoints.swift; path = ../../../HeatMapInterpolation/HeatMapInterpolation/HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
-		3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationTests.swift; path = ../../../../HeatMapInterpolation/HeatMapInterpolationTests/HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
-		3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeatMapInterpolationPoints.h; sourceTree = "<group>"; };
+		3A4F1C2D24E5EE6F006AFA4D /* HeatMapInterpolation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatMapInterpolation.h; sourceTree = "<group>"; };
+		3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationPoints.swift; path = ../../../HeatMapInterpolation/HeatMapInterpolation/HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
+		3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationTests.swift; path = ../../../../HeatMapInterpolation/HeatMapInterpolationTests/HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
 		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
 		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -592,7 +589,7 @@
 		3E7A8F3F24C2BB58000318C3 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
-				3A4F1C2424E5CB84006AFA4D /* HeatMapInterpolationTests.swift */,
+				3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */,
 				3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */,
 				3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */,
 				3EE0C60224C8B54400D15D38 /* GMUHeatmapTileLayerTest.swift */,
@@ -727,8 +724,7 @@
 		AABFFEC824578CAC0015D8C6 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
-				3A4F1C2124E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift */,
-				3A4F1C2724E5CDE9006AFA4D /* HeatMapInterpolationPoints.h */,
+				3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */,
 				AABFFEC924578CAC0015D8C6 /* GMUGradient.h */,
 				AABFFECA24578CAC0015D8C6 /* GMUWeightedLatLng.m */,
 				AABFFECB24578CAC0015D8C6 /* GMUHeatmapTileLayer.h */,
@@ -736,6 +732,7 @@
 				AABFFECD24578CAC0015D8C6 /* GMUGradient.m */,
 				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				3EE0C60524C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h */,
+				3A4F1C2D24E5EE6F006AFA4D /* HeatMapInterpolation.h */,
 			);
 			name = Heatmap;
 			path = src/Heatmap;
@@ -987,7 +984,6 @@
 				AAA1DE4A245790C0001CB03C /* GMUGradient.h in Headers */,
 				AAA1DE1624579019001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */,
 				AAA1DE4C245790C0001CB03C /* GMUWeightedLatLng.h in Headers */,
-				3A4F1C2824E5CDE9006AFA4D /* HeatMapInterpolationPoints.h in Headers */,
 				AAA1DE1C24579037001CB03C /* GMUWrappingDictionaryKey.h in Headers */,
 				F849455F209C15CE00C60C05 /* GoogleMapsUtils.h in Headers */,
 				AAA1DE2D2457908C001CB03C /* GMUGeoJSONParser.h in Headers */,
@@ -1102,7 +1098,6 @@
 					};
 					F849455A209C15CE00C60C05 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1160;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1248,11 +1243,11 @@
 				AAE6B9E82458C92B0051CD31 /* KMLViewController.m in Sources */,
 				AAE6B9E32458C92B0051CD31 /* Samples.m in Sources */,
 				AAE6B9E92458C92B0051CD31 /* CustomMarkerViewController.m in Sources */,
-				3A4F1C2224E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift in Sources */,
+				3A4F1C2F24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift in Sources */,
 				AAE6B9F42458C92B0051CD31 /* HeatmapViewController.m in Sources */,
 				AAE6B9E62458C92B0051CD31 /* AppDelegate.m in Sources */,
 				AAE6B9E42458C92B0051CD31 /* BasicViewController.m in Sources */,
-				3A4F1C2524E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */,
+				3A4F1C3124E5EED9006AFA4D /* HeatMapInterpolationTests.swift in Sources */,
 				AAE6B9E22458C92B0051CD31 /* MasterViewController.m in Sources */,
 				AAE6B9E12458C92B0051CD31 /* main.m in Sources */,
 			);
@@ -1275,7 +1270,6 @@
 				3E7A8FC424C30CDB000318C3 /* GMUGradientTest.swift in Sources */,
 				AAE6BA5B2458CCA50051CD31 /* GMUKMLParserTest.m in Sources */,
 				AAE6BA582458CC670051CD31 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.m in Sources */,
-				3A4F1C2624E5CB84006AFA4D /* HeatMapInterpolationTests.swift in Sources */,
 				3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */,
 				AAE6BA5A2458CC670051CD31 /* GMUStaticClusterTest.m in Sources */,
 				AAE6BA632458CCA50051CD31 /* GMULineStringTest.m in Sources */,
@@ -1313,7 +1307,6 @@
 				AAA1DE1A2457902D001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				AAA1DE1424579010001CB03C /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				AAA1DE2524579067001CB03C /* GMUDefaultClusterIconGenerator.m in Sources */,
-				3A4F1C2324E5CB4A006AFA4D /* HeatMapInterpolationPoints.swift in Sources */,
 				AAA1DE48245790BB001CB03C /* GMUGradient.m in Sources */,
 				AAA1DE1824579024001CB03C /* GMUSimpleClusterAlgorithm.m in Sources */,
 				AAA1DE38245790A0001CB03C /* GMUPoint.m in Sources */,
@@ -1623,7 +1616,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1658,8 +1650,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1673,7 +1663,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1708,7 +1697,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
