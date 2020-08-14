@@ -22,7 +22,6 @@ class HeatMapInterpolationViewController: UIViewController {
 
     /// Basic set up variables
     private var mapView = GMSMapView()
-    private var data = [[Double]]()
     private var markers = [GMSMarker]()
     private var rendering = false
     private let interpolationController = HeatMapInterpolationPoints()
@@ -55,7 +54,7 @@ class HeatMapInterpolationViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
 
             // Force unwrapping is okay here because there has to be a text field (created above)
-            self.executeHeatMap(nVal: Float(alert?.textFields![0].text ?? "0.0") ?? 0.0)
+            self.executeHeatMap(nVal: Double(alert?.textFields![0].text ?? "0.0") ?? 0.0)
         }))
         heatmapLayer = GMUHeatmapTileLayer()
         heatmapLayer.gradient = GMUGradient(colors: gradientColors,
@@ -78,7 +77,7 @@ class HeatMapInterpolationViewController: UIViewController {
     /// Executes the heat map based on the given power value
     ///
     /// - Parameter nVal: The power value that determines how far each given point influences.
-    private func executeHeatMap(nVal: Float) {
+    private func executeHeatMap(nVal: Double) {
 
         // It is vital to remove all prevously appended data points before creating a new heat map
         interpolationController.removeAllData()
@@ -93,34 +92,35 @@ class HeatMapInterpolationViewController: UIViewController {
 
         // Adds points via a list, using addWeightedLatLngs; intensity is initially set to 100 as a
         // showcase
-        var listOfPoints = [GMUWeightedLatLng]()
-        let newGMU2 = GMUWeightedLatLng(
-            coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
-            intensity: 100
-        )
-        let newGMU3 = GMUWeightedLatLng(
-            coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
-            intensity: 300
-        )
-        let newGMU4 = GMUWeightedLatLng(
-            coordinate: CLLocationCoordinate2D(latitude: 0, longitude: -145.20),
-            intensity: 100
-        )
-        listOfPoints.append(newGMU2)
-        listOfPoints.append(newGMU3)
-        listOfPoints.append(newGMU4)
+        let listOfPoints = [
+            GMUWeightedLatLng(
+                coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
+                intensity: 100
+            ),
+            GMUWeightedLatLng(
+                coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
+                intensity: 300
+            ),
+            GMUWeightedLatLng(
+                coordinate: CLLocationCoordinate2D(latitude: 0, longitude: -145.20),
+                intensity: 100
+            )
+        ]
         interpolationController.addWeightedLatLngs(latlngs: listOfPoints)
 
         // The variable generatedPoints contains the list of interpolated points
-        let generatedPoints = interpolationController.generateHeatMaps(n: Double(nVal))
+        do {
+            let generatedPoints = try interpolationController.generateHeatMaps(influence: nVal)
+            // If you wish, uncomment the line below to see generated points from the interpolation
+            // print(generatedPoints)
 
-        // If you wish, uncomment the line below to see generated points from the interpolation
-        // print(generatedPoints)
+            heatmapLayer.map = nil
 
-        heatmapLayer.map = nil
-
-        heatmapLayer.weightedData = generatedPoints
-        heatmapLayer.map = mapView
+            heatmapLayer.weightedData = generatedPoints
+            heatmapLayer.map = mapView
+        } catch {
+            print("\(error)")
+        }
     }
 }
 

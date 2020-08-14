@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A4F1C2F24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */; };
-		3A4F1C3124E5EED9006AFA4D /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
 		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
@@ -235,9 +233,6 @@
 		0242D1FE1C7D3AC300557130 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
-		3A4F1C2D24E5EE6F006AFA4D /* HeatMapInterpolation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatMapInterpolation.h; sourceTree = "<group>"; };
-		3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationPoints.swift; path = ../../../HeatMapInterpolation/HeatMapInterpolation/HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
-		3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatMapInterpolationTests.swift; path = ../../../../HeatMapInterpolation/HeatMapInterpolationTests/HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
 		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
 		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -589,7 +584,6 @@
 		3E7A8F3F24C2BB58000318C3 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
-				3A4F1C3024E5EED9006AFA4D /* HeatMapInterpolationTests.swift */,
 				3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */,
 				3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */,
 				3EE0C60224C8B54400D15D38 /* GMUHeatmapTileLayerTest.swift */,
@@ -724,7 +718,6 @@
 		AABFFEC824578CAC0015D8C6 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
-				3A4F1C2E24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift */,
 				AABFFEC924578CAC0015D8C6 /* GMUGradient.h */,
 				AABFFECA24578CAC0015D8C6 /* GMUWeightedLatLng.m */,
 				AABFFECB24578CAC0015D8C6 /* GMUHeatmapTileLayer.h */,
@@ -732,7 +725,6 @@
 				AABFFECD24578CAC0015D8C6 /* GMUGradient.m */,
 				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				3EE0C60524C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h */,
-				3A4F1C2D24E5EE6F006AFA4D /* HeatMapInterpolation.h */,
 			);
 			name = Heatmap;
 			path = src/Heatmap;
@@ -1090,7 +1082,6 @@
 				TargetAttributes = {
 					0242D1CB1C7C1C1F00557130 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 1160;
 					};
 					0242D1FD1C7D3AC300557130 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1243,11 +1234,9 @@
 				AAE6B9E82458C92B0051CD31 /* KMLViewController.m in Sources */,
 				AAE6B9E32458C92B0051CD31 /* Samples.m in Sources */,
 				AAE6B9E92458C92B0051CD31 /* CustomMarkerViewController.m in Sources */,
-				3A4F1C2F24E5EE6F006AFA4D /* HeatMapInterpolationPoints.swift in Sources */,
 				AAE6B9F42458C92B0051CD31 /* HeatmapViewController.m in Sources */,
 				AAE6B9E62458C92B0051CD31 /* AppDelegate.m in Sources */,
 				AAE6B9E42458C92B0051CD31 /* BasicViewController.m in Sources */,
-				3A4F1C3124E5EED9006AFA4D /* HeatMapInterpolationTests.swift in Sources */,
 				AAE6B9E22458C92B0051CD31 /* MasterViewController.m in Sources */,
 				AAE6B9E12458C92B0051CD31 /* main.m in Sources */,
 			);
@@ -1460,7 +1449,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1478,9 +1466,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Heatmap/DevApp-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1489,7 +1474,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1540,8 +1524,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Heatmap/DevApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1550,7 +1532,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D1871C7C18CA00557130 /* GMU-UnitTest.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
@@ -1582,7 +1563,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
