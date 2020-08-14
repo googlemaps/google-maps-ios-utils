@@ -19,3 +19,4 @@ DerivedData
 Pods/
 Podfile.lock
 Carthage/
+GoogleMapsUtils.framework/
