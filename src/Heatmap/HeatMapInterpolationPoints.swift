@@ -31,6 +31,15 @@ class HeatMapInterpolationPoints {
     /// The list of interpolated heat map points with weight
     private var heatMapPoints = [GMUWeightedLatLng]()
 
+    /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
+    /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
+    /// good idea since one point will span the entire globe) then this value can be set to 1 and if you want distances to be highly
+    /// influential, set this value to something like 4 or 5. This is because the average of given intensities is normalized by a given point's
+    /// distance to the interpolated point, raised to this power. When you have a large HeatmapInterpolationInfluence value, each
+    /// each increase in distance has a much bigger impact (e.g. 3^2 = 9 and 4^2 = 16, but 3^10 = 59,049 and 4^10 = 1,048,576). In
+    /// the articles I researched, the optimal range is between 2 and 2.5, so this value must always be between 2 and 2.5.
+    typealias HeatmapInterpolationInfluence = Double
+
     /// Indicates the number of times k-means clustering should execute; will be set in the constructor to 25 by default
     private var clusterIterations: Int!
 
@@ -40,6 +49,12 @@ class HeatMapInterpolationPoints {
     /// GQTPoint value (which was all from -1.0 to 1.0) to the latitude and longitude input (as CLLocationCoordinate2D).
     private let normalLat = 175.9783070993
     private let normalLong = 180.0
+
+    /// Firm bounds on all search queries, as latitude ranges from -90 to 90 and longitude ranges from -180 to 180
+    private let minLat = -90
+    private let maxLat = 90
+    private let minLong = -180
+    private let maxLong = 180
 
     /// The constructor to this class
     ///
@@ -67,6 +82,11 @@ class HeatMapInterpolationPoints {
     /// Removes all previously supplied GMUWeightedLatLng objects
     public func removeAllData() {
         data.removeAll()
+    }
+
+    /// Throw this error when the given influence value is out of range (i.e. not between 2 and 2.5)
+    enum IncorrectInfluence: Error {
+        case outOfRange(String)
     }
 
     // MARK: Functions that directly contribute to the creation of interpolated points
@@ -240,7 +260,11 @@ class HeatMapInterpolationPoints {
     ///   - long: The longitude value of the point.
     ///   - n: The n-value, determining the range of influence the intensities found in the given data set has.
     /// - Returns: A list containing just the numerator and denominator
-    private func findIntensity(lat: Double, long: Double, n: Double) -> [Double] {
+    private func findIntensity(
+        lat: Double,
+        long: Double,
+        influence: HeatmapInterpolationInfluence
+    ) -> [Double] {
         var numerator: Double = 0
         var denominator: Double = 0
         for point in self.data {
@@ -250,7 +274,7 @@ class HeatMapInterpolationPoints {
                 lat2: point.point().y * normalLat,
                 long2: point.point().x * normalLong
             )
-            let distanceWeight = pow(dist, Double(n))
+            let distanceWeight = pow(dist, influence)
             if distanceWeight == 0 {
                 continue
             }
@@ -266,17 +290,22 @@ class HeatMapInterpolationPoints {
     /// - Parameters:
     ///     - input: A list of points that are in a cluster.
     ///     - n: The power value that determines the dropoff rate of intensities with respect to the distance from given points
+    ///     - granularity: The granularity of the search, influencing many points between 1 degree we should visit.
     /// - Returns: A list of four integers representing the minimum and maximum longitude and latitude values
-    private func findBounds(input: [CLLocationCoordinate2D], n: Double) -> [Int] {
+    private func findBounds(
+        input: [CLLocationCoordinate2D],
+        n: HeatmapInterpolationInfluence,
+        granularity: Double
+    ) -> [Int] {
 
         // Initialize the boundary values to something that must be updated immediately
         // 0: min lat, 1: min long, 2: max lat, 3: max long
         var ans = [0x7fffffff, 0x7fffffff, -0x7fffffff, -0x7fffffff]
         for coord in input {
-            ans[0] = min(ans[0], Int(coord.latitude * 10))
-            ans[1] = min(ans[1], Int(coord.longitude * 10))
-            ans[2] = max(ans[2], Int(coord.latitude * 10))
-            ans[3] = max(ans[3], Int(coord.longitude * 10))
+            ans[0] = min(ans[0], Int(coord.latitude * (1 / granularity)))
+            ans[1] = min(ans[1], Int(coord.longitude * (1 / granularity)))
+            ans[2] = max(ans[2], Int(coord.latitude * (1 / granularity)))
+            ans[3] = max(ans[3], Int(coord.longitude * (1 / granularity)))
         }
         return ans
     }
@@ -284,25 +313,34 @@ class HeatMapInterpolationPoints {
     /// Generates several heat maps based on the clusters with points not found in the data set interpolated by the inverse distance
     /// means interpolation algorithm and displays the heat maps on the given map; for more details, please visit
     /// https://en.wikipedia.org/wiki/Inverse_distance_weighting. I used the basic form.
+    /// For this feature, It doesn't make too much sense to do interpolation on an n-value of less than 2 or greater than 2.5; when n is
+    /// higher, the denominator increases quicker, meaning the overall value falls quicker as the distances increase, implying that a low
+    /// n value will query far too many points.
     ///
     /// - Parameters:
-    ///   - mapView: The map that we want to display the heat maps on.
-    ///   - n: The n-value, determining the range of influence the intensities found in the given data set has.
-    public func generateHeatMaps(n: Double) -> [GMUWeightedLatLng] {
+    ///   - n: The n-value, determining the range of influence the intensities found in the given data set has (see
+    ///   HeatmapInterpolationInfluence comment for more details).
+    ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
+    ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
+    ///   value of 0.1 is a good sweet spot.
+    public func generateHeatMaps(
+        influence: HeatmapInterpolationInfluence,
+        granularity: Double = 0.1
+    ) throws -> [GMUWeightedLatLng] {
 
-        // It doesn't make too much sense to do interpolation on an n-value of less than 2 or
-        // greater than 2.5; when n is higher, the denominator increases quicker, meaning the
-        // overall value falls quicker as the distances increase, implying that a low n value will
-        // query far too many points
-        if n < 2 || n > 2.5 {
-            return []
+        // As documented above, we will throw an exception here if the n value is not in the
+        // appropriate range
+        if influence < 2.0 || influence > 2.5 {
+            throw IncorrectInfluence.outOfRange("Your influence value is not between 2 and 2.5")
         }
         heatMapPoints.removeAll()
 
         // Clusters is the list of clusters that we intend to return
         let clusters = kcluster()
+
         for cluster in clusters {
-            let bounds = findBounds(input: cluster, n: n)
+            let bounds = findBounds(input: cluster, n: influence, granularity: granularity)
+
             // A small n-value implies a large range of points that could be potentially be
             // affected, so it makes sense to increase the stride to improve runtime and the range
             // to improve the quality of the heat map
@@ -311,8 +349,8 @@ class HeatMapInterpolationPoints {
             // These two values bound the search range of the heat map; any larger range provides
             // marginal improvements, if any, in the resulting heat map, as found via trial and
             // error and testing with various data sets
-            let latRange = 150
-            let longRange = 200
+            let latRange = Int(15 / granularity)
+            let longRange = Int(20 / granularity)
 
             // Search all the points between the bounds of the cluster; the offset indicates how
             // far beyond the bounds we want to query
@@ -320,22 +358,25 @@ class HeatMapInterpolationPoints {
 
                 // Since latitude ranges from -90 to 90 and the granularity is 0.1, we can move from
                 // -900 to 900
-                if i > 900 || i < -900 {
+                if Double(i) * granularity > Double(maxLat)
+                    || Double(i) * granularity < Double(minLat) {
                     break
                 }
+
                 for j in stride(from: bounds[1] - longRange, to: bounds[3] + longRange, by: step) {
 
                     // Since longitude ranges from -180 to 180 and the granularity is 0.1, we can
                     // move from -1800 to 1800
-                    if j > 1800 || j < -1800 {
+                    if Double(j) * granularity > Double(maxLong)
+                        || Double(j) * granularity < Double(minLong) {
                         break
                     }
 
                     // The variable, intensity, contains the numerator and denominator
                     let intensity = findIntensity(
-                        lat: Double(i) / 10,
-                        long: Double(j) / 10,
-                        n: n
+                        lat: Double(i) * granularity,
+                        long: Double(j) * granularity,
+                        influence: influence
                     )
 
                     // If the numerator value is too small, that point is worthless as it is too
@@ -343,9 +384,13 @@ class HeatMapInterpolationPoints {
                     if intensity[1] == 0 || intensity[0] < 3 {
                         continue
                     }
+
                     // Set the intensity based on IDW
                     let coords = GMUWeightedLatLng(
-                        coordinate: CLLocationCoordinate2DMake(Double(i) / 10, Double(j) / 10),
+                        coordinate: CLLocationCoordinate2DMake(
+                            Double(i) * granularity,
+                            Double(j) * granularity
+                        ),
                         intensity: Float(intensity[0] / intensity[1])
                     )
                     heatMapPoints.append(coords)

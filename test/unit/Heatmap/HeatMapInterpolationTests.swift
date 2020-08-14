@@ -61,14 +61,30 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(n: 1)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 0.5)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 1.5)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 1.99)
-        XCTAssertEqual(0, data.count)
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 1)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 0.5)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 1.9999999)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 1.5)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
     }
 
     func testWithTooLargeN() {
@@ -87,14 +103,24 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(n: 3)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 4)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 100)
-        XCTAssertEqual(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 2.50000001)
-        XCTAssertEqual(0, data.count)
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 2.500001)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 3)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
+        do {
+            _ = try interpolationController.generateHeatMaps(influence: 100000)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(true)
+        }
     }
 
     func testWithAcceptableN() {
@@ -113,17 +139,30 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(n: 2)
-        XCTAssertLessThan(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 2.4)
-        XCTAssertLessThan(0, data.count)
-        data = interpolationController.generateHeatMaps(n: 2.3)
-        XCTAssertLessThan(0, data.count)
+        do {
+            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            XCTAssertLessThan(0, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
+        do {
+            let data = try interpolationController.generateHeatMaps(influence: 2.3)
+            XCTAssertLessThan(0, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
     }
 
     func testNoDataset() {
-        let data = interpolationController.generateHeatMaps(n: 2)
-        XCTAssertEqual(0, data.count)
+        do {
+            let data = try interpolationController.generateHeatMaps(influence: 2)
+            XCTAssertEqual(0, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
     }
 
     func testMultipleCalls() {
@@ -142,10 +181,15 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU)
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
-        var data = interpolationController.generateHeatMaps(n: 2)
-        let first = data.count
-        data = interpolationController.generateHeatMaps(n: 2)
-        XCTAssertEqual(first, data.count)
+        do {
+            var data = try interpolationController.generateHeatMaps(influence: 2)
+            let first = data.count
+            data = try interpolationController.generateHeatMaps(influence: 2)
+            XCTAssertEqual(first, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
     }
 
     func testListOfPoints() {
@@ -163,8 +207,13 @@ class HeatMapInterpolationTests: XCTestCase {
         )
         let points = [newGMU, newGMU2, newGMU3]
         interpolationController.addWeightedLatLngs(latlngs: points)
-        let data = interpolationController.generateHeatMaps(n: 2)
-        XCTAssertLessThan(0, data.count)
+        do {
+            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            XCTAssertLessThan(0, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
     }
 
     func testDuplicatePoint() {
@@ -174,7 +223,12 @@ class HeatMapInterpolationTests: XCTestCase {
         )
         let points = [newGMU, newGMU, newGMU]
         interpolationController.addWeightedLatLngs(latlngs: points)
-        let data = interpolationController.generateHeatMaps(n: 2)
-        XCTAssertLessThan(0, data.count)
+        do {
+            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            XCTAssertLessThan(0, data.count)
+        } catch {
+            print("\(error)")
+            XCTAssertTrue(false)
+        }
     }
 }
