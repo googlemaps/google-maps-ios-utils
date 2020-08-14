@@ -1,0 +1,11 @@
+framework module GoogleMapsUtils {
+  umbrella header "GoogleMapsUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module GoogleMapsUtils.Swift {
+    header "GoogleMapsUtils-Swift.h"
+    requires objc
+}

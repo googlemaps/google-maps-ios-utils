@@ -13,8 +13,6 @@
 * limitations under the License.
 */
 
-import GoogleMapsUtils
-
 /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
 struct Fraction {
     public let numerator: Double
@@ -55,13 +53,6 @@ class HeatMapInterpolationPoints {
     
     /// Indicates the number of times k-means clustering should execute; will be set in the constructor to 25 by default
     private var clusterIterations: Int!
-    
-    /// Normalizing factors to convert from 2D to longitude and latitude; these values were needed since each GMUWeightedLatLng
-    /// point contains a .point() field, which is a GQTPoint. The point value for the GQTPoint should be equivalent to a GMSMapPoint,
-    /// with range [-1.0, 1.0]. I found that multiplying the latitude and longitude by the following numbers correctly converts the
-    /// GQTPoint value (which was all from -1.0 to 1.0) to the latitude and longitude input (as CLLocationCoordinate2D).
-    private let normalLat = 175.9783070993
-    private let normalLong = 180.0
     
     /// Firm bounds on all search queries, as latitude ranges from -90 to 90 and longitude ranges from -180 to 180
     private let minLat = -90
@@ -153,7 +144,6 @@ class HeatMapInterpolationPoints {
     ///
     /// - Returns: A list of clusters, each of which is a list of CLLocationCoordinate2D objects.
     private func kcluster() -> [[CLLocationCoordinate2D]] {
-        let converter = GMSMapView().projection
         
         // Centers contain double values representing the center of their respective clusters found
         // in the clusters list
@@ -171,11 +161,10 @@ class HeatMapInterpolationPoints {
                 
                 // Set the first numClusters values in data set to be the initial cluster centers
                 for i in 0...numClusters - 1 {
-                    
-                    centers.append(CLLocationCoordinate2D(
-                        latitude: data[i].point().y * normalLat,
-                        longitude: data[i].point().x * normalLong)
+                    let normalizedPoint = GMSUnproject(
+                        GMSMapPoint(x: data[i].point().x, y: data[i].point().y)
                     )
+                    centers.append(normalizedPoint)
                     let tempArray = [CLLocationCoordinate2D]()
                     clusters.append(tempArray)
                 }
@@ -184,7 +173,7 @@ class HeatMapInterpolationPoints {
                 // should be adequate, as k-means clustering has diminishing returns as the number
                 // of iterations increases
                 for _ in 0...clusterIterations {
-                    
+
                     // Reset the clusters so that it can be updated
                     for i in 0...numClusters - 1 {
                         clusters[i].removeAll()
@@ -192,28 +181,30 @@ class HeatMapInterpolationPoints {
                     
                     // Finds the appropriate cluster for each data point
                     for point in data {
-                        let start = CLLocationCoordinate2D(
-                            latitude: point.point().y * normalLat,
-                            longitude: point.point().x * normalLong
+                        let normalizedPoint = GMSUnproject(
+                            GMSMapPoint(x: point.point().x, y: point.point().y)
                         )
                         var end = CLLocationCoordinate2D(
                             latitude: centers[0].latitude,
                             longitude: centers[0].longitude
                         )
-                        var minDistance: Double = distance(point1: start, point2: end)
+                        var minDistance: Double = distance(point1: normalizedPoint, point2: end)
                         var index = 0
                         for i in 0...centers.count - 1 {
                             end = CLLocationCoordinate2D(
                                 latitude: centers[i].latitude,
                                 longitude: centers[i].longitude
                             )
-                            let tempDistance: Double = distance(point1: start, point2: end)
+                            let tempDistance: Double = distance(
+                                point1: normalizedPoint,
+                                point2: end
+                            )
                             if minDistance >= tempDistance {
                                 minDistance = tempDistance
                                 index = i
                             }
                         }
-                        clusters[index].append(start)
+                        clusters[index].append(normalizedPoint)
                     }
                     
                     // Update the center values to reflect new cluster points
@@ -280,11 +271,8 @@ class HeatMapInterpolationPoints {
         var denominator: Double = 0
         for point in data {
             let start = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let end = CLLocationCoordinate2D(
-                latitude: point.point().y * normalLat,
-                longitude: point.point().x * normalLong
-            )
-            let dist = distance(point1: start, point2: end)
+            let normalizedPoint = GMSUnproject(GMSMapPoint(x: point.point().x, y: point.point().y))
+            let dist = distance(point1: start, point2: normalizedPoint)
             let distanceWeight = pow(dist, influence)
             
             if distanceWeight == 0 {
