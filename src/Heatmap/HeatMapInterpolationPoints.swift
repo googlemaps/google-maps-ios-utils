@@ -316,7 +316,7 @@ class HeatMapInterpolationPoints {
     /// n value will query far too many points.
     ///
     /// - Parameters:
-    ///   - n: The n-value, determining the range of influence the intensities found in the given data set has (see
+    ///   - influence: The n-value, determining the range of influence the intensities found in the given data set has (see
     ///   HeatmapInterpolationInfluence comment for more details).
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
