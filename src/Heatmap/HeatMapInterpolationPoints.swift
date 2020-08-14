@@ -258,7 +258,7 @@ class HeatMapInterpolationPoints {
     /// - Parameters:
     ///   - lat: The latitude value of the point.
     ///   - long: The longitude value of the point.
-    ///   - n: The n-value, determining the range of influence the intensities found in the given data set has.
+    ///   - influence: The n-value, determining the range of influence the intensities found in the given data set has.
     /// - Returns: A list containing just the numerator and denominator
     private func findIntensity(
         lat: Double,
@@ -289,12 +289,10 @@ class HeatMapInterpolationPoints {
     ///
     /// - Parameters:
     ///     - input: A list of points that are in a cluster.
-    ///     - n: The power value that determines the dropoff rate of intensities with respect to the distance from given points
     ///     - granularity: The granularity of the search, influencing many points between 1 degree we should visit.
     /// - Returns: A list of four integers representing the minimum and maximum longitude and latitude values
     private func findBounds(
         input: [CLLocationCoordinate2D],
-        n: HeatmapInterpolationInfluence,
         granularity: Double
     ) -> [Int] {
 
@@ -339,7 +337,7 @@ class HeatMapInterpolationPoints {
         let clusters = kcluster()
 
         for cluster in clusters {
-            let bounds = findBounds(input: cluster, n: influence, granularity: granularity)
+            let bounds = findBounds(input: cluster, granularity: granularity)
 
             // A small n-value implies a large range of points that could be potentially be
             // affected, so it makes sense to increase the stride to improve runtime and the range
