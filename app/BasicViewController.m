@@ -22,6 +22,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <GoogleMapsUtils/GoogleMapsUtils.h>
 #import "POIItem.h"
+#import "GoogleMapsUtils-Swift.h"
 
 
 static const NSUInteger kClusterItemCount = 10000;
