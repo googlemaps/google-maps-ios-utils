@@ -171,7 +171,7 @@ class HeatMapInterpolationPoints {
                 }
 
                 // 25 iterations of updating the center and recalculating the points in that cluster
-                // should be adequet, as k-means clustering has diminishing returns as the number of
+                // should be adequate, as k-means clustering has diminishing returns as the number of
                 // iterations increases
                 for _ in 0...clusterIterations {
 
