@@ -13,28 +13,28 @@
 * limitations under the License.
 */
 
-/// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
-struct Fraction {
-    public let numerator: Double
-    public let denominator: Double
-    
-    /// Constructor to set the values of the numerator and denominator
-    ///
-    /// - Parameters:
-    ///   - num: The numerator.
-    ///   - denom: The denominator.
-    init(num: Double, denom: Double) {
-        numerator = num
-        denominator = denom
-    }
-}
-
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
 @objcMembers public class HeatMapInterpolationPoints: NSObject {
+    
+    /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
+    struct Fraction {
+        public let numerator: Double
+        public let denominator: Double
+        
+        /// Constructor to set the values of the numerator and denominator
+        ///
+        /// - Parameters:
+        ///   - num: The numerator.
+        ///   - denom: The denominator.
+        init(num: Double, denom: Double) {
+            numerator = num
+            denominator = denom
+        }
+    }
     
     /// The input data set
     private var data = [GMUWeightedLatLng]()
@@ -63,7 +63,7 @@ struct Fraction {
     /// The constructor to this class
     ///
     /// - Parameter givenClusterIterations: The number of iterations k-means clustering should go to.
-    init(givenClusterIterations: Int = 25) {
+    public init(givenClusterIterations: Int = 25) {
         clusterIterations = givenClusterIterations
     }
     
