@@ -34,7 +34,7 @@ struct Fraction {
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-class HeatMapInterpolationPoints {
+public class HeatMapInterpolationPoints {
     
     /// The input data set
     private var data = [GMUWeightedLatLng]()
@@ -43,13 +43,13 @@ class HeatMapInterpolationPoints {
     private var heatMapPoints = [GMUWeightedLatLng]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
-    /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
+    /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values (which is not a
     /// good idea since one point will span the entire globe) then this value can be set to 1 and if you want distances to be highly
     /// influential, set this value to something like 4 or 5. This is because the average of given intensities is normalized by a given point's
     /// distance to the interpolated point, raised to this power. When you have a large HeatmapInterpolationInfluence value, each
     /// each increase in distance has a much bigger impact (e.g. 3^2 = 9 and 4^2 = 16, but 3^10 = 59,049 and 4^10 = 1,048,576). In
     /// the articles I researched, the optimal range is between 2 and 2.5, so this value must always be between 2 and 2.5.
-    typealias HeatmapInterpolationInfluence = Double
+    public typealias HeatmapInterpolationInfluence = Double
     
     /// Indicates the number of times k-means clustering should execute; will be set in the constructor to 25 by default
     private var clusterIterations: Int!
