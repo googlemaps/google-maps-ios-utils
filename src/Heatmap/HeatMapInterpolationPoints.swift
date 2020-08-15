@@ -34,7 +34,7 @@ struct Fraction {
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-@objc public class HeatMapInterpolationPoints: NSObject {
+@objcMembers public class HeatMapInterpolationPoints: NSObject {
     
     /// The input data set
     private var data = [GMUWeightedLatLng]()
