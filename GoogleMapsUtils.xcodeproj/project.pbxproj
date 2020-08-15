@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A421BD324E748A200CAD70F /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */; };
+		3ACF7F4C24E8350E00585F21 /* HeatMapInterpolationPoints.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACF7F4B24E834BB00585F21 /* HeatMapInterpolationPoints.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE91CDD24E7429100A3B9FA /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
@@ -236,6 +237,7 @@
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
 		3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
+		3ACF7F4B24E834BB00585F21 /* HeatMapInterpolationPoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatMapInterpolationPoints.h; sourceTree = "<group>"; };
 		3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
 		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				AABFFECD24578CAC0015D8C6 /* GMUGradient.m */,
 				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				3EE0C60524C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h */,
+				3ACF7F4B24E834BB00585F21 /* HeatMapInterpolationPoints.h */,
 				3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */,
 			);
 			name = Heatmap;
@@ -982,6 +985,7 @@
 				AAA1DE4A245790C0001CB03C /* GMUGradient.h in Headers */,
 				AAA1DE1624579019001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */,
 				AAA1DE4C245790C0001CB03C /* GMUWeightedLatLng.h in Headers */,
+				3ACF7F4C24E8350E00585F21 /* HeatMapInterpolationPoints.h in Headers */,
 				AAA1DE1C24579037001CB03C /* GMUWrappingDictionaryKey.h in Headers */,
 				F849455F209C15CE00C60C05 /* GoogleMapsUtils.h in Headers */,
 				AAA1DE2D2457908C001CB03C /* GMUGeoJSONParser.h in Headers */,
