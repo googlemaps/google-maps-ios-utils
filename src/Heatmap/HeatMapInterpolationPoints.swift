@@ -34,7 +34,7 @@ struct Fraction {
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-public class HeatMapInterpolationPoints {
+@objc public class HeatMapInterpolationPoints: NSObject {
     
     /// The input data set
     private var data = [GMUWeightedLatLng]()
@@ -72,19 +72,19 @@ public class HeatMapInterpolationPoints {
     /// Adds a list of GMUWeightedLatLng objects to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
+    @objc public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
         data.append(contentsOf: latlngs)
     }
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
+    @objc public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
         data.append(latlng)
     }
     
     /// Removes all previously supplied GMUWeightedLatLng objects
-    public func removeAllData() {
+    @objc public func removeAllData() {
         data.removeAll()
     }
     
@@ -321,7 +321,7 @@ public class HeatMapInterpolationPoints {
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    public func generateHeatMaps(
+    @objc public func generateHeatMaps(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
     ) throws -> [GMUWeightedLatLng] {
