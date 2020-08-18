@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-
+import GoogleMaps
 
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
@@ -323,7 +323,7 @@
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    @objc public func generateHeatMaps(
+    @objc public func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
     ) throws -> [GMUWeightedLatLng] {
