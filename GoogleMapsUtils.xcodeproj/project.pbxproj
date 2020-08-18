@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A2903BF24EB5FD8002EB180 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		3A29044F24EC8C79002EB180 /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */; };
 		3A29045124EC8C9E002EB180 /* Interpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A29045024EC8C9E002EB180 /* Interpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A421BD324E748A200CAD70F /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */; };
@@ -478,7 +477,6 @@
 				AABFFEA1245787950015D8C6 /* QuartzCore.framework in Frameworks */,
 				AABFFE9F245787900015D8C6 /* OpenGLES.framework in Frameworks */,
 				AABFFE9E2457878A0015D8C6 /* libz.tbd in Frameworks */,
-				3A2903BF24EB5FD8002EB180 /* GoogleMapsUtils.framework in Frameworks */,
 				AABFFE9C245787840015D8C6 /* libc++.tbd in Frameworks */,
 				AABFFE9A2457877C0015D8C6 /* ImageIO.framework in Frameworks */,
 				AABFFE98245787760015D8C6 /* GLKit.framework in Frameworks */,

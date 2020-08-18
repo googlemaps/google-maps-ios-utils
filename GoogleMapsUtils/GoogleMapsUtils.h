@@ -26,7 +26,7 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 // Heatmap
 #import <GoogleMapsUtils/GMUGradient.h>
 #import <GoogleMapsUtils/GMUHeatmapTileLayer.h>
-#import <GoogleMapsUtils/Interpolation.h>
+#import <GoogleMapsUtils/GMUWeightedLatLng.h>
 
 // Clustering
 #import <GoogleMapsUtils/GMUClusterAlgorithm.h>
