@@ -13,12 +13,14 @@
 * limitations under the License.
 */
 
+
+
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-@objcMembers public class HeatMapInterpolationPoints: NSObject {
+@objc public class HeatMapInterpolationPoints: NSObject {
     
     /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
     struct Fraction {
@@ -37,10 +39,10 @@
     }
     
     /// The input data set
-    private var data = [GMUWeightedLatLng]()
+    @objc private var data = [GMUWeightedLatLng]()
     
     /// The list of interpolated heat map points with weight
-    private var heatMapPoints = [GMUWeightedLatLng]()
+    @objc private var heatMapPoints = [GMUWeightedLatLng]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
     /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values (which is not a

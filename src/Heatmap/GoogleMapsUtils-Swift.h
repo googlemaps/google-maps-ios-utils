@@ -28,8 +28,7 @@
 #if !defined(SWIFT_TYPEDEFS)
 # define SWIFT_TYPEDEFS 1
 # if __has_include(<uchar.h>)
-#  include <uchar.h>
-# elif !defined(__cplusplus)
+#  HeatMapInterpolationPointsined(__cplusplus)
 typedef uint_least16_t char16_t;
 typedef uint_least32_t char32_t;
 # endif
