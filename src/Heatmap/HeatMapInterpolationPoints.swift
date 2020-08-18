@@ -323,7 +323,7 @@ public class HeatMapInterpolationPoints: NSObject {
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    public func generateHeatMaps(
+    public func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
     ) throws -> [GMUWeightedLatLng] {
