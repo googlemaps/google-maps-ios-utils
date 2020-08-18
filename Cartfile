@@ -1,3 +1,2 @@
 binary "https://dl.google.com/geosdk/GoogleMaps.json"
 github "erikdoe/ocmock"
-github "googlemaps/google-maps-ios-utils" ~> 3.2.1

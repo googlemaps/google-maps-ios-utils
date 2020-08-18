@@ -27,7 +27,6 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 #import <GoogleMapsUtils/GMUGradient.h>
 #import <GoogleMapsUtils/GMUHeatmapTileLayer.h>
 #import <GoogleMapsUtils/GMUWeightedLatLng.h>
-#import <GoogleMapsUtils/GoogleMapsUtils-Swift.h>
 
 // Clustering
 #import <GoogleMapsUtils/GMUClusterAlgorithm.h>
