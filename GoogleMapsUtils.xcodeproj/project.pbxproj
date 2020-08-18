@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2903BF24EB5FD8002EB180 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		3A421BD324E748A200CAD70F /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */; };
 		3AE91CDD24E7429100A3B9FA /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
@@ -21,7 +22,6 @@
 		543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
-		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
 		AA8DE324245793AB003DBA7B /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE321245793AB003DBA7B /* GoogleMaps.framework */; };
@@ -460,7 +460,6 @@
 				AAE6BA672458CCDA0051CD31 /* GoogleMaps.framework in Frameworks */,
 				AAE6BA682458CCDA0051CD31 /* GoogleMapsBase.framework in Frameworks */,
 				AAE6BA692458CCDA0051CD31 /* GoogleMapsCore.framework in Frameworks */,
-				AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */,
 				AAB7CC9B24592D3400127E16 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +476,7 @@
 				AABFFEA1245787950015D8C6 /* QuartzCore.framework in Frameworks */,
 				AABFFE9F245787900015D8C6 /* OpenGLES.framework in Frameworks */,
 				AABFFE9E2457878A0015D8C6 /* libz.tbd in Frameworks */,
+				3A2903BF24EB5FD8002EB180 /* GoogleMapsUtils.framework in Frameworks */,
 				AABFFE9C245787840015D8C6 /* libc++.tbd in Frameworks */,
 				AABFFE9A2457877C0015D8C6 /* ImageIO.framework in Frameworks */,
 				AABFFE98245787760015D8C6 /* GLKit.framework in Frameworks */,
