@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A2903BF24EB5FD8002EB180 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
+		3A29044124EC6FC2002EB180 /* DevApp.app in Resources */ = {isa = PBXBuildFile; fileRef = 0242D1CC1C7C1C1F00557130 /* DevApp.app */; };
+		3A29044224EC6FC3002EB180 /* UnitTest.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 0242D1FE1C7D3AC300557130 /* UnitTest.xctest */; };
 		3A421BD324E748A200CAD70F /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */; };
 		3AE91CDD24E7429100A3B9FA /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
@@ -1151,6 +1153,7 @@
 				AAE6BA342458C9EB0051CD31 /* KML_MultiGeometry_Test.kml in Resources */,
 				AAE6BA2B2458C9EB0051CD31 /* GeoJSON_FeatureCollection_Test.geojson in Resources */,
 				AAE6B9F02458C92B0051CD31 /* m4.png in Resources */,
+				3A29044124EC6FC2002EB180 /* DevApp.app in Resources */,
 				AAE6BA2A2458C9EB0051CD31 /* GeoJSON_Point_Test.geojson in Resources */,
 				AAE6B9F62458C98B0051CD31 /* GoogleMaps.bundle in Resources */,
 			);
@@ -1169,6 +1172,7 @@
 				AAB7CC9F24592E8A00127E16 /* GeoJSON_MultiPolygon_Test.geojson in Resources */,
 				AAB7CCAC24592F0000127E16 /* KML_StyleMap_Test.kml in Resources */,
 				AAB7CCAD24592F0000127E16 /* KML_Style_Test.kml in Resources */,
+				3A29044224EC6FC3002EB180 /* UnitTest.xctest in Resources */,
 				AAB7CCA924592F0000127E16 /* KML_Point_Test.kml in Resources */,
 				AAB7CCA424592E8A00127E16 /* GeoJSON_LineString_Test.geojson in Resources */,
 				AAB7CCA824592F0000127E16 /* KML_GroundOverlay_Test.kml in Resources */,
