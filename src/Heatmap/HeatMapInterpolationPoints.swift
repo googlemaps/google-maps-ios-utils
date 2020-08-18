@@ -15,37 +15,37 @@
 
 import GoogleMaps
 
+/// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
+struct Fraction {
+    public let numerator: Double
+    public let denominator: Double
+    
+    /// Constructor to set the values of the numerator and denominator
+    ///
+    /// - Parameters:
+    ///   - num: The numerator.
+    ///   - denom: The denominator.
+    init(num: Double, denom: Double) {
+        numerator = num
+        denominator = denom
+    }
+}
+
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-@objc public class HeatMapInterpolationPoints: NSObject {
-    
-    /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
-    struct Fraction {
-        public let numerator: Double
-        public let denominator: Double
-        
-        /// Constructor to set the values of the numerator and denominator
-        ///
-        /// - Parameters:
-        ///   - num: The numerator.
-        ///   - denom: The denominator.
-        init(num: Double, denom: Double) {
-            numerator = num
-            denominator = denom
-        }
-    }
+@objcMembers public class HeatMapInterpolationPoints: NSObject {
     
     /// The input data set
-    @objc private var data = [GMUWeightedLatLng]()
+    private var data = [GMUWeightedLatLng]()
     
     /// The list of interpolated heat map points with weight
-    @objc private var heatMapPoints = [GMUWeightedLatLng]()
+    private var heatMapPoints = [GMUWeightedLatLng]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
-    /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values (which is not a
+    /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
     /// good idea since one point will span the entire globe) then this value can be set to 1 and if you want distances to be highly
     /// influential, set this value to something like 4 or 5. This is because the average of given intensities is normalized by a given point's
     /// distance to the interpolated point, raised to this power. When you have a large HeatmapInterpolationInfluence value, each
@@ -74,19 +74,19 @@ import GoogleMaps
     /// Adds a list of GMUWeightedLatLng objects to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    @objc public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
+    public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
         data.append(contentsOf: latlngs)
     }
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    @objc public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
+    public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
         data.append(latlng)
     }
     
     /// Removes all previously supplied GMUWeightedLatLng objects
-    @objc public func removeAllData() {
+    public func removeAllData() {
         data.removeAll()
     }
     
@@ -323,7 +323,7 @@ import GoogleMaps
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    @objc public func generateHeatMaps(
+    public func generateHeatMaps(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
     ) throws -> [GMUWeightedLatLng] {
