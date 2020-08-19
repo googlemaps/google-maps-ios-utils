@@ -19,7 +19,6 @@
 
 #import "GMUWeightedLatLng.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import <GoogleMapsUtils/GoogleMapsUtils-Swift.h>
 
 @implementation GMUWeightedLatLng {
   GQTPoint _point;
