@@ -1542,7 +1542,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Heatmap/DevApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./App/DevApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
