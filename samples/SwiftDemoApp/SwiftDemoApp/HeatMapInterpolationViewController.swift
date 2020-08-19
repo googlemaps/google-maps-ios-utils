@@ -110,7 +110,7 @@ class HeatMapInterpolationViewController: UIViewController {
 
         // The variable generatedPoints contains the list of interpolated points
         do {
-            let generatedPoints = try interpolationController.generateHeatMaps(influence: nVal)
+            let generatedPoints = try interpolationController.generatePoints(influence: nVal)
             // If you wish, uncomment the line below to see generated points from the interpolation
             // print(generatedPoints)
 
