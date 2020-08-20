@@ -27,15 +27,13 @@ to reflect your contribtion.
 Once we receive your CLA, we'll be able to review and accept your pull requests.
 
 ### Setup
-- git clone the repository
-- cd to the 'workspace' folder
-- run 'pod install'
-- open GoogleMapsUtils.xcworkspace
-- there should be 2 schemes: GoogleMapsUtils and DevApp
-
-The *GoogleMapsUtils* scheme builds the main source code (currently Marker
-Clustering and QuadTree) and has an associated Test action (Project->Test)
-which runs the unit tests in the UnitTest target.
-
-The *DevApp* scheme is the test app which builds against the GoogleMapsUtils
-target to show the changes in a nice UI app.
+1. git clone the repository
+2. Install Carthage if you don't have it installed already
+    ```
+    brew install carthage
+    ```
+3. Run `carthage update --platform ios`
+4. There should be 3 schemes: *GoogleMapsUtils*, *DevApp*, and *UnitTest*
+    * The *GoogleMapsUtils* scheme builds `GoogleMapsUtils.framework`
+    * The *DevApp* scheme is the test app which uses some features of *GoogleMapsUtils*
+    * The *UnitTest* scheme runs unit tests
