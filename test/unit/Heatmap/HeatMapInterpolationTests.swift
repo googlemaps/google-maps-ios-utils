@@ -61,25 +61,25 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 1)
+            _ = try interpolationController.generatePoints(influence: 1)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
         }
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 0.5)
+            _ = try interpolationController.generatePoints(influence: 0.5)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
         }
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 1.9999999)
+            _ = try interpolationController.generatePoints(influence: 1.9999999)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
         }
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 1.5)
+            _ = try interpolationController.generatePoints(influence: 1.5)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
@@ -103,19 +103,19 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 2.500001)
+            _ = try interpolationController.generatePoints(influence: 2.500001)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
         }
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 3)
+            _ = try interpolationController.generatePoints(influence: 3)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
         }
         do {
-            _ = try interpolationController.generateHeatMaps(influence: 100000)
+            _ = try interpolationController.generatePoints(influence: 100000)
         } catch {
             print("\(error)")
             XCTAssertTrue(true)
@@ -139,14 +139,14 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            let data = try interpolationController.generatePoints(influence: 2.4)
             XCTAssertLessThan(0, data.count)
         } catch {
             print("\(error)")
             XCTAssertTrue(false)
         }
         do {
-            let data = try interpolationController.generateHeatMaps(influence: 2.3)
+            let data = try interpolationController.generatePoints(influence: 2.3)
             XCTAssertLessThan(0, data.count)
         } catch {
             print("\(error)")
@@ -156,7 +156,7 @@ class HeatMapInterpolationTests: XCTestCase {
     
     func testNoDataset() {
         do {
-            let data = try interpolationController.generateHeatMaps(influence: 2)
+            let data = try interpolationController.generatePoints(influence: 2)
             XCTAssertEqual(0, data.count)
         } catch {
             print("\(error)")
@@ -181,9 +181,9 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            var data = try interpolationController.generateHeatMaps(influence: 2)
+            var data = try interpolationController.generatePoints(influence: 2)
             let first = data.count
-            data = try interpolationController.generateHeatMaps(influence: 2)
+            data = try interpolationController.generatePoints(influence: 2)
             XCTAssertEqual(first, data.count)
         } catch {
             print("\(error)")
@@ -207,7 +207,7 @@ class HeatMapInterpolationTests: XCTestCase {
         let points = [newGMU, newGMU2, newGMU3]
         interpolationController.addWeightedLatLngs(latlngs: points)
         do {
-            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            let data = try interpolationController.generatePoints(influence: 2.4)
             XCTAssertLessThan(0, data.count)
         } catch {
             print("\(error)")
@@ -223,7 +223,7 @@ class HeatMapInterpolationTests: XCTestCase {
         let points = [newGMU, newGMU, newGMU]
         interpolationController.addWeightedLatLngs(latlngs: points)
         do {
-            let data = try interpolationController.generateHeatMaps(influence: 2.4)
+            let data = try interpolationController.generatePoints(influence: 2.4)
             XCTAssertLessThan(0, data.count)
         } catch {
             print("\(error)")
