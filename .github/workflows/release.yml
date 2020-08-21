@@ -46,6 +46,12 @@ jobs:
         echo "Creating archive for an iOS Device"
         xcodebuild archive -project GoogleMapsUtils.xcodeproj -scheme GoogleMapsUtils -configuration Release -destination 'generic/platform=iOS' -archivePath ./Maps.framework-iphoneos.xcarchive SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
+        ARCH_IPHONE_SIM = $(lipo -archs Maps.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework/GoogleMapsUtils)
+        echo "Architecture for iPhone Simulator '$ARCH_IPHONE_SIM''"
+
+        ARCH_IPHONE = $(lipo -archs Maps.framework-iphoneos.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework/GoogleMapsUtils)
+        echo "Architecture for iPhone '$ARCH_IPHONE''"
+
         echo "Creating XCFramework"
         xcodebuild -create-xcframework -framework ./Maps.framework-iphoneos.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -framework ./Maps.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/GoogleMapsUtils.framework -output ./GoogleMapsUtils.xcframework
         zip -r ./GoogleMapsUtils.xcframework.zip ./GoogleMapsUtils.xcframework
