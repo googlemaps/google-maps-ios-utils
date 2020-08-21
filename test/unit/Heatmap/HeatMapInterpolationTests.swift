@@ -23,7 +23,6 @@ class HeatMapInterpolationTests: XCTestCase {
     private var colorMapSize: UInt!
     
     private let interpolationController = HeatMapInterpolationPoints()
-    private let mapView = GMSMapView()
     
     override func setUp() {
         super.setUp()
