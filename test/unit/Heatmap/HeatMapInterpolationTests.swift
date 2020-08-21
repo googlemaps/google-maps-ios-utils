@@ -14,7 +14,7 @@
 */
 
 import XCTest
-@testable import HeatMapInterpolation
+@testable import GoogleMapsUtils
 
 class HeatMapInterpolationTests: XCTestCase {
 
