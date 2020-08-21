@@ -68,4 +68,3 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 #import <GoogleMapsUtils/GQTPointQuadTree.h>
 #import <GoogleMapsUtils/GQTPointQuadTreeChild.h>
 #import <GoogleMapsUtils/GQTPointQuadTreeItem.h>
-

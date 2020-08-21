@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A01F81B24EF47690054A305 /* HeatMapInterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */; };
+		3A29044F24EC8C79002EB180 /* HeatMapInterpolationPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */; };
+		3A29047724EC964F002EB180 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9F52458C98B0051CD31 /* GoogleMaps.bundle */; };
 		3E709C5224D131E600B8A7E1 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */; };
 		3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */; };
 		3E7A8FC224C30C63000318C3 /* GMUObectiveCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A8FC124C30C63000318C3 /* GMUObectiveCTestHelper.m */; };
@@ -19,7 +22,6 @@
 		543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
-		AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F849455B209C15CE00C60C05 /* GoogleMapsUtils.framework */; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
 		AA8DE324245793AB003DBA7B /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE321245793AB003DBA7B /* GoogleMaps.framework */; };
@@ -233,6 +235,8 @@
 		0242D1FE1C7D3AC300557130 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0242D20F1C7E72C500557130 /* GMU-UnitTest.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GMU-UnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		02BB275F1D741A5300DE1EF0 /* GMU-Target.common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "GMU-Target.common.xcconfig"; sourceTree = "<group>"; };
+		3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInterpolationTests.swift; sourceTree = "<group>"; };
+		3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInterpolationPoints.swift; sourceTree = "<group>"; };
 		3E709C5124D1318F00B8A7E1 /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
 		3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUWeightedLatLngTest.swift; sourceTree = "<group>"; };
 		3E7A8FBE24C30BDA000318C3 /* UnitTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -456,7 +460,6 @@
 				AAE6BA672458CCDA0051CD31 /* GoogleMaps.framework in Frameworks */,
 				AAE6BA682458CCDA0051CD31 /* GoogleMapsBase.framework in Frameworks */,
 				AAE6BA692458CCDA0051CD31 /* GoogleMapsCore.framework in Frameworks */,
-				AA53FFBC23EC7DA9002059E2 /* GoogleMapsUtils.framework in Frameworks */,
 				AAB7CC9B24592D3400127E16 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +590,7 @@
 				3E7A8F4124C2BBDD000318C3 /* GMUWeightedLatLngTest.swift */,
 				3E7A8FC324C30CDB000318C3 /* GMUGradientTest.swift */,
 				3EE0C60224C8B54400D15D38 /* GMUHeatmapTileLayerTest.swift */,
+				3A421BD224E748A200CAD70F /* HeatMapInterpolationTests.swift */,
 			);
 			path = Heatmap;
 			sourceTree = "<group>";
@@ -721,10 +725,11 @@
 				AABFFEC924578CAC0015D8C6 /* GMUGradient.h */,
 				AABFFECA24578CAC0015D8C6 /* GMUWeightedLatLng.m */,
 				AABFFECB24578CAC0015D8C6 /* GMUHeatmapTileLayer.h */,
+				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				AABFFECC24578CAC0015D8C6 /* GMUWeightedLatLng.h */,
 				AABFFECD24578CAC0015D8C6 /* GMUGradient.m */,
-				AABFFECE24578CAC0015D8C6 /* GMUHeatmapTileLayer.m */,
 				3EE0C60524C8BABC00D15D38 /* GMUHeatmapTileLayer+Testing.h */,
+				3AE91C6324E73C2400A3B9FA /* HeatMapInterpolationPoints.swift */,
 			);
 			name = Heatmap;
 			path = src/Heatmap;
@@ -1082,6 +1087,7 @@
 				TargetAttributes = {
 					0242D1CB1C7C1C1F00557130 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 1160;
 					};
 					0242D1FD1C7D3AC300557130 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1178,6 +1184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A29047724EC964F002EB180 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,6 +1266,7 @@
 				3E7A8FC424C30CDB000318C3 /* GMUGradientTest.swift in Sources */,
 				AAE6BA5B2458CCA50051CD31 /* GMUKMLParserTest.m in Sources */,
 				AAE6BA582458CC670051CD31 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.m in Sources */,
+				3A01F81B24EF47690054A305 /* HeatMapInterpolationTests.swift in Sources */,
 				3E7A8F4224C2BBDD000318C3 /* GMUWeightedLatLngTest.swift in Sources */,
 				AAE6BA5A2458CC670051CD31 /* GMUStaticClusterTest.m in Sources */,
 				AAE6BA632458CCA50051CD31 /* GMULineStringTest.m in Sources */,
@@ -1296,6 +1304,7 @@
 				AAA1DE1A2457902D001CB03C /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				AAA1DE1424579010001CB03C /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				AAA1DE2524579067001CB03C /* GMUDefaultClusterIconGenerator.m in Sources */,
+				3A29044F24EC8C79002EB180 /* HeatMapInterpolationPoints.swift in Sources */,
 				AAA1DE48245790BB001CB03C /* GMUGradient.m in Sources */,
 				AAA1DE1824579024001CB03C /* GMUSimpleClusterAlgorithm.m in Sources */,
 				AAA1DE38245790A0001CB03C /* GMUPoint.m in Sources */,
@@ -1349,6 +1358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1376,6 +1386,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1402,6 +1413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1429,6 +1441,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1449,6 +1462,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1466,6 +1480,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1474,6 +1490,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1524,6 +1541,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.gmsutils.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1593,6 +1611,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F81D9A461000551202 /* GMU-DevApp.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1630,6 +1649,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1640,6 +1660,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0229C0F71D9A461000551202 /* GMU-DevApp.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1677,6 +1698,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
