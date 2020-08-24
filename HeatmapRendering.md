@@ -19,6 +19,6 @@ Heatmap interpolation allows developers to create robust heatmaps based on avera
 In the following image, the data set consists of only four points (indicated by markers); the second-top point is the most intense in the given data set. Every other heat map point in the graph was interpolated.
 <p align="center">
 <img src="https://i.ibb.co/W0kb76P/Capture.png"
-     width="250" alt="A map with a heatmap showing location of police stations">
+     width="250" alt="Heat map interpolation">
 </p>
 
