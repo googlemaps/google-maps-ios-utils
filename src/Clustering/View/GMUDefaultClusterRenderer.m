@@ -115,10 +115,15 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   _clusters = [clusters copy];
 
-  NSArray *existingMarkers = _mutableMarkers;
+  NSMutableArray<GMSMarker *> *existingMarkers = _mutableMarkers;
   _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
 
   [self addOrUpdateClusters:clusters animated:isZoomingIn];
+  
+  // If the marker was re-added, remove from existingMarkers which will be cleared
+  for (GMSMarker *visibleMarker in _mutableMarkers) {
+    [existingMarkers removeObject:visibleMarker];
+  }
 
   if (isZoomingIn) {
     [self clearMarkers:existingMarkers];
