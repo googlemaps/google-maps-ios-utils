@@ -56,7 +56,7 @@ github "googlemaps/google-maps-ios-utils" ~> 3.3.1
 
 See the [Carthage doc] for further installation instructions.
 
-### [Swift Package Manager](https://github.com/ReactiveX/RxSwift#swift-package-manager)
+### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
 **Note**: This feature is only available with Swift 5.3 (Xcode 12) or later.
 
