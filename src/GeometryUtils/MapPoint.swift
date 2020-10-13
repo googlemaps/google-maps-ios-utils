@@ -16,7 +16,7 @@ import CoreLocation
 
 /// Describes a point on the globe in a projected coordinate system.
 ///
-/// The value of `x`, the longitude projection,  is in the  range [-1, 1].
+/// The value of `x`, the longitude projection, is in the  range [-1, 1].
 /// The axis direction behaves such that increasing `y` values go towards North,
 /// and increasing `x` values go towards East.
 ///

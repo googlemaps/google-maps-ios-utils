@@ -28,35 +28,38 @@ class MapPointTest : XCTestCase {
   private let northMapPoint = MapPoint(x: 0, y: 0.7754812)
   private let southMapPoint = MapPoint(x: 0, y: -0.7754812)
 
-  func testMapPointProject() {
-    XCTAssertEqual(westMapPoint.x, westCoordinate.mapPoint.x, accuracy: 1e-8)
-    XCTAssertEqual(eastMapPoint.x, eastCoordinate.mapPoint.x, accuracy: 1e-8)
-    XCTAssertEqual(northMapPoint.y, northCoordinate.mapPoint.y, accuracy: 1e-8)
-    XCTAssertEqual(southMapPoint.y, southCoordinate.mapPoint.y, accuracy: 1e-8)
+  private let mapPointPrecision = 1e-6
+  private let latLngPrecision = 1e-6
+
+  func testLocationMapPoint() {
+    XCTAssertEqual(westMapPoint.x, westCoordinate.mapPoint.x, accuracy: mapPointPrecision)
+    XCTAssertEqual(eastMapPoint.x, eastCoordinate.mapPoint.x, accuracy: mapPointPrecision)
+    XCTAssertEqual(northMapPoint.y, northCoordinate.mapPoint.y, accuracy: mapPointPrecision)
+    XCTAssertEqual(southMapPoint.y, southCoordinate.mapPoint.y, accuracy: mapPointPrecision)
   }
 
-  func testMapPointUnproject() {
-    let westUnproj = westMapPoint.location
-    XCTAssertEqual(westCoordinate.latitude, westUnproj.latitude, accuracy: 1e-6)
-    XCTAssertEqual(westCoordinate.longitude, westUnproj.longitude, accuracy: 1e-6)
+  func testMapPointLocation() {
+    let westLocation = westMapPoint.location
+    XCTAssertEqual(westCoordinate.latitude, westLocation.latitude, accuracy: latLngPrecision)
+    XCTAssertEqual(westCoordinate.longitude, westLocation.longitude, accuracy: latLngPrecision)
 
-    let eastUnproj = eastMapPoint.location
-    XCTAssertEqual(eastCoordinate.latitude, eastUnproj.latitude, accuracy: 1e-6)
-    XCTAssertEqual(eastCoordinate.longitude, eastUnproj.longitude, accuracy: 1e-6)
+    let eastLocation = eastMapPoint.location
+    XCTAssertEqual(eastCoordinate.latitude, eastLocation.latitude, accuracy: latLngPrecision)
+    XCTAssertEqual(eastCoordinate.longitude, eastLocation.longitude, accuracy: latLngPrecision)
 
-    let northUnproj = northMapPoint.location
-    XCTAssertEqual(northCoordinate.latitude, northUnproj.latitude, accuracy: 1e-6)
-    XCTAssertEqual(northCoordinate.longitude, northUnproj.longitude, accuracy: 1e-6)
+    let northLocation = northMapPoint.location
+    XCTAssertEqual(northCoordinate.latitude, northLocation.latitude, accuracy: latLngPrecision)
+    XCTAssertEqual(northCoordinate.longitude, northLocation.longitude, accuracy: latLngPrecision)
 
-    let southProj = southMapPoint.location
-    XCTAssertEqual(southCoordinate.latitude, southProj.latitude, accuracy: 1e-6)
-    XCTAssertEqual(southCoordinate.longitude, southProj.longitude, accuracy: 1e-6)
+    let southLocation = southMapPoint.location
+    XCTAssertEqual(southCoordinate.latitude, southLocation.latitude, accuracy: latLngPrecision)
+    XCTAssertEqual(southCoordinate.longitude, southLocation.longitude, accuracy: latLngPrecision)
   }
 
   func testDistance() {
     let a = MapPoint(x: -0.7, y: 1)
     let b = MapPoint(x: 0.9, y: 1)
-    XCTAssertEqual(a.distance(to: b), 2 - (b.x - a.x), accuracy: 1e-6)
+    XCTAssertEqual(a.distance(to: b), 2 - (b.x - a.x), accuracy: mapPointPrecision)
   }
 
   func testInterpolate() {
@@ -64,16 +67,16 @@ class MapPointTest : XCTestCase {
     let b = MapPoint(x: 0.9, y: 1)
     let c = MapPoint(x: -0.7, y: 0)
     XCTAssertEqual(
-      a.x, MapPoint.interpolate(from: a, to: b, fraction: 0).x, accuracy: 1e-6
+      a.x, MapPoint.interpolate(from: a, to: b, fraction: 0).x, accuracy: mapPointPrecision
     )
     XCTAssertEqual(
-      b.x, MapPoint.interpolate(from: a, to: b, fraction: 1).x, accuracy: 1e-6
+      b.x, MapPoint.interpolate(from: a, to: b, fraction: 1).x, accuracy: mapPointPrecision
     )
     XCTAssertEqual(
-      (a.x + b.x - 2) / 2, MapPoint.interpolate(from: a, to: b, fraction: 0.5).x, accuracy: 1e-6
+      (a.x + b.x - 2) / 2, MapPoint.interpolate(from: a, to: b, fraction: 0.5).x, accuracy: mapPointPrecision
     )
     XCTAssertEqual(
-      (a.y + c.y) / 2, MapPoint.interpolate(from: a, to: c, fraction: 0.5).y, accuracy: 1e-6
+      (a.y + c.y) / 2, MapPoint.interpolate(from: a, to: c, fraction: 0.5).y, accuracy: mapPointPrecision
     )
   }
 }
