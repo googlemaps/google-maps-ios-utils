@@ -12,12 +12,13 @@ Google Maps SDK for iOS Utility Library
 This open-source library contains classes that are useful for a wide
 range of applications using the [Google Maps SDK for iOS][sdk].
 
+- **Geometry libraries** - [KML and GeoJSON rendering][geometry-rendering]
+- **Geometry utilities** - Handy spherical [geometry utility][geometry-utils] functions
+- **Heatmaps** - [Heatmap rendering][heatmap-rendering]
 - **Marker clustering** — handles the display of a large number of points
 - **Marker customization** - [display custom markers][customizing-markers]
 - **Quadtree data structure** - indexes 2D geometry points and performs
 2D range queries
-- **Geometry libraries** - [KML and GeoJSON rendering][geometry-rendering]
-- **Heatmaps** - [Heatmap rendering][heatmap-rendering]
 
 <p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/16808355/16646253/77feeb96-446c-11e6-9ec1-19e12a7fb3ae.png"></p>
 
@@ -110,14 +111,15 @@ You can also reach us on our [Discord channel].
 For more information, check out the detailed guide on the
 [Google Developers site][devsite-guide].
 
-[Carthage doc]: Carthage.md
+[Carthage doc]: docs/Carthage.md
 [Discord channel]: https://discord.gg/9fwRNWg
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
 [sdk]: https://developers.google.com/maps/documentation/ios-sdk
 [issue]: https://github.com/googlemaps/google-maps-ios-utils/issues
-[customizing-markers]: CustomMarkers.md
-[geometry-rendering]: GeometryRendering.md
-[heatmap-rendering]: HeatmapRendering.md
+[customizing-markers]: docs/CustomMarkers.md
+[geometry-rendering]: docs/GeometryRendering.md
+[heatmap-rendering]: docs/HeatmapRendering.md
+[geometry-utils]: docs/GeometryUtils.md
 [samples]: https://github.com/googlemaps/google-maps-ios-utils/tree/master/samples
