@@ -16,9 +16,9 @@ plugins:
           to: "MARKETING_VERSION = ${nextRelease.version};"
 
         - files:
-            - "./Podfile.template"
-          from: "\'Google-Maps-iOS-Utils\', \'[0-9].[0-9].[0-9]\'"
-          to: "\'Google-Maps-iOS-Utils\', \'${nextRelease.version}\'"
+            - "Podfile.template"
+          from: "'Google-Maps-iOS-Utils', '[0-9].[0-9].[0-9]'"
+          to: "'Google-Maps-iOS-Utils', '${nextRelease.version}'"
 
         - files:
             - "README.md"
