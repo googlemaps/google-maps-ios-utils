@@ -15,7 +15,7 @@
 name: Release
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   repository_dispatch:
     types: [release]
 jobs:
@@ -27,8 +27,8 @@ jobs:
       with:
         token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
 
-    - name: Use Xcode 12
-      run: sudo xcode-select -s /Applications/Xcode_12_beta.app/Contents/Developer
+    - name: Use Xcode 12.2
+      run: sudo xcode-select -s /Applications/Xcode_12.2.app/Contents/Developer
 
     - name: Install Dependencies
       run: |
