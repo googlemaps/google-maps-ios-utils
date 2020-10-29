@@ -30,8 +30,8 @@ public extension CLLocationCoordinate2D {
   /// Projects this coordinate to the map and returns a MapPoint
   var mapPoint: MapPoint {
     return MapPoint(
-      x: mercatorX(longitude),
-      y: mercatorY(latitude)
+      x: Math.mercatorX(longitudeInDegrees: longitude),
+      y: Math.mercatorY(latitudeInDegrees: latitude)
     )
   }
 }
@@ -40,8 +40,8 @@ public extension MapPoint {
   /// Unprojects this point from the map
   var location: CLLocationCoordinate2D {
     return CLLocationCoordinate2D(
-      latitude: inverseMercatorLatitude(y),
-      longitude: inverseMercatorLongitude(x)
+      latitude: Math.inverseMercatorLatitude(y),
+      longitude: Math.inverseMercatorLongitude(x)
     )
   }
 
@@ -83,22 +83,4 @@ public extension MapPoint {
     let interpolateY = (from.y * v) + (to.y * fraction)
     return MapPoint(x: interpolateX, y: interpolateY)
   }
-}
-
-private func inverseMercatorLatitude(_ y: Double) -> CLLocationDegrees {
-  return (2 * atan(exp(y * .pi)) - (.pi / 2)) * (180 / .pi)
-}
-
-private func inverseMercatorLongitude(_ x: Double) -> CLLocationDegrees {
-  return x * 180
-}
-
-private func mercatorX(_ longitude: CLLocationDegrees) -> Double {
-  return longitude / 180
-}
-
-private func mercatorY(_ latitude: CLLocationDegrees) -> Double {
-  let latitudeInRadians = latitude * (.pi / 180)
-  let mercatoryY = log(tan(latitudeInRadians * 0.5 + (.pi / 4)))
-  return mercatoryY / .pi
 }
