@@ -40,8 +40,8 @@ public extension MapPoint {
   /// Unprojects this point from the map
   var location: CLLocationCoordinate2D {
     return CLLocationCoordinate2D(
-      latitude: Math.inverseMercatorLatitude(y),
-      longitude: Math.inverseMercatorLongitude(x)
+      latitude: Math.inverseMercatorLatitudeDegrees(y),
+      longitude: Math.inverseMercatorLongitudeDegrees(x)
     )
   }
 

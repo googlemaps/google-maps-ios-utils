@@ -85,12 +85,17 @@ class Math {
   }
 
   /// Return latitude in degrees from mercator Y
-  static func inverseMercatorLatitude(_ y: Double) -> CLLocationDegrees {
-    return (2 * atan(exp(y * .pi)) - (.pi / 2)) * (180 / .pi)
+  static func inverseMercatorLatitudeDegrees(_ y: Double) -> CLLocationDegrees {
+    return inverseMercatorLatitudeRadians(y).degrees
+  }
+
+  /// Return latitude in degrees from mercator Y
+  static func inverseMercatorLatitudeRadians(_ y: Double) -> LocationRadians {
+    return (2 * atan(exp(y)) - (.pi / 2))
   }
 
   /// Return longitude in degrees from mercator X
-  static func inverseMercatorLongitude(_ x: Double) -> CLLocationDegrees {
+  static func inverseMercatorLongitudeDegrees(_ x: Double) -> CLLocationDegrees {
     return x * 180
   }
 
