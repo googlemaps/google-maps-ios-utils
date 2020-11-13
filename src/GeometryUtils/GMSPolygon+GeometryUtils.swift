@@ -14,13 +14,36 @@
 
 import GoogleMaps
 
-extension GMSPolygon {
+public extension GMSPolygon {
 
   /// Returns whether or not `coordinate` is inside this polygon.
-  public func contains(coordinate: CLLocationCoordinate2D) -> Bool {
+  func contains(coordinate: CLLocationCoordinate2D) -> Bool {
     guard let path = self.path else {
       return false
     }
     return path.contains(coordinate: coordinate, geodesic: geodesic)
+  }
+
+  /// Returns the area of this polygon.
+  /// - Parameters:
+  ///   - radius: the radius of the sphere. Defaults to `kGMSEarthRadius`
+  /// - Returns: the area of this polygon, nil if the coordinates composing this polygon is invalid
+  func area(radius: CLLocationDistance = kGMSEarthRadius) -> Double? {
+    guard let path = self.path else {
+      return nil
+    }
+    return path.area(radius: radius)
+  }
+
+  /// The signed area of this path on Earth which is considered. The result
+  /// is positive if the points of path are in counter-clockwise order, and negative otherwise.
+  /// - Parameters:
+  ///   - radius: the radius of the sphere. Defaults to `kGMSEarthRadius`
+  /// - Returns: the signed area of this polygon, nil if the coordinates composing this polygon is invalid
+  func signedArea(radius: CLLocationDistance = kGMSEarthRadius) -> Double? {
+    guard let path = self.path else {
+      return nil
+    }
+    return path.signedArea(radius: radius)
   }
 }

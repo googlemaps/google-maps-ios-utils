@@ -16,6 +16,36 @@ import GoogleMaps
 
 public extension GMSPath {
 
+  /// The default tolerance used to computed whether a coordinate is near a path
+  static let defaultToleranceInMeters = 0.1
+
+  /// Returns the area of this path on Earth which is considered to be closed.
+  /// - Parameters:
+  ///   - radius: the radius of the sphere. Defaults to `kGMSEarthRadius`
+  /// - Returns: the area of this path
+  func area(radius: CLLocationDistance = kGMSEarthRadius) -> Double {
+    return abs(signedArea(radius: radius))
+  }
+
+  /// The signed area of this path which is considered to be closed. The result
+  /// is positive if the points of path are in counter-clockwise order,  negative otherwise, and 0
+  /// if this path contains less than 0 coordinates.
+  /// - Parameters:
+  ///   - radius: the radius of the sphere. Defaults to `kGMSEarthRadius`
+  /// - Returns: The signed area of this path
+  func signedArea(radius: CLLocationDistance = kGMSEarthRadius) -> Double {
+    guard var prev = coordinates.last?.latLngRadians else { return 0 }
+    guard count() > 2 else { return 0 }
+
+    var area = 0.0
+    for coord in coordinates {
+      let coordRadians = coord.latLngRadians
+      area += LatLngRadians.polarTriangleArea(coordRadians, prev)
+      prev = coordRadians
+    }
+    return area * pow(radius, 2)
+  }
+
   /// Returns whether or not `coordinate` is inside this path which is always considered to be closed
   /// regardless if the last point of this path equals the first or not. This path is described by great circle
   /// segments if `geodesic` is true, otherwise, it is described by rhumb (loxodromic) segments.
@@ -133,5 +163,17 @@ private extension GMSPath {
     return (
       Math.mercatorY(latitudeInRadians: lat1) * (latLng2.longitude - lng3) + Math.mercatorY(latitudeInRadians: latLng2.latitude) * lng3
     ) / latLng2.longitude
+  }
+}
+
+public extension Sequence where Iterator.Element == CLLocationCoordinate2D {
+
+  /// Creates a `GMSMutablePath` from this sequence of `CLLocationCoordinate2D`
+  var gmsMutablePath: GMSMutablePath {
+    let path = GMSMutablePath()
+    forEach { coordinate in
+      path.add(coordinate)
+    }
+    return path
   }
 }

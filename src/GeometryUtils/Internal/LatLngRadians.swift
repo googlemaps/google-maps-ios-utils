@@ -33,6 +33,18 @@ extension LatLngRadians {
   var locationCoordinate2D: CLLocationCoordinate2D {
     return CLLocationCoordinate2D(latitude: latitude.degrees, longitude: longitude.degrees)
   }
+
+  /// Returns the signed area of a triangle composing `latLng1`, `latLng2`, and the north pole.
+  /// Formula derived from "Area of a spherical triangle given two edges and the included angle"
+  /// as per "Spherical Trigonometry" by Todhunter, page 71, section 103, point 2.
+  /// See http://books.google.com/books?id=3uBHAAAAIAAJ&pg=PA71
+  static func polarTriangleArea(_ latLng1: LatLngRadians, _ latLng2: LatLngRadians) -> Double {
+    let deltaLng = latLng1.longitude - latLng2.longitude
+    let tan1 = tan(((.pi / 2) - latLng1.latitude) / 2)
+    let tan2 = tan(((.pi / 2) - latLng2.latitude) / 2)
+    let t = tan1 * tan2
+    return 2 * atan2(t * sin(deltaLng), 1 + t * cos(deltaLng))
+  }
 }
 
 extension CLLocationCoordinate2D {

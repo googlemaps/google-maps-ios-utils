@@ -33,6 +33,12 @@
 		AA52074B256C645C00414C6D /* GMSPath+GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520744256C645C00414C6D /* GMSPath+GeometryUtils.swift */; };
 		AA520757256C64D900414C6D /* LatLngRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520756256C64D900414C6D /* LatLngRadians.swift */; };
 		AA520758256C64D900414C6D /* LatLngRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520756256C64D900414C6D /* LatLngRadians.swift */; };
+		AA520790256C6C9D00414C6D /* GMSPolyline+GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52078F256C6C9D00414C6D /* GMSPolyline+GeometryUtils.swift */; };
+		AA520791256C6C9D00414C6D /* GMSPolyline+GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52078F256C6C9D00414C6D /* GMSPolyline+GeometryUtils.swift */; };
+		AA520799256C6CA300414C6D /* CatesianPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520798256C6CA300414C6D /* CatesianPoint.swift */; };
+		AA52079A256C6CA300414C6D /* CatesianPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520798256C6CA300414C6D /* CatesianPoint.swift */; };
+		AA5207B1256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5207B0256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift */; };
+		AA5207B2256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5207B0256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift */; };
 		AA74F47E251E4F87003BFC8C /* MapPointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74F47D251E4F87003BFC8C /* MapPointTest.swift */; };
 		AA8DE322245793AB003DBA7B /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */; };
 		AA8DE323245793AB003DBA7B /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */; };
@@ -105,6 +111,7 @@
 		AAA1DE51245790D0001CB03C /* GQTPointQuadTree.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEAA24578CAC0015D8C6 /* GQTPointQuadTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA1DE52245790D0001CB03C /* GQTPointQuadTreeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEAB24578CAC0015D8C6 /* GQTPointQuadTreeChild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA1DE53245790D0001CB03C /* GQTBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = AABFFEAC24578CAC0015D8C6 /* GQTBounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAAB11BE255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB11BD255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift */; };
 		AAB7CC9B24592D3400127E16 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE6BA4E2458CBFE0051CD31 /* OCMock.framework */; };
 		AAB7CC9E24592E8A00127E16 /* GeoJSON_MultiLineString_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9F92458C9EA0051CD31 /* GeoJSON_MultiLineString_Test.geojson */; };
 		AAB7CC9F24592E8A00127E16 /* GeoJSON_MultiPolygon_Test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = AAE6B9FA2458C9EA0051CD31 /* GeoJSON_MultiPolygon_Test.geojson */; };
@@ -268,10 +275,14 @@
 		AA520743256C645C00414C6D /* GMSPolygon+GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GMSPolygon+GeometryUtils.swift"; path = "src/GeometryUtils/GMSPolygon+GeometryUtils.swift"; sourceTree = "<group>"; };
 		AA520744256C645C00414C6D /* GMSPath+GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GMSPath+GeometryUtils.swift"; path = "src/GeometryUtils/GMSPath+GeometryUtils.swift"; sourceTree = "<group>"; };
 		AA520756256C64D900414C6D /* LatLngRadians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLngRadians.swift; sourceTree = "<group>"; };
+		AA52078F256C6C9D00414C6D /* GMSPolyline+GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GMSPolyline+GeometryUtils.swift"; path = "src/GeometryUtils/GMSPolyline+GeometryUtils.swift"; sourceTree = "<group>"; };
+		AA520798256C6CA300414C6D /* CatesianPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatesianPoint.swift; sourceTree = "<group>"; };
+		AA5207B0256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocationCoordinate2D+GeometryUtils.swift"; path = "src/GeometryUtils/CLLocationCoordinate2D+GeometryUtils.swift"; sourceTree = "<group>"; };
 		AA74F47D251E4F87003BFC8C /* MapPointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointTest.swift; sourceTree = "<group>"; };
 		AA8DE31F245793AA003DBA7B /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Carthage/Build/iOS/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		AA8DE320245793AB003DBA7B /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Carthage/Build/iOS/GoogleMapsCore.framework; sourceTree = "<group>"; };
 		AA8DE321245793AB003DBA7B /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Carthage/Build/iOS/GoogleMaps.framework; sourceTree = "<group>"; };
+		AAAB11BD255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+GeometryUtilsTest.swift"; sourceTree = "<group>"; };
 		AABFFE8A245787390015D8C6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		AABFFE8C245787510015D8C6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		AABFFE8E245787560015D8C6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -676,6 +687,7 @@
 		AA29A448252E6E2C00D69D87 /* GeometryUtils */ = {
 			isa = PBXGroup;
 			children = (
+				AA5207B0256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift */,
 				AA520744256C645C00414C6D /* GMSPath+GeometryUtils.swift */,
 				AA520743256C645C00414C6D /* GMSPolygon+GeometryUtils.swift */,
 				AA29A440252E6E2800D69D87 /* MapPoint.swift */,
@@ -697,6 +709,7 @@
 		AA74F47C251E4F66003BFC8C /* GeometryUtils */ = {
 			isa = PBXGroup;
 			children = (
+				AAAB11BD255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift */,
 				AA2DCF24254B2AE000009A82 /* GMSPath+GeometryUtilsTest.swift */,
 				AA74F47D251E4F87003BFC8C /* MapPointTest.swift */,
 			);
@@ -1313,6 +1326,7 @@
 				AA74F47E251E4F87003BFC8C /* MapPointTest.swift in Sources */,
 				AAE6BA532458CC670051CD31 /* GMUGridBasedClusterAlgorithmTest.m in Sources */,
 				3EA2526624CB50A4003A7D07 /* GMUSimpleClusterAlgorithmTest.swift in Sources */,
+				AA5207B1256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */,
 				AAE6BA652458CCA50051CD31 /* GMUGeometryCollectionTest.m in Sources */,
 				AAE6BA612458CCA50051CD31 /* GMUPointTest.m in Sources */,
 				AAE6BA522458CC670051CD31 /* GMUDefaultClusterRendererTest.m in Sources */,
@@ -1328,6 +1342,7 @@
 				AA520748256C645C00414C6D /* GMSPolygon+GeometryUtils.swift in Sources */,
 				AAE6BA632458CCA50051CD31 /* GMULineStringTest.m in Sources */,
 				AAE6BA602458CCA50051CD31 /* GMUPlacemarkTest.m in Sources */,
+				AAAB11BE255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift in Sources */,
 				AAE6BA572458CC670051CD31 /* GMUDefaultClusterIconGeneratorTest.m in Sources */,
 				AAE6BA5F2458CCA50051CD31 /* GMUPolygonTest.m in Sources */,
 				AAE6BA5D2458CCA50051CD31 /* GMUGeometryRendererTest.m in Sources */,
@@ -1379,6 +1394,7 @@
 				AAA1DE47245790BB001CB03C /* GMUWeightedLatLng.m in Sources */,
 				AAA1DE31245790A0001CB03C /* GMUGeometryCollection.m in Sources */,
 				AA520747256C645C00414C6D /* Math.swift in Sources */,
+				AA5207B2256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

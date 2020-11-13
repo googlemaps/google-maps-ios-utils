@@ -18,6 +18,61 @@ import XCTest
 
 class GMSPathGeometryutilsTest : XCTestCase {
 
+  private let smallDiff = 5e-7 // About 5 cm on equator, half the default tolerance of defaultTolerance
+  private let bigDiff = 2e-6 // About 10 cm on equator, double the default tolerance of defaultTolerance
+
+  private let up = CLLocationCoordinate2D(latitude: 90, longitude: 0)
+  private let down = CLLocationCoordinate2D(latitude: -90, longitude: 0)
+  private let front = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+  private let right = CLLocationCoordinate2D(latitude: 0, longitude: 90)
+  private let back = CLLocationCoordinate2D(latitude: 0, longitude: -180)
+  private let left = CLLocationCoordinate2D(latitude: 0, longitude: -90)
+}
+
+/// Tests for `area` and `signedArea`
+extension GMSPathGeometryutilsTest {
+  func testArea() {
+    let accuracy = 0.4
+    XCTAssertEqual(
+      .pi * pow(kGMSEarthRadius, 2),
+      [right, up, front, down, right].gmsMutablePath.area(),
+      accuracy: accuracy
+    )
+    XCTAssertEqual(
+      .pi * pow(kGMSEarthRadius, 2),
+      [right, down, front, up, right].gmsMutablePath.area(),
+      accuracy: accuracy
+    )
+  }
+
+
+  func testSignedArea() {
+    let accuracy = 1e-6
+
+    let path1 = [
+      CLLocationCoordinate2D(latitude: 0, longitude: 0),
+      CLLocationCoordinate2D(latitude: 0, longitude: 0.1),
+      CLLocationCoordinate2D(latitude: 0.1, longitude: 0.1)
+    ].gmsMutablePath
+    XCTAssertEqual((pow(0.1.radians, 2) / 2), path1.signedArea(radius: 1), accuracy: accuracy)
+
+    let path2 = [right, up, front].gmsMutablePath
+    XCTAssertEqual(.pi / 2, path2.signedArea(radius: 1), accuracy: accuracy)
+
+    let path3 = [front, up, right].gmsMutablePath
+    XCTAssertEqual(-.pi / 2, path3.signedArea(radius: 1), accuracy: accuracy)
+
+    XCTAssertEqual(
+      -[right, up, front, down, right].gmsMutablePath.signedArea(),
+      [right, down, front, up, right].gmsMutablePath.signedArea(),
+      accuracy: 0
+    )
+  }
+}
+
+/// Tests for `contains(coordinate:, geodesic:)`
+extension GMSPathGeometryutilsTest {
+
   func testContainsEmptyPath() {
     let path = GMSMutablePath()
     let testPoint = CLLocationCoordinate2D(latitude: 0, longitude: 0)
