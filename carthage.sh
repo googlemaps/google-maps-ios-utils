@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # carthage.sh
+# Workaround for Xcode 12-Carthage build issues. See: https://github.com/Carthage/Carthage/issues/3019#issuecomment-665136323
 # Usage example: ./carthage.sh build --platform iOS
 
 set -euo pipefail
