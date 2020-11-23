@@ -403,7 +403,9 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
 - (void)clearMarkers:(NSArray<GMSMarker *> *)markers {
   for (GMSMarker *marker in markers) {
-    marker.userData = nil;
+    if ([marker.userData conformsToProtocol:@protocol(GMUCluster)]) {
+      marker.userData = nil;
+    }
     marker.map = nil;
   }
 }
