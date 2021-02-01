@@ -14,6 +14,15 @@
 
 
 class Math {
+  /// Computes the initial bearing between `from` and `to` in radians
+  static func initialBearing(_ from: LatLngRadians, _ to: LatLngRadians) -> LocationRadians {
+    let delta = to - from
+    let cosLatTo = cos(to.latitude)
+    let y = sin(delta.longitude) * cosLatTo
+    let x = sin(delta.latitude) + sin(from.latitude) * cosLatTo * 2 * haversine(delta.longitude)
+    return atan2(y, x)
+  }
+
   /// Returns sin(arcHav(x) + arcHav(y)).
   static func sinSumFromHaversine(_ x: LocationRadians, _ y: LocationRadians) -> LocationRadians {
       let a = sqrt(x * (1 - x))

@@ -19,14 +19,6 @@ import XCTest
 class GMSPathGeometryUtilsTest : XCTestCase {
   private let smallDiff = 5e-7 // About 5 cm on equator, half the default tolerance of defaultTolerance
   private let bigDiff = 2e-6 // About 10 cm on equator, double the default tolerance of defaultTolerance
-}
-
-/// Tests for `contains(coordinate:, geodesic:)`
-extension GMSPathGeometryUtilsTest {
-
-  private let smallDiff = 5e-7 // About 5 cm on equator, half the default tolerance of defaultTolerance
-  private let bigDiff = 2e-6 // About 10 cm on equator, double the default tolerance of defaultTolerance
-
   private let up = CLLocationCoordinate2D(latitude: 90, longitude: 0)
   private let down = CLLocationCoordinate2D(latitude: -90, longitude: 0)
   private let front = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -36,7 +28,7 @@ extension GMSPathGeometryUtilsTest {
 }
 
 /// Tests for `area` and `signedArea`
-extension GMSPathGeometryutilsTest {
+extension GMSPathGeometryUtilsTest {
   func testArea() {
     let accuracy = 0.4
     XCTAssertEqual(
@@ -77,7 +69,7 @@ extension GMSPathGeometryutilsTest {
 }
 
 /// Tests for `contains(coordinate:, geodesic:)`
-extension GMSPathGeometryutilsTest {
+extension GMSPathGeometryUtilsTest {
 
   func testContainsEmptyPath() {
     let path = GMSMutablePath()
@@ -171,7 +163,7 @@ extension GMSPathGeometryutilsTest {
 }
 
 /// Tests for `isOnPath(coordinate:, geodesic:, tolerance: )`
-extension GMSPathGeometryutilsTest {
+extension GMSPathGeometryUtilsTest {
 
   func testIsOnPathEmpty() {
     let path = GMSMutablePath()

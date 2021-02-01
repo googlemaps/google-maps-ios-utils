@@ -22,6 +22,7 @@
 		543C4FB8246A23C100821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBA246A247C00821017 /* GMSMarker+GMUClusteritem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		543C4FBB246A248000821017 /* GMSMarker+GMUClusteritem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */; };
+		AA139D3925CC9DD300793F6E /* LatLngRadiansTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA139D3825CC9DD300793F6E /* LatLngRadiansTest.swift */; };
 		AA2DCF25254B2AE000009A82 /* GMSPath+GeometryUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2DCF24254B2AE000009A82 /* GMSPath+GeometryUtilsTest.swift */; };
 		AA50D0012536274800869802 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29A440252E6E2800D69D87 /* MapPoint.swift */; };
 		AA520746256C645C00414C6D /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA520742256C645C00414C6D /* Math.swift */; };
@@ -268,6 +269,7 @@
 		54D7847F2464DAAC00437147 /* GMSMarker+GMUClusteritem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMSMarker+GMUClusteritem.h"; sourceTree = "<group>"; };
 		54D784802464DAAC00437147 /* GMSMarker+GMUClusteritem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GMSMarker+GMUClusteritem.m"; sourceTree = "<group>"; };
 		662F6FAE156096701716AEEC /* libPods-DevApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA139D3825CC9DD300793F6E /* LatLngRadiansTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngRadiansTest.swift; sourceTree = "<group>"; };
 		AA29A440252E6E2800D69D87 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPoint.swift; path = src/GeometryUtils/MapPoint.swift; sourceTree = "<group>"; };
 		AA2DCF24254B2AE000009A82 /* GMSPath+GeometryUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSPath+GeometryUtilsTest.swift"; sourceTree = "<group>"; };
 		AA520742256C645C00414C6D /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Math.swift; path = src/GeometryUtils/Math.swift; sourceTree = "<group>"; };
@@ -683,6 +685,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AA139D3725CC9DBA00793F6E /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				AA139D3825CC9DD300793F6E /* LatLngRadiansTest.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		AA29A448252E6E2C00D69D87 /* GeometryUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +720,7 @@
 		AA74F47C251E4F66003BFC8C /* GeometryUtils */ = {
 			isa = PBXGroup;
 			children = (
+				AA139D3725CC9DBA00793F6E /* Internal */,
 				AAAB11BD255E11DD00129868 /* CLLocationCoordinate2D+GeometryUtilsTest.swift */,
 				AA2DCF24254B2AE000009A82 /* GMSPath+GeometryUtilsTest.swift */,
 				AA74F47D251E4F87003BFC8C /* MapPointTest.swift */,
@@ -1330,6 +1341,7 @@
 				AAE6BA532458CC670051CD31 /* GMUGridBasedClusterAlgorithmTest.m in Sources */,
 				3EA2526624CB50A4003A7D07 /* GMUSimpleClusterAlgorithmTest.swift in Sources */,
 				AA5207B1256C6D7D00414C6D /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */,
+				AA139D3925CC9DD300793F6E /* LatLngRadiansTest.swift in Sources */,
 				AAE6BA652458CCA50051CD31 /* GMUGeometryCollectionTest.m in Sources */,
 				AAE6BA612458CCA50051CD31 /* GMUPointTest.m in Sources */,
 				AAE6BA522458CC670051CD31 /* GMUDefaultClusterRendererTest.m in Sources */,
