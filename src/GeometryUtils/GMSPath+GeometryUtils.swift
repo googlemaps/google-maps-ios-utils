@@ -181,6 +181,61 @@ public extension GMSPath {
 
     return false
   }
+
+  /// Returns an array of `GMSStyleSpan` constructed by repeated application of style and length information
+  /// from `lengths` and `styles` along this path.
+  ///
+  /// - Parameters:
+  ///   - styles: The styles to create `GMSStyleSpan` objects from
+  ///   - lengths: The length the corresponding style at the same index of `styles` should be applied
+  ///   - lengthKind: The `GMSLengthKind` the lengths are provided in
+  ///   - offset: A length offset that will be skipped over relative to `lengths`
+  func styleSpans(
+    styles: [GMSStrokeStyle],
+    lengths: [Double],
+    lengthKind: GMSLengthKind,
+    offset: Double = 0
+  ) -> [GMSStyleSpan] {
+    guard !styles.isEmpty else {
+      return []
+    }
+
+    let sumLength = lengths.reduce(0) { return $0 + $1 }
+    guard sumLength > 0 else {
+      return []
+    }
+
+    let lengthOffset = Math.wrap(
+      value: offset,
+      min: 0,
+      max: sumLength * Double(
+        (styles.count / Math.greatestCommonDivisor(lengths.count, styles.count))
+      )
+    )
+    let totalLength = self.length(of: lengthKind)
+
+    var lengthIter = 0
+    var styleIter = 0
+    var lengthPos = -lengthOffset
+    var prevSegments = 0.0
+    var spans: [GMSStyleSpan] = []
+
+    while (lengthPos < totalLength) {
+      lengthPos += lengths[lengthIter]
+      if (lengthPos > 0) {
+        let segments = self.segments(forLength: lengthPos, kind: lengthKind)
+        let delta = segments - prevSegments
+        if (delta > 0) {
+          spans.append(GMSStyleSpan(style: styles[styleIter], segments: delta))
+          prevSegments = segments
+        }
+      }
+      lengthIter = (lengthIter + 1) % lengths.count
+      styleIter = (styleIter + 1) % styles.count
+    }
+
+    return spans
+  }
 }
 
 private extension GMSPath {
