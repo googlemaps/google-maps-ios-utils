@@ -4,5 +4,5 @@ platform :ios, '10.0'
 target 'SwiftDemoApp' do
   use_frameworks!
   pod 'GoogleMaps', '4.0.0'
-  pod 'Google-Maps-iOS-Utils', :path => '../..'
+  pod 'Google-Maps-iOS-Utils', :path => '../..', :testspecs => ['Tests']
 end
