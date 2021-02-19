@@ -8,3 +8,4 @@ See:
 * [CLLocationCoordinate2D+GeometryUtils.swift](https://github.com/googlemaps/google-maps-ios-utils/blob/main/src/GeometryUtils/CLLocationCoordinate2D%2BGeometryUtils.swift)
 * [GMSPath+GeometryUtils.swfit](https://github.com/googlemaps/google-maps-ios-utils/blob/main/src/GeometryUtils/GMSPath%2BGeometryUtils.swift)
 * [GMSPolygon+GeometryUtils.swift](https://github.com/googlemaps/google-maps-ios-utils/blob/main/src/GeometryUtils/GMSPolygon%2BGeometryUtils.swift)
+* [GMSPolyline+GeometryUtils.swift](https://github.com/googlemaps/google-maps-ios-utils/blob/main/src/GeometryUtils/GMSPolyline%2BGeometryUtils.swift)
