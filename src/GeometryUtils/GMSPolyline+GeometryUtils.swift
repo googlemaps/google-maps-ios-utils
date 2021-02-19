@@ -14,11 +14,11 @@
 
 import GoogleMaps
 
-extension GMSPolyline {
+public extension GMSPolyline {
 
   /// Returns whether `coordinate` lies on or near this path within the specified `tolerance` in meters. Tolerance
   /// is defaulted to `GMSPath.defaultToleranceInMeters`.
-  public func isOnPolyline(coordinate: CLLocationCoordinate2D, tolerance: Double = GMSPath.defaultToleranceInMeters) -> Bool {
+  func isOnPolyline(coordinate: CLLocationCoordinate2D, tolerance: Double = GMSPath.defaultToleranceInMeters) -> Bool {
     guard let path = self.path else {
       return false
     }

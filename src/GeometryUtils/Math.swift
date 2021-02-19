@@ -122,4 +122,20 @@ class Math {
   static func mercatorY(latitudeInRadians: LocationRadians) -> Double {
     return log(tan(latitudeInRadians * 0.5 + (.pi / 4)))
   }
+
+  /// Returns the greatest common divisor between two integers using Euclid's algorithm
+  static func greatestCommonDivisor(_ num1: Int, _ num2: Int) -> Int {
+    guard num1 > 0 && num2 > 0 else {
+      return 1
+    }
+    var a = num1
+    var b = num2
+    var t = 0
+    while (b != 0) {
+      t = b
+      b = a % t
+      a = t
+    }
+    return a
+  }
 }
