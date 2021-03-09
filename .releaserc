@@ -36,9 +36,9 @@ plugins:
           to: "v${nextRelease.version}"
   - - "@semantic-release/exec"
     - verifyConditionsCmd:
-        - pod spec lint
+        - "pod spec lint"
     - publishCmd:
-        - pod trunk push
+        - "pod trunk push"
   - - "@semantic-release/git"
     - assets:
         - "./Google-Maps-iOS-Utils.podspec"
