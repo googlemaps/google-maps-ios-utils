@@ -34,6 +34,11 @@ plugins:
             - "Package.swift"
           from: "v[0-9].[0-9].[0-9]"
           to: "v${nextRelease.version}"
+  - - "@semantic-release/exec"
+    - verifyConditionsCmd:
+        - pod spec lint
+    - publishCmd:
+        - pod trunk push
   - - "@semantic-release/git"
     - assets:
         - "./Google-Maps-iOS-Utils.podspec"

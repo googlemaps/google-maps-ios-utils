@@ -33,6 +33,7 @@ jobs:
     - name: Install Dependencies
       run: |
         brew install carthage
+        sudo gem install cocoapods
 
     - name: Carthage update
       run: |
@@ -71,7 +72,9 @@ jobs:
           "@semantic-release/commit-analyzer"
           "@semantic-release/release-notes-generator"
           "@google/semantic-release-replace-plugin"
+          "@semantic-release/exec"
           "@semantic-release/git"
           "@semantic-release/github"
       env:
         GH_TOKEN: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
