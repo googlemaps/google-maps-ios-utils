@@ -24,8 +24,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-* iOS 9.0+
-* CocoaPods
+* iOS 10.0+
 
 ## Installation
 
