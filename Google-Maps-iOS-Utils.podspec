@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
                      :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
+  s.swift_version = '5.0'
+  s.frameworks    = 'CoreLocation'
 
   s.dependency 'GoogleMaps'
   s.static_framework = true
