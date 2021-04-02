@@ -95,7 +95,7 @@ class Math {
 
   /// Return latitude in degrees from mercator Y
   static func inverseMercatorLatitudeDegrees(_ y: Double) -> CLLocationDegrees {
-    return inverseMercatorLatitudeRadians(y).degrees
+    return inverseMercatorLatitudeRadians(y * .pi).degrees
   }
 
   /// Return latitude in degrees from mercator Y
