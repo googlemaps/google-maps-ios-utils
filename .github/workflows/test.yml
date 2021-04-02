@@ -42,7 +42,7 @@ jobs:
       run: ./carthage.sh build --no-skip-current
 
     - name: CocoaPods spec lint
-      run: pod spec lint
+      run: pod lib lint Google-Maps-iOS-Utils.podspec
 
     - name: Run unit tests
       run: |
