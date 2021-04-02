@@ -20,8 +20,8 @@
 @interface GMUTestClusterItem : NSObject<GMUClusterItem>
 
 @property(nonatomic, readonly) CLLocationCoordinate2D position;
-@property(nonatomic, readonly, nullable) NSString *title;
-@property(nonatomic, readonly, nullable) NSString *snippet;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *snippet;
 
 - (instancetype _Nonnull)initWithPosition:(CLLocationCoordinate2D)position;
 - (instancetype _Nonnull)initWithPosition:(CLLocationCoordinate2D)position title:(nullable NSString *)title snippet:(nullable NSString *)snippet;
