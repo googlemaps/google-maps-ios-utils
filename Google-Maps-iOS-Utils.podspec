@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.0'
-  s.frameworks    = 'CoreLocation'
 
   s.dependency 'GoogleMaps'
   s.static_framework = true
@@ -58,7 +57,10 @@ Pod::Spec.new do |s|
     unit_tests.source_files = [
       "GoogleMapsUtils/GoogleMapsUtils.h",
       "test/common/Model/*.{h,m,swift}",
-      "test/unit/**/*.{h,m,swift}"
+      "test/unit/**/*.{h,m,swift}",
+    ]
+    unit_tests.resources = [
+      "test/resources/**/*.{geojson,kml}"
     ]
     unit_tests.pod_target_xcconfig = {
       'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/test/unit/BridgingHeader/UnitTest-Bridging-Header.h"
