@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
                      :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
+  s.swift_version = '5.0'
 
   s.dependency 'GoogleMaps'
   s.static_framework = true
@@ -27,24 +28,43 @@ Pod::Spec.new do |s|
 
   s.subspec 'QuadTree' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
-    sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
+    sp.source_files = "src/#{sp.base_name}/**/*.{h,m,swift}"
   end
 
   s.subspec 'Clustering' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
-    sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
+    sp.source_files = "src/#{sp.base_name}/**/*.{h,m,swift}"
     sp.exclude_files = "src/#{sp.base_name}/GMUMarkerClustering.h"
     sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
   end
 
   s.subspec 'Geometry' do |sp|
      sp.public_header_files = "src/#{sp.base_name}/**/*.h"
-     sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
+     sp.source_files = "src/#{sp.base_name}/**/*.{h,m,swift}"
   end
 
   s.subspec 'Heatmap' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"
-    sp.source_files = "src/#{sp.base_name}/**/*.{h,m}"
+    sp.source_files = "src/#{sp.base_name}/**/*.{h,m,swift}"
     sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
+  end
+
+  s.subspec 'GeometryUtils' do |sp|
+    sp.source_files = "src/#{sp.base_name}/**/*.{h,m,swift}"
+  end
+
+  s.test_spec 'Tests' do |unit_tests|
+    unit_tests.source_files = [
+      "GoogleMapsUtils/GoogleMapsUtils.h",
+      "test/common/Model/*.{h,m,swift}",
+      "test/unit/**/*.{h,m,swift}",
+    ]
+    unit_tests.resources = [
+      "test/resources/**/*.{geojson,kml}"
+    ]
+    unit_tests.pod_target_xcconfig = {
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/test/unit/BridgingHeader/UnitTest-Bridging-Header.h"
+    }
+    unit_tests.dependency 'OCMock'
   end
 end

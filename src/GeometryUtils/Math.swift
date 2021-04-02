@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+import CoreLocation
 
 class Math {
   /// Computes the initial bearing between `from` and `to` in radians
@@ -95,7 +95,7 @@ class Math {
 
   /// Return latitude in degrees from mercator Y
   static func inverseMercatorLatitudeDegrees(_ y: Double) -> CLLocationDegrees {
-    return inverseMercatorLatitudeRadians(y).degrees
+    return inverseMercatorLatitudeRadians(y * .pi).degrees
   }
 
   /// Return latitude in degrees from mercator Y

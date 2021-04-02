@@ -16,8 +16,7 @@
 #if !defined(__has_feature) || !__has_feature(objc_arc)
 #error "This file requires ARC support."
 #endif
-
-#import <GoogleMapsUtils/GoogleMapsUtils.h>
+#import "GoogleMapsUtils/GMUStaticCluster.h"
 #import "GMUTestClusterItem.h"
 #import "GMUDefaultClusterRenderer+Testing.h"
 
