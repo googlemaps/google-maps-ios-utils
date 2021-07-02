@@ -237,6 +237,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
     GMUPlacemark *placemark = container;
     line.title = placemark.title;
   }
+  line.tappable = true;
   line.map = _map;
   [_mapOverlays addObject:line];
 }
@@ -272,6 +273,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
     GMUPlacemark *placemark = container;
     poly.title = placemark.title;
   }
+  poly.tappable = true;
   poly.map = _map;
   [_mapOverlays addObject:poly];
 }
