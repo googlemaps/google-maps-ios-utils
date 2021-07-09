@@ -27,17 +27,15 @@ class KMLViewController: UIViewController {
     let camera = GMSCameraPosition.camera(withLatitude: 37.4220, longitude: -122.0841, zoom: 17)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     self.view = mapView
-
-    let path = Bundle.main.path(forResource: "KML_Sample", ofType: "kml")
-    let url = URL(fileURLWithPath: path!)
-    kmlParser = GMUKMLParser(url: url)
-    kmlParser.parse()
-
-    renderer = GMUGeometryRenderer(map: mapView,
-                                   geometries: kmlParser.placemarks,
-                                   styles: kmlParser.styles,
-                                   styleMaps: kmlParser.styleMaps)
-
-    renderer.render()
+    if let path = Bundle.main.path(forResource: "KML_Sample", ofType: "kml") {
+        let url = URL(fileURLWithPath: path)
+        kmlParser = GMUKMLParser(url: url)
+        kmlParser.parse()
+        renderer = GMUGeometryRenderer(map: mapView,
+                                       geometries: kmlParser.placemarks,
+                                       styles: kmlParser.styles,
+                                       styleMaps: kmlParser.styleMaps)
+        renderer.render()
+    }
   }
 }
