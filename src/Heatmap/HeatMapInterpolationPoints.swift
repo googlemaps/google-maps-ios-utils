@@ -155,7 +155,7 @@ public class HeatMapInterpolationPoints: NSObject {
         // Try to make as few clusters as possible; start with 1 and increment as needed
         var numClusters = 1
         
-        if (data.count > 0) {
+        if !data.isEmpty {
             
             // We need to keep on finding clusters until the maximum distance between the center
             // and any point in its cluster is under a specific preset value
