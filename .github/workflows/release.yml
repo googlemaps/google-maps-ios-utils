@@ -18,6 +18,7 @@ on:
     branches: [ main ]
   repository_dispatch:
     types: [release]
+  workflow_dispatch:
 jobs:
   release:
     runs-on: macos-latest
