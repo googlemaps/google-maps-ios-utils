@@ -187,6 +187,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
               style:(GMUStyle *)style {
   CLLocationCoordinate2D coordinate = point.coordinate;
   GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
+  marker.tappable = true;
   if ([container isKindOfClass:[GMUPlacemark class]]) {
     GMUPlacemark *placemark = container;
     marker.title = style.title ?: placemark.title;
@@ -237,6 +238,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
     GMUPlacemark *placemark = container;
     line.title = placemark.title;
   }
+  line.tappable = true;
   line.map = _map;
   [_mapOverlays addObject:line];
 }
@@ -272,6 +274,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
     GMUPlacemark *placemark = container;
     poly.title = placemark.title;
   }
+  poly.tappable = true;
   poly.map = _map;
   [_mapOverlays addObject:poly];
 }
@@ -297,6 +300,7 @@ static NSString *const kStyleMapDefaultState = @"normal";
                                                                               coordinate:center];
   GMSCoordinateBounds *bounds = [northEastBounds includingBounds:southWestBounds];
   GMSGroundOverlay *groundOverlay = [GMSGroundOverlay groundOverlayWithBounds:bounds icon:nil];
+  groundOverlay.tappable = true;
   groundOverlay.zIndex = overlay.zIndex;
   groundOverlay.bearing = overlay.rotation;
   __weak GMSGroundOverlay *weakGroundOverlay = groundOverlay;
