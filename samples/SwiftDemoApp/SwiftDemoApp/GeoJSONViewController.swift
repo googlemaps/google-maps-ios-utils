@@ -34,7 +34,7 @@ class GeoJSONViewController: UIViewController {
         renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
         renderer.render()
     } else {
-        
+        NSLog("Resource not available")
     }
   }
 }
