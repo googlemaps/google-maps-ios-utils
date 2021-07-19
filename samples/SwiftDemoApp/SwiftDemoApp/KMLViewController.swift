@@ -36,6 +36,8 @@ class KMLViewController: UIViewController {
                                        styles: kmlParser.styles,
                                        styleMaps: kmlParser.styleMaps)
         renderer.render()
+    } else {
+        NSLog("Resource not available")
     }
   }
 }
