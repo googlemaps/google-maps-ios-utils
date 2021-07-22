@@ -26,14 +26,13 @@ class GeoJSONViewController: UIViewController {
     let camera = GMSCameraPosition.camera(withLatitude: -28, longitude: 137, zoom: 4)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     self.view = mapView
-
-    let path = Bundle.main.path(forResource: "GeoJSON_sample", ofType: "json")
-    let url = URL(fileURLWithPath: path!)
+    guard let path = Bundle.main.path(forResource: "GeoJSON_sample", ofType: "json") else {
+        NSLog("Resource not available")
+        return
+    }
+    let url = URL(fileURLWithPath: path)
     geoJsonParser = GMUGeoJSONParser(url: url)
     geoJsonParser.parse()
-
     renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-
     renderer.render()
-  }
 }
