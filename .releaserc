@@ -17,22 +17,22 @@ plugins:
 
         - files:
             - "Podfile.template"
-          from: "'Google-Maps-iOS-Utils', '[0-9].[0-9].[0-9]'"
+          from: "'Google-Maps-iOS-Utils', '([0-9]+)\.([0-9]+)\.([0-9]+)'"
           to: "'Google-Maps-iOS-Utils', '${nextRelease.version}'"
 
         - files:
             - "README.md"
-          from: "~> [0-9].[0-9].[0-9]"
+          from: "~> ([0-9]+)\.([0-9]+)\.([0-9]+)"
           to: "~> ${nextRelease.version}"
 
         - files:
             - "README.md"
-          from: "from: \"[0-9].[0-9].[0-9]\""
+          from: "from: \"([0-9]+)\.([0-9]+)\.([0-9]+)\""
           to: "from: \"${nextRelease.version}\""
 
         - files:
             - "Package.swift"
-          from: "v[0-9].[0-9].[0-9]"
+          from: "v([0-9]+)\.([0-9]+)\.([0-9]+)"
           to: "v${nextRelease.version}"
   - - "@semantic-release/exec"
     - verifyConditionsCmd: "pod lib lint"
