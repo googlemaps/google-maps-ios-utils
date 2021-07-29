@@ -21,7 +21,7 @@ on:
   workflow_dispatch:
 jobs:
   release:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
     - name: Checkout
       uses: actions/checkout@v2
