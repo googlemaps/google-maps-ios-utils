@@ -71,6 +71,8 @@ dependencies: [
 ]
 ```
 
+In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, Carthage, or manual) 
+
 ## Samples and Example Usage
 
 e.g. Displaying KML data
