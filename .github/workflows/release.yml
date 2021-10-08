@@ -38,7 +38,7 @@ jobs:
 
     - name: Carthage update
       run: |
-        ./carthage.sh build
+        carthage build --use-xcframeworks
 
     - name: Create XCFramework
       run: |

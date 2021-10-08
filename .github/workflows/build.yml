@@ -35,10 +35,10 @@ jobs:
         brew install carthage
 
     - name: Carthage update
-      run: ./carthage.sh update --platform iOS
+      run: carthage update --platform iOS --use-xcframeworks
 
     - name: Carthage build
-      run: ./carthage.sh build --no-skip-current
+      run: carthage build --no-skip-current --use-xcframeworks
 
     - name: Build DevApp
       run: |

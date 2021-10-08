@@ -36,10 +36,10 @@ jobs:
         sudo gem install cocoapods
 
     - name: Carthage update
-      run: ./carthage.sh update --platform iOS
+      run: carthage update --platform iOS
 
     - name: Carthage build
-      run: ./carthage.sh build --no-skip-current
+      run: carthage build --no-skip-current --use-xcframeworks
 
     - name: CocoaPods spec lint
       run: pod lib lint Google-Maps-iOS-Utils.podspec
