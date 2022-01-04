@@ -100,6 +100,12 @@ func renderKml() {
 
 You can see more example usages in our [sample][samples] projects.
 
+## Developing
+
+1. Clone this repository
+1. Run `carthage update --platform iOS --use-xcframeworks` at the root of the repository
+1. Open the `GoogleMapsUtils.xcodeproj` file on Xcode and run one of the targets
+
 ## Support
 
 Encounter an issue while using this library?
