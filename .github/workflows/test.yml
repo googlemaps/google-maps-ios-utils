@@ -22,7 +22,7 @@ on:
     branches: ['*']
 
 jobs:
-  run_unit_tests:
+  test:
     runs-on: macos-latest
 
     steps:
