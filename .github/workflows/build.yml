@@ -83,3 +83,12 @@ jobs:
         xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
           -scheme ObjCDemoApp -configuration Debug \
           -destination "platform=iOS Simulator,OS=13.3,name=iPhone 8" build | xcpretty
+
+  test: # used as required status check
+    runs-on: ubuntu-latest
+    needs:
+      - build_dev_app
+      - build_swift_sample
+      - build_objc_sample   
+    steps: 
+      - run: echo "Fail if all other steps are not successful"
