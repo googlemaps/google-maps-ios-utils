@@ -35,4 +35,5 @@ class GeoJSONViewController: UIViewController {
     geoJsonParser.parse()
     renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
     renderer.render()
+  }
 }
