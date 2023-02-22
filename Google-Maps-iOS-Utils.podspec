@@ -14,17 +14,15 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/googlemaps/google-maps-ios-utils"
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.authors      = "Google Inc."
-  s.platform     = :ios, '9.0'
+  s.platform     = :ios, '13.0'
   s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
                      :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.0'
 
-  s.dependency 'GoogleMaps'
+  s.dependency 'GoogleMaps', '~> 7.3'
   s.static_framework = true
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   s.subspec 'QuadTree' do |sp|
     sp.public_header_files = "src/#{sp.base_name}/**/*.h"

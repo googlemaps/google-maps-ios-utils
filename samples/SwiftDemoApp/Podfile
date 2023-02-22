@@ -1,8 +1,8 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.0'
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
 
 target 'SwiftDemoApp' do
   use_frameworks!
-  pod 'GoogleMaps', '4.0.0'
+  pod 'GoogleMaps', '~> 7.3'
   pod 'Google-Maps-iOS-Utils', :path => '../..', :testspecs => ['Tests']
 end
