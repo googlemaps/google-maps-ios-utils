@@ -24,12 +24,12 @@ jobs:
     runs-on: macos-11
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
 
-    - name: Use Xcode 12.5.1
-      run: sudo xcode-select -s /Applications/Xcode_12.5.1.app/Contents/Developer
+    - name: Use Xcode 13.4.1
+      run: sudo xcode-select -s /Applications/Xcode_13.4.1.app/Contents/Developer
 
     - name: Install Dependencies
       run: |
@@ -67,7 +67,7 @@ jobs:
         sed -i '' "s/checksum: \"[a-z0-9]*\"/checksum: \"$CHECKSUM\"/g" $GITHUB_WORKSPACE/Package.swift
 
     - name: Semantic Release
-      uses: cycjimmy/semantic-release-action@v2
+      uses: cycjimmy/semantic-release-action@v3
       with:
         extra_plugins: |
           "@semantic-release/commit-analyzer"
