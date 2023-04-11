@@ -23,7 +23,8 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-* iOS 13.0+
+- iOS 13.0+
+- [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
 
 ## Installation
 
@@ -35,14 +36,14 @@ In your `Podfile`:
 use_frameworks!
 
 target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
+    pod 'Google-Maps-iOS-Utils', '4.1.0'
 end
 ```
 
 Replace `TARGET_NAME` and then, in the `Podfile` directory, type:
 
 ```bash
-$ pod install
+pod install
 ```
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
@@ -68,7 +69,7 @@ See the README for the Swift and Objective-C samples apps in [/samples](samples)
 
 ## Documentation
 
-Read documentation about this utility library on [developers.google.com](https://developers.google.com/maps/documentation/ios-sdk/utility) or within the [/docs](docs) directory.
+Read documentation about this utility library on [developers.google.com][devsite-guide] or within the [/docs](docs) directory.
 
 ## Usage
 
@@ -95,19 +96,18 @@ func renderKml() {
 }
 ```
 
+## Contributing
+
+Contributions are welcome and encouraged. Please see the [contributing guide][contributing] for guidance.
+
 ## Support
 
 Encounter an issue while using this library?
 
 If you find a bug or have a feature request, please file an [issue].
-Or, if you'd like to contribute, please refer to our [contributing guide][contributing] and our [code of conduct].
 
 You can also reach us on our [Discord server].
 
-For more information, check out the detailed guide on the
-[Google Developers site][devsite-guide].
-
-[Carthage doc]: docs/Carthage.md
 [Discord server]: https://discord.gg/9fwRNWg
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
