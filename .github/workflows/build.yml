@@ -28,7 +28,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install Dependencies
       run: |
@@ -42,7 +42,7 @@ jobs:
 
     - name: Build DevApp
       run: |
-        xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=13.3,name=iPhone 8" build | xcpretty
+        xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=14.2,name=iPhone 8" build | xcpretty
 
   build_swift_sample:
     runs-on: macos-latest
@@ -50,7 +50,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install Dependencies
       run: sudo gem install cocoapods
@@ -62,7 +62,7 @@ jobs:
       run: |
         xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
           -scheme SwiftDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=13.3,name=iPhone 8" build | xcpretty
+          -destination "platform=iOS Simulator,OS=14.2,name=iPhone 8" build | xcpretty
 
   build_objc_sample:
     runs-on: macos-latest
@@ -70,7 +70,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install Dependencies
       run: sudo gem install cocoapods
@@ -82,13 +82,13 @@ jobs:
       run: |
         xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
           -scheme ObjCDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=13.3,name=iPhone 8" build | xcpretty
+          -destination "platform=iOS Simulator,OS=14.2,name=iPhone 8" build | xcpretty
 
   test: # used as required status check
     runs-on: ubuntu-latest
     needs:
       - build_dev_app
       - build_swift_sample
-      - build_objc_sample   
-    steps: 
+      - build_objc_sample
+    steps:
       - run: echo "Fail if all other steps are not successful"
