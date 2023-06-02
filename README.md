@@ -23,7 +23,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-- iOS 14.0+
+- iOS 13.0+
 - [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
 
 ## Installation
@@ -61,7 +61,21 @@ dependencies: [
 ]
 ```
 
-In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XFFramework, or manual).
+### [Carthage](https://github.com/Carthage/Carthage)
+
+<details>
+<summary>Only supported if using Maps SDK v6.2.1 or earlier</summary>
+
+In your `Cartfile`:
+
+```
+github "googlemaps/google-maps-ios-utils" ~> 4.1.0
+```
+
+See the [Carthage doc] for further installation instructions.
+</details>
+
+In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XCFramework, Carthage (for v6.2.1 and earlier) or manual).
 
 ## Sample App
 
@@ -104,11 +118,12 @@ Contributions are welcome and encouraged. Please see the [contributing guide][co
 
 This library is offered via an open source [license]. It is not governed by the Google Maps Platform [Support Technical Support Services Guidelines](https://cloud.google.com/maps-platform/terms/tssg), the [SLA](https://cloud.google.com/maps-platform/terms/sla), or the [Deprecation Policy](https://cloud.google.com/maps-platform/terms) (however, any Google Maps Platform services used by the library remain subject to the Google Maps Platform Terms of Service).
 
-This library adheres to [semantic versioning](https://semver.org/) to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time. 
+This library adheres to [semantic versioning](https://semver.org/) to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time.
 
 If you find a bug, or have a feature request, please file an [issue] on GitHub. If you would like to get answers to technical questions from other Google Maps Platform developers, ask through one of our [developer community channels](https://developers.google.com/maps/developer-community) such as our [Discord server].
 
 [Discord server]: https://discord.gg/9fwRNWg
+[Carthage doc]: docs/Carthage.md
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
