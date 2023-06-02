@@ -19,7 +19,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 - **Quadtree data structure** - indexes 2D geometry points and performs
 2D range queries
 
-<p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/16808355/16646253/77feeb96-446c-11e6-9ec1-19e12a7fb3ae.png"></p>
+<p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/4.2.0feeb4.2.0c-4.2.0ec4.2.0a7fb3ae.png"></p>
 
 ## Requirements
 
@@ -36,7 +36,7 @@ In your `Podfile`:
 use_frameworks!
 
 target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '4.1.0'
+    pod 'Google-Maps-iOS-Utils', '4.2.0'
 end
 ```
 
@@ -56,7 +56,7 @@ Add the following to your `dependencies` value of your `Package.swift` file.
 dependencies: [
   .package(
     url: "https://github.com/googlemaps/google-maps-ios-utils.git",
-    .upToNextMinor(from: "4.1.0")
+    .upToNextMinor(from: "4.2.0")
   )
 ]
 ```
@@ -64,18 +64,18 @@ dependencies: [
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 <details>
-<summary>Only supported if using Maps SDK v6.2.1 or earlier</summary>
+<summary>Only supported if using Maps SDK v4.2.0 or earlier</summary>
 
 In your `Cartfile`:
 
 ```
-github "googlemaps/google-maps-ios-utils" ~> 4.1.0
+github "googlemaps/google-maps-ios-utils" ~> 4.2.0
 ```
 
 See the [Carthage doc] for further installation instructions.
 </details>
 
-In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XCFramework, Carthage (for v6.2.1 and earlier) or manual).
+In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XCFramework, Carthage (for v4.2.0 and earlier) or manual).
 
 ## Sample App
 
