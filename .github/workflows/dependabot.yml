@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   test:
-    uses: test.yml
+    uses: googlemaps/google-maps-ios-utils/.github/workflows/test.yml
   dependabot:
     needs: test
     runs-on: ubuntu-latest
