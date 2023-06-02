@@ -66,6 +66,10 @@ jobs:
         CHECKSUM=$(swift package compute-checksum ./GoogleMapsUtils.xcframework.zip)
         sed -i '' "s/checksum: \"[a-z0-9]*\"/checksum: \"$CHECKSUM\"/g" $GITHUB_WORKSPACE/Package.swift
 
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v3.4.1
       with:
