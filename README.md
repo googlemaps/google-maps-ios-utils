@@ -1,6 +1,5 @@
 ![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Run%20unit%20tests/badge.svg)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
@@ -24,7 +23,8 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-* iOS 11.0+
+- iOS 13.0+
+- [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
 
 ## Installation
 
@@ -36,25 +36,15 @@ In your `Podfile`:
 use_frameworks!
 
 target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
+    pod 'Google-Maps-iOS-Utils', '4.1.0'
 end
 ```
 
 Replace `TARGET_NAME` and then, in the `Podfile` directory, type:
 
 ```bash
-$ pod install
+pod install
 ```
-
-### [Carthage](https://github.com/Carthage/Carthage)
-
-In your `Cartfile`:
-
-```
-github "googlemaps/google-maps-ios-utils" ~> 4.1.0
-```
-
-See the [Carthage doc] for further installation instructions.
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
@@ -71,11 +61,33 @@ dependencies: [
 ]
 ```
 
-In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, Carthage, or manual) 
+### [Carthage](https://github.com/Carthage/Carthage)
 
-## Samples and Example Usage
+<details>
+<summary>Only supported if using Maps SDK v6.2.1 or earlier</summary>
 
-e.g. Displaying KML data
+In your `Cartfile`:
+
+```
+github "googlemaps/google-maps-ios-utils" ~> 4.1.0
+```
+
+See the [Carthage doc] for further installation instructions.
+</details>
+
+In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XCFramework, Carthage (for v6.2.1 and earlier) or manual).
+
+## Sample App
+
+See the README for the Swift and Objective-C samples apps in [/samples](samples).
+
+## Documentation
+
+Read documentation about this utility library on [developers.google.com][devsite-guide] or within the [/docs](docs) directory.
+
+## Usage
+
+### Displaying KML data
 
 ```swift
 import GoogleMapsUtils
@@ -98,35 +110,27 @@ func renderKml() {
 }
 ```
 
-You can see more example usages in our [sample][samples] projects.
+## Contributing
 
-## Developing
-
-1. Clone this repository
-1. Run `carthage update --platform iOS --use-xcframeworks` at the root of the repository
-1. Open the `GoogleMapsUtils.xcodeproj` file on Xcode and run one of the targets
+Contributions are welcome and encouraged. Please see the [contributing guide][contributing] for guidance.
 
 ## Support
 
-Encounter an issue while using this library?
+This library is offered via an open source [license]. It is not governed by the Google Maps Platform [Support Technical Support Services Guidelines](https://cloud.google.com/maps-platform/terms/tssg), the [SLA](https://cloud.google.com/maps-platform/terms/sla), or the [Deprecation Policy](https://cloud.google.com/maps-platform/terms) (however, any Google Maps Platform services used by the library remain subject to the Google Maps Platform Terms of Service).
 
-If you find a bug or have a feature request, please file an [issue].
-Or, if you'd like to contribute, please refer to our [contributing guide][contributing] and our [code of conduct].
+This library adheres to [semantic versioning](https://semver.org/) to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time.
 
-You can also reach us on our [Discord channel].
+If you find a bug, or have a feature request, please file an [issue] on GitHub. If you would like to get answers to technical questions from other Google Maps Platform developers, ask through one of our [developer community channels](https://developers.google.com/maps/developer-community) such as our [Discord server].
 
-For more information, check out the detailed guide on the
-[Google Developers site][devsite-guide].
-
+[Discord server]: https://discord.gg/9fwRNWg
 [Carthage doc]: docs/Carthage.md
-[Discord channel]: https://discord.gg/9fwRNWg
 [contributing]: CONTRIBUTING.md
 [code of conduct]: CODE_OF_CONDUCT.md
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
 [sdk]: https://developers.google.com/maps/documentation/ios-sdk
 [issue]: https://github.com/googlemaps/google-maps-ios-utils/issues
+[license]: LICENSE
 [customizing-markers]: docs/CustomMarkers.md
 [geometry-rendering]: docs/GeometryRendering.md
 [heatmap-rendering]: docs/HeatmapRendering.md
 [geometry-utils]: docs/GeometryUtils.md
-[samples]: https://github.com/googlemaps/google-maps-ios-utils/tree/master/samples

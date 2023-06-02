@@ -22,8 +22,8 @@ plugins:
 
         - files:
             - "README.md"
-          from: "~> ([0-9]+).([0-9]+).([0-9]+)"
-          to: "~> ${nextRelease.version}"
+          from: "([0-9]+).([0-9]+).([0-9]+)"
+          to: "${nextRelease.version}"
 
         - files:
             - "README.md"
