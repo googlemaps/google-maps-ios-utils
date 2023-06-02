@@ -20,7 +20,7 @@ on:
     types: [test]
   pull_request:
     branches: ['*']
-  workflow_call
+  workflow_call:
 
 jobs:
   test:
