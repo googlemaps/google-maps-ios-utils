@@ -23,7 +23,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-- iOS 13.0+
+- iOS 14.0+
 - [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
 
 ## Installation
@@ -64,12 +64,12 @@ dependencies: [
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 <details>
-<summary>Only supported if using Maps SDK v4.2.0 or earlier</summary>
+<summary>Only supported if using Maps SDK v6.2.1 or earlier</summary>
 
 In your `Cartfile`:
 
 ```
-github "googlemaps/google-maps-ios-utils" ~> 4.2.0
+github "googlemaps/google-maps-ios-utils" ~> 4.1.0
 ```
 
 See the [Carthage doc] for further installation instructions.
