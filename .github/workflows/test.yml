@@ -33,14 +33,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        brew install carthage
         sudo gem install cocoapods
-
-    - name: Carthage update
-      run: carthage update --platform iOS --use-xcframeworks
-
-    - name: Carthage build
-      run: carthage build --no-skip-current --use-xcframeworks
 
     - name: CocoaPods spec lint
       run: pod lib lint Google-Maps-iOS-Utils.podspec
