@@ -22,13 +22,8 @@ plugins:
 
         - files:
             - "README.md"
-          from: "([0-9]+).([0-9]+).([0-9]+)"
+          from: "(?!6.2.1|4.1.0)([0-9]+).([0-9]+).([0-9]+)"
           to: "${nextRelease.version}"
-
-        - files:
-            - "README.md"
-          from: "from: \"([0-9]+).([0-9]+).([0-9]+)\""
-          to: "from: \"${nextRelease.version}\""
 
         - files:
             - "Package.swift"
