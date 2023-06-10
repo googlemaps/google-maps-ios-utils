@@ -28,6 +28,10 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Installation
 
+1. [Include the `GoogleMaps` dependency](https://developers.google.com/maps/documentation/ios-sdk/config#download-sdk) using one of the available installation options (CocoaPods, XCFramework, Carthage (for v6.2.1 and earlier) or manual).
+
+1. Add this utility library using one of the methods below:
+
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
 In your `Podfile`:
@@ -75,8 +79,6 @@ github "googlemaps/google-maps-ios-utils" ~> 4.1.0
 See the [Carthage doc] for further installation instructions.
 </details>
 
-In addition to this, you will also have to include the `GoogleMaps` dependency using one of the available installation options (CocoaPods, XCFramework, Carthage (for v6.2.1 and earlier) or manual).
-
 ## Sample App
 
 See the README for the Swift and Objective-C samples apps in [/samples](samples).
@@ -87,9 +89,45 @@ Read documentation about this utility library on [developers.google.com][devsite
 
 ## Usage
 
+### Clustering markers
+
+```swift
+import GoogleMaps
+import GoogleMapsUtils
+
+class MarkerClustering: UIViewController, GMSMapViewDelegate {
+  private var mapView: GMSMapView!
+  private var clusterManager: GMUClusterManager!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Set up the cluster manager with the supplied icon generator and
+    // renderer.
+    let iconGenerator = GMUDefaultClusterIconGenerator()
+    let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+    let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                clusterIconGenerator: iconGenerator)
+    clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                                      renderer: renderer)
+
+    // Register self to listen to GMSMapViewDelegate events.
+    clusterManager.setMapDelegate(self)
+    // ...
+  }
+  // ...
+}
+
+let markerArray = [marker1, marker2, marker3, marker4] // define your own markers
+clusterManager.add(markerArray)
+
+clusterManager.cluster()
+```
+
 ### Displaying KML data
 
 ```swift
+import GoogleMaps
 import GoogleMapsUtils
 
 func renderKml() {
