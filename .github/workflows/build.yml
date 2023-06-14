@@ -42,7 +42,7 @@ jobs:
 
     - name: Build DevApp
       run: |
-        xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=13.2.1,name=iPhone 8" build | xcpretty
+        xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 8" build | xcpretty
 
   build_swift_sample:
     runs-on: macos-latest
@@ -62,7 +62,7 @@ jobs:
       run: |
         xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
           -scheme SwiftDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=13.2.1,name=iPhone 8" build | xcpretty
+          -destination "platform=iOS Simulator,OS=14.2,name=iPhone 8" build | xcpretty
 
   build_objc_sample:
     runs-on: macos-latest
@@ -82,7 +82,7 @@ jobs:
       run: |
         xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
           -scheme ObjCDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=13.2.1,name=iPhone 8" build | xcpretty
+          -destination "platform=iOS Simulator,OS=14.2,name=iPhone 8" build | xcpretty
 
   test: # used as required status check
     runs-on: ubuntu-latest
