@@ -37,6 +37,7 @@ plugins:
         - "./Google-Maps-iOS-Utils.podspec"
         - "./GoogleMapsUtils.xcodeproj/project.pbxproj"
         - "*.md"
+        - "Podfile.template"
         - "Package.swift"
   - - "@semantic-release/github"
     - assets:
