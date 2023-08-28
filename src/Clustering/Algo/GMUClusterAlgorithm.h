@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addItems:(NSArray<id<GMUClusterItem>> *)items;
 
 /**
- * setter.
+ * Set the distance for marker clustering for the NonHierarchicalDistanceBasedAlgorithm.
  */
 - (void) setClusterDistancePoints:(NSUInteger)newValue;
 
