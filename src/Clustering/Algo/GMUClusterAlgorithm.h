@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addItems:(NSArray<id<GMUClusterItem>> *)items;
 
 /**
+ * setter.
+ */
+- (void) setClusterDistancePoints:(NSUInteger)newValue;
+
+/**
  * Removes an item.
  */
 - (void)removeItem:(id<GMUClusterItem>)item;

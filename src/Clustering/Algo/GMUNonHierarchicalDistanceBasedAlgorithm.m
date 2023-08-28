@@ -97,6 +97,14 @@ static const double kGMUMapPointWidth = 2.0;  // MapPoint is in a [-1,1]x[-1,1] 
     return self;
 }
 
+- (NSUInteger)clusterDistancePoints {
+    return _clusterDistancePoints;
+}
+
+- (void)setClusterDistancePoints:(NSUInteger)newValue {
+    _clusterDistancePoints = newValue;
+}
+
 - (void)addItems:(NSArray<id<GMUClusterItem>> *)items {
   [_items addObjectsFromArray:items];
   for (id<GMUClusterItem> item in items) {
