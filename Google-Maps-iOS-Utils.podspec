@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.0'
 
-  s.dependency 'GoogleMaps', '~> 8.3'
+  s.dependency 'GoogleMaps'
   s.static_framework = true
 
   s.subspec 'QuadTree' do |sp|

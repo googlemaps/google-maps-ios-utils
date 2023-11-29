@@ -32,13 +32,7 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_14.2.app
 
     - name: Install Dependencies
-      run: |
-        brew install carthage
-        sudo gem install cocoapods
-
-    - name: Carthage update
-      run: |
-        carthage build --use-xcframeworks
+      run: sudo gem install cocoapods
 
     - name: Create XCFramework
       run: |

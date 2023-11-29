@@ -25,6 +25,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 - iOS 14.0+
 - [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
+- An [API key](https://developers.google.com/maps/documentation/ios-sdk/get-api-key)
 
 ## Installation
 
@@ -54,7 +55,33 @@ pod install
 
 **Note**: This feature is only available with Swift 5.3 (Xcode 12) or later.
 
-Add the following to your `dependencies` value of your `Package.swift` file.
+1. Follow the instructions for
+    [adding package dependencies to your app in Xcode](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
+
+2. In the "Enter Package URL" field, enter this GitHub repository:
+
+  ```
+  https://github.com/googlemaps/google-maps-ios-utils
+  ```
+
+3. Select the
+    [version](https://github.com/googlemaps/google-maps-ios-utils/releases)
+    of the Maps SDK for iOS Utility Library that you want to use. For new projects, we recommend specifying the latest version and using the "Up to Next Major Version" option.
+
+4. Follow the
+    [instructions](https://developers.google.com/maps/documentation/ios-sdk/config#get-key) to add your API key to your app.
+
+Alternatively, you can add the following to the `dependencies` value of your
+`Package.swift` file:
+
+```
+dependencies: [
+  .package(
+    url: "https://github.com/googlemaps/ios-maps-sdk.git",
+    .upToNextMajor(from: "8.3.0")
+  )
+]
+```
 
 ```
 dependencies: [

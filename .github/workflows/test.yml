@@ -31,12 +31,14 @@ jobs:
     - name: Checkout google-maps-ios-utils
       uses: actions/checkout@v3
 
+      # Lint check on the podspec
     - name: Install Dependencies
       run: sudo gem install cocoapods
 
     - name: CocoaPods spec lint
-      run: pod lib lint Google-Maps-iOS-Utils.podspec
+      run: pod spec lint Google-Maps-iOS-Utils.podspec
 
+      # Run unit tests
     - name: Run unit tests
       run: |
         xcodebuild -scheme UnitTest -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build test | xcpretty
