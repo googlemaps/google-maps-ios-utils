@@ -40,7 +40,9 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
   override func loadView() {
     let camera = GMSCameraPosition.camera(withLatitude: kCameraLatitude,
       longitude: kCameraLongitude, zoom: 10)
-    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    mapView = GMSMapView.init(options: options)
     self.view = mapView
   }
 
