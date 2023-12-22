@@ -68,7 +68,9 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     heatmapTileLayer.minimumZoomIntensity = 5
     heatmapTileLayer.maximumZoomIntensity = 10
     let camera = GMSCameraPosition.camera(withLatitude: cameraLatitude, longitude: cameraLongitude, zoom: 4)
-    heatmapTileLayer.map = GMSMapView.map(withFrame: .zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    heatmapTileLayer.map = GMSMapView.init(options: options)
     XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
     XCTAssertNotEqual(weightedData, heatmapTileLayer.weightedData)
     XCTAssertEqual(radius, heatmapTileLayer.radius)
