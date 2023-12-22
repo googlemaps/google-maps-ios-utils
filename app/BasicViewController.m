@@ -45,7 +45,9 @@ typedef NS_ENUM(NSInteger, ClusterAlgorithmMode) {
 - (void)loadView {
   GMSCameraPosition *camera =
       [GMSCameraPosition cameraWithLatitude:kCameraLatitude longitude:kCameraLongitude zoom:10];
-  _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+  GMSMapViewOptions *options = [[GMSMapViewOptions alloc] init];
+  options.camera = camera;
+  _mapView = [[GMSMapView alloc] initWithOptions:options];
   self.view = _mapView;
 }
 

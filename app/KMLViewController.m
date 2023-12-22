@@ -32,7 +32,9 @@ static const double kCameraLongitude = -122.0841;
 - (void)loadView {
   GMSCameraPosition *camera =
       [GMSCameraPosition cameraWithLatitude:kCameraLatitude longitude:kCameraLongitude zoom:17];
-  _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+  GMSMapViewOptions *options = [[GMSMapViewOptions alloc] init];
+  options.camera = camera;
+  _mapView = [[GMSMapView alloc] initWithOptions:options];
   self.view = _mapView;
 }
 
