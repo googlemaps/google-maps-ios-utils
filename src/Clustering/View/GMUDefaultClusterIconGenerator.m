@@ -142,24 +142,28 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
 
   UIFont *font = [UIFont boldSystemFontOfSize:12];
   CGSize size = image.size;
-  UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-  [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-  CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+  UIGraphicsImageRendererFormat * rendererFormat = [UIGraphicsImageRendererFormat defaultFormat];
+  rendererFormat.opaque = NO;
+  rendererFormat.scale = 0.0f;
+  UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size format: rendererFormat];
 
-  NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-  paragraphStyle.alignment = NSTextAlignmentCenter;
-  NSDictionary *attributes = @{
-    NSFontAttributeName : font,
-    NSParagraphStyleAttributeName : paragraphStyle,
-    NSForegroundColorAttributeName : [UIColor whiteColor]
-  };
-  CGSize textSize = [text sizeWithAttributes:attributes];
-  CGRect textRect = CGRectInset(rect, (rect.size.width - textSize.width) / 2,
-                                (rect.size.height - textSize.height) / 2);
-  [text drawInRect:CGRectIntegral(textRect) withAttributes:attributes];
 
-  UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
+  UIImage *newImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * ctx) {
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    NSDictionary *attributes = @{
+      NSFontAttributeName : font,
+      NSParagraphStyleAttributeName : paragraphStyle,
+      NSForegroundColorAttributeName : [UIColor whiteColor]
+    };
+    CGSize textSize = [text sizeWithAttributes:attributes];
+    CGRect textRect = CGRectInset(rect, (rect.size.width - textSize.width) / 2,
+                                  (rect.size.height - textSize.height) / 2);
+    [text drawInRect:CGRectIntegral(textRect) withAttributes:attributes];
+  }];
 
   [_iconCache setObject:newImage forKey:text];
   return newImage;
@@ -185,25 +189,21 @@ static NSArray<UIColor *> *kGMUBucketBackgroundColors;
   // larger buckets).
   CGFloat rectDimension = MAX(20, MAX(textSize.width, textSize.height)) + 3 * bucketIndex + 6;
   CGRect rect = CGRectMake(0.f, 0.f, rectDimension, rectDimension);
-  UIGraphicsBeginImageContext(rect.size);
+  UIGraphicsImageRenderer * renderer = [[UIGraphicsImageRenderer alloc] initWithSize:rect.size];
 
   // Draw background circle.
-  UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
-  CGContextRef ctx = UIGraphicsGetCurrentContext();
-  CGContextSaveGState(ctx);
   bucketIndex = MIN(bucketIndex, _backgroundColors.count - 1);
-  UIColor *backColor = _backgroundColors[bucketIndex];
-  CGContextSetFillColorWithColor(ctx, backColor.CGColor);
-  CGContextFillEllipseInRect(ctx, rect);
-  CGContextRestoreGState(ctx);
+  UIImage *newImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull ctx) {
+    UIColor *backColor = _backgroundColors[bucketIndex];
+    CGContextSetFillColorWithColor(ctx.CGContext, backColor.CGColor);
+    CGContextFillEllipseInRect(ctx.CGContext, rect);
 
-  // Draw text.
-  [[UIColor whiteColor] set];
-  CGRect textRect = CGRectInset(rect, (rect.size.width - textSize.width) / 2,
-                                (rect.size.height - textSize.height) / 2);
-  [text drawInRect:CGRectIntegral(textRect) withAttributes:attributes];
-  UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
+    // Draw text.
+    [[UIColor whiteColor] set];
+    CGRect textRect = CGRectInset(rect, (rect.size.width - textSize.width) / 2,
+                                  (rect.size.height - textSize.height) / 2);
+    [text drawInRect:CGRectIntegral(textRect) withAttributes:attributes];
+  }];
 
   [_iconCache setObject:newImage forKey:text];
   return newImage;
