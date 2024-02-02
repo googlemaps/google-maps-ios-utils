@@ -18,14 +18,37 @@ import PackageDescription
 
 let package = Package(
   name: "GoogleMapsUtils",
+  platforms: [
+      .iOS(.v14)
+  ],
   products: [
-    .library(name: "GoogleMapsUtils", targets: ["GoogleMapsUtils"])
+    .library(
+      name: "GoogleMapsUtils",
+      targets: ["GoogleMapsUtils", "GoogleMapsUtilsSwift"]),
+  ],
+  dependencies: [
+    .package(
+      url: "https://github.com/googlemaps/ios-maps-sdk",
+      from: "8.3.1")
   ],
   targets: [
-    .binaryTarget(
+    .target(
       name: "GoogleMapsUtils",
-      url: "https://github.com/googlemaps/google-maps-ios-utils/releases/download/v4.2.2/GoogleMapsUtils.xcframework.zip",
-      checksum: "e4c5c3a669ad65130d52c22bd993724707d054ba065d6f60b396715e465504a2"
+      dependencies: [
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
+      ],
+      publicHeadersPath: "include"
+    ),
+    .target(
+      name: "GoogleMapsUtilsSwift",
+      dependencies: [
+        "GoogleMapsUtils",
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
+      ]
     )
   ]
 )
