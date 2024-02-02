@@ -39,7 +39,7 @@ let package = Package(
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ],
-      publicHeadersPath: "include"
+      publicHeadersPath: "Sources/GoogleMapsUtils/include"
     ),
     .target(
       name: "GoogleMapsUtilsSwift",
