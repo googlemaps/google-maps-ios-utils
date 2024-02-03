@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-#import <UIKit/UIKit.h"
+#import <UIKit/UIKit.h>
 
 //! Project version number for GoogleMapsUtils.
 FOUNDATION_EXPORT double GoogleMapsUtilsVersionNumber;
@@ -26,9 +26,11 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 // Heatmap
 #import "GMUGradient.h"
 #import "GMUHeatmapTileLayer.h"
+#import "GMUHeatmapTileLayer+Testing.h"
 #import "GMUWeightedLatLng.h"
 
 // Clustering
+#import "GMUMarkerClustering.h"
 #import "GMUClusterAlgorithm.h"
 #import "GMUGridBasedClusterAlgorithm.h"
 #import "GMUNonHierarchicalDistanceBasedAlgorithm.h"
@@ -42,7 +44,9 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 #import "GMUClusterIconGenerator.h"
 #import "GMUClusterRenderer.h"
 #import "GMUDefaultClusterIconGenerator.h"
+#import "GMUDefaultClusterIconGenerator+Testing.h"
 #import "GMUDefaultClusterRenderer.h"
+#import "GMUDefaultClusterRenderer+Testing.h"
 #import "GMSMarker+GMUClusteritem.h"
 
 // Geometry
@@ -58,6 +62,7 @@ FOUNDATION_EXPORT const unsigned char GoogleMapsUtilsVersionString[];
 #import "GMUStyle.h"
 #import "GMUGeoJSONParser.h"
 #import "GMUGeometryRenderer.h"
+#import "GMUGeometryRenderer+Testing.h"
 #import "GMUKMLParser.h"
 #import "GMUStyleMap.h"
 #import "GMUPair.h"

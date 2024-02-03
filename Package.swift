@@ -16,22 +16,6 @@
 
 import PackageDescription
 
-#if os(macOS)
-#error("This package does not support macOS.")
-#endif
-
-#if os(tvOS)
-#error("This package does not support tvOS.")
-#endif
-
-#if os(visionOS)
-#error("This package does not support visionOS.")
-#endif
-
-#if os(watchOS)
-#error("This package does not support watchOS.")
-#endif
-
 let package = Package(
   name: "GoogleMapsUtils",
   platforms: [
@@ -55,12 +39,12 @@ let package = Package(
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ],
-      publicHeadersPath: "Sources/GoogleMapsUtils/include"
+      publicHeadersPath: "include"
     ),
     .target(
       name: "GoogleMapsUtilsSwift",
       dependencies: [
-        "GoogleMapsUtils",
+        .target(name: "GoogleMapsUtils"),
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
