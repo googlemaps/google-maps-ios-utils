@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 
 // Copyright 2020 Google LLC
 //
@@ -16,10 +16,26 @@
 
 import PackageDescription
 
+#if os(macOS)
+#error("This package does not support macOS.")
+#endif
+
+#if os(tvOS)
+#error("This package does not support tvOS.")
+#endif
+
+#if os(visionOS)
+#error("This package does not support visionOS.")
+#endif
+
+#if os(watchOS)
+#error("This package does not support watchOS.")
+#endif
+
 let package = Package(
   name: "GoogleMapsUtils",
   platforms: [
-      .iOS(.v14)
+    .iOS(.v14),
   ],
   products: [
     .library(
