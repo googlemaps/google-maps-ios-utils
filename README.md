@@ -23,8 +23,9 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-- iOS 13.0+
+- iOS 14.0+
 - [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
+- An [API key](https://developers.google.com/maps/documentation/ios-sdk/get-api-key)
 
 ## Installation
 
@@ -52,18 +53,27 @@ pod install
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-**Note**: This feature is only available with Swift 5.3 (Xcode 12) or later.
+> [!NOTE]
+> This feature is only available with Swift 5.3 (Xcode 12) or later.
 
-Add the following to your `dependencies` value of your `Package.swift` file.
+1. Follow the instructions for
+    [adding package dependencies to your app in Xcode](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 
-```
-dependencies: [
-  .package(
-    url: "https://github.com/googlemaps/google-maps-ios-utils.git",
-    .upToNextMinor(from: "4.2.2")
-  )
-]
-```
+2. In the "Enter Package URL" field, enter this GitHub repository:
+
+  ```
+  https://github.com/googlemaps/google-maps-ios-utils
+  ```
+
+> [!IMPORTANT]
+> You also need to install the Maps SDK for iOS, which is also supported in Swift Package Manager at the URL `https://github.com/googlemaps/ios-maps-sdk`
+
+3. Select the
+    [version](https://github.com/googlemaps/google-maps-ios-utils/releases)
+    of the Maps SDK for iOS Utility Library that you want to use. For new projects, we recommend specifying the latest version and using the "Exact Version" option.
+
+4. Follow the
+    [instructions](https://developers.google.com/maps/documentation/ios-sdk/config#get-key) to add your API key to your app.
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
@@ -151,6 +161,12 @@ func renderKml() {
 ## Contributing
 
 Contributions are welcome and encouraged. Please see the [contributing guide][contributing] for guidance.
+
+## Terms of Service
+
+This library uses Google Maps Platform services, and any use of Google Maps Platform is subject to the [Terms of Service](https://cloud.google.com/maps-platform/terms).
+
+For clarity, this library, and each underlying component, is not a Google Maps Platform Core Service.
 
 ## Support
 

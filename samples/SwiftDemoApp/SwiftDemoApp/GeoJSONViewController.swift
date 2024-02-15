@@ -24,7 +24,9 @@ class GeoJSONViewController: UIViewController {
 
   override func loadView() {
     let camera = GMSCameraPosition.camera(withLatitude: -28, longitude: 137, zoom: 4)
-    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    mapView = GMSMapView.init(options: options)
     self.view = mapView
     guard let path = Bundle.main.path(forResource: "GeoJSON_sample", ofType: "json") else {
         NSLog("Resource not available")

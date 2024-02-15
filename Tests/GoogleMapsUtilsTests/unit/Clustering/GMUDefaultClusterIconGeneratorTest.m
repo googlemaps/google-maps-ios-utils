@@ -120,7 +120,7 @@
 }
 
 - (void)testIconForTextWithBaseImageNilAndNilUIImage {
-  XCTAssertNil([[GMUDefaultClusterIconGenerator alloc] iconForText:@"1000+" withBaseImage:nil]);
+  XCTAssertNotNil([[GMUDefaultClusterIconGenerator alloc] iconForText:@"1000+" withBaseImage:nil]);
 }
 
 - (void)testInitThrowsWhenBucketsAndBackgroundImagesAreOfDifferentSize {

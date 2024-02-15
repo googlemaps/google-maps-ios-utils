@@ -28,7 +28,9 @@ class HeatmapViewController: UIViewController, GMSMapViewDelegate {
 
   override func loadView() {
     let camera = GMSCameraPosition.camera(withLatitude: -37.848, longitude: 145.001, zoom: 10)
-    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    mapView = GMSMapView.init(options: options)
     mapView.delegate = self
     self.view = mapView
     makeButton()

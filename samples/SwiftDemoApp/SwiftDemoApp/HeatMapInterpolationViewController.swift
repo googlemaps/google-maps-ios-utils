@@ -44,7 +44,9 @@ class HeatMapInterpolationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 145.20, zoom: 5.0)
-        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+      let options = GMSMapViewOptions()
+      options.camera = camera
+      mapView = GMSMapView.init(options: options)
         view.addSubview(mapView)
         view.bringSubviewToFront(renderButton)
         view.bringSubviewToFront(defaultRender)

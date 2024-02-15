@@ -39,7 +39,9 @@ class ViewController: UIViewController, GMUClusterManagerDelegate, GMSMapViewDel
   override func loadView() {
     let camera = GMSCameraPosition.cameraWithLatitude(kCameraLatitude,
       longitude: kCameraLongitude, zoom: 10)
-    mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    mapView = GMSMapView.init(options: options)
     self.view = mapView
   }
 

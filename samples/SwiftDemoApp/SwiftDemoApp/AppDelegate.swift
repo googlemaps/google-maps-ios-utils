@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError("Please provide an API Key using mapsAPIKey")
     }
     GMSServices.provideAPIKey(mapsAPIKey)
-    let masterViewControler = MasterViewController()
-    let navigationController = UINavigationController(rootViewController: masterViewControler)
+    let masterViewController = MasterViewController()
+    let navigationController = UINavigationController(rootViewController: masterViewController)
     window?.rootViewController = navigationController
     return true
   }
