@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.3'
 
   s.dependency 'GoogleMaps'
+  s.ios.resource_bundle = { 'GoogleMaps' => 'Resources/**/*' }
   s.static_framework = true
 
   s.subspec 'QuadTree' do |sp|
