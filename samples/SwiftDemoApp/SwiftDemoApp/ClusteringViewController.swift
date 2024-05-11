@@ -15,7 +15,7 @@
 
 import GoogleMaps
 import UIKit
-import GoogleMapsUtils
+import GoogleMapsUtilsSwift
 
 /// Point of Interest Item which implements the GMUClusterItem protocol.
 class POIItem: NSObject, GMUClusterItem {

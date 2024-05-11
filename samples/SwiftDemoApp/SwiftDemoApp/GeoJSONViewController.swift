@@ -15,7 +15,7 @@
 
 import GoogleMaps
 import UIKit
-import GoogleMapsUtils
+import GoogleMapsUtilsSwift
 
 class GeoJSONViewController: UIViewController {
   private var mapView: GMSMapView!

@@ -16,7 +16,7 @@
 import Foundation
 import GoogleMaps
 import UIKit
-import GoogleMapsUtils
+import GoogleMapsUtilsSwift
 
 class HeatmapViewController: UIViewController, GMSMapViewDelegate {
   private var mapView: GMSMapView!

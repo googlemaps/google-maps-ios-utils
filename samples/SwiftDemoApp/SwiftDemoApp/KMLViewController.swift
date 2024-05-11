@@ -15,7 +15,7 @@
 
 import GoogleMaps
 import UIKit
-import GoogleMapsUtils
+import GoogleMapsUtilsSwift
 
 class KMLViewController: UIViewController {
   private var mapView: GMSMapView!

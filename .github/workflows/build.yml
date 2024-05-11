@@ -33,12 +33,8 @@ jobs:
     - name: Install Dependencies
       run: sudo gem install cocoapods
 
-    - name: CocoaPods spec lint
-      run: pod spec lint Google-Maps-iOS-Utils.podspec
-
-    - name: Build DevApp
-      run: |
-        xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+    - name: CocoaPods lib lint
+      run: pod lib lint Google-Maps-iOS-Utils.podspec
 
   build_swift_sample:
     runs-on: macos-latest

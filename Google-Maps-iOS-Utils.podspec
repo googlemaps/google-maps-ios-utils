@@ -19,27 +19,26 @@ Pod::Spec.new do |s|
                     :branch => "wangela/8-0-0" }
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
-  s.swift_version = '5.3'
+  s.swift_version = '5.9'
 
-  s.dependency 'GoogleMaps'
-  s.ios.resource_bundle = { 'GoogleMaps' => 'Resources/**/*' }
+  s.dependency 'GoogleMaps', '~> 8.0'
   s.static_framework = true
 
   s.subspec 'QuadTree' do |sp|
     sp.public_header_files = "Sources/GoogleMapsUtils/include/*.h"
-    sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}", "Sources/GoogleMapsUtilsSwift/#{sp.base_name}/**/*.swift"
+    sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}"
   end
 
   s.subspec 'Clustering' do |sp|
     sp.public_header_files = "Sources/GoogleMapsUtils/include/*.h"
-    sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}", "Sources/GoogleMapsUtilsSwift/#{sp.base_name}/**/*.swift"
+    sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}"
     sp.exclude_files = "Sources/GoogleMapsUtils/include/GMUMarkerClustering.h"
     sp.dependency 'Google-Maps-iOS-Utils/QuadTree'
   end
 
   s.subspec 'Geometry' do |sp|
      sp.public_header_files = "Sources/GoogleMapsUtils/include/*.h"
-     sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}", "Sources/GoogleMapsUtilsSwift/#{sp.base_name}/**/*.swift"
+     sp.source_files = "Sources/GoogleMapsUtils/include/*.{h,m}"
   end
 
   s.subspec 'Heatmap' do |sp|
@@ -56,8 +55,23 @@ Pod::Spec.new do |s|
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
       "Sources/GoogleMapsUtils/include/GoogleMapsUtils.h",
-      "Tests/GoogleMapsUtilsTests/common/Model/*.{h,m,swift}",
-      "Tests/GoogleMapsUtilsTests/unit/**/*.{h,m,swift}",
+      "Tests/GoogleMapsUtilsTests/common/Model/*.{h,m}",
+      "Tests/GoogleMapsUtilsTests/unit/**/*.{h,m}",
+    ]
+    unit_tests.resources = [
+      "Tests/GoogleMapsUtilsTests/resources/**/*.{geojson,kml}"
+    ]
+    unit_tests.pod_target_xcconfig = {
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTests/unit/BridgingHeader/UnitTest-Bridging-Header.h"
+    }
+    unit_tests.dependency 'OCMock'
+  end
+
+  s.test_spec 'TestsSwift' do |unit_tests|
+    unit_tests.source_files = [
+      "Sources/GoogleMapsUtils/include/GoogleMapsUtils.h",
+      "Sources/GoogleMapsUtilsSwift/**/*.swift",
+      "Tests/GoogleMapsUtilsTestsSwift/unit/**/*.swift",
     ]
     unit_tests.resources = [
       "Tests/GoogleMapsUtilsTests/resources/**/*.{geojson,kml}"
