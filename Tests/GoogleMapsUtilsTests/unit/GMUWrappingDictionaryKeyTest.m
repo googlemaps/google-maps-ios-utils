@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import <GoogleMapsUtils/GMUWrappingDictionaryKey.h>
+#import <GMUWrappingDictionaryKey.h>
 
 #import <XCTest/XCTest.h>
 

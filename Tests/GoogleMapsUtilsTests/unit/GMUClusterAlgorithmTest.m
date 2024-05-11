@@ -17,10 +17,8 @@
 #error "This file requires ARC support."
 #endif
 
-#import "GMUClusterAlgorithmTest.h"
-#import <GoogleMapsUtils/GMUCluster.h>
-#import "GoogleMaps/GMSGeometryUtils.h"
-#import "GMUTestClusterItem.h"
+@import GoogleMapsUtils
+@import GMUTestClusterItem
 
 const static CLLocationCoordinate2D kLocation1 = {-1, -1};
 const static CLLocationCoordinate2D kLocation2 = {-1, 1};

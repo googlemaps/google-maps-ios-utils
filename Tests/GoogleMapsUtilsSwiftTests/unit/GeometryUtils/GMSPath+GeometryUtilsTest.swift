@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,9 @@
 
 
 import XCTest
+
 @testable import GoogleMapsUtils
+@testable import GoogleMapsUtilsSwift
 
 class GMSPathGeometryUtilsTest : XCTestCase {
   private let smallDiff = 5e-7 // About 5 cm on equator, half the default tolerance of defaultTolerance
