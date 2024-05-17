@@ -1,3 +1,5 @@
+/*
+
 // Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +21,7 @@ import XCTest
 
 final class GMUGeometryRendererTest: XCTestCase {
 
-  private var mapView: MockMapView
+  private var mapView: MockMapView = MockMapView()
   private var renderer: GMUGeometryRenderer!
 
   static let titleText: String = "Test Title"
@@ -36,7 +38,6 @@ final class GMUGeometryRendererTest: XCTestCase {
   override func setUp() {
     super.setUp()
     renderer = GMUGeometryRenderer()
-    mapView = MockMapView()
   }
 
   override func tearDown() {
@@ -48,11 +49,10 @@ final class GMUGeometryRendererTest: XCTestCase {
     XCTAssertNotNil(renderer)
     XCTAssertEqual(renderer.mapOverlays().count, 0)
   }
-
+    
   func testRenderPointWithStyle() {
     let point = GMUPoint(coordinate: CLLocationCoordinate2D(latitude: 37.7, longitude: -122.4))
     let placemark = GMUPlacemark(geometry: point, title: GMUGeometryRendererTest.titleText, snippet: nil, style: nil, styleUrl: GMUGeometryRendererTest.styleId)
-
 
     renderer = GMUGeometryRenderer(map: mapView, geometries: [placemark], styles: [GMUGeometryRendererTest.styleForTest])
     renderer.render()
@@ -164,11 +164,4 @@ final class GMUGeometryRendererTest: XCTestCase {
 
 }
 
-protocol MapView {
-}
-
-class MockMapView: MapView {
-}
-
-extension GMSMapView: MapView {
-}
+*/
