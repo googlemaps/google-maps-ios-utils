@@ -21,8 +21,8 @@ final class MockTest: XCTestCase {
         viewController = MyViewController()
         mockMapView = MockMapView()
         
-        //note: the magic occurs here, as the mapView property is defined as a protocol
-        //this means different classes can still appear as equal if they both conform to the sample protocol.
+        //note: the magic occurs here, as the mapView property is defined as a protocol.
+        //implemented as a type, this means different classes can conform to the same rules.
         viewController.mapView = mockMapView
     }
 
@@ -42,6 +42,9 @@ final class MockTest: XCTestCase {
 
         XCTAssertEqual(mockMapView.setCameraCallCount, 1)
         XCTAssertEqual(mockMapView.setCameraReceivedArguments.first!, cameraPosition)
+        
+        //let map: MapViewProtocol = GMSMapView(options: GMSMapViewOptions())
+        //this code correctly complies, but fails at runtime, as initialization requires an API key..
     }
     
     //helper function - to demonstrate functionality
