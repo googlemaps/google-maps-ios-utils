@@ -65,7 +65,7 @@ let package = Package(
       path: "Tests/GoogleMapsUtilsTests/unit",
       cSettings: [
         .headerSearchPath("../../.."),
-        .headerSearchPath("../common/Model"),
+        .headerSearchPath(".."),
       ]
     ),
     .testTarget(
