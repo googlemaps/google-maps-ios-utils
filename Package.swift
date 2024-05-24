@@ -30,9 +30,9 @@ let package = Package(
     .package(
       url: "https://github.com/googlemaps/ios-maps-sdk",
       from: "8.3.1"),
-//    .package(
-//      url: "https://github.com/erikdoe/ocmock.git",
-//      revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
+    .package(
+      url: "https://github.com/erikdoe/ocmock.git",
+      revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
   ],
   targets: [
     .target(
@@ -57,26 +57,27 @@ let package = Package(
       ]
     ),
     .testTarget(
+      name: "GoogleMapsUtilsTests",
+      dependencies: [
+        "GoogleMapsUtils",
+        .product(name: "OCMock", package: "ocmock")
+      ],
+      path: "Tests/GoogleMapsUtilsTests/unit",
+      cSettings: [
+        .headerSearchPath("../../.."),
+        .headerSearchPath("../common/Model"),
+      ]
+    ),
+    .testTarget(
       name: "GoogleMapsUtilsSwiftTests",
       dependencies: [
+        "GoogleMapsUtils",
         "GoogleMapsUtilsSwift",
-//        .product(name: "OCMock", package: "ocmock")],
-        ],
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
+      ],
       path: "Tests/GoogleMapsUtilsSwiftTests/unit"
-//      cSettings: [
-//          .headerSearchPath("../../.."),
-//      ]
     )
-//    .testTarget(
-//      name: "GoogleMapsUtilsTestsSwift",
-//      dependencies: [
-//        "GoogleMapsUtils",
-//        "GoogleMapsUtilsSwift",
-//        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
-//        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
-//        .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
-//      ],
-//      path: "Tests/GoogleMapsUtilsTestsSwift/unit"
-//    )
   ]
 )
