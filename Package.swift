@@ -62,10 +62,9 @@ let package = Package(
         "GoogleMapsUtils",
         .product(name: "OCMock", package: "ocmock")
       ],
-      path: "Tests/GoogleMapsUtilsTests/unit",
+      path: "Tests/GoogleMapsUtilsTests",
       cSettings: [
-        .headerSearchPath("../../.."),
-        .headerSearchPath(".."),
+        .headerSearchPath(".")
       ]
     ),
     .testTarget(

@@ -18,7 +18,7 @@
 #endif
 
 @import GoogleMapsUtils;
-#import "GMUTestClusterItem"
+#import "GMUTestClusterItem.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
