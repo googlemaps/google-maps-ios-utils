@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GMUObectiveCTestHelper : NSObject
+@interface GMUObjectiveCTestHelper : NSObject
 
 + (BOOL)catchObjectiveCException:(void(^)(void))tryBlock error:(__autoreleasing NSError **)error;
 

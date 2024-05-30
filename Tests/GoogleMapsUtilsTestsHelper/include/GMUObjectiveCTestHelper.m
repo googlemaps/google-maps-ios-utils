@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-#import "GMUObectiveCTestHelper.h"
+#import "GMUObjectiveCTestHelper.h"
 
-@implementation GMUObectiveCTestHelper
+@implementation GMUObjectiveCTestHelper
 
 + (BOOL)catchObjectiveCException:(void(^)(void))tryBlock error:(__autoreleasing NSError **)error {
   @try {
