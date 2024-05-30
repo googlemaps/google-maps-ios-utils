@@ -14,7 +14,7 @@
  */
 
 #import <XCTest/XCTest.h>
-#import "GoogleMapsUtilsTests.h"
+#import "GoogleMapsUtilsSwiftTests-Bridging-Header.h"
 
 @protocol GMUCluster;
 

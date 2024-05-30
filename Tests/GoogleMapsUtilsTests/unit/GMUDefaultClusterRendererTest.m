@@ -18,7 +18,7 @@
 #endif
 
 @import GoogleMapsUtils;
-#import "GoogleMapsUtilsTests.h"
+@import GoogleMapsUtilsTestsHelper;
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>

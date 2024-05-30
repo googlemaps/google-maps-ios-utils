@@ -14,5 +14,5 @@
 */
 
 @import GoogleMaps;
-#import "Helper/GMUObectiveCTestHelper.h"
-#import "Helper/GMUTestClusterItem.h"
+#import "GMUObjectiveCTestHelper.h"
+#import "GMUTestClusterItem.h"

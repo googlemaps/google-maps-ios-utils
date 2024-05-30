@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <MultiGeometry>
+      <Point>
+        <coordinates>
+          10,1,0
+        </coordinates>
+      </Point>
+      <Point>
+        <coordinates>
+          20,2,0
+        </coordinates>
+      </Point>
+    </MultiGeometry>
+  </Placemark>
+</kml>

@@ -56,10 +56,18 @@ let package = Package(
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ]
     ),
+    .target(
+      name: "GoogleMapsUtilsTestsHelper",
+      dependencies: [
+        .target(name: "GoogleMapsUtils"),
+      ],
+      path: "Tests/GoogleMapsUtilsTestsHelper"
+    ),
     .testTarget(
       name: "GoogleMapsUtilsTests",
       dependencies: [
         "GoogleMapsUtils",
+        "GoogleMapsUtilsTestsHelper",
         .product(name: "OCMock", package: "ocmock")
       ],
       path: "Tests/GoogleMapsUtilsTests",
@@ -72,11 +80,12 @@ let package = Package(
       dependencies: [
         "GoogleMapsUtils",
         "GoogleMapsUtilsSwift",
+        "GoogleMapsUtilsTestsHelper",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ],
-      path: "Tests/GoogleMapsUtilsSwiftTests/unit"
+      path: "Tests/GoogleMapsUtilsSwiftTests"
     )
   ]
 )
