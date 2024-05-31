@@ -55,14 +55,11 @@ Pod::Spec.new do |s|
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
       "Sources/GoogleMapsUtils/include/GoogleMapsUtils.h",
-      "Tests/GoogleMapsUtilsTests/common/Model/*.{h,m}",
+      "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}",
       "Tests/GoogleMapsUtilsTests/unit/**/*.{h,m}",
     ]
-    unit_tests.resources = [
-      "Tests/GoogleMapsUtilsTests/resources/**/*.{geojson,kml}"
-    ]
     unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTests/unit/BridgingHeader/UnitTest-Bridging-Header.h"
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'OCMock'
   end
@@ -71,14 +68,14 @@ Pod::Spec.new do |s|
     unit_tests.source_files = [
       "Sources/GoogleMapsUtils/include/GoogleMapsUtils.h",
       "Sources/GoogleMapsUtilsSwift/**/*.swift",
-      "Tests/GoogleMapsUtilsTestsSwift/unit/**/*.swift",
+      "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}",
+      "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
     ]
     unit_tests.resources = [
-      "Tests/GoogleMapsUtilsTests/resources/**/*.{geojson,kml}"
+      "Tests/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
     ]
     unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTests/unit/BridgingHeader/UnitTest-Bridging-Header.h"
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
-    unit_tests.dependency 'OCMock'
   end
 end
