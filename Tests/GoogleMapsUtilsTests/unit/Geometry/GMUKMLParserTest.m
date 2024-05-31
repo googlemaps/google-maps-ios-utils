@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+@import GoogleMapsUtilsTestsHelper;
+
 #import <XCTest/XCTest.h>
 
 #import <GMUFeature.h>

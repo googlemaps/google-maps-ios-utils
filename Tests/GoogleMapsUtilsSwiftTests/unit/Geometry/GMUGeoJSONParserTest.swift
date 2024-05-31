@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import XCTest
+import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
 @testable import GoogleMapsUtilsSwift
@@ -21,7 +22,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
 
   // Helper function to load GeoJSON data
   private func features(withResource resource: String) -> [GMUFeature] {
-    guard let path = Bundle.main.path(forResource: resource, ofType: "geojson"),
+    guard let path = Bundle.module.path(forResource: resource, ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")
@@ -34,7 +35,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
   }
 
   func testInitWithURL() {
-    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
+    guard let path = Bundle.module.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
       XCTFail("GeoJSON resource not found.")
       return
     }
@@ -46,7 +47,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
   }
 
   func testInitWithStream() {
-    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
+    guard let path = Bundle.module.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")
@@ -196,12 +197,17 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_GeometryCollection_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let point = features.first?.geometry as? GMUPoint else {
+    guard let collection = features.first?.geometry as? GMUGeometryCollection else {
+      XCTFail("Geometry is not a GMUGeometryCollection")
+      return
+    }
+
+    guard let point = collection.geometries.first as? GMUPoint else {
       XCTFail("Geometry is not a GMUPoint")
       return
     }
 
-    guard let lineString = features.last?.geometry as? GMULineString else {
+    guard let lineString = collection.geometries.last as? GMULineString else {
       XCTFail("Geometry is not a GMULineString")
       return
     }
@@ -245,8 +251,8 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_FeatureCollection_Test")
     XCTAssertEqual(features.count, 2)
 
-    guard let firstFeature = features.first?.geometry as? GMUFeature,
-          let secondFeature = features.last?.geometry as? GMUFeature else {
+    guard let firstFeature = features.first,
+          let secondFeature = features.last else {
       XCTFail("Geometry is not a GMUFeature")
       return
     }

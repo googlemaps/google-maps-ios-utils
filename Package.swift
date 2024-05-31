@@ -71,6 +71,25 @@ let package = Package(
         .product(name: "OCMock", package: "ocmock")
       ],
       path: "Tests/GoogleMapsUtilsTests",
+      resources: [
+        .copy("resources/GeoJSON/GeoJSON_FeatureCollection_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Feature_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_GeometryCollection_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_LineString_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiLineString_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiPoint_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiPolygon_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Point_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Polygon_Test.geojson"),
+        .copy("resources/KML/KML_GroundOverlay_Test.kml"),
+        .copy("resources/KML/KML_LineString_Test.kml"),
+        .copy("resources/KML/KML_MultiGeometry_Test.kml"),
+        .copy("resources/KML/KML_Placemark_Test.kml"),
+        .copy("resources/KML/KML_Point_Test.kml"),
+        .copy("resources/KML/KML_Polygon_Test.kml"),
+        .copy("resources/KML/KML_StyleMap_Test.kml"),
+        .copy("resources/KML/KML_Style_Test.kml"),
+      ],
       cSettings: [
         .headerSearchPath(".")
       ]
@@ -85,7 +104,26 @@ let package = Package(
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ],
-      path: "Tests/GoogleMapsUtilsSwiftTests"
+      path: "Tests/GoogleMapsUtilsSwiftTests",
+      resources: [
+        .copy("resources/GeoJSON/GeoJSON_FeatureCollection_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Feature_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_GeometryCollection_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_LineString_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiLineString_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiPoint_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_MultiPolygon_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Point_Test.geojson"),
+        .copy("resources/GeoJSON/GeoJSON_Polygon_Test.geojson"),
+        .copy("resources/KML/KML_GroundOverlay_Test.kml"),
+        .copy("resources/KML/KML_LineString_Test.kml"),
+        .copy("resources/KML/KML_MultiGeometry_Test.kml"),
+        .copy("resources/KML/KML_Placemark_Test.kml"),
+        .copy("resources/KML/KML_Point_Test.kml"),
+        .copy("resources/KML/KML_Polygon_Test.kml"),
+        .copy("resources/KML/KML_StyleMap_Test.kml"),
+        .copy("resources/KML/KML_Style_Test.kml"),
+      ]
     )
   ]
 )
