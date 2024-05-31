@@ -14,6 +14,7 @@
  */
 
 import XCTest
+import GoogleMaps
 
 @testable import GoogleMapsUtils
 @testable import GoogleMapsUtilsSwift
@@ -25,7 +26,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
   private var gradientColor: [UIColor]!
   private var firstTestCoordinate: CLLocationCoordinate2D!
   private var secondTestCoordinate: CLLocationCoordinate2D!
-  
+
   override func setUp() {
     super.setUp()
     startPoints = [NSNumber(value: 0.2), NSNumber(value: 1.0)]
@@ -72,7 +73,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     let camera = GMSCameraPosition.camera(withLatitude: cameraLatitude, longitude: cameraLongitude, zoom: 4)
     let options = GMSMapViewOptions()
     options.camera = camera
-    heatmapTileLayer.map = GMSMapView.init(options: options)
+    heatmapTileLayer.map = nil
     XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
     XCTAssertNotEqual(weightedData, heatmapTileLayer.weightedData)
     XCTAssertEqual(radius, heatmapTileLayer.radius)
