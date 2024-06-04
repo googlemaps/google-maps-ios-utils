@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.authors      = "Google Inc."
   s.platform     = :ios, '14.0'
-  s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
-                    :branch => "wangela/8-0-0" }
+  s.source       = { :git => "https://github.com/wangela/google-maps-ios-utils.git",
+                    :branch => "wangela-wip" }
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.9'
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
     unit_tests.dependency 'OCMock'
   end
 
-  s.test_spec 'TestsSwift' do |unit_tests|
+  s.test_spec 'SwiftTests' do |unit_tests|
     unit_tests.source_files = [
       "Sources/GoogleMapsUtils/include/GoogleMapsUtils.h",
       "Sources/GoogleMapsUtilsSwift/**/*.swift",

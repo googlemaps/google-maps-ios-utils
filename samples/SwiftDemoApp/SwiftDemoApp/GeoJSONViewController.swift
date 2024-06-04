@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import GoogleMaps
 import UIKit
-import GoogleMapsUtilsSwift
+import GoogleMaps
+import GoogleMapsUtils
 
 class GeoJSONViewController: UIViewController {
   private var mapView: GMSMapView!

@@ -18,8 +18,8 @@
 #endif
 
 @import GoogleMapsUtils;
-@import GoogleMapsUtilsTestsHelper;
 
+#import <GMUTestClusterItem.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>

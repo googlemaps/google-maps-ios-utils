@@ -17,7 +17,7 @@
 #error "This file requires ARC support."
 #endif
 
-#import <GMUWrappingDictionaryKey.h>
+#import "GMUWrappingDictionaryKey.h"
 
 #import <XCTest/XCTest.h>
 

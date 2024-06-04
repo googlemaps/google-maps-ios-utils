@@ -26,7 +26,7 @@ const static CLLocationCoordinate2D kLocation3 = {1, 1};
 const static CLLocationCoordinate2D kLocation4 = {1, -1};
 
 // Returns a random value from 0-1.0.
-static double randd() { return (((double)arc4random() / 0x100000000) * 1.0); }
+static double randd(void) { return (((double)arc4random() / 0x100000000) * 1.0); }
 
 @implementation GMUClusterAlgorithmTest
 

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import GoogleMaps
 import UIKit
-import GoogleMapsUtilsSwift
+import GoogleMaps
+import GoogleMapsUtils
 
 class KMLViewController: UIViewController {
   private var mapView: GMSMapView!
