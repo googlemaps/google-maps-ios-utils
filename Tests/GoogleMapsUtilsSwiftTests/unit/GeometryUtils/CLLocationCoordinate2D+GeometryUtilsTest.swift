@@ -16,7 +16,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
 
 class CLLocationCoordinate2DTest : XCTestCase {
   let accuracy = 1e-8
