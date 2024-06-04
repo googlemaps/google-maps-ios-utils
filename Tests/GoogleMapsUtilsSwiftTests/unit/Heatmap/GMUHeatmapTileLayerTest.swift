@@ -17,7 +17,6 @@ import XCTest
 import GoogleMaps
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
 
 class GMUHeatmapTileLayerTest: XCTestCase {
   

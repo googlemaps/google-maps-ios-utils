@@ -15,7 +15,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
 
 final class GMUFeatureTests: XCTestCase {
   

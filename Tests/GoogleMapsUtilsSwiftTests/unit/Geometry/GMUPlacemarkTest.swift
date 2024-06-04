@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import XCTest
-@testable import GoogleMapsUtils // Assuming your module name is GoogleMapsUtils
+@testable import GoogleMapsUtils
 
 final class GMUPlacemarkTest: XCTestCase {
 

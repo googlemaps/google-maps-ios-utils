@@ -16,7 +16,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
 
 class GMSPathGeometryUtilsTest : XCTestCase {
   private let smallDiff = 5e-7 // About 5 cm on equator, half the default tolerance of defaultTolerance

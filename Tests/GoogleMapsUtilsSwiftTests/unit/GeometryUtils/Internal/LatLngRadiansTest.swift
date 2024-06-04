@@ -9,8 +9,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
-
 class LatLngRadiansTest : XCTestCase {
   let latLng1 = LatLngRadians(latitude: 1, longitude: 2)
   let latLng2 = LatLngRadians(latitude: -1, longitude: 8)

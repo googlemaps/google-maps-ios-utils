@@ -8,7 +8,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsSwift
 
 final class GMUGeometryCollectionTest: XCTestCase {
 
