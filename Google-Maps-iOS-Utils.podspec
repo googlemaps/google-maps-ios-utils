@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.subspec 'GoogleMapsUtilsObjC' do |sp|
-    sp.public_header_files = "Sources/GoogleMapsUtilsObjC/include/*.h"
     sp.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}"
   end
 
@@ -51,9 +50,9 @@ Pod::Spec.new do |s|
       'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'GoogleMaps'
-    unit_tests.dependency 'GoogleMapsUtilsObjC'
-    unit_tests.dependency 'GoogleMapsUtilsSwift'
-    unit_tests.dependency 'GoogleMapsUtilsTestsHelper''
+    unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'
+    unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsSwift'
+    unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsTestsHelper'
     unit_tests.dependency 'OCMock'
   end
 end
