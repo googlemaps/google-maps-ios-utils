@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.subspec 'GoogleMapsUtilsObjC' do |sp|
+    sp.public_header_files = "src/#{sp.base_name}/**/*.h"
     sp.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}"
   end
 
