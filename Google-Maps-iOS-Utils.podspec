@@ -30,15 +30,17 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'GoogleMapsUtilsSwift' do |sp|
-    sp.source_files = "Sources/GoogleMapsUtilsSwift/#{sp.base_name}/**/*.swift"
+    sp.source_files = "Sources/GoogleMapsUtilsSwift/**/*.swift"
+    sp.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'
+  end
+
+  s.subspec 'GoogleMapsUtilsTestsHelper' do |sp|
+    sp.source_files = "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
     sp.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'
   end
 
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
-      "Sources/GoogleMapsUtilsObjC/include/GoogleMapsUtils.h",
-      "Sources/GoogleMapsUtilsSwift/**/*.swift",
-      "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}",
       "Tests/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
       "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
     ]
@@ -48,6 +50,10 @@ Pod::Spec.new do |s|
     unit_tests.pod_target_xcconfig = {
       'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
+    unit_tests.dependency 'GoogleMaps'
+    unit_tests.dependency 'GoogleMapsUtilsObjC'
+    unit_tests.dependency 'GoogleMapsUtilsSwift'
+    unit_tests.dependency 'GoogleMapsUtilsTestsHelper''
     unit_tests.dependency 'OCMock'
   end
 end
