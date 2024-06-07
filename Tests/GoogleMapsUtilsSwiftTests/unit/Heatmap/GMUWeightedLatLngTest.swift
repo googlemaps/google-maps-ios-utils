@@ -15,8 +15,8 @@
 
 import XCTest
 
+@testable import GoogleMapsUtils
 @testable import GoogleMapsUtilsObjC
-@testable import GoogleMapsUtilsSwift
 
 class GMUWeightedLatLngTest: XCTestCase {
   

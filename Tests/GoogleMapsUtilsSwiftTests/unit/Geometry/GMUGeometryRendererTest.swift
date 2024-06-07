@@ -16,8 +16,8 @@
 
 import XCTest
 
-@testable import GoogleMapsUtilsObjC
-@testable import GoogleMapsUtilsSwift
+@testable import GoogleMapsUtils
+ @testable import GoogleMapsUtilsObjC
 
 final class GMUGeometryRendererTest: XCTestCase {
 

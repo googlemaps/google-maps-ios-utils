@@ -48,7 +48,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "GoogleMapsUtilsSwift",
+      name: "GoogleMapsUtils",
       dependencies: [
         .target(name: "GoogleMapsUtilsObjC"),
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
@@ -78,7 +78,8 @@ let package = Package(
     .testTarget(
       name: "GoogleMapsUtilsSwiftTests",
       dependencies: [
-        "GoogleMapsUtilsSwift",
+        "GoogleMapsUtils",
+        "GoogleMapsUtilsObjC",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
