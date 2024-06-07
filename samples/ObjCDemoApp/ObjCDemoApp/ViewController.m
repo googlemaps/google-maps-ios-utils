@@ -15,7 +15,7 @@
 
 #import "ViewController.h"
 
-@import GoogleMapsUtils;
+@import GoogleMapsUtilsObjC;
 #import <GoogleMaps/GoogleMaps.h>
 
 // Point of Interest Item which implements the GMUClusterItem protocol.

@@ -18,7 +18,7 @@
 #endif
 
 #import "GMUClusterAlgorithmTest.h"
-@import GoogleMapsUtils;
+@import GoogleMapsUtilsObjC;
 
 const static CLLocationCoordinate2D kLocation1 = {-1, -1};
 const static CLLocationCoordinate2D kLocation2 = {-1, 1};

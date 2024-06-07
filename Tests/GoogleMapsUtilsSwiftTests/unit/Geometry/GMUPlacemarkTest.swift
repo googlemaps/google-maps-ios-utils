@@ -13,7 +13,9 @@
 // limitations under the License.
 
 import XCTest
-@testable import GoogleMapsUtils
+
+@testable import GoogleMapsUtilsObjC
+@testable import GoogleMapsUtilsSwift
 
 final class GMUPlacemarkTest: XCTestCase {
 

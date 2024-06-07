@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-@import GoogleMapsUtils;
+@import GoogleMapsUtilsObjC;
 
 // Simple cluster item implementation for use in tests.
 @interface GMUTestClusterItem : NSObject<GMUClusterItem>

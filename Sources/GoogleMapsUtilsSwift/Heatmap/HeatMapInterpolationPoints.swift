@@ -14,7 +14,7 @@
 */
 
 import GoogleMaps
-import GoogleMapsUtils
+import GoogleMapsUtilsObjC
 
 /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
 struct Fraction {

@@ -8,6 +8,7 @@
 import XCTest
 import GoogleMaps
 
+@testable import GoogleMapsUtilsObjC
 @testable import GoogleMapsUtilsSwift
 
 final class MockTest: XCTestCase {

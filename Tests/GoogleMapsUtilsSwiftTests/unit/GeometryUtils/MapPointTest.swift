@@ -15,7 +15,8 @@
 import CoreLocation
 import XCTest
 
-@testable import GoogleMapsUtils
+@testable import GoogleMapsUtilsObjC
+@testable import GoogleMapsUtilsSwift
 
 class MapPointTest : XCTestCase {
 
