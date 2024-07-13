@@ -13,9 +13,10 @@
 // limitations under the License.
 
 import XCTest
+import GoogleMaps
 
+import GoogleMapsUtilsObjC
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsObjC
 
 final class GMUFeatureTests: XCTestCase {
   

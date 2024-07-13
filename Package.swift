@@ -32,7 +32,7 @@ let package = Package(
       from: "8.0.0"),
     .package(
       url: "https://github.com/erikdoe/ocmock.git",
-      revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
+      revision: "2c0bfd373289f4a7716db5d6db471640f91a6507"),
   ],
   targets: [
     .target(

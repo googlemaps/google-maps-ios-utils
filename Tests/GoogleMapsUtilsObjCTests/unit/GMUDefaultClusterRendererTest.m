@@ -17,8 +17,6 @@
 #error "This file requires ARC support."
 #endif
 
-@import GoogleMapsUtilsObjC;
-
 #import <GMUTestClusterItem.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <OCMock/OCMock.h>
