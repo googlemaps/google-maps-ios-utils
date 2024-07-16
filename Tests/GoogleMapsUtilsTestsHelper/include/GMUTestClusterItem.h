@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <GMUClusterItem.h>
+#import "GMUClusterItem.h"
 
 // Simple cluster item implementation for use in tests.
 @interface GMUTestClusterItem : NSObject<GMUClusterItem>

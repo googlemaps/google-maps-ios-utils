@@ -17,7 +17,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import GoogleMapsUtilsObjC
-import GoogleMapsUtilsSwift
+import GoogleMapsUtils
 
 class HeatMapInterpolationViewController: UIViewController {
 

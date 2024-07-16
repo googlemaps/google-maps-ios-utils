@@ -15,8 +15,9 @@
 
 import UIKit
 import GoogleMaps
-import GoogleMapsUtilsObjC
-import GoogleMapsUtilsSwift
+import GoogleMapsUtils
+// If you installed with Swift Package Manager, add the import statement below
+// import GoogleMapsUtilsObjC
 
 class KMLViewController: UIViewController {
   private var mapView: GMSMapView!

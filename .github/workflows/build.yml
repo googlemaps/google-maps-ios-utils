@@ -24,6 +24,7 @@ on:
 
 jobs:
   build_swift_package:
+    name: Build Swift Package
     runs-on: macos-latest
 
     steps:
@@ -65,6 +66,7 @@ jobs:
   # - name: Install Dependencies
   #   run: sudo gem install cocoapods
 
+  # Restore pod spec lint and pod lib lint after Swift modernization
   # - name: CocoaPods spec lint
   #   run: pod lib lint Google-Maps-iOS-Utils.podspec
 
@@ -72,46 +74,47 @@ jobs:
   #   run: |
   #     xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 8" build | xcpretty
 
-  #  Sample App CI temporarily removed until CocoaPods support is restored
-  # build_swift_sample:
-  #   runs-on: macos-latest
+  build_swift_sample:
+    name: Build Swift Sample App with CocoaPods locally
+    runs-on: macos-latest
 
-  #   steps:
-  #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #   - name: Checkout google-maps-ios-utils
-  #     uses: actions/checkout@v4
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout google-maps-ios-utils
+      uses: actions/checkout@v4
 
-  #   - name: Install Dependencies
-  #     run: sudo gem install cocoapods
+    - name: Install Dependencies
+      run: sudo gem install cocoapods
 
-  #   - name: Run pod install
-  #     run: pod install --project-directory=samples/SwiftDemoApp/
+    - name: Run pod install
+      run: pod install --project-directory=samples/SwiftDemoApp/
 
-  #   - name: Build SwiftDemoApp
-  #     run: |
-  #       xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
-  #         -scheme SwiftDemoApp -configuration Debug \
-  #         -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+    - name: Build SwiftDemoApp
+      run: |
+        xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
+          -scheme SwiftDemoApp -configuration Debug \
+          -destination "platform=iOS Simulator,OS=17.5,name=iPhone 15" build | xcpretty
 
-  # build_objc_sample:
-  #   runs-on: macos-latest
+  build_objc_sample:
+    name: Build Objective-C Sample App with CocoaPods locally
+    runs-on: macos-latest
 
-  #   steps:
-  #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #   - name: Checkout google-maps-ios-utils
-  #     uses: actions/checkout@v3
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout google-maps-ios-utils
+      uses: actions/checkout@v3
 
-  #   - name: Install Dependencies
-  #     run: sudo gem install cocoapods
+    - name: Install Dependencies
+      run: sudo gem install cocoapods
 
-  #   - name: Run pod install
-  #     run: pod install --project-directory=samples/ObjCDemoApp/
+    - name: Run pod install
+      run: pod install --project-directory=samples/ObjCDemoApp/
 
-  #   - name: Build ObjCDemoApp
-  #     run: |
-  #       xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
-  #         -scheme ObjCDemoApp -configuration Debug \
-  #         -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+    - name: Build ObjCDemoApp
+      run: |
+        xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
+          -scheme ObjCDemoApp -configuration Debug \
+          -destination "platform=iOS Simulator,OS=17.5,name=iPhone 15" build | xcpretty
 
   test: # used as required status check
     runs-on: ubuntu-latest
@@ -120,8 +123,8 @@ jobs:
       fail-fast: true
     needs:
       - build_swift_package
-      - build_dev_app
-      # - build_swift_sample
-      # - build_objc_sample
+      # - build_dev_app
+      - build_swift_sample
+      - build_objc_sample
     steps:
       - run: echo "Fail if all other steps are not successful"
