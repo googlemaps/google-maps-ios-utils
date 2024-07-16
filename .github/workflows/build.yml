@@ -20,61 +20,93 @@ on:
     types: [build]
   pull_request:
     branches: ['*']
+  workflow_call:
 
 jobs:
-  build_dev_app:
+  build_swift_package:
     runs-on: macos-latest
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # Checks out the repository under $GITHUB_WORKSPACE so this job can access it
     - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Install Dependencies
-      run: sudo gem install cocoapods
+    # Specify the latest stable Xcode version, since the default for macos-latest might not meet SDK minimum Xcode requirements.
+    - name: Set Xcode version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
 
-    - name: CocoaPods lib lint
-      run: pod lib lint Google-Maps-iOS-Utils.podspec
-
-  build_swift_sample:
-    runs-on: macos-latest
-
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v3
-
-    - name: Install Dependencies
-      run: sudo gem install cocoapods
-
-    - name: Run pod install
-      run: pod install --project-directory=samples/SwiftDemoApp/
-
-    - name: Build SwiftDemoApp
+    # For as long as this is a mixed-language library, swift build will not support the Obj-C part of the code so we must use xcodebuild.
+    - name: Build Swift Package with xcodebuild
       run: |
-        xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
-          -scheme SwiftDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+        xcodebuild -scheme GoogleMapsUtils -configuration Debug \
+          -destination "platform=iOS Simulator,OS=17.5,name=iPhone 15" \
+          -disableAutomaticPackageResolution build | xcpretty
 
-  build_objc_sample:
-    runs-on: macos-latest
-
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Checkout google-maps-ios-utils
-      uses: actions/checkout@v3
-
-    - name: Install Dependencies
-      run: sudo gem install cocoapods
-
-    - name: Run pod install
-      run: pod install --project-directory=samples/ObjCDemoApp/
-
-    - name: Build ObjCDemoApp
+    - name: Run unit tests on Swift Package
       run: |
-        xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
-          -scheme ObjCDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+        xcodebuild -scheme GoogleMapsUtils \
+          -destination "platform=iOS Simulator,OS=17.5,name=iPhone 15" \
+          -disableAutomaticPackageResolution test
+
+    - name: Upload test results to CodeCov
+      run: bash <(curl -s https://codecov.io/bash)
+
+  # Dev App CI removed; use Sample Apps instead
+  # build_dev_app:
+  #   runs-on: macos-latest
+
+  # - name: Install Dependencies
+  #   run: sudo gem install cocoapods
+
+  # - name: CocoaPods spec lint
+  #   run: pod lib lint Google-Maps-iOS-Utils.podspec
+
+  # - name: Build DevApp
+  #   run: |
+  #     xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 8" build | xcpretty
+
+  #  Sample App CI temporarily removed until CocoaPods support is restored
+  # build_swift_sample:
+  #   runs-on: macos-latest
+
+  #   steps:
+  #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #   - name: Checkout google-maps-ios-utils
+  #     uses: actions/checkout@v4
+
+  #   - name: Install Dependencies
+  #     run: sudo gem install cocoapods
+
+  #   - name: Run pod install
+  #     run: pod install --project-directory=samples/SwiftDemoApp/
+
+  #   - name: Build SwiftDemoApp
+  #     run: |
+  #       xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
+  #         -scheme SwiftDemoApp -configuration Debug \
+  #         -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
+
+  # build_objc_sample:
+  #   runs-on: macos-latest
+
+  #   steps:
+  #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #   - name: Checkout google-maps-ios-utils
+  #     uses: actions/checkout@v3
+
+  #   - name: Install Dependencies
+  #     run: sudo gem install cocoapods
+
+  #   - name: Run pod install
+  #     run: pod install --project-directory=samples/ObjCDemoApp/
+
+  #   - name: Build ObjCDemoApp
+  #     run: |
+  #       xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
+  #         -scheme ObjCDemoApp -configuration Debug \
+  #         -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" build | xcpretty
 
   test: # used as required status check
     runs-on: ubuntu-latest
@@ -82,8 +114,9 @@ jobs:
     strategy:
       fail-fast: true
     needs:
+      - build_swift_package
       - build_dev_app
-      - build_swift_sample
-      - build_objc_sample
+      # - build_swift_sample
+      # - build_objc_sample
     steps:
       - run: echo "Fail if all other steps are not successful"
