@@ -32,7 +32,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 1. [Include the `GoogleMaps` dependency](https://developers.google.com/maps/documentation/ios-sdk/config#download-sdk) using one of the available installation options (Swift Package Manager, CocoaPods, or manual).
 
-1. Add this utility library using Swift Package Manager (CocoaPods is currently only supported up to v4.2.2):
+1. Add this utility library using one of the options below:
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
@@ -62,28 +62,35 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 4. Follow the
     [instructions](https://developers.google.com/maps/documentation/ios-sdk/config#get-key) to add your API key to your app.
 
+5. See the [Importing](#importing) section for import statements specific to SPM installation.
+
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-<details>
-<summary>Only supported if using Maps SDK v7.4.0 or earlier</summary>
+1. In your `Podfile`:
 
-In your `Podfile`:
+  ```ruby
+  use_frameworks!
 
-```ruby
-use_frameworks!
+  target 'TARGET_NAME' do
+    pod 'GoogleMaps', '9.0.0'
+    pod 'Google-Maps-iOS-Utils', '6.0.0'
+  end
+  ```
 
-target 'TARGET_NAME' do
-    pod 'Google-Maps-iOS-Utils', '4.2.2'
-end
-```
+  Replace `TARGET_NAME` and save the `Podfile`.
 
-Replace `TARGET_NAME` and then, in the `Podfile` directory, type:
+2. At the command line in directory containing your `Podfile`, run:
 
-```bash
-pod install
-```
+  ```bash
+  pod install
+  ```
 
-</details>
+3. Open the `.xcworkspace` file that is created.
+
+4. Follow the
+    [instructions](https://developers.google.com/maps/documentation/ios-sdk/config#get-key) to add your API key to your app.
+
+5. See the [Importing](#importing) section for import statements specific to CocoaPods installation.
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
@@ -109,11 +116,31 @@ Read documentation about this utility library on [developers.google.com][devsite
 
 ## Usage
 
+### Importing
+
+Currently, there is inconsistency between the required imports between usage installed with Swift Package Manager and usage installed with CocoaPods. See [issue #xxx]() for details.
+
+**If you installed with Swift Package Manager**, import both `GoogleMapsUtils` and `GoogleMapsUtilsObjC` in any Swift files that use classes from this library.
+
+```swift
+import GoogleMaps
+import GoogleMapsUtils
+import GoogleMapsUtilsObjC
+```
+
+**If you installed with CocoaPods**, import only `GoogleMapsUtils` to access all classes of this library.
+
+```swift
+import GoogleMaps
+import GoogleMapsUtils
+```
+
 ### Clustering markers
 
 ```swift
 import GoogleMaps
 import GoogleMapsUtils
+import GoogleMapsUtilsObjC // Needed if you used Swift Package Manager
 
 class MarkerClustering: UIViewController, GMSMapViewDelegate {
   private var mapView: GMSMapView!
