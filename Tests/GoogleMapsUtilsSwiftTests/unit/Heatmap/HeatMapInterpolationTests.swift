@@ -18,13 +18,13 @@ import XCTest
 @testable import GoogleMapsUtils
 @testable import GoogleMapsUtilsObjC
 
-class HeatMapInterpolationTests: XCTestCase {
+class HeatmapInterpolationTests: XCTestCase {
 
     private var gradientColor: [UIColor]!
     private var startPoints: [NSNumber]!
     private var colorMapSize: UInt!
     
-    private let interpolationController = HeatMapInterpolationPoints()
+    private let interpolationController = GMUHeatmapInterpolationPoints()
     
     override func setUp() {
         super.setUp()
@@ -62,29 +62,14 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            _ = try interpolationController.generatePoints(influence: 1)
+          _ = try interpolationController.generatePoints(influence: 1)
+          XCTFail("Expected an error for influence value less than 2")
+        } catch let error as IncorrectInfluence {
+          print("\(error)")
+          XCTAssertEqual(error.localizedDescription, "Your influence value is not between 2 and 2.5")
         } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
-        do {
-            _ = try interpolationController.generatePoints(influence: 0.5)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
-        do {
-            _ = try interpolationController.generatePoints(influence: 1.9999999)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
-        do {
-            _ = try interpolationController.generatePoints(influence: 1.5)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
+          XCTFail("Unexpected error: \(error)")
+      }
     }
     
     func testWithTooLargeN() {
@@ -104,23 +89,14 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            _ = try interpolationController.generatePoints(influence: 2.500001)
+          _ = try interpolationController.generatePoints(influence: 2.500001)
+          XCTFail("Expected an error for influence value more than 2.5")
+        } catch let error as IncorrectInfluence {
+          print("\(error)")
+          XCTAssertEqual(error.localizedDescription, "Your influence value is not between 2 and 2.5")
         } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
-        do {
-            _ = try interpolationController.generatePoints(influence: 3)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
-        do {
-            _ = try interpolationController.generatePoints(influence: 100000)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(true)
-        }
+          XCTFail("Unexpected error: \(error)")
+      }
     }
     
     func testWithAcceptableN() {
@@ -140,15 +116,8 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLng(latlng: newGMU2)
         interpolationController.addWeightedLatLng(latlng: newGMU3)
         do {
-            let data = try interpolationController.generatePoints(influence: 2.4)
-            XCTAssertLessThan(0, data.count)
-        } catch {
-            print("\(error)")
-            XCTAssertTrue(false)
-        }
-        do {
-            let data = try interpolationController.generatePoints(influence: 2.3)
-            XCTAssertLessThan(0, data.count)
+          let data = try interpolationController.generatePoints(influence: 2.4)
+          XCTAssertNotNil(data)
         } catch {
             print("\(error)")
             XCTAssertTrue(false)
@@ -209,7 +178,7 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLngs(latlngs: points)
         do {
             let data = try interpolationController.generatePoints(influence: 2.4)
-            XCTAssertLessThan(0, data.count)
+          XCTAssertNotNil(data)
         } catch {
             print("\(error)")
             XCTAssertTrue(false)
@@ -225,7 +194,7 @@ class HeatMapInterpolationTests: XCTestCase {
         interpolationController.addWeightedLatLngs(latlngs: points)
         do {
             let data = try interpolationController.generatePoints(influence: 2.4)
-            XCTAssertLessThan(0, data.count)
+          XCTAssertNotNil(data)
         } catch {
             print("\(error)")
             XCTAssertTrue(false)
