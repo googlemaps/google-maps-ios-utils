@@ -36,9 +36,6 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-> [!NOTE]
-> This feature is only available with Swift 5.3 (Xcode 12) or later.
-
 1. Follow the instructions for
     [adding package dependencies to your app in Xcode](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 

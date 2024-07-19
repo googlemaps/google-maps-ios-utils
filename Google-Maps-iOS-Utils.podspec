@@ -41,16 +41,16 @@ Pod::Spec.new do |s|
 
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
-      "Tests/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
-      "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
+      "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
+      "TestsCocoapods/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
     ]
-    unit_tests.exclude_files = "Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
-    unit_tests.preserve_paths = "Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+    unit_tests.exclude_files = "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+    unit_tests.preserve_paths = "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.resources = [
-      "Tests/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
+      "TestsCocoapods/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
     ]
     unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/TestsCocoapods/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'GoogleMaps'
     unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'

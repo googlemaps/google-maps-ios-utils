@@ -1,0 +1,20 @@
+{
+  "type":"Feature",
+  "id":"Test Feature",
+  "bbox":[
+          -10.0,
+          -10.0,
+          10.0,
+          10.0
+          ],
+  "geometry":{
+    "type":"Point",
+    "coordinates":[
+                   102.0,
+                   0.5
+                   ]
+  },
+  "properties":{
+    "description":"A feature for unit testing"
+  }
+}
