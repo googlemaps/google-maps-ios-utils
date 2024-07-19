@@ -24,7 +24,7 @@ let package = Package(
   products: [
     .library(
       name: "GoogleMapsUtils",
-      targets: ["GoogleMapsUtilsObjC", "GoogleMapsUtilsObjC"]),
+      targets: ["GoogleMapsUtils", "CGoogleMapsUtils"]),
   ],
   dependencies: [
     .package(
@@ -36,13 +36,16 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "GoogleMapsUtilsObjC",
+      name: "CGoogleMapsUtils",
       dependencies: [
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
       ],
       publicHeadersPath: "include",
+      cSettings: [
+          .headerSearchPath("."),
+      ],
       linkerSettings: [
         .linkedFramework("UIKit", .when(platforms: [.iOS])),
       ]
@@ -50,7 +53,7 @@ let package = Package(
     .target(
       name: "GoogleMapsUtils",
       dependencies: [
-        .target(name: "GoogleMapsUtilsObjC"),
+        .target(name: "CGoogleMapsUtils"),
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk")
@@ -59,14 +62,14 @@ let package = Package(
     .target(
       name: "GoogleMapsUtilsTestsHelper",
       dependencies: [
-        .target(name: "GoogleMapsUtilsObjC"),
+        .target(name: "CGoogleMapsUtils"),
       ],
       path: "Tests/GoogleMapsUtilsTestsHelper"
     ),
     .testTarget(
       name: "GoogleMapsUtilsObjCTests",
       dependencies: [
-        "GoogleMapsUtilsObjC",
+        "CGoogleMapsUtils",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "OCMock", package: "ocmock")
       ],
@@ -79,7 +82,7 @@ let package = Package(
       name: "GoogleMapsUtilsSwiftTests",
       dependencies: [
         "GoogleMapsUtils",
-        "GoogleMapsUtilsObjC",
+        "CGoogleMapsUtils",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
