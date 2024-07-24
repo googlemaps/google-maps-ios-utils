@@ -19,13 +19,13 @@ import GooglePlaces
 import GoogleMapsUtilsObjC
 import GoogleMapsUtils
 
-class HeatMapInterpolationViewController: UIViewController {
+class HeatmapInterpolationViewController: UIViewController {
 
     /// Basic set up variables
     private var mapView = GMSMapView()
     private var markers = [GMSMarker]()
     private var rendering = false
-    private let interpolationController = HeatMapInterpolationPoints()
+    private let interpolationController = HeatmapInterpolationPointsPoints()
     private var heatmapLayer: GMUHeatmapTileLayer!
     private var gradientColors = [UIColor.green, UIColor.red]
     private var gradientStartPoints = [0.2, 1.0] as? [NSNumber]

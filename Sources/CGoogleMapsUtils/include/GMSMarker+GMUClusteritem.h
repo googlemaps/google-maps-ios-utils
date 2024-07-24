@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
+@import GoogleMaps;
+
 #import "GMUClusterItem.h"
 
 @interface GMSMarker (GMSMarker_GMUClusteritem) <GMUClusterItem>

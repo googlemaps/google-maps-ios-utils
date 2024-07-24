@@ -14,6 +14,7 @@
 */
 
 import GoogleMaps
+import GMUWeightedLatLng
 
 /// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
 struct Fraction {
@@ -36,7 +37,7 @@ struct Fraction {
 /// both improve the heat map search bounds as well as the runtime.
 /// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
 /// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
-public class HeatMapInterpolationPoints: NSObject {
+public class HeatmapInterpolationPoints: NSObject {
     
     /// The input data set
     private var data = [GMUWeightedLatLng]()

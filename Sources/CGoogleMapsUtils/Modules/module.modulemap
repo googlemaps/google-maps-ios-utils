@@ -1,6 +1,0 @@
-
-module GMUWeightedLatLng {
- header "../include/GMUWeightedLatLng-Bridging-Header.h"
- export *
-}
-

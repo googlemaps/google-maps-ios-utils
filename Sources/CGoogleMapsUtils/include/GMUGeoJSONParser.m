@@ -17,8 +17,6 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import <GoogleMaps/GoogleMaps.h>
-
 #import "GMUFeature.h"
 #import "GMUGeometryCollection.h"
 #import "GMULineString.h"

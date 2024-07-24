@@ -1,0 +1,11 @@
+module CGoogleMapsUtils {
+ header "./GoogleMapsUtils-Bridging-Header.h"
+ export *
+}
+
+
+module GMUWeightedLatLng {
+ header "./GoogleMapsUtils-Bridging-Header.h"
+ link "GMUWeightedLatLng"
+ export *
+}

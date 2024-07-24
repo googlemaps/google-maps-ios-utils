@@ -16,7 +16,7 @@ import XCTest
 import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
-@testable import GoogleMapsUtilsObjC
+@testable import CGoogleMapsUtils
 
 class GMUKMLParserTest: XCTestCase {
 

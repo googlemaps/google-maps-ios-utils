@@ -41,19 +41,15 @@ jobs:
     # For as long as this is a mixed-language library, swift build will not support the Obj-C part of the code so we must use xcodebuild.
     - name: Build and analyze Swift Package with xcodebuild
       run: |
-        # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-        device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
         xcodebuild clean build analyze \
           -scheme GoogleMapsUtils -configuration Debug \
-          -destination "platform=iOS Simulator,OS=17.5,name=$device" \
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" \
           -disableAutomaticPackageResolution | xcpretty
 
     - name: Run unit tests on Swift Package
       run: |
-        # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-        device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
         xcodebuild test -scheme GoogleMapsUtils \
-          -destination "platform=iOS Simulator,OS=17.5,name=$device" \
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" \
           -disableAutomaticPackageResolution
 
     - name: Upload test results to CodeCov

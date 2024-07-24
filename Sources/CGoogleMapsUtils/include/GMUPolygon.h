@@ -15,9 +15,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
 
 #import "GMUGeometry.h"
+@import GoogleMaps;
 
 NS_ASSUME_NONNULL_BEGIN
 
