@@ -43,7 +43,7 @@ public class HeatmapInterpolationPoints: NSObject {
     private var data = [GMUWeightedLatLng]()
     
     /// The list of interpolated heat map points with weight
-    private var heatMapPoints = [GMUWeightedLatLng]()
+    private var heatmapPoints = [GMUWeightedLatLng]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
     /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
@@ -334,7 +334,7 @@ public class HeatmapInterpolationPoints: NSObject {
         if influence < 2.0 || influence > 2.5 {
             throw IncorrectInfluence.outOfRange("Your influence value is not between 2 and 2.5")
         }
-        heatMapPoints.removeAll()
+        heatmapPoints.removeAll()
         
         // Clusters is the list of clusters that we intend to return
         let clusters = kcluster()
@@ -393,10 +393,10 @@ public class HeatmapInterpolationPoints: NSObject {
                         ),
                         intensity: Float(intensity.numerator / intensity.denominator)
                     )
-                    heatMapPoints.append(coords)
+                    heatmapPoints.append(coords)
                 }
             }
         }
-        return heatMapPoints
+        return heatmapPoints
     }
 }
