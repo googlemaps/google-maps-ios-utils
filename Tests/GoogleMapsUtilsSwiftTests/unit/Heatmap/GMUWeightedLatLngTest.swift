@@ -16,7 +16,6 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import CGoogleMapsUtils
 
 class GMUWeightedLatLngTest: XCTestCase {
   

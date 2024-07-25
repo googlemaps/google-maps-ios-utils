@@ -24,7 +24,7 @@ let package = Package(
   products: [
     .library(
       name: "GoogleMapsUtils",
-      targets: ["GoogleMapsUtils", "CGoogleMapsUtils"]),
+      targets: ["GoogleMapsUtils", "GoogleMapsUtilsObjC"]),
   ],
   dependencies: [
     .package(
@@ -36,7 +36,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "CGoogleMapsUtils",
+      name: "GoogleMapsUtilsObjC",
       dependencies: [
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
@@ -53,7 +53,7 @@ let package = Package(
     .target(
       name: "GoogleMapsUtils",
       dependencies: [
-        .target(name: "CGoogleMapsUtils"),
+        .target(name: "GoogleMapsUtilsObjC"),
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
@@ -62,14 +62,14 @@ let package = Package(
     .target(
       name: "GoogleMapsUtilsTestsHelper",
       dependencies: [
-        .target(name: "CGoogleMapsUtils"),
+        .target(name: "GoogleMapsUtilsObjC"),
       ],
       path: "Tests/GoogleMapsUtilsTestsHelper"
     ),
     .testTarget(
       name: "GoogleMapsUtilsObjCTests",
       dependencies: [
-        "CGoogleMapsUtils",
+        "GoogleMapsUtilsObjC",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "OCMock", package: "ocmock"),
       ],
@@ -82,7 +82,7 @@ let package = Package(
       name: "GoogleMapsUtilsSwiftTests",
       dependencies: [
         "GoogleMapsUtils",
-        "CGoogleMapsUtils",
+        "GoogleMapsUtilsObjC",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
         .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),

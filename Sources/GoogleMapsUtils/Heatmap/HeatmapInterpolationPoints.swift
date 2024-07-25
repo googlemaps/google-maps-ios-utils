@@ -14,7 +14,6 @@
 */
 
 import GoogleMaps
-import GMUWeightedLatLng
 
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to

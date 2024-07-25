@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '14.0'
   s.source       = { :git => "https://github.com/wangela/google-maps-ios-utils.git",
                     :branch => "wangela-wip" }
-  s.source_files = "Sources/CGoogleMapsUtils/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
-  s.preserve_paths = "Sources/CGoogleMapsUtils/include/module.modulemap"
+  s.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.9'
@@ -26,19 +25,28 @@ Pod::Spec.new do |s|
   s.dependency 'GoogleMaps', '~> 8.0'
   s.static_framework = true
 
+  s.subspec 'GoogleMapsUtilsObjC' do |sp|
+    sp.public_header_files = "Sources/GoogleMapsUtilsObjC/include/*.h"
+    sp.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}"
+  end
+
+  s.subspec 'GoogleMapsUtils' do |sp|
+    sp.source_files = "Sources/GoogleMapsUtils/**/*.swift"
+    sp.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'
+  end
+
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
-      "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
-      "TestsCocoapods/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
-      "TestsCocoapods/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
+      "Tests/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
+      "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
+      "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
     ]
-    unit_tests.exclude_files = "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
-    unit_tests.preserve_paths = "TestsCocoapods/CGoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+    unit_tests.exclude_files = "Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.resources = [
-      "TestsCocoapods/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
+      "Tests/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
     ]
     unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/TestsCocoapods/CGoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'GoogleMaps'
     unit_tests.dependency 'OCMock'

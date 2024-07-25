@@ -16,7 +16,6 @@ import CoreLocation
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import CGoogleMapsUtils
 
 class MapPointTest : XCTestCase {
 

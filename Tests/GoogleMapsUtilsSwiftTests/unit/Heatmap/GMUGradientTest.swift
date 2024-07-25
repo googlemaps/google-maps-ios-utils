@@ -17,7 +17,6 @@ import XCTest
 import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
-@testable import CGoogleMapsUtils
 
 class GMUGradientTest: XCTestCase {
 

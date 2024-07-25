@@ -16,7 +16,6 @@ import XCTest
 import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
-@testable import CGoogleMapsUtils
 
 final class GMUGeoJSONParserTest: XCTestCase {
 
