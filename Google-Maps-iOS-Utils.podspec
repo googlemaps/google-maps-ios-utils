@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '14.0'
   s.source       = { :git => "https://github.com/wangela/google-maps-ios-utils.git",
                     :branch => "wangela-wip" }
+  s.source_files = "Sources/CGoogleMapsUtils/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
+  s.preserve_paths = "Sources/CGoogleMapsUtils/include/module.modulemap"
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.9'
@@ -24,25 +26,11 @@ Pod::Spec.new do |s|
   s.dependency 'GoogleMaps', '~> 8.0'
   s.static_framework = true
 
-  s.subspec 'CGoogleMapsUtils' do |sp|
-    sp.public_header_files = "Sources/CGoogleMapsUtils/include/*.h"
-    sp.source_files = "Sources/CGoogleMapsUtils/include/*.{h,m}"
-  end
-
-  s.subspec 'GoogleMapsUtils' do |sp|
-    sp.source_files = "Sources/GoogleMapsUtils/**/*.swift"
-    sp.dependency 'Google-Maps-iOS-Utils/CGoogleMapsUtils'
-  end
-
-  s.subspec 'GoogleMapsUtilsTestsHelper' do |sp|
-    sp.source_files = "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
-    sp.dependency 'Google-Maps-iOS-Utils/CGoogleMapsUtils'
-  end
-
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
       "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
       "TestsCocoapods/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
+      "TestsCocoapods/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
     ]
     unit_tests.exclude_files = "TestsCocoapods/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.preserve_paths = "TestsCocoapods/CGoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
@@ -53,9 +41,6 @@ Pod::Spec.new do |s|
       'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/TestsCocoapods/CGoogleMapsUtilsTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'GoogleMaps'
-    unit_tests.dependency 'Google-Maps-iOS-Utils/CGoogleMapsUtils'
-    unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtils'
-    unit_tests.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsTestsHelper'
     unit_tests.dependency 'OCMock'
   end
 end

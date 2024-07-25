@@ -16,22 +16,6 @@
 import GoogleMaps
 import GMUWeightedLatLng
 
-/// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
-struct Fraction {
-    public let numerator: Double
-    public let denominator: Double
-    
-    /// Constructor to set the values of the numerator and denominator
-    ///
-    /// - Parameters:
-    ///   - num: The numerator.
-    ///   - denom: The denominator.
-    init(num: Double, denom: Double) {
-        numerator = num
-        denominator = denom
-    }
-}
-
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
 /// both improve the heat map search bounds as well as the runtime.
@@ -67,7 +51,7 @@ public class HeatmapInterpolationPoints: NSObject {
     ///
     /// - Parameter givenClusterIterations: The number of iterations k-means clustering should go to.
     public init(givenClusterIterations: Int = 25) {
-        clusterIterations = givenClusterIterations
+      clusterIterations = givenClusterIterations
     }
     
     // MARK: Functions that parse given data needed to build an interpolated heat map from
@@ -398,5 +382,21 @@ public class HeatmapInterpolationPoints: NSObject {
             }
         }
         return heatmapPoints
+    }
+}
+
+/// A simple fraction class; the main use case is for finding intensity values, which are represented as fractions
+struct Fraction {
+    public let numerator: Double
+    public let denominator: Double
+
+    /// Constructor to set the values of the numerator and denominator
+    ///
+    /// - Parameters:
+    ///   - num: The numerator.
+    ///   - denom: The denominator.
+    init(num: Double, denom: Double) {
+        numerator = num
+        denominator = denom
     }
 }

@@ -5,7 +5,7 @@ module CGoogleMapsUtils {
 
 
 module GMUWeightedLatLng {
- header "./GoogleMapsUtils-Bridging-Header.h"
+ header "./GMUWeightedLatLng.h"
  link "GMUWeightedLatLng"
  export *
 }

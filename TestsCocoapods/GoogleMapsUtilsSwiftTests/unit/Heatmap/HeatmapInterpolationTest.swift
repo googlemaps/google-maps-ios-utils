@@ -16,16 +16,15 @@
 import XCTest
 
 @testable import GoogleMapsUtils
-@testable import CGoogleMapsUtils
 
-class HeatmapInterpolationTests: XCTestCase {
+class HeatmapInterpolationTest: XCTestCase {
 
     private var gradientColor: [UIColor]!
     private var startPoints: [NSNumber]!
     private var colorMapSize: UInt!
     
     private let interpolationController = HeatmapInterpolationPoints()
-    
+
     override func setUp() {
         super.setUp()
         gradientColor = [

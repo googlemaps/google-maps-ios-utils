@@ -25,7 +25,7 @@ class HeatmapInterpolationViewController: UIViewController {
     private var mapView = GMSMapView()
     private var markers = [GMSMarker]()
     private var rendering = false
-    private let interpolationController = HeatmapInterpolationPointsPoints()
+    private let interpolationController = HeatmapInterpolationPoints()
     private var heatmapLayer: GMUHeatmapTileLayer!
     private var gradientColors = [UIColor.green, UIColor.red]
     private var gradientStartPoints = [0.2, 1.0] as? [NSNumber]

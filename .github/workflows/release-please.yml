@@ -16,4 +16,10 @@ jobs:
       - uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
-          release-type: simple
+          release-type: simple,
+            "extra-files": [
+                "README.md",
+                "Package.swift",
+                "Google-Maps-iOS-Utils.podspec",
+                "Podfile.template"
+            ]
