@@ -17,9 +17,12 @@
 #error "This file requires ARC support."
 #endif
 
-#import <GMUTestClusterItem.h>
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
+
+#import "GMUDefaultClusterRenderer+Testing.h"
+#import "GMUStaticCluster.h"
+#import "GMUTestClusterItem.h"
 
 @import GoogleMaps;
 

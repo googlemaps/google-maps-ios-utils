@@ -28,7 +28,8 @@ final class GMUGeoJSONParserTest: XCTestCase {
       return []
     }
     #else
-    guard let path = Bundle.main.path(forResource: resource, ofType: "geojson"),
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: resource, ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")
@@ -48,7 +49,8 @@ final class GMUGeoJSONParserTest: XCTestCase {
       return
     }
     #else
-    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
       XCTFail("GeoJSON resource not found.")
       return
     }
@@ -69,7 +71,8 @@ final class GMUGeoJSONParserTest: XCTestCase {
       return
     }
     #else
-    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")

@@ -21,12 +21,21 @@ class GMUKMLParserTest: XCTestCase {
   // Helper function to load GeoJSON data
   func parserWithResource(_ resource: String) -> GMUKMLParser {
     #if SWIFT_PACKAGE
-    let path = Bundle.module.path(forResource: resource, ofType: "kml")!
+    guard let path = Bundle.module.path(forResource: resource, ofType: "kml"),
+          let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
+          let data = fileContents.data(using: .utf8) else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return GMUKMLParser()
+    }
     #else
-    let path = Bundle.main.path(forResource: resource, ofType: "kml")!
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: resource, ofType: "kml"),
+          let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
+          let data = fileContents.data(using: .utf8) else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return GMUKMLParser()
+    }
     #endif
-    let file = try! String(contentsOfFile: path, encoding: .utf8)
-    let data = file.data(using: .utf8)!
     let parser = GMUKMLParser(data: data)
     parser.parse()
     return parser
@@ -46,9 +55,16 @@ class GMUKMLParserTest: XCTestCase {
 
   func testInitWithURL() {
     #if SWIFT_PACKAGE
-    let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml")!
+    guard let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml") else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return
+    }
     #else
-    let path = Bundle.main.path(forResource: "KML_Point_Test", ofType: "kml")!
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: "KML_Point_Test", ofType: "kml") else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return
+    }
     #endif
     let url = URL(fileURLWithPath: path)
     let parser = GMUKMLParser(url: url)
@@ -58,9 +74,16 @@ class GMUKMLParserTest: XCTestCase {
 
   func testInitWithStream() {
     #if SWIFT_PACKAGE
-    let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml")!
+    guard let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml") else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return
+    }
     #else
-    let path = Bundle.main.path(forResource: "KML_Point_Test", ofType: "kml")!
+    let bundle = Bundle(for: Self.self)
+    guard let path = bundle.path(forResource: "KML_Point_Test", ofType: "kml") else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return
+    }
     #endif
     let file = try! String(contentsOfFile: path, encoding: .utf8)
     let data = file.data(using: .utf8)!
