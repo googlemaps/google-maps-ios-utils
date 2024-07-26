@@ -19,6 +19,9 @@
 
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
+#import "GQTBounds.h"
+#import "GQTPoint.h"
+#import "GQTPointQuadTree.h"
 #import "GQTPointQuadTreeItem.h"
 
 static double randd(double min, double max) {
