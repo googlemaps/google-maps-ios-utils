@@ -5,6 +5,6 @@ platform :ios, '14.0'
 target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
   use_frameworks!
   pod 'GoogleMaps', '8.4.0'
-  pod 'Google-Maps-iOS-Utils', '5.0.0'
+  pod 'Google-Maps-iOS-Utils', '4.2.2'
 end
 # [END maps_ios_utils_podfile_template]
