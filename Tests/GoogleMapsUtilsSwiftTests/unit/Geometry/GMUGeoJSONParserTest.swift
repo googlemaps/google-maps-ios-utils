@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import XCTest
-import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
 
@@ -21,12 +20,21 @@ final class GMUGeoJSONParserTest: XCTestCase {
 
   // Helper function to load GeoJSON data
   private func features(withResource resource: String) -> [GMUFeature] {
+    #if SWIFT_PACKAGE
     guard let path = Bundle.module.path(forResource: resource, ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")
       return []
     }
+    #else
+    guard let path = Bundle.main.path(forResource: resource, ofType: "geojson"),
+          let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
+          let data = fileContents.data(using: .utf8) else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return []
+    }
+    #endif
 
     let parser = GMUGeoJSONParser(data: data)
     parser.parse()
@@ -34,10 +42,17 @@ final class GMUGeoJSONParserTest: XCTestCase {
   }
 
   func testInitWithURL() {
+    #if SWIFT_PACKAGE
     guard let path = Bundle.module.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
       XCTFail("GeoJSON resource not found.")
       return
     }
+    #else
+    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson") else {
+      XCTFail("GeoJSON resource not found.")
+      return
+    }
+    #endif
 
     let url = URL(fileURLWithPath: path)
     let parser = GMUGeoJSONParser(url: url)
@@ -46,12 +61,21 @@ final class GMUGeoJSONParserTest: XCTestCase {
   }
 
   func testInitWithStream() {
+    #if SWIFT_PACKAGE
     guard let path = Bundle.module.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
           let data = fileContents.data(using: .utf8) else {
       XCTFail("GeoJSON resource not found or failed to load.")
       return
     }
+    #else
+    guard let path = Bundle.main.path(forResource: "GeoJSON_Point_Test", ofType: "geojson"),
+          let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
+          let data = fileContents.data(using: .utf8) else {
+      XCTFail("GeoJSON resource not found or failed to load.")
+      return
+    }
+    #endif
 
     let stream = InputStream(data: data)
     let parser = GMUGeoJSONParser(stream: stream)

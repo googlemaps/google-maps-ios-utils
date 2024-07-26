@@ -22,7 +22,6 @@
 #import <XCTest/XCTest.h>
 
 @import GoogleMaps;
-@import GoogleMapsUtilsObjC;
 
 @interface GMUDefaultClusterRendererTest : XCTestCase
 @end

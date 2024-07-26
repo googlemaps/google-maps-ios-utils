@@ -14,7 +14,6 @@
 */
 
 import XCTest
-import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
 

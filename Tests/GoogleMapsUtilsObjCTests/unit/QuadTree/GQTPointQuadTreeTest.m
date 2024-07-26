@@ -17,10 +17,9 @@
 #error "This file requires ARC support."
 #endif
 
-@import GoogleMapsUtilsObjC;
-
 #import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
+#import "GQTPointQuadTreeItem.h"
 
 static double randd(double min, double max) {
   double range = max - min;

@@ -15,10 +15,8 @@
 
 #import "ViewController.h"
 
-// If you installed with Swift Package Manager, add the import statement below
-// @import GoogleMapsUtilsObjC;
-@import GoogleMapsUtils;
 #import <GoogleMaps/GoogleMaps.h>
+@import GoogleMapsUtils;
 
 // Point of Interest Item which implements the GMUClusterItem protocol.
 @interface POIItem : NSObject<GMUClusterItem>

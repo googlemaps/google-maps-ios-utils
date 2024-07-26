@@ -16,7 +16,8 @@
 #import <XCTest/XCTest.h>
 
 @import GoogleMaps;
-@import GoogleMapsUtilsObjC;
+#import "GMUCluster.h"
+#import "GMUClusterItem.h"
 
 @protocol GMUCluster;
 

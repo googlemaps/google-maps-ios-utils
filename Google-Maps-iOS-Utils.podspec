@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/wangela/google-maps-ios-utils.git",
                     :branch => "wangela-wip" }
   s.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
+  s.exclude_files = "Sources/GoogleMapsUtils/Exports.swift"
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.9'
@@ -25,28 +26,19 @@ Pod::Spec.new do |s|
   s.dependency 'GoogleMaps', '~> 8.0'
   s.static_framework = true
 
-  s.subspec 'GoogleMapsUtilsObjC' do |sp|
-    sp.public_header_files = "Sources/GoogleMapsUtilsObjC/include/*.h"
-    sp.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}"
-  end
-
-  s.subspec 'GoogleMapsUtils' do |sp|
-    sp.source_files = "Sources/GoogleMapsUtils/**/*.swift"
-    sp.dependency 'Google-Maps-iOS-Utils/GoogleMapsUtilsObjC'
-  end
-
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
       "Tests/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
       "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
       "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
     ]
-    unit_tests.exclude_files = "Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+    unit_tests.exclude_files = "Tests/GoogleMapsUtilsTestsHelper/include/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.resources = [
-      "Tests/GoogleMapsUtilsSwiftTests/resources/**/*.{geojson,kml}"
+      "Tests/GoogleMapsUtilsSwiftTests/Resources/GeoJSON/*.geojson",
+      "Tests/GoogleMapsUtilsSwiftTests/Resources/KML/*.kml"
     ]
     unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsObjCTests/unit/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
+      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTestsHelper/include/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     }
     unit_tests.dependency 'GoogleMaps'
     unit_tests.dependency 'OCMock'

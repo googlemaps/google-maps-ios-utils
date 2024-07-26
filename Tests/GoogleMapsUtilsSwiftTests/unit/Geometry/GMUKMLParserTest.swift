@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import XCTest
-import GoogleMapsUtilsTestsHelper
 
 @testable import GoogleMapsUtils
 
@@ -21,7 +20,11 @@ class GMUKMLParserTest: XCTestCase {
 
   // Helper function to load GeoJSON data
   func parserWithResource(_ resource: String) -> GMUKMLParser {
+    #if SWIFT_PACKAGE
     let path = Bundle.module.path(forResource: resource, ofType: "kml")!
+    #else
+    let path = Bundle.main.path(forResource: resource, ofType: "kml")!
+    #endif
     let file = try! String(contentsOfFile: path, encoding: .utf8)
     let data = file.data(using: .utf8)!
     let parser = GMUKMLParser(data: data)
@@ -42,7 +45,11 @@ class GMUKMLParserTest: XCTestCase {
   }
 
   func testInitWithURL() {
+    #if SWIFT_PACKAGE
     let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml")!
+    #else
+    let path = Bundle.main.path(forResource: "KML_Point_Test", ofType: "kml")!
+    #endif
     let url = URL(fileURLWithPath: path)
     let parser = GMUKMLParser(url: url)
     parser.parse()
@@ -50,7 +57,11 @@ class GMUKMLParserTest: XCTestCase {
   }
 
   func testInitWithStream() {
+    #if SWIFT_PACKAGE
     let path = Bundle.module.path(forResource: "KML_Point_Test", ofType: "kml")!
+    #else
+    let path = Bundle.main.path(forResource: "KML_Point_Test", ofType: "kml")!
+    #endif
     let file = try! String(contentsOfFile: path, encoding: .utf8)
     let data = file.data(using: .utf8)!
     let stream = InputStream(data: data)
