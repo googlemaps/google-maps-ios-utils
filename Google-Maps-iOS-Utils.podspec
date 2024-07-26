@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Google-Maps-iOS-Utils"
-  s.version      = "5.0.0"
+  s.version      = "4.2.2"
   s.summary      = "A utilities library for use with Google Maps SDK for iOS."
   s.description  = "
                    This library contains classes that are useful for a wide range of applications
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.authors      = "Google Inc."
   s.platform     = :ios, '14.0'
-  s.source       = { :git => "https://github.com/wangela/google-maps-ios-utils.git",
-                    :branch => "wangela-wip" }
+  s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
+                     :tag => "v#{s.version.to_s}" }
   s.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
   s.exclude_files = "Sources/GoogleMapsUtils/Exports.swift"
   s.requires_arc = true
