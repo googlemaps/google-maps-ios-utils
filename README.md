@@ -1,4 +1,4 @@
-![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Run%20unit%20tests/badge.svg)
+![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Build%20and%20Test/badge.svg)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
@@ -115,21 +115,18 @@ Read documentation about this utility library on [developers.google.com][devsite
 
 ### Importing
 
-Currently, there is inconsistency between the required imports between usage installed with Swift Package Manager and usage installed with CocoaPods. See [issue #xxx]() for details.
+You may also need to `import GoogleMaps`.
 
-**If you installed with Swift Package Manager**, import both `GoogleMapsUtils` and `GoogleMapsUtilsObjC` in any Swift files that use classes from this library.
+Swift:
 
 ```swift
-import GoogleMaps
 import GoogleMapsUtils
-import GoogleMapsUtilsObjC
 ```
 
-**If you installed with CocoaPods**, import only `GoogleMapsUtils` to access all classes of this library.
+Objective-C:
 
-```swift
-import GoogleMaps
-import GoogleMapsUtils
+```objective-c
+@import GoogleMapsUtils;
 ```
 
 ### Clustering markers
@@ -137,7 +134,6 @@ import GoogleMapsUtils
 ```swift
 import GoogleMaps
 import GoogleMapsUtils
-import GoogleMapsUtilsObjC // Needed if you used Swift Package Manager
 
 class MarkerClustering: UIViewController, GMSMapViewDelegate {
   private var mapView: GMSMapView!
