@@ -32,5 +32,9 @@ jobs:
       # only happens when a release is cut.
 
       - if: ${{ steps.release.outputs.release_created }}
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - if: ${{ steps.release.outputs.release_created }}
         name: Start publish
         uses: ./.github/workflows/publish.yml
