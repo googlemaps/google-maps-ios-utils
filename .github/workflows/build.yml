@@ -63,19 +63,24 @@ jobs:
   # build_dev_app:
   #   runs-on: macos-latest
 
+  # - name: Build DevApp
+  #   run: |
+  #     xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 8" build | xcpretty
+
   build_test_cocoapod:
+    name: Build and test the CocoaPod spec
     runs-on: macos-latest
     steps:
+    # Checks out the repository under $GITHUB_WORKSPACE so this job can access it
+    - name: Checkout google-maps-ios-utils
+      uses: actions/checkout@v4
+
     - name: Install Dependencies
       run: sudo gem install cocoapods
 
     # Validate the library for CocoaPods locally
     - name: CocoaPods lib lint
       run: pod lib lint Google-Maps-iOS-Utils.podspec
-
-  # - name: Build DevApp
-  #   run: |
-  #     xcodebuild -scheme DevApp -configuration Debug -destination "platform=iOS Simulator,OS=16.2,name=iPhone 8" build | xcpretty
 
   build_swift_sample:
     name: Build Swift Sample App with CocoaPods locally
