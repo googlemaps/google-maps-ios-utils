@@ -12,6 +12,8 @@ Pod::Spec.new do |s|
                    dependent on it.
                    "
   s.homepage     = "https://github.com/googlemaps/google-maps-ios-utils"
+  s.readme       = "https://github.com/googlemaps/google-maps-ios-utils/blob/main/README.md"
+  s.changelog    = "https://github.com/googlemaps/google-maps-ios-utils/blob/main/CHANGELOG.md"
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.authors      = "Google Inc."
   s.platform     = :ios, '14.0'
