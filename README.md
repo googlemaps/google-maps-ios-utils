@@ -65,6 +65,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 1. In your `Podfile`:
 
+<!-- x-release-please-start-version -->
   ```ruby
   use_frameworks!
 
@@ -73,6 +74,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
     pod 'Google-Maps-iOS-Utils', '4.2.2'
   end
   ```
+<!-- x-release-please-end -->
 
   Replace `TARGET_NAME` and save the `Podfile`.
 
