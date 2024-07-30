@@ -22,8 +22,12 @@ on:
     branches: ['*']
   workflow_call:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build_swift_package:
+  build_test_swift_package:
     name: Build Swift Package
     runs-on: macos-latest
 
@@ -59,12 +63,15 @@ jobs:
   # build_dev_app:
   #   runs-on: macos-latest
 
-  # - name: Install Dependencies
-  #   run: sudo gem install cocoapods
+  build_test_cocoapod:
+    runs-on: macos-latest
+    steps:
+    - name: Install Dependencies
+      run: sudo gem install cocoapods
 
-  # Restore pod spec lint and pod lib lint after Swift modernization
-  # - name: CocoaPods spec lint
-  #   run: pod lib lint Google-Maps-iOS-Utils.podspec
+    # Validate the library for CocoaPods locally
+    - name: CocoaPods lib lint
+      run: pod lib lint Google-Maps-iOS-Utils.podspec
 
   # - name: Build DevApp
   #   run: |
@@ -118,8 +125,9 @@ jobs:
     strategy:
       fail-fast: true
     needs:
-      - build_swift_package
+      - build_test_swift_package
       # - build_dev_app
+      - build_test_cocoapod
       - build_swift_sample
       - build_objc_sample
     steps:

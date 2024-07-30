@@ -14,12 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
+          command: manifest
           token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
-          release-type: simple,
-            "extra-files": [
-                "README.md",
-                "Package.swift",
-                "Google-Maps-iOS-Utils.podspec",
-                "Podfile.template"
-            ]
+          default-branch: main
+
+      # Call the Publish workflow to publish to CocoaPods when a release is cut.
+      # Note the "if" statement on all commands to make sure that publishing
+      # only happens when a release is cut.
+
+      - if: ${{ steps.release.outputs.release_created }}
+        name: Start publish
+        uses: ./.github/workflows/publish.yml
