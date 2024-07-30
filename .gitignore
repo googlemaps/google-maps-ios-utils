@@ -1,5 +1,6 @@
 # Xcode
 .DS_Store
+.build/
 build/
 *.pbxuser
 !default.pbxuser
@@ -9,13 +10,20 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-*.xcworkspace
-!default.xcworkspace
 xcuserdata
 profile
 *.moved-aside
 DerivedData
 .idea/
+
+# SPM
+.swiftpm
+
+# CocoaPods
 Pods/
 Podfile.lock
+*.xcworkspace
+!default.xcworkspace
+
+# Carthage
 Carthage/
