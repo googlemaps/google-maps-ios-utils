@@ -16,10 +16,11 @@
 name: Build and Test
 
 on:
-  repository_dispatch:
-    types: [build]
   pull_request:
     branches: ['*']
+  push:
+    branches:
+      - main
   workflow_call:
 
 concurrency:
