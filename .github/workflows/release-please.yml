@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,9 +17,15 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          command: manifest
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
           token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
           default-branch: main
+
+      - name: Echo release outputs
+        if: ${{ steps.release.outputs }}
+        run: echo '${{ toJson(steps.release) }}'
+        continue-on-error: true
 
       # Call the Publish workflow to publish to CocoaPods when a release is cut.
       # Note the "if" statement on all commands to make sure that publishing
