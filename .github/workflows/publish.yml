@@ -20,7 +20,7 @@ on:
   workflow_dispatch: # manually trigger if previous runs failed
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: publishing
   cancel-in-progress: true
 
 jobs:
