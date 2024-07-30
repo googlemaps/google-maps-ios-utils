@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "A498680E-C5F2-4007-9490-178C4C0F1170",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "GMUKMLParserTest\/testInitWithStream"
+      ],
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "GoogleMapsUtilsTests",
+        "name" : "GoogleMapsUtilsTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "GoogleMapsUtilsSwiftTests",
+        "name" : "GoogleMapsUtilsSwiftTests"
+      }
+    }
+  ],
+  "version" : 1
+}

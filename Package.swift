@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 
 // Copyright 2020 Google LLC
 //
@@ -18,14 +18,78 @@ import PackageDescription
 
 let package = Package(
   name: "GoogleMapsUtils",
+  platforms: [
+    .iOS(.v14),
+  ],
   products: [
-    .library(name: "GoogleMapsUtils", targets: ["GoogleMapsUtils"])
+    .library(
+      name: "GoogleMapsUtils",
+      targets: ["GoogleMapsUtils", "GoogleMapsUtilsObjC"]),
+  ],
+  dependencies: [
+    .package(
+      url: "https://github.com/googlemaps/ios-maps-sdk",
+      from: "8.0.0"),
+    .package(
+      url: "https://github.com/erikdoe/ocmock.git",
+      revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
   ],
   targets: [
-    .binaryTarget(
+    .target(
+      name: "GoogleMapsUtilsObjC",
+      dependencies: [
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+      ],
+      publicHeadersPath: "include",
+      cSettings: [
+          .headerSearchPath("."),
+      ],
+      linkerSettings: [
+        .linkedFramework("UIKit", .when(platforms: [.iOS])),
+      ]
+    ),
+    .target(
       name: "GoogleMapsUtils",
-      url: "https://github.com/googlemaps/google-maps-ios-utils/releases/download/v4.2.2/GoogleMapsUtils.xcframework.zip",
-      checksum: "e4c5c3a669ad65130d52c22bd993724707d054ba065d6f60b396715e465504a2"
+      dependencies: [
+        .target(name: "GoogleMapsUtilsObjC"),
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+      ]
+    ),
+    .target(
+      name: "GoogleMapsUtilsTestsHelper",
+      dependencies: [
+        .target(name: "GoogleMapsUtilsObjC"),
+      ],
+      path: "Tests/GoogleMapsUtilsTestsHelper"
+    ),
+    .testTarget(
+      name: "GoogleMapsUtilsObjCTests",
+      dependencies: [
+        "GoogleMapsUtilsObjC",
+        "GoogleMapsUtilsTestsHelper",
+        .product(name: "OCMock", package: "ocmock"),
+      ],
+      path: "Tests/GoogleMapsUtilsObjCTests",
+      cSettings: [
+        .headerSearchPath(".")
+      ]
+    ),
+    .testTarget(
+      name: "GoogleMapsUtilsSwiftTests",
+      dependencies: [
+        "GoogleMapsUtils",
+        "GoogleMapsUtilsObjC",
+        "GoogleMapsUtilsTestsHelper",
+        .product(name: "GoogleMaps", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
+        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
+      ],
+      path: "Tests/GoogleMapsUtilsSwiftTests",
+      resources: [.process("Resources")]
     )
   ]
 )

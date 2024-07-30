@@ -2,6 +2,8 @@
 .DS_Store
 .build/
 build/
+.build/
+.swiftpm/
 *.pbxuser
 !default.pbxuser
 *.mode1v3

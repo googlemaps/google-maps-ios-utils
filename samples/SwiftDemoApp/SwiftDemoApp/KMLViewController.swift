@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import GoogleMaps
 import UIKit
+import GoogleMaps
 import GoogleMapsUtils
 
 class KMLViewController: UIViewController {
@@ -25,7 +25,9 @@ class KMLViewController: UIViewController {
 
   override func loadView() {
     let camera = GMSCameraPosition.camera(withLatitude: 37.4220, longitude: -122.0841, zoom: 17)
-    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    let options = GMSMapViewOptions()
+    options.camera = camera
+    mapView = GMSMapView.init(options: options)
     self.view = mapView
     guard let path = Bundle.main.path(forResource: "KML_Sample", ofType: "kml") else  {
         NSLog("Resource not available")
