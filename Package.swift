@@ -19,7 +19,7 @@ import PackageDescription
 let package = Package(
   name: "GoogleMapsUtils",
   platforms: [
-    .iOS(.v14),
+    .iOS(.v15),
   ],
   products: [
     .library(
@@ -29,7 +29,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/googlemaps/ios-maps-sdk",
-      from: "8.0.0"),
+      from: "9.0.0"),
     .package(
       url: "https://github.com/erikdoe/ocmock.git",
       revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
@@ -39,8 +39,6 @@ let package = Package(
       name: "GoogleMapsUtilsObjC",
       dependencies: [
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
       ],
       publicHeadersPath: "include",
       cSettings: [
@@ -55,8 +53,6 @@ let package = Package(
       dependencies: [
         .target(name: "GoogleMapsUtilsObjC"),
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
       ]
     ),
     .target(
@@ -85,8 +81,6 @@ let package = Package(
         "GoogleMapsUtilsObjC",
         "GoogleMapsUtilsTestsHelper",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsBase", package: "ios-maps-sdk"),
-        .product(name: "GoogleMapsCore", package: "ios-maps-sdk"),
       ],
       path: "Tests/GoogleMapsUtilsSwiftTests",
       resources: [.process("Resources")]
