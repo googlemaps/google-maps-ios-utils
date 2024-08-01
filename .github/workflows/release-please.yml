@@ -27,14 +27,12 @@ jobs:
         run: echo '${{ toJson(steps.release) }}'
         continue-on-error: true
 
-      # Call the Publish workflow to publish to CocoaPods when a release is cut.
-      # Note the "if" statement on all commands to make sure that publishing
-      # only happens when a release is cut.
-
-      - if: ${{ steps.release.outputs.release_created }}
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
+      # Call the Publish workflow to publish to CocoaPods when a release is cut.
+      # Note the "if" statement makes sure that publishing
+      # only happens when a release is cut.
       - if: ${{ steps.release.outputs.release_created }}
         name: Start publish
         uses: ./.github/workflows/publish.yml

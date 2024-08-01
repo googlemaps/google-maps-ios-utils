@@ -10,7 +10,6 @@
       "draft": false,
       "prerelease": false,
       "extra-files": [
-        "README.md",
         "Google-Maps-iOS-Utils.podspec",
         "Podfile.template"
       ]
