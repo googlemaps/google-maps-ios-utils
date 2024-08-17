@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /// Defines a generic geometry container.
-/// TO-DO: Rename the class to `GMUGeometryContainer` once the linking is done and remove the objective c class.
+/// TO-DO: Rename the class to `GMUGeometryContainer` once the linking is done and remove the objective c class
 protocol GMUGeometryContainer1 {
     /// The geometry object in the container.
     var geometry: GMUGeometry { get }
