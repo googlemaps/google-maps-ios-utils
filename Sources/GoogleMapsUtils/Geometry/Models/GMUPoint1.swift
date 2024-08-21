@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import GoogleMaps
-
-/// Instances of this class represent a LineString object.
-/// TO-DO: Rename the class to `GMULineString` once the linking is done and remove the objective c class.
-struct GMULineString1: GMUGeometry1 {
+/// Instances of this class represent a GeoJSON Feature object.
+/// TO-DO: Rename the class to `GMUPoint` once the linking is done and remove the objective c class.
+struct GMUPoint1: GMUGeometry1 {
     // MARK: - Properties
     /// The type of the geometry.
-    var type: String = "LineString"
-    /// The path of the LineString.
-    private(set) var path: GMSPath
+    var type: String = "Point"
+    /// The 2D coordinate of the Point, containing a latitude and longitude.
+    private(set) var coordinate: CLLocationCoordinate2D
 }
 

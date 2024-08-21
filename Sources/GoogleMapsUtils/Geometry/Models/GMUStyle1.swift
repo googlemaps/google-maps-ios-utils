@@ -21,9 +21,9 @@ struct GMUStyle1 {
     /// The unique identifier of the style
     private(set) var styleID: String
     /// The color for the stroke of a LineString or Polygon.
-    private(set) var strokeColor: UIColor
+    private(set) var strokeColor: UIColor?
     /// The color for the fill of a Polygon.
-    private(set) var fillColor: UIColor
+    private(set) var fillColor: UIColor?
     /// The width of a LineString
     private(set) var width: Float
     /// The scale that a Point's icon should be rendered at.
@@ -33,9 +33,9 @@ struct GMUStyle1 {
     /// The position within an icon that is anchored to the Point.
     private(set) var anchor: CGPoint
     /// The href for the icon to be used for a Point.
-    private(set) var iconUrl: String
+    private(set) var iconUrl: String?
     /// The title to use for a Point.
-    private(set) var title: String
+    private(set) var title: String?
     /// Whether the Polygon has a defined fill color.
     private(set) var hasFill: Bool
     /// Whether the LineString or Polygon has a defined stroke color.

@@ -12,20 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Represents a placemark which is either a Point, LineString, Polygon, or MultiGeometry. Contains
-/// the properties and styles of the place.
-/// TO-DO: Rename the class to `GMUPlacemarkSwift` once the linking is done and remove the objective c class.
-struct GMUPlacemark1: GMUGeometryContainer1 {
+import GoogleMaps
+
+/// Instances of this class represent a GeoJSON Feature object.
+/// TO-DO: Rename the class to `GMUFeature` once the linking is done and remove the objective c class.
+struct GMUFeature1: GMUGeometryContainer1 {
     // MARK: - Properties
     /// The geometry object in the container.
     var geometry: GMUGeometry
     /// Style information that should be applied to the contained geometry object.
     var style: GMUStyle?
-    /// The name element of the placemark.
-    private(set) var title: String?
-    /// The description element of the placemark.
-    private(set) var snippet: String?
-    /// The StyleUrl element of the placemark; used to reference a style defined in the file.
-    private(set) var styleUrl: String?
-
+    /// The identifier of the feature.
+    private(set) var identifier: String?
+    /// The properties of the geometry in the feature.
+    private(set) var properties: [String : AnyObject]?
+    /// The bounding box of the geometry in the feature.
+    private(set) var boundingBox: GMSCoordinateBounds?
 }

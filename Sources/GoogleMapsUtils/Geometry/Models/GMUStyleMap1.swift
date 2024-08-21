@@ -12,15 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import GoogleMaps
-
-/// Instances of this class represent a LineString object.
-/// TO-DO: Rename the class to `GMULineString` once the linking is done and remove the objective c class.
-struct GMULineString1: GMUGeometry1 {
+/// TO-DO: Rename the class to `GMUStyleMap` once the linking is done and remove the objective c class.
+struct GMUStyleMap1 {
     // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "LineString"
-    /// The path of the LineString.
-    private(set) var path: GMSPath
+    /// The styleMapId of the geometry.
+    private(set) var styleMapId: String
+    /// The array of pairs for the GMUPair
+    /// TO-DO: Rename the class to `GMUPair` once the linking is done and remove the objective c class.
+    private(set) var pairs: [GMUPair1]
 }
-

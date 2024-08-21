@@ -14,7 +14,7 @@
 
 
 /// Defines a generic geometry object.
-/// TO-DO: Rename the class to `GMUGeometryContainer` once the linking is done and remove the objective c class.
+/// TO-DO: Rename the class to `GMUGeometry` once the linking is done and remove the objective c class.
 protocol GMUGeometry1 {
     /// The type of the geometry.
     var type: String { get }

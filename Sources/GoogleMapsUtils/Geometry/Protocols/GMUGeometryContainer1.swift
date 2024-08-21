@@ -18,5 +18,5 @@ protocol GMUGeometryContainer1 {
     /// The geometry object in the container.
     var geometry: GMUGeometry { get }
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle { get set }
+    var style: GMUStyle? { get set }
 }
