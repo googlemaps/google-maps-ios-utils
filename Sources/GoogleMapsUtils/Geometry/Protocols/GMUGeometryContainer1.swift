@@ -16,7 +16,7 @@
 /// TO-DO: Rename the class to `GMUGeometryContainer` once the linking is done and remove the objective c class
 protocol GMUGeometryContainer1 {
     /// The geometry object in the container.
-    var geometry: GMUGeometry { get }
+    var geometry: GMUGeometry1 { get }
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle? { get set }
+    var style: GMUStyle1? { get set }
 }
