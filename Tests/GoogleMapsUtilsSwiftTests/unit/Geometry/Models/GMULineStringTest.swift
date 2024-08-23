@@ -16,41 +16,32 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-/// TO-DO: Rename the test file to `GMUPolygonTest` once the linking is done and remove the objective c class.
-
-final class GMUPolygonTest1: XCTestCase {
-
+final class GMULineStringTest: XCTestCase {
+    
     // MARK: - Properties
-    private let type: String = "Polygon"
+    private let type: String = "LineString"
     private let firstLatitude: CLLocationDegrees = 50.0
     private let firstLongitude: CLLocationDegrees = 45.0
-    private let secondLatitude: CLLocationDegrees = 55.0
-    private let secondLongitude: CLLocationDegrees = 50.0
-    private let thirdLatitude: CLLocationDegrees = 60.0
-    private let thirdLongitude: CLLocationDegrees = 55.0
+    private let secondLatitude: CLLocationDegrees = 60.0
+    private let secondLongitude: CLLocationDegrees = 55.0
+    private let path: GMSMutablePath = GMSMutablePath()
 
     // MARK: - Test Methods
-    func testInitWithCoordinatesArray() {
-        let (polygon, paths) = makeSUT()
+    func testInitWithCoordinates() {
+        let lineString: GMULineString1 = makeSUT()
         
-        XCTAssertEqual(polygon.type, type)
-        XCTAssertEqual(polygon.paths, paths)
+        XCTAssertEqual(lineString.type, type)
+        XCTAssertEqual(lineString.path, path)
     }
-    
+
     // MARK: - SUT
-    private func makeSUT() -> (GMUPolygon1, [GMSMutablePath]) {
+    private func makeSUT() -> GMULineString1 {
         let firstCoordinate = CLLocationCoordinate2D(latitude: firstLatitude, longitude: firstLongitude)
         let secondCoordinate = CLLocationCoordinate2D(latitude: secondLatitude, longitude: secondLongitude)
-        let thirdCoordinate = CLLocationCoordinate2D(latitude: thirdLatitude, longitude: thirdLongitude)
-        
-        let path: GMSMutablePath = GMSMutablePath()
         path.add(firstCoordinate)
         path.add(secondCoordinate)
-        path.add(thirdCoordinate)
-        path.add(firstCoordinate)  // Closing the polygon
         
-        let paths: [GMSMutablePath] = [path]
-        let polygon: GMUPolygon1 = GMUPolygon1(type: type, paths: paths)
-        return (polygon, paths)
+        let lineString: GMULineString1 = GMULineString1(type: type, path: path)
+        return lineString
     }
 }

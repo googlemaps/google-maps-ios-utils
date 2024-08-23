@@ -16,9 +16,7 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-/// TO-DO: Rename the test file to `GMUPointTest` once the linking is done and remove the objective c class.
-
-final class GMUPointTest1: XCTestCase {
+final class GMUPointTest: XCTestCase {
 
     // MARK: - Properties
     private let type: String = "Point"

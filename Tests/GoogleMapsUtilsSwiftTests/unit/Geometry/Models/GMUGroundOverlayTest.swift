@@ -16,9 +16,7 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-/// TO-DO: Rename the test file to `GMUGroundOverlayTest` once the linking is done and remove the objective c class.
-
-final class GMUGroundOverlayTest1: XCTestCase {
+final class GMUGroundOverlayTest: XCTestCase {
 
     // MARK: - Properties
     private let type: String = "GroundOverlay"

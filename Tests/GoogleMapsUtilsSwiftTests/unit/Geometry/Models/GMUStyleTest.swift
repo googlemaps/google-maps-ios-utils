@@ -16,9 +16,7 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-/// TO-DO: Rename the test file to `GMUStyleTest` once the linking is done and remove the objective c class.
-
-final class GMUStyleTest1: XCTestCase {
+final class GMUStyleTest: XCTestCase {
 
     // MARK: - Properties
     private let styleID: String = "#test"
