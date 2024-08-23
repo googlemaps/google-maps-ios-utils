@@ -12,15 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import GoogleMaps
 
-/// Instances of this class represent a LineString object.
-/// TO-DO: Rename the class to `GMULineString` once the linking is done and remove the objective c class.
-struct GMULineString1: GMUGeometry1 {
+/// Instances of this class represent a GeometryCollection object.
+/// TO-DO: Rename the class to `GMUGeometryCollection` once the linking is done and remove the objective c class.
+struct GMUGeometryCollection1: GMUGeometry1 {
     // MARK: - Properties
     /// The type of the geometry.
-    var type: String = "LineString"
-    /// The path of the LineString.
-    private(set) var path: GMSPath
+    var type: String = "GeometryCollection"
+    /// The array of geometry objects for the GeometryCollection.
+    private(set) var geometries: [GMUGeometry]
 }
 

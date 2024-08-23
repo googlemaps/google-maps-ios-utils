@@ -14,13 +14,12 @@
 
 import GoogleMaps
 
-/// Instances of this class represent a LineString object.
-/// TO-DO: Rename the class to `GMULineString` once the linking is done and remove the objective c class.
-struct GMULineString1: GMUGeometry1 {
+/// Instances of this class represent a Polygon object.
+/// TO-DO: Rename the class to `GMUPolygon` once the linking is done and remove the objective c class.
+struct GMUPolygon1: GMUGeometry1 {
     // MARK: - Properties
     /// The type of the geometry.
-    var type: String = "LineString"
-    /// The path of the LineString.
-    private(set) var path: GMSPath
+    var type: String = "Polygon"
+    /// The array of LinearRing paths for the Polygon. The first is the exterior ring of the Polygon; any subsequent rings are holes.
+    private(set) var paths: [GMSPath]
 }
-
