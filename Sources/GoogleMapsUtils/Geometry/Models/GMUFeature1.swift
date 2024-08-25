@@ -19,9 +19,9 @@ import GoogleMaps
 struct GMUFeature1: GMUGeometryContainer1 {
     // MARK: - Properties
     /// The geometry object in the container.
-    var geometry: GMUGeometry
+    var geometry: GMUGeometry1
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle?
+    var style: GMUStyle1?
     /// The identifier of the feature.
     private(set) var identifier: String?
     /// The properties of the geometry in the feature.

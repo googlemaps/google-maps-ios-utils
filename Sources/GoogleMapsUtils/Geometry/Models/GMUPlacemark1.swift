@@ -14,13 +14,13 @@
 
 /// Represents a placemark which is either a Point, LineString, Polygon, or MultiGeometry. Contains
 /// the properties and styles of the place.
-/// TO-DO: Rename the class to `GMUPlacemarkSwift` once the linking is done and remove the objective c class.
+/// TO-DO: Rename the class to `GMUPlacemark` once the linking is done and remove the objective c class.
 struct GMUPlacemark1: GMUGeometryContainer1 {
     // MARK: - Properties
     /// The geometry object in the container.
-    var geometry: GMUGeometry
+    var geometry: GMUGeometry1
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle?
+    var style: GMUStyle1?
     /// The name element of the placemark.
     private(set) var title: String?
     /// The description element of the placemark.
