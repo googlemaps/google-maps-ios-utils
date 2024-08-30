@@ -20,6 +20,6 @@ struct GMUGeometryCollection1: GMUGeometry1 {
     /// The type of the geometry.
     var type: String = "GeometryCollection"
     /// The array of geometry objects for the GeometryCollection.
-    private(set) var geometries: [GMUGeometry]
+    private(set) var geometries: [GMUGeometry1]
 }
 
