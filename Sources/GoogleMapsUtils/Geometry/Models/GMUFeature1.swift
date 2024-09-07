@@ -25,7 +25,7 @@ struct GMUFeature1: GMUGeometryContainer1 {
     /// The identifier of the feature.
     private(set) var identifier: String?
     /// The properties of the geometry in the feature.
-    private(set) var properties: [String : AnyObject]?
+    private(set) var properties: [String : NSObject]?
     /// The bounding box of the geometry in the feature.
     private(set) var boundingBox: GMSCoordinateBounds?
 }
