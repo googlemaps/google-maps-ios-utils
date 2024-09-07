@@ -13,6 +13,8 @@
 // limitations under the License.
 
 //MARK: - GQTPoint
+/// The struct represents a point with read-only x and y coordinates.
+/// 
 /// TO-DO: Rename the struct to `GQTPoint` once the linking is done and remove the objective c class.
 struct GQTPoint1 {
     //MARK: - Properties

@@ -13,6 +13,9 @@
 // limitations under the License.
 
 // MARK: - GQTPointQuadTreeChild
+/// The class manages the children and items in a quad tree node, 
+/// handling insertion, removal, splitting, and searching within specific bounds.
+/// 
 /// TO-DO: Rename the class to `GQTPointQuadTreeChild` once the linking is done and remove the objective c class.
 final class GQTPointQuadTreeChild1 {
 

@@ -13,6 +13,9 @@
 // limitations under the License.
 
 //MARK: - GQTPointQuadTreeItem
+/// The protocol defines a method point() that returns the `GQTPoint`
+///  representing the item's location in the quad tree.
+///  
 /// TO-DO: Rename the class to `GQTPointQuadTreeItem` once the linking is done and remove the objective c class.
 protocol GQTPointQuadTreeItem1: AnyObject {
     func point() -> GQTPoint1

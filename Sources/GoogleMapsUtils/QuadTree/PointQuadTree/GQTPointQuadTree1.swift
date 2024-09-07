@@ -13,6 +13,9 @@
 // limitations under the License.
 
 // MARK: - GQTPointQuadTree
+/// The class implements a quad tree data structure for spatial indexing, 
+/// allowing efficient insertion, removal, and search of items within specified bounds.
+/// 
 /// TO-DO: Rename the class to `GQTPointQuadTree` once the linking is done and remove the objective c class.
 final class GQTPointQuadTree1 {
 

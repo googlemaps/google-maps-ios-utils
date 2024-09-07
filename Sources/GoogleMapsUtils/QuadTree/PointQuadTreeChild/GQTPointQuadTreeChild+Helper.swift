@@ -14,11 +14,17 @@
 
 
 // MARK: - GQTPointQuadTreeChild Constants
+/// The struct maintains constants for `GQTPointQuadTreeChild` class.
+///
 struct GQTPointQuadTreeChildConstants {
     static let maxElements: Int = 64
     static let maxDepth: Int = 30
 }
 
+/// This extension of `GQTPointQuadTreeChild` provides helper methods 
+/// for calculating child quadrant bounds, the midpoint of node bounds,
+/// and determining whether two bounding boxes intersect.
+/// 
 /// TO-DO: Rename the extension to `GQTPointQuadTreeChild` once the linking is done and remove the objective c class.
 extension GQTPointQuadTreeChild1 {
 
