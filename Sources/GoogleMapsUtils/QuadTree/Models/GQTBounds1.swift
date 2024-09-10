@@ -14,7 +14,7 @@
 
 //MARK: - GQTBounds
 /// The struct defines a rectangular boundary 
-/// using minimum and maximum X and Y coordinates.
+/// using read-only minimum and maximum X and Y coordinates.
 /// 
 /// TO-DO: Rename the struct to `GQTBounds` once the linking is done and remove the objective c class.
 struct GQTBounds1 {
