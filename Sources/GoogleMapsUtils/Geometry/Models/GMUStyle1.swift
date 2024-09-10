@@ -16,7 +16,7 @@
 /// Instances of this class represent a geometry Style. It is used to define the
 /// stylings of any number of GMUGeometry objects.
 /// TO-DO: Rename the class to `GMUStyle` once the linking is done and remove the objective c class.
-struct GMUStyle1 {
+struct GMUStyle1: Equatable {
     // MARK: - Properties
     /// The unique identifier of the style
     private(set) var styleID: String
