@@ -46,12 +46,12 @@ class GMUKMLParserTest: XCTestCase {
       XCTFail("Geometry is not a GMUPlacemark")
       return []
     }
-      return resource.placemarksArray
+    return resource.placemarksArray
   }
 
   func stylesWithResource(_ resource: String) -> [GMUStyle1] {
     guard let resource = parserWithResource(resource) else {
-     XCTFail("resource is nil.")
+     XCTFail("Geometry is not a GMUStyle.")
      return []
     }
     return resource.stylesArray
@@ -185,8 +185,8 @@ class GMUKMLParserTest: XCTestCase {
 
   func testParseStyleMap() {
     guard let parser = parserWithResource("KML_StyleMap_Test") else {
-        XCTFail("parser is nil.")
-        return
+      XCTFail("parser is nil.")
+      return
     }
     XCTAssertEqual(1, parser.styleMapsArray.count)
     XCTAssertEqual(2, parser.stylesArray.count)

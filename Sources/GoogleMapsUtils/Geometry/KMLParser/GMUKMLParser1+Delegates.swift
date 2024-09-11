@@ -14,6 +14,16 @@
 /// This extension provides the delegate(`XMLParserDelegate`) implementations, of the `GMUKMLParser` class.
 /// 
 extension GMUKMLParser1 {
+
+    // MARK: - `didStartElement`
+    /// Called when the parser encounters the start of an XML element.
+    ///
+    /// - Parameters:
+    ///   - parser: The XML parser object providing context for the parse operation.
+    ///   - elementName: The name of the element that was found in the XML.
+    ///   - namespaceURI: The URI of the namespace to which the element belongs (if any).
+    ///   - qName: The qualified name of the element (optional).
+    ///   - attributeDict: A dictionary containing the attributes of the element (if any).
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         characters = nil
         if let styleRegex, let _ = styleRegex.firstMatch(in: elementName, options: [], range: NSRange(location: 0, length: elementName.count)) {
@@ -40,7 +50,15 @@ extension GMUKMLParser1 {
             parseBeginLeafNode()
         }
     }
-    
+
+    // MARK: - `didEndElement`
+    /// Called when the parser encounters the end of an XML element.
+    ///
+    /// - Parameters:
+    ///   - parser: The XML parser object providing context for the parse operation.
+    ///   - elementName: The name of the element that has just ended in the XML.
+    ///   - namespaceURI: The URI of the namespace to which the element belongs (if any).
+    ///   - qName: The qualified name of the element (optional).
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if let styleRegex,
             styleRegex.firstMatch(in: elementName, options: [], range: NSRange(location: 0, length: elementName.count)) != nil {
@@ -69,6 +87,12 @@ extension GMUKMLParser1 {
         characters = nil
     }
 
+    // MARK: - `foundCharacters`
+    /// Called when the parser finds character data within an XML element.
+    ///
+    /// - Parameters:
+    ///   - parser: The XML parser object providing context for the parse operation.
+    ///   - string: The string containing the characters found between XML elements.
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isParsing(.leafNode) {
             guard var characters, !characters.isEmpty else {
