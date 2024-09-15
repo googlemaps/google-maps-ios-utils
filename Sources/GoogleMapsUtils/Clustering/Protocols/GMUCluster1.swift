@@ -12,6 +12,7 @@
 
 import CoreLocation
 
+// MARK: - GMUCluster Protocol
 /// TO-DO: Rename the class to `GMUCluster` once the linking is done and remove the objective c class.
 /// Defines a generic cluster object, with read-only properties.
 ///

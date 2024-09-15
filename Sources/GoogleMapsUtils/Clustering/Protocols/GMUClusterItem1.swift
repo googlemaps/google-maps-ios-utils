@@ -12,6 +12,7 @@
 
 import CoreLocation
 
+// MARK: - GMUClusterItem Protocol
 /// TO-DO: Rename the class to `GMUClusterItem1` once the linking is done and remove the objective c class.
 /// This protocol defines the contract for a cluster item, with read-only properties.
 ///
