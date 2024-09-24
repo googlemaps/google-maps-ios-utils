@@ -1,3 +1,5 @@
+// Copyright 2024 Google LLC
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -20,12 +22,12 @@ protocol GMUClusterAlgorithm1 {
     /// Adds an array of items to the cluster algorithm.
     ///
     /// - Parameter items: An array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem1])
+    func addItems(_ items: [GMUClusterItem])
 
     /// Removes a specific item from the cluster algorithm.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem1)
+    func removeItem(_ item: GMUClusterItem)
 
     /// Removes an item.
     func clearItems()
@@ -34,5 +36,5 @@ protocol GMUClusterAlgorithm1 {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster1]
+    func clusters(atZoom zoom: Float) -> [GMUCluster]
 }
