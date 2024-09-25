@@ -14,7 +14,7 @@
 
 
 /// TO-DO: Rename the class to `GMUSimpleClusterAlgorithm` once the linking is done and remove the objective c class.
-/// `GMUSimpleClusterAlgorithm` is a basic clustering algorithm that groups a set of `GMUClusterItem` objects into a fixed number of clusters (default 10).
+/// A basic clustering algorithm that groups a set of `GMUClusterItem` objects into a fixed number of clusters (default 10).
 /// Not for production: used for experimenting with new clustering algorithms only.
 ///
 final class GMUSimpleClusterAlgorithm1: GMUClusterAlgorithm1 {
