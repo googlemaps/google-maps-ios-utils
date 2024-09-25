@@ -22,12 +22,12 @@ protocol GMUClusterAlgorithm1 {
     /// Adds an array of items to the cluster algorithm.
     ///
     /// - Parameter items: An array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem])
+    func addItems(_ items: [GMUClusterItem1])
 
     /// Removes a specific item from the cluster algorithm.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem)
+    func removeItem(_ item: GMUClusterItem1)
 
     /// Removes an item.
     func clearItems()
@@ -36,5 +36,5 @@ protocol GMUClusterAlgorithm1 {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster]
+    func clusters(atZoom zoom: Float) -> [GMUCluster1]
 }

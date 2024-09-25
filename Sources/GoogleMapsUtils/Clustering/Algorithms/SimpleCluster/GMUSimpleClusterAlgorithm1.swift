@@ -23,20 +23,20 @@ final class GMUSimpleClusterAlgorithm1: GMUClusterAlgorithm1 {
     /// Number of clusters to form.
     private let clusterCount: Int = 10
     /// Internal array to store cluster items.
-    private var clusterItems: [GMUClusterItem] = []
+    private var clusterItems: [GMUClusterItem1] = []
 
     // MARK: - `GMUClusterAlgorithm` Methods
     /// Adds an array of items to the cluster algorithm.
     ///
     /// - Parameter items: Array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem]) {
+    func addItems(_ items: [GMUClusterItem1]) {
         clusterItems.append(contentsOf: items)
     }
 
     /// Removes a specific item from the cluster algorithm.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem) {
+    func removeItem(_ item: GMUClusterItem1) {
         clusterItems.removeAll { $0 === item }
     }
 
@@ -49,21 +49,21 @@ final class GMUSimpleClusterAlgorithm1: GMUClusterAlgorithm1 {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster] {
-        var clusters: [GMUCluster] = []
+    func clusters(atZoom zoom: Float) -> [GMUCluster1] {
+        var clusters: [GMUCluster1] = []
 
         for i in 0..<clusterCount {
             if i >= clusterItems.count {
                 break
             }
-            let item: GMUClusterItem = clusterItems[i]
-            clusters.append(GMUStaticCluster(position: item.position))
+            let item: GMUClusterItem1 = clusterItems[i]
+            clusters.append(GMUStaticCluster1(position: item.position))
         }
 
         var clusterIndex: Int = 0
         for i in clusterCount..<clusterItems.count {
             let item = clusterItems[i]
-            if let cluster = clusters[clusterIndex % clusterCount] as? GMUStaticCluster {
+            if let cluster = clusters[clusterIndex % clusterCount] as? GMUStaticCluster1 {
                 cluster.addItem(item)
             }
             clusterIndex += 1
