@@ -1,3 +1,5 @@
+// Copyright 2024 Google LLC
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,10 +15,10 @@
 import CoreLocation
 
 // MARK: - GMUClusterItem Protocol
-/// TO-DO: Rename the class to `GMUClusterItem1` once the linking is done and remove the objective c class.
+/// TO-DO: Rename the class to `GMUClusterItem` once the linking is done and remove the objective c class.
 /// This protocol defines the contract for a cluster item, with read-only properties.
 ///
-protocol GMUClusterItem1 {
+protocol GMUClusterItem1: AnyObject {
 
     /// Returns the position of the item.
     var position: CLLocationCoordinate2D { get }
