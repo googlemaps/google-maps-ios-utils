@@ -14,7 +14,7 @@
 
 @testable import GoogleMapsUtils
 
-/// Mock class, replace with actual mock framework in your project.
+/// Mock class for `GMUClusterItem`
 final class MockGMUClusterItem: GMUClusterItem1 {
 
     // MARK: - Properties
