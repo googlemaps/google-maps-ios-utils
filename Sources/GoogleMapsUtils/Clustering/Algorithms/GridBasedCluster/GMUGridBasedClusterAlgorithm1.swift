@@ -23,7 +23,7 @@ final class GMUGridBasedClusterAlgorithm1: GMUClusterAlgorithm1 {
     /// Internal array to store cluster items.
     private var clusterItems: [GMUClusterItem1]
     /// Grid cell dimension in pixels to keep clusters about 100 pixels apart on screen.
-    private let gmuGridCellSizePoints: Int = 100
+    private let gmuGridCellSizePoints: Float = 100.0
 
     // MARK: - Initializers
     init() {
@@ -58,19 +58,22 @@ final class GMUGridBasedClusterAlgorithm1: GMUClusterAlgorithm1 {
         var clusters: [Int : GMUCluster1] = [:]
 
         // Divide the whole map into a numCells x numCells grid and assign items to them.
-        let numCells: Double = Double(ceil(256 * pow(2, zoom) / Float(gmuGridCellSizePoints)))
+        let numCells: Int = Int(ceil(256 * pow(2, zoom) / gmuGridCellSizePoints))
 
         for item in clusterItems {
             let point: GMSMapPoint = GMSProject(item.position)
             /// point.x is in [-1, 1] range
-            let col: Double = numCells * (1.0 + point.x) / 2
+            let col: Int = Int(Double(numCells) * (1.0 + point.x) / 2.0)
             /// point.y is in [-1, 1] range
-            let row: Double = numCells * (1.0 + point.y) / 2
-            let index: Int = Int(numCells * row + col)
+            let row: Int = Int(Double(numCells) * (1.0 + point.y) / 2.0)
+            let index: Int = numCells * row + col
             var cluster: GMUStaticCluster1? = clusters[index] as? GMUStaticCluster1
             if cluster == nil {
                 // Normalize cluster's centroid to center of the cell.
-                let mapPoint: GMSMapPoint = GMSMapPoint(x: (col + 0.5) * 2.0 / numCells - 1, y: (row + 0.5) * 2.0 / numCells - 1)
+                let newNumCells = Double(numCells - 1)
+                let xCoordinate = Double((Double(col) + 0.5) * 2.0 / newNumCells)
+                let yCoordinate = Double((Double(row) + 0.5) * 2.0 / newNumCells)
+                let mapPoint: GMSMapPoint = GMSMapPoint(x: xCoordinate, y: yCoordinate)
                 let position: CLLocationCoordinate2D = GMSUnproject(mapPoint)
                 cluster = GMUStaticCluster1(position: position)
                 clusters[index] = cluster
