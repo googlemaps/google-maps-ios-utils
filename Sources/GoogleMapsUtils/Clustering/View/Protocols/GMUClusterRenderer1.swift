@@ -16,7 +16,7 @@
 /// TO-DO: Rename the class to `GMUClusterRenderer` once the linking is done and remove the objective c class.
 /// Defines a common contract for a cluster renderer.
 ///
-protocol GMUClusterRenderer: AnyObject {
+protocol GMUClusterRenderer1: AnyObject {
     /// Renders a list of clusters.
     /// 
     func renderClusters(_ clusters: [GMUCluster1])
