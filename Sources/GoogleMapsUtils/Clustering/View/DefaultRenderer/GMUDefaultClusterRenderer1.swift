@@ -240,7 +240,7 @@ final class GMUDefaultClusterRenderer1: GMUClusterRenderer1 {
         }
         
         // Clear existing markers after the animation has ended.
-        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration * Double(NSEC_PER_SEC)) {
             self.clearMarkers(markers)
         }
     }
