@@ -17,7 +17,11 @@ import GoogleMaps
 /// TO-DO: Rename the class to `GMUWeightedLatLng` once the linking is done and remove the objective c class.
 /// A class that represents a weighted geographical point on the earth's surface, implementing the `GQTPointQuadTreeItem` protocol.
 ///
-final class GMUWeightedLatLng1: GQTPointQuadTreeItem1 {
+final class GMUWeightedLatLng1: GQTPointQuadTreeItem1, Equatable {
+    static func == (lhs: GMUWeightedLatLng1, rhs: GMUWeightedLatLng1) -> Bool {
+        return true
+    }
+    
 
     // MARK: - Properties
     /// The intensity of the data point. The scale is arbitrary, assumed to be linear.
