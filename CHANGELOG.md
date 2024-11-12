@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.0.0...v6.1.0) (2024-11-07)
+
+
+### Features
+
+* **map:** allow custom iconView on GMSMarker subclasses ([#506](https://github.com/googlemaps/google-maps-ios-utils/issues/506)) ([125dfe5](https://github.com/googlemaps/google-maps-ios-utils/commit/125dfe516b0ad4497889da1ec3b6e02a38174ae9))
+
 ## [6.0.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v5.0.0...v6.0.0) (2024-07-31)
 
 
