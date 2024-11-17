@@ -84,7 +84,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     options.camera = camera
     heatmapTileLayer.map = nil
     XCTAssertEqual(gradientColor, heatmapTileLayer.gradient?.colors)
-      XCTAssertNotEqual(weightedData[0].intensity, heatmapTileLayer.weightedData![0].intensity)
+    XCTAssertNotEqual(weightedData[0].intensity, heatmapTileLayer.weightedData![0].intensity)
     XCTAssertEqual(radius, heatmapTileLayer.radius)
     XCTAssertEqual(minimumZoomIntensity, heatmapTileLayer.minimumZoomIntensity)
     XCTAssertEqual(maximumZoomIntensity, heatmapTileLayer.maximumZoomIntensity)
