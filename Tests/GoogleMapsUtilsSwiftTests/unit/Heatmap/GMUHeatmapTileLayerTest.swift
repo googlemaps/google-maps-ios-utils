@@ -70,7 +70,11 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     let weightedData: [GMUWeightedLatLng1] = [GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: intensity), GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: intensity)]
     GMSServices.provideAPIKey(mapsAPIKey)
     let heatmapTileLayer = GMUHeatmapTileLayer1()
-    heatmapTileLayer.gradient = try! GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+    do {
+        heatmapTileLayer.gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+    } catch {
+        XCTFail("Failed to initialize GMUGradient1 with error: \(error)")
+    }
     heatmapTileLayer.weightedData = [GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: modifiedIntensity), GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: modifiedIntensity)]
     heatmapTileLayer.radius = 20
     heatmapTileLayer.minimumZoomIntensity = 5
