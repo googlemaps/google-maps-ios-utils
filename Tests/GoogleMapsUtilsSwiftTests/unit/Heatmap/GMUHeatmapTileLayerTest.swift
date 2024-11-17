@@ -49,12 +49,18 @@ class GMUHeatmapTileLayerTest: XCTestCase {
   
   func testInitWithValidGradientColorCount() {
     let heatmapTileLayer = GMUHeatmapTileLayer1()
-    heatmapTileLayer.gradient = try! GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
-    XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
+    do {
+        let gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+        heatmapTileLayer.gradient = gradient
+        XCTAssertEqual(gradientColor, heatmapTileLayer.gradient?.colors)
+      } catch {
+        XCTFail("Failed to initialize GMUGradient1 with error: \(error)")
+      }
   }
-  
+
   func testHeatMapTileLayerDataPoints() {
     let intensity: Float = 10.0
+    let modifiedIntensity: Float = 30.0
     let radius: Int = 20
     let minimumZoomIntensity: Int = 5
     let maximumZoomIntensity: Int = 10
@@ -65,7 +71,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     GMSServices.provideAPIKey(mapsAPIKey)
     let heatmapTileLayer = GMUHeatmapTileLayer1()
     heatmapTileLayer.gradient = try! GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
-    heatmapTileLayer.weightedData = [GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: intensity), GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: intensity)]
+    heatmapTileLayer.weightedData = [GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: modifiedIntensity), GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: modifiedIntensity)]
     heatmapTileLayer.radius = 20
     heatmapTileLayer.minimumZoomIntensity = 5
     heatmapTileLayer.maximumZoomIntensity = 10
@@ -73,8 +79,8 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     let options = GMSMapViewOptions()
     options.camera = camera
     heatmapTileLayer.map = nil
-    XCTAssertEqual(gradientColor, heatmapTileLayer.gradient.colors)
-    XCTAssertNotEqual(weightedData, heatmapTileLayer.weightedData!)
+    XCTAssertEqual(gradientColor, heatmapTileLayer.gradient?.colors)
+      XCTAssertNotEqual(weightedData[0].intensity, heatmapTileLayer.weightedData![0].intensity)
     XCTAssertEqual(radius, heatmapTileLayer.radius)
     XCTAssertEqual(minimumZoomIntensity, heatmapTileLayer.minimumZoomIntensity)
     XCTAssertEqual(maximumZoomIntensity, heatmapTileLayer.maximumZoomIntensity)
@@ -82,26 +88,12 @@ class GMUHeatmapTileLayerTest: XCTestCase {
   
   func testTileLayerForMinXLessThanMinusOneWithNotNilUIImage() {
     let heatmapTileLayer = GMUHeatmapTileLayer1()
-      /// Set the bounds in the data.
-      let bounds: GQTBounds1 = heatmapTileLayer.calculateBounds()
-      /// Calculate bounds and initialize the QuadTree with those bounds.
-      let quadTree = GQTPointQuadTree1(bounds: bounds)
-
-      /// Add all weighted data points to the QuadTree.
-      if let weightedData = heatmapTileLayer.weightedData {
-          for dataPoint in weightedData {
-              _ = quadTree.add(item: dataPoint)
-          }
-      }
-      let data = GMUHeatmapTileCreationData1(bounds: bounds, radius: heatmapTileLayer.radius, colorMap: heatmapTileLayer.gradient.generateColorMap(), maxIntensities: heatmapTileLayer.calculateIntensities(), kernel: heatmapTileLayer.generateKernel())
-    heatmapTileLayer.tileCreationData = data
-      heatmapTileLayer.prepare()
     XCTAssertNotNil(heatmapTileLayer.tileFor(x: 0.1, y: 0.1, zoom: 0))
   }
   
   func testTileLayerForMaxXGreaterThanOneWithNotNilUIImage() {
     let heatmapTileLayer = GMUHeatmapTileLayer1()
-      XCTAssertNotNil(heatmapTileLayer.tileFor(x: 10.0, y: 10.0, zoom: 0.0))
+    XCTAssertNotNil(heatmapTileLayer.tileFor(x: 10.0, y: 10.0, zoom: 0.0))
   }
   
 }

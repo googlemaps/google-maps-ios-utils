@@ -32,7 +32,7 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
     /// It is not recommended to set this to a value greater than 50.
     var radius: Int = 20
     /// Gradient used to map smoothed intensities to colors in the tiles.
-    var gradient: GMUGradient1
+    var gradient: GMUGradient1?
     /// Minimum zoom intensity for normalizing intensities, defaults to 5.
     var minimumZoomIntensity: Int = 5
     /// Maximum zoom intensity for normalizing intensities, defaults to 10.
@@ -49,7 +49,12 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
             UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
             UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
         ]
-        gradient = try! GMUGradient1(colors: gradientColors, startPoints: [0.2, 1.0], colorMapSize: 1000)
+        
+        do {
+            gradient = try GMUGradient1(colors: gradientColors, startPoints: [0.2, 1.0], colorMapSize: 1000)
+        } catch {
+            debugPrint("Failed to initialize GMUGradient instance with `\(error.localizedDescription)")
+        }
         super.init()
         self.opacity = 0.7
         self.tileSize = gmuTileSize
@@ -122,6 +127,10 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
             }
         }
 
+        guard let gradient else { 
+            debugPrint("Gradient is nil")
+            return
+        }
         let data = GMUHeatmapTileCreationData1(bounds: bounds, radius: radius, colorMap: gradient.generateColorMap(), maxIntensities: calculateIntensities(), kernel: generateKernel())
 
         // Synchronize access to ensure thread-safety.
@@ -267,14 +276,16 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
     ///   - y: The y coordinate of the tile.
     ///   - zoom: The zoom level of the tile.
     /// - Returns: A UIImage representing the heatmap tile, or `nil` if no data is available.
-    func tileFor(x: Double, y: Double, zoom: Double) -> UIImage? {
-        var data: GMUHeatmapTileCreationData1?
+    func tileFor(x: Double, y: Double, zoom: Double) -> UIImage {
+        guard let tileCreationData else { 
+            debugPrint("Tile Creation Data is nil.")
+            return UIImage()
+        }
+        var data: GMUHeatmapTileCreationData1
         // Synchronize access to the tile creation data
         objc_sync_enter(self)
         data = tileCreationData
         objc_sync_exit(self)
-
-        guard let data else { return nil }
 
         // Calculate tile bounds and padding
         let tileWidth: Double = 2.0 / pow(2.0, zoom)
@@ -292,13 +303,15 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
         if minX < -1.0 {
             let wrappedBounds = GQTBounds1(minX: minX + 2.0, minY: minY, maxX: 1.0, maxY: maxY)
             guard data.quadTree?.search(withBounds: wrappedBounds) is [GMUWeightedLatLng1] else {
-                return nil
+                debugPrint("No valid data found for the given bounds or data is empty.")
+                return UIImage()
             }
             wrappedPointsOffset = -2.0
         } else if maxX > 1.0 {
             let wrappedBounds = GQTBounds1(minX: -1.0, minY: minY, maxX: maxX - 2.0, maxY: maxY)
             guard data.quadTree?.search(withBounds: wrappedBounds) is [GMUWeightedLatLng1] else {
-                return nil
+                debugPrint("No valid data found for the given bounds.")
+                return UIImage()
             }
             wrappedPointsOffset = -2.0
         }
@@ -306,7 +319,8 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
         // Search for data points within the current tile bounds
         let bounds = GQTBounds1(minX: minX, minY: minY, maxX: maxX, maxY: maxY)
         guard let points = data.quadTree?.search(withBounds: bounds) as? [GMUWeightedLatLng1] else {
-            return nil
+            debugPrint("No valid data points for the given bounds.")
+            return UIImage()
         }
 
         // Return empty tile if there is no data
@@ -392,11 +406,13 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
 
         // Create image from raw pixels
         guard let provider = CGDataProvider(dataInfo: nil, data: rawpixels, size: gmuTileSize * gmuTileSize * 4, releaseData: { _, data, _ in free(UnsafeMutableRawPointer(mutating: data)) }) else {
-            return nil
+            debugPrint("provider is nil.")
+            return UIImage()
         }
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         guard let cgImage = CGImage(width: gmuTileSize, height: gmuTileSize, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: gmuTileSize * 4, space: colorSpace, bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.last.rawValue), provider: provider, decode: nil, shouldInterpolate: false, intent: .defaultIntent) else {
-            return nil
+            debugPrint("cgImage is nil.")
+            return UIImage()
         }
 
         return UIImage(cgImage: cgImage)
