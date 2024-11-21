@@ -276,10 +276,10 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
     ///   - y: The y coordinate of the tile.
     ///   - zoom: The zoom level of the tile.
     /// - Returns: A UIImage representing the heatmap tile, or `nil` if no data is available.
-    func tileFor(x: Double, y: Double, zoom: Double) -> UIImage {
-        guard let tileCreationData else { 
+    func tileFor(x: Double, y: Double, zoom: Double) -> UIImage? {
+        guard let tileCreationData else {
             debugPrint("Tile Creation Data is nil.")
-            return UIImage()
+            return nil
         }
         var data: GMUHeatmapTileCreationData1
         // Synchronize access to the tile creation data
@@ -297,37 +297,35 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
         let minY: Double = 1.0 - Double(y + 1) * tileWidth - padding
         
         var wrappedPointsOffset: Double = 0.0
-        let wrappedPoints: [GMUWeightedLatLng1] = []
+        var wrappedPoints: [GMUWeightedLatLng1] = []
 
         // Handle wrapping of points around the map boundaries
         if minX < -1.0 {
             let wrappedBounds = GQTBounds1(minX: minX + 2.0, minY: minY, maxX: 1.0, maxY: maxY)
-            guard data.quadTree?.search(withBounds: wrappedBounds) is [GMUWeightedLatLng1] else {
-                debugPrint("No valid data found for the given bounds or data is empty.")
-                return UIImage()
+            if let wrappedPointsValue = data.quadTree?.search(withBounds: wrappedBounds) as? [GMUWeightedLatLng1] {
+                wrappedPoints = wrappedPointsValue
             }
             wrappedPointsOffset = -2.0
         } else if maxX > 1.0 {
             let wrappedBounds = GQTBounds1(minX: -1.0, minY: minY, maxX: maxX - 2.0, maxY: maxY)
-            guard data.quadTree?.search(withBounds: wrappedBounds) is [GMUWeightedLatLng1] else {
-                debugPrint("No valid data found for the given bounds.")
-                return UIImage()
+            if let wrappedPointsValue = data.quadTree?.search(withBounds: wrappedBounds) as? [GMUWeightedLatLng1] {
+                wrappedPoints = wrappedPointsValue
             }
             wrappedPointsOffset = -2.0
         }
-        
+
         // Search for data points within the current tile bounds
         let bounds = GQTBounds1(minX: minX, minY: minY, maxX: maxX, maxY: maxY)
         guard let points = data.quadTree?.search(withBounds: bounds) as? [GMUWeightedLatLng1] else {
             debugPrint("No valid data points for the given bounds.")
-            return UIImage()
+            return nil
         }
 
         // Return empty tile if there is no data
         if points.isEmpty && wrappedPoints.isEmpty {
             return kGMSTileLayerNoTile
         }
-        
+
         // Quantize points to the tile grid
         let paddedTileSize = gmuTileSize + 2 * Int(data.radius)
         var intensity = [Float](repeating: 0.0, count: paddedTileSize * paddedTileSize)
@@ -407,12 +405,12 @@ class GMUHeatmapTileLayer1: GMSSyncTileLayer {
         // Create image from raw pixels
         guard let provider = CGDataProvider(dataInfo: nil, data: rawpixels, size: gmuTileSize * gmuTileSize * 4, releaseData: { _, data, _ in free(UnsafeMutableRawPointer(mutating: data)) }) else {
             debugPrint("provider is nil.")
-            return UIImage()
+            return nil
         }
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         guard let cgImage = CGImage(width: gmuTileSize, height: gmuTileSize, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: gmuTileSize * 4, space: colorSpace, bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.last.rawValue), provider: provider, decode: nil, shouldInterpolate: false, intent: .defaultIntent) else {
             debugPrint("cgImage is nil.")
-            return UIImage()
+            return nil
         }
 
         return UIImage(cgImage: cgImage)
