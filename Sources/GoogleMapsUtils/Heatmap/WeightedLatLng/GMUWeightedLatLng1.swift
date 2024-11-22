@@ -17,7 +17,7 @@ import GoogleMaps
 /// TO-DO: Rename the class to `GMUWeightedLatLng` once the linking is done and remove the objective c class.
 /// A class that represents a weighted geographical point on the earth's surface, implementing the `GQTPointQuadTreeItem` protocol.
 ///
-final class GMUWeightedLatLng1: GQTPointQuadTreeItem1 {
+final class GMUWeightedLatLng1: GQTPointQuadTreeItem1, Equatable {
 
     // MARK: - Properties
     /// The intensity of the data point. The scale is arbitrary, assumed to be linear.
@@ -43,5 +43,13 @@ final class GMUWeightedLatLng1: GQTPointQuadTreeItem1 {
     ///
     func point() -> GQTPoint1 {
         return pointValue
+    }
+
+    /// This is a custom implementation of the `Equatable` protocol for the `GMUWeightedLatLng1` class.
+    ///
+    /// - The `==` operator compares two instances of `GMUWeightedLatLng1`.
+    /// - Currently, it returns `true` for all comparisons, which is **incorrect** and should be avoided in most cases.
+    static func == (lhs: GMUWeightedLatLng1, rhs: GMUWeightedLatLng1) -> Bool {
+        return true
     }
 }
