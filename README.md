@@ -1,15 +1,18 @@
-![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Build%20and%20Test/badge.svg)
+![Release](https://github.com/googlemaps/google-maps-ios-utils/workflows/Release/badge.svg)
+![Stable](https://img.shields.io/badge/stability-stable-green)
+[![Tests/Build Status](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml/badge.svg)](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
-![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
-![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
-Google Maps SDK for iOS Utility Library
-=======================================
+![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils?color=green)
+[![GitHub License](https://img.shields.io/github/license/googlemaps/google-maps-ios-utils?color=blue)][license]
+[![Discord](https://img.shields.io/discord/676948200904589322?color=6A7EC2&logo=discord&logoColor=ffffff)][Discord server]
+
+# Google Maps SDK for iOS Utility Library
 
 ## Description
 
 This open-source library contains classes that are useful for a wide
-range of applications using the [Google Maps SDK for iOS][sdk].
+range of applications using the [Google Maps SDK for iOS][ios-sdk].
 
 - **Geometry libraries** - [KML and GeoJSON rendering][geometry-rendering]
 - **Geometry utilities** - Handy spherical [geometry utility][geometry-utils] functions
@@ -23,10 +26,11 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-- iOS 15.0+
-- Xcode 15.0+
-- [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
-- A Google Maps Platform [API key](https://developers.google.com/maps/documentation/ios-sdk/get-api-key) from a project with the **Maps SDK for iOS** enabled.
+* [Sign up with Google Maps Platform]
+* A Google Maps Platform project with the [**Maps SDK for iOS**][ios-sdk] enabled
+* An [API key] associated with the project above
+* Swift and XCode 15+
+* (Deployment target of) iOS 15+
 
 ## Installation
 
@@ -46,7 +50,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
   ```
 
 > [!IMPORTANT]
-> You also need to install the Maps SDK for iOS, which is also supported in Swift Package Manager at the URL `https://github.com/googlemaps/ios-maps-sdk`
+> You also need to install the Maps SDK for iOS, which is also supported in Swift Package Manager at the URL `https://github.com/googlemaps/google-maps-ios-utils`
 
 3. Select the
     [version](https://github.com/googlemaps/google-maps-ios-utils/releases)
@@ -191,33 +195,47 @@ func renderKml() {
 
 ## Contributing
 
-Contributions are welcome and encouraged. Please see the [contributing guide][contributing] for guidance.
+External contributions are not accepted for this repository. See [contributing guide] for more info.
 
 ## Terms of Service
 
-This library uses Google Maps Platform services. Use of Google Maps Platform services through this library is subject to the Google Maps Platform [Terms of Service](https://cloud.google.com/maps-platform/terms).
+This library uses Google Maps Platform services. Use of Google Maps Platform services through this library is subject to the Google Maps Platform [Terms of Service].
 
 This library is not a Google Maps Platform Core Service. Therefore, the Google Maps Platform Terms of Service (e.g. Technical Support Services, Service Level Agreements, and Deprecation Policy) do not apply to the code in this library.
 
 ## Support
 
-This library is offered via an open source [license]. It is not governed by the Google Maps Platform Support [Technical Support Services Guidelines](https://cloud.google.com/maps-platform/terms/tssg), the [SLA](https://cloud.google.com/maps-platform/terms/sla), or the [Deprecation Policy](https://cloud.google.com/maps-platform/terms) (however, any Google Maps Platform services used by the library remain subject to the Google Maps Platform Terms of Service).
+This library is offered via an open source [license]. It is not governed by the Google Maps Platform Support [Technical Support Services Guidelines, the SLA, or the [Deprecation Policy]. However, any Google Maps Platform services used by the library remain subject to the Google Maps Platform Terms of Service.
 
-This library adheres to [semantic versioning](https://semver.org/) to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time.
+This library adheres to [semantic versioning] to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time.
 
-If you find a bug, or have a feature request, please file an [issue] on GitHub. If you would like to get answers to technical questions from other Google Maps Platform developers, ask through one of our [developer community channels](https://developers.google.com/maps/developer-community). If you'd like to contribute, please check the [contributing] guide.
+If you find a bug, or have a feature request, please [file an issue] on GitHub. If you would like to get answers to technical questions from other Google Maps Platform developers, ask through one of our [developer community channels]. If you'd like to contribute, please check the [contributing guide].
 
 You can also discuss this library on our [Discord server].
 
-[Discord server]: https://discord.gg/hYsWbmk
-[Carthage doc]: docs/Carthage.md
-[contributing]: CONTRIBUTING.md
-[code of conduct]: CODE_OF_CONDUCT.md
-[devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility/
 [sdk]: https://developers.google.com/maps/documentation/ios-sdk
-[issue]: https://github.com/googlemaps/google-maps-ios-utils/issues
-[license]: LICENSE
 [customizing-markers]: docs/CustomMarkers.md
 [geometry-rendering]: docs/GeometryRendering.md
 [heatmap-rendering]: docs/HeatmapRendering.md
 [geometry-utils]: docs/GeometryUtils.md
+[Carthage doc]: docs/Carthage.md
+[devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility
+
+[API key]: https://developers.google.com/maps/documentation/ios-sdk/get-api-key
+[documentation]: https://googlemaps.github.io/google-maps-ios-utils
+
+[code of conduct]: CODE_OF_CONDUCT.md
+[contributing guide]: CONTRIBUTING.md
+[Deprecation Policy]: https://cloud.google.com/maps-platform/terms
+[developer community channels]: https://developers.google.com/maps/developer-community
+[Discord server]: https://discord.gg/hYsWbmk
+[file an issue]: https://github.com/googlemaps/google-maps-ios-utils/issues/new/choose
+[license]: LICENSE
+[pull request]: https://github.com/googlemaps/google-maps-ios-utils/compare
+[project]: https://developers.google.com/maps/documentation/navigation/ios-sdk/config
+[semantic versioning]: https://semver.org
+[Sign up with Google Maps Platform]: https://console.cloud.google.com/google/maps-apis/start
+[similar inquiry]: https://github.com/googlemaps/google-maps-ios-utils/issues
+[SLA]: https://cloud.google.com/maps-platform/terms/sla
+[Technical Support Services Guidelines]: https://cloud.google.com/maps-platform/terms/tssg
+[Terms of Service]: https://cloud.google.com/maps-platform/terms
