@@ -1,10 +1,11 @@
 ![Release](https://github.com/googlemaps/google-maps-ios-utils/workflows/Release/badge.svg)
 ![Stable](https://img.shields.io/badge/stability-stable-green)
-[![Tests/Build Status](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml/badge.svg)](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml)
 [![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
+[![Tests/Build](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml/badge.svg)](https://github.com/googlemaps/google-maps-ios-utils/actions/workflows/test.yml)
 
-![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils?color=green)
-[![GitHub License](https://img.shields.io/github/license/googlemaps/google-maps-ios-utils?color=blue)][license]
+![Contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils?color=green)
+[![License](https://img.shields.io/github/license/googlemaps/google-maps-ios-utils?color=blue)][license]
+[![StackOverflow](https://img.shields.io/stackexchange/stackoverflow/t/google-maps?color=orange&label=google-maps&logo=stackoverflow)](https://stackoverflow.com/questions/tagged/google-maps)
 [![Discord](https://img.shields.io/discord/676948200904589322?color=6A7EC2&logo=discord&logoColor=ffffff)][Discord server]
 
 # Google Maps SDK for iOS Utility Library
@@ -26,11 +27,11 @@ range of applications using the [Google Maps SDK for iOS][ios-sdk].
 
 ## Requirements
 
-* [Sign up with Google Maps Platform]
-* A Google Maps Platform project with the [**Maps SDK for iOS**][ios-sdk] enabled
-* An [API key] associated with the project above
-* Swift and XCode 15+
-* (Deployment target of) iOS 15+
+- [Sign up with Google Maps Platform]
+- A Google Maps Platform project with the [**Maps SDK for iOS**][ios-sdk] enabled
+- An [API key] associated with the project above ... follow the [API key instructions] if you're new to the process
+- Swift and XCode 15+
+- (Deployment target of) iOS 15+
 
 ## Installation
 
@@ -222,9 +223,10 @@ You can also discuss this library on our [Discord server].
 [devsite-guide]: https://developers.google.com/maps/documentation/ios-sdk/utility
 
 [API key]: https://developers.google.com/maps/documentation/ios-sdk/get-api-key
+[API key instructions]: https://developers.google.com/maps/documentation/ios-sdk/config#get-key
 [documentation]: https://googlemaps.github.io/google-maps-ios-utils
 
-[code of conduct]: CODE_OF_CONDUCT.md
+[code of conduct]: ?tab=coc-ov-file#readme
 [contributing guide]: CONTRIBUTING.md
 [Deprecation Policy]: https://cloud.google.com/maps-platform/terms
 [developer community channels]: https://developers.google.com/maps/developer-community
