@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//MARK: - GQTBounds
-/// The struct defines a rectangular boundary 
-/// using minimum and maximum X and Y coordinates.
-/// 
-/// TO-DO: Rename the struct to `GQTBounds` once the linking is done and remove the objective c class.
-struct GQTBounds1 {
-    //MARK: - Properties
-    var minX: Double
-    var minY: Double
-    var maxX: Double
-    var maxY: Double
+enum GMUGradientError: Error, LocalizedError {
+    case invalidArgumentException(String)
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidArgumentException(let message):
+            return message
+        }
+    }
 }
