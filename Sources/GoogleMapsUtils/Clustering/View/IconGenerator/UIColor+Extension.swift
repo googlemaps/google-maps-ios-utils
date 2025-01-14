@@ -12,12 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// MARK: - `GMUClusterIconGenerator` Protocol
-/// TO-DO: Rename the class to `GMUClusterIconGenerator` once the linking is done and remove the objective c class.
-/// Defines a contract for cluster icon generation.
-///
-protocol GMUClusterIconGenerator1 {
+import UIKit
 
-    /// Generates an icon with the given size.
-    func iconForSize(_ size: Int) -> UIImage?
+extension UIColor {
+    /// Converts a hexadecimal color value to a UIColor instance.
+    /// - Parameter hex: The hexadecimal value of the color (e.g., 0xFF5733).
+    /// - Returns: A UIColor representing the color.
+    static func fromHex(_ hex: Int) -> UIColor {
+        let red = CGFloat((hex & 0xff0000) >> 16) / 255.0
+        let green = CGFloat((hex & 0x00ff00) >> 8) / 255.0
+        let blue = CGFloat((hex & 0x0000ff) >> 0) / 255.0
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
 }

@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// MARK: - `GMUClusterIconGenerator` Protocol
-/// TO-DO: Rename the class to `GMUClusterIconGenerator` once the linking is done and remove the objective c class.
-/// Defines a contract for cluster icon generation.
-///
-protocol GMUClusterIconGenerator1 {
+enum GMUDefaultClusterIconGeneratorError: Error, LocalizedError {
+    case invalidArgumentException(String)
 
-    /// Generates an icon with the given size.
-    func iconForSize(_ size: Int) -> UIImage?
+    var errorDescription: String? {
+        switch self {
+        case .invalidArgumentException(let message):
+            return message
+        }
+    }
 }
