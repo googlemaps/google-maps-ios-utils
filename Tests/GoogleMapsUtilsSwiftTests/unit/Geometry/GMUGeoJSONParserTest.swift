@@ -19,7 +19,7 @@ import XCTest
 final class GMUGeoJSONParserTest: XCTestCase {
 
   // Helper function to load GeoJSON data
-  private func features(withResource resource: String) -> [GMUFeature] {
+  private func features(withResource resource: String) -> [GMUFeature1] {
     #if SWIFT_PACKAGE
     guard let path = Bundle.module.path(forResource: resource, ofType: "geojson"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
@@ -37,9 +37,9 @@ final class GMUGeoJSONParserTest: XCTestCase {
     }
     #endif
 
-    let parser = GMUGeoJSONParser(data: data)
+    let parser = GMUGeoJSONParser1(data: data)
     parser.parse()
-    return parser.features as! [GMUFeature]
+    return parser.features
   }
 
   func testInitWithURL() {
@@ -90,7 +90,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_Point_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let point = features.first?.geometry as? GMUPoint else {
+    guard let point = features.first?.geometry as? GMUPoint1 else {
       XCTFail("Geometry is not a GMUPoint")
       return
     }
@@ -103,7 +103,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_LineString_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let lineString = features.first?.geometry as? GMULineString else {
+    guard let lineString = features.first?.geometry as? GMULineString1 else {
       XCTFail("Geometry is not a GMULineString")
       return
     }
@@ -119,7 +119,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_Polygon_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let polygon = features.first?.geometry as? GMUPolygon else {
+    guard let polygon = features.first?.geometry as? GMUPolygon1 else {
       XCTFail("Geometry is not a GMUPolygon")
       return
     }
@@ -147,13 +147,13 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_MultiPoint_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let points = features.first?.geometry as? GMUGeometryCollection else {
+    guard let points = features.first?.geometry as? GMUGeometryCollection1 else {
       XCTFail("Geometry is not a GMUGeometryCollection")
       return
     }
 
-    guard let firstPoint = points.geometries.first as? GMUPoint,
-          let secondPoint = points.geometries.last as? GMUPoint else {
+    guard let firstPoint = points.geometries.first as? GMUPoint1,
+          let secondPoint = points.geometries.last as? GMUPoint1 else {
       XCTFail("Geometry is not a GMUPoint")
       return
     }
@@ -168,13 +168,13 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_MultiLineString_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let lineStrings = features.first?.geometry as? GMUGeometryCollection else {
+    guard let lineStrings = features.first?.geometry as? GMUGeometryCollection1 else {
       XCTFail("Geometry is not a GMUGeometryCollection")
       return
     }
 
-    let firstLineString = lineStrings.geometries.first as! GMULineString
-    let secondLineString = lineStrings.geometries.last as! GMULineString
+    let firstLineString = lineStrings.geometries.first as! GMULineString1
+    let secondLineString = lineStrings.geometries.last as! GMULineString1
 
     let firstPath = GMSMutablePath()
     firstPath.addLatitude(0.0, longitude: 100.0)
@@ -192,13 +192,13 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_MultiPolygon_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let polygons = features.first?.geometry as? GMUGeometryCollection else {
+    guard let polygons = features.first?.geometry as? GMUGeometryCollection1 else {
       XCTFail("Geometry is not a GMUPolygon")
       return
     }
 
-    let firstPolygon = polygons.geometries.first as! GMUPolygon
-    let secondPolygon = polygons.geometries.last as! GMUPolygon
+    let firstPolygon = polygons.geometries.first as! GMUPolygon1
+    let secondPolygon = polygons.geometries.last as! GMUPolygon1
 
 
     let firstPath = GMSMutablePath()
@@ -223,17 +223,17 @@ final class GMUGeoJSONParserTest: XCTestCase {
     let features = features(withResource: "GeoJSON_GeometryCollection_Test")
     XCTAssertEqual(features.count, 1)
 
-    guard let collection = features.first?.geometry as? GMUGeometryCollection else {
+    guard let collection = features.first?.geometry as? GMUGeometryCollection1 else {
       XCTFail("Geometry is not a GMUGeometryCollection")
       return
     }
 
-    guard let point = collection.geometries.first as? GMUPoint else {
+    guard let point = collection.geometries.first as? GMUPoint1 else {
       XCTFail("Geometry is not a GMUPoint")
       return
     }
 
-    guard let lineString = collection.geometries.last as? GMULineString else {
+    guard let lineString = collection.geometries.last as? GMULineString1 else {
       XCTFail("Geometry is not a GMULineString")
       return
     }
@@ -256,7 +256,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
       return
     }
 
-    guard let actualPoint = feature.geometry as? GMUPoint else {
+    guard let actualPoint = feature.geometry as? GMUPoint1 else {
       XCTFail("Geometry is not a GMUPoint")
       return
     }
@@ -283,8 +283,8 @@ final class GMUGeoJSONParserTest: XCTestCase {
       return
     }
 
-    let point = firstFeature.geometry as! GMUPoint
-    let lineString = secondFeature.geometry as! GMULineString
+    let point = firstFeature.geometry as! GMUPoint1
+    let lineString = secondFeature.geometry as! GMULineString1
 
     let path: GMSMutablePath = GMSMutablePath()
     path.addLatitude(0.0, longitude: 102.0)
