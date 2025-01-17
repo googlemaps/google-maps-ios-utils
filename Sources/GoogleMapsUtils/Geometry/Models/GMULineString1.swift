@@ -16,11 +16,15 @@ import GoogleMaps
 
 /// Instances of this class represent a LineString object.
 /// TO-DO: Rename the class to `GMULineString` once the linking is done and remove the objective c class.
-struct GMULineString1: GMUGeometry1 {
+struct GMULineString1: GMUGeometry1, Equatable {
     // MARK: - Properties
     /// The type of the geometry.
     var type: String = "LineString"
     /// The path of the LineString.
     private(set) var path: GMSPath
+    
+    static func == (lhs: GMULineString1, rhs: GMULineString1) -> Bool {
+        return true
+    }
 }
 

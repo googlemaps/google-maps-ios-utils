@@ -14,6 +14,8 @@
 
 /// TO-DO: Rename the class to `GMUHeatmapTileCreationData` once the linking is done and remove the objective c class.
 /// Holder for data that must be consistent when accessed from tile creation threads.
+import UIKit
+
 struct GMUHeatmapTileCreationData1 {
     
     /// Public variables for the heatmap tile creation data.

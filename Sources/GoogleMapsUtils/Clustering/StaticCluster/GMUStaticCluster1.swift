@@ -15,6 +15,8 @@
 /// TO-DO: Rename the class to `GMUStaticCluster` once the linking is done and remove the objective c class.
 /// A class representing a static cluster where its position is fixed upon initialization.
 ///
+import CoreLocation
+
 final class GMUStaticCluster1: GMUCluster1 {
 
     // MARK: - Properties

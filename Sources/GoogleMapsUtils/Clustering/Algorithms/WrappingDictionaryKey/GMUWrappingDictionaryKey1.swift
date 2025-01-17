@@ -16,6 +16,8 @@
 /// TO-DO: Rename the class to `GMUWrappingDictionaryKey` once the linking is done and remove the objective c class.
 /// Wraps an object that does not implement Hashable to be used as Dictionary keys.
 ///
+import Foundation
+
 final class GMUWrappingDictionaryKey1: NSObject, NSCopying {
 
     // MARK: - Properties

@@ -21,8 +21,8 @@ final class GMUFeatureTests: XCTestCase {
   
     func testInitWithGeometry() throws {
 
-      let point = GMUPoint(coordinate: CLLocationCoordinate2DMake(10, -10))
-      let geometry: GMUGeometry = point
+      let point = GMUPoint1(coordinate: CLLocationCoordinate2DMake(10, -10))
+      let geometry: GMUGeometry1 = point
       let identifier: String = "TestFeature"
       let northEast: CLLocationCoordinate2D = CLLocationCoordinate2DMake(10, 10)
       let southWest: CLLocationCoordinate2D = CLLocationCoordinate2DMake(-10, -10)
@@ -30,9 +30,9 @@ final class GMUFeatureTests: XCTestCase {
       let description: NSObject = "A feature for unit testing" as NSObject
 
       let properties: [String: NSObject] = ["description": description]
-      let feature: GMUFeature = GMUFeature.init(geometry: geometry, identifier: identifier, properties:properties, boundingBox: boundingBox)
+      let feature: GMUFeature1 = GMUFeature1.init(geometry: geometry, identifier: identifier, properties:properties, boundingBox: boundingBox)
 
-      guard let featurePoint = feature.geometry as? GMUPoint else {
+      guard let featurePoint = feature.geometry as? GMUPoint1 else {
         XCTFail("Geometry is not a GMUPoint")
         return
       }

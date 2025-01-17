@@ -22,12 +22,12 @@ protocol GMUClusterManagerDelegate1: AnyObject {
     ///   - clusterManager: The cluster manager handling the clusters.
     ///   - cluster: The cluster that was tapped.
     /// - Returns: `true` if the delegate handled the tap event, `false` to pass this event to other handlers.
-    func clusterManager(_ clusterManager: GMUClusterManager1, didTapCluster cluster: GMUCluster) -> Bool
+    func clusterManager(_ clusterManager: GMUClusterManager1, didTapCluster cluster: GMUCluster1) -> Bool
 
     /// Called when the user taps on a cluster item marker.
     /// - Parameters:
     ///   - clusterManager: The cluster manager handling the clusters.
     ///   - clusterItem: The cluster item that was tapped.
     /// - Returns: `true` if the delegate handled the tap event, `false` to pass this event to other handlers.
-    func clusterManager(_ clusterManager: GMUClusterManager1, didTapClusterItem clusterItem: GMUClusterItem) -> Bool
+    func clusterManager(_ clusterManager: GMUClusterManager1, didTapClusterItem clusterItem: GMUClusterItem1) -> Bool
 }

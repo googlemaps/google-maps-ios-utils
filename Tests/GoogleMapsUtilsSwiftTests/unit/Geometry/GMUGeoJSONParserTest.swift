@@ -13,6 +13,8 @@
 // limitations under the License.
 
 import XCTest
+import CoreLocation
+import GoogleMaps
 
 @testable import GoogleMapsUtils
 
@@ -57,7 +59,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
     #endif
 
     let url = URL(fileURLWithPath: path)
-    let parser = GMUGeoJSONParser(url: url)
+    let parser = GMUGeoJSONParser1(url: url)
     parser.parse()
     XCTAssertEqual(parser.features.count, 1)
   }
@@ -81,7 +83,7 @@ final class GMUGeoJSONParserTest: XCTestCase {
     #endif
 
     let stream = InputStream(data: data)
-    let parser = GMUGeoJSONParser(stream: stream)
+    let parser = GMUGeoJSONParser1(stream: stream)
     parser.parse()
     XCTAssertEqual(parser.features.count, 1)
   }

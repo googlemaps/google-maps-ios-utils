@@ -14,14 +14,15 @@
 */
 
 import XCTest
+import CoreLocation
 
 @testable import GoogleMapsUtils
 
 class HeatmapInterpolationTest: XCTestCase {
 
     private var gradientColor: [UIColor]!
-    private var startPoints: [NSNumber]!
-    private var colorMapSize: UInt!
+    private var startPoints: [CGFloat]!
+    private var colorMapSize: Int!
     
     private let interpolationController = HeatmapInterpolationPoints()
 
@@ -31,29 +32,29 @@ class HeatmapInterpolationTest: XCTestCase {
             UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
             UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
         ]
-        startPoints = [0.005, 0.7] as [NSNumber]
+        startPoints = [0.005, 0.7] as [CGFloat]
         colorMapSize = 3
     }
     
     func testInitWithColors() {
-        let gradient = GMUGradient(
+        let gradient = try? GMUGradient1(
             colors: gradientColor,
             startPoints: startPoints,
             colorMapSize: colorMapSize
         )
-        XCTAssertEqual(gradient.colors.count, gradient.startPoints.count)
+        XCTAssertEqual(gradient?.colors.count, gradient?.startPoints.count)
     }
     
     func testWithTooSmallN() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )
-        let newGMU2 = GMUWeightedLatLng(
+        let newGMU2 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
             intensity: 20
         )
-        let newGMU3 = GMUWeightedLatLng(
+        let newGMU3 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
             intensity: 500
         )
@@ -87,15 +88,15 @@ class HeatmapInterpolationTest: XCTestCase {
     }
     
     func testWithTooLargeN() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )
-        let newGMU2 = GMUWeightedLatLng(
+        let newGMU2 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
             intensity: 20
         )
-        let newGMU3 = GMUWeightedLatLng(
+        let newGMU3 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
             intensity: 500
         )
@@ -123,15 +124,15 @@ class HeatmapInterpolationTest: XCTestCase {
     }
     
     func testWithAcceptableN() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )
-        let newGMU2 = GMUWeightedLatLng(
+        let newGMU2 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
             intensity: 20
         )
-        let newGMU3 = GMUWeightedLatLng(
+        let newGMU3 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
             intensity: 500
         )
@@ -165,15 +166,15 @@ class HeatmapInterpolationTest: XCTestCase {
     }
     
     func testMultipleCalls() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )
-        let newGMU2 = GMUWeightedLatLng(
+        let newGMU2 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
             intensity: 20
         )
-        let newGMU3 = GMUWeightedLatLng(
+        let newGMU3 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
             intensity: 500
         )
@@ -192,15 +193,15 @@ class HeatmapInterpolationTest: XCTestCase {
     }
     
     func testListOfPoints() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )
-        let newGMU2 = GMUWeightedLatLng(
+        let newGMU2 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.85, longitude: 145.20),
             intensity: 20
         )
-        let newGMU3 = GMUWeightedLatLng(
+        let newGMU3 = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -32, longitude: 145.20),
             intensity: 500
         )
@@ -216,7 +217,7 @@ class HeatmapInterpolationTest: XCTestCase {
     }
     
     func testDuplicatePoint() {
-        let newGMU = GMUWeightedLatLng(
+        let newGMU = GMUWeightedLatLng1(
             coordinate: CLLocationCoordinate2D(latitude: -20.86 , longitude: 145.20),
             intensity: 500
         )

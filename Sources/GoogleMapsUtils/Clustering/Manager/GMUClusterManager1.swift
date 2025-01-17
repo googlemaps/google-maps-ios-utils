@@ -163,14 +163,14 @@ final class GMUClusterManager1: NSObject, GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         /// Check if the delegate can handle cluster taps and if the marker represents a cluster.
         if let delegate = delegate,
-           let cluster = marker.userData as? GMUCluster,
+           let cluster = marker.userData as? GMUCluster1,
            delegate.clusterManager(self, didTapCluster: cluster) {
             return true
         }
 
         /// Check if the delegate can handle cluster item taps and if the marker represents a cluster item.
         if let delegate = delegate,
-           let clusterItem = marker.userData as? GMUClusterItem,
+           let clusterItem = marker.userData as? GMUClusterItem1,
            delegate.clusterManager(self, didTapClusterItem: clusterItem) {
             return true
         }
