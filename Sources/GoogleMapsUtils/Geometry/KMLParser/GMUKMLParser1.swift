@@ -13,6 +13,10 @@
 /// TO-DO: Rename the class to `GMUKMLParser` once the linking is done and remove the objective c class.
 /// The class responsible for parsing KML documents, using the XMLParserDelegate protocol.
 ///
+import UIKit
+import CoreLocation
+import GoogleMaps
+
 final class GMUKMLParser1: NSObject, XMLParserDelegate {
     // MARK: - Properties
     /// The XML parser used to read the specified document.

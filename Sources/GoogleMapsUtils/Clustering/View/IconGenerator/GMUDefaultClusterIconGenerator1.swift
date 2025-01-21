@@ -18,6 +18,8 @@
 /// Whereas clusters with a size of 100 to 199 items will be placed in the 100+ bucket and have the '100+' icon shown.
 /// This caches already generated icons for performance reasons.
 ///
+import UIKit
+
 final class GMUDefaultClusterIconGenerator1: GMUClusterIconGenerator1 {
 
     // MARK: - Properties

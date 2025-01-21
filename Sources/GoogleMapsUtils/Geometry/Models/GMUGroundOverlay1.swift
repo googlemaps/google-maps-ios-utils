@@ -14,6 +14,8 @@
 
 /// Instances of this class represent a Ground Overlay object.
 /// TO-DO: Rename the class to `GMUGroundOverlay` once the linking is done and remove the objective c class.
+import CoreLocation
+
 struct GMUGroundOverlay1: GMUGeometry1 {
     // MARK: - Properties
     /// The type of the geometry.

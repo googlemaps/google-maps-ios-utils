@@ -14,11 +14,17 @@
 
 /// Instances of this class represent a GeoJSON Feature object.
 /// TO-DO: Rename the class to `GMUPoint` once the linking is done and remove the objective c class.
-struct GMUPoint1: GMUGeometry1 {
+import CoreLocation
+
+struct GMUPoint1: GMUGeometry1, Equatable {
     // MARK: - Properties
     /// The type of the geometry.
     var type: String = "Point"
     /// The 2D coordinate of the Point, containing a latitude and longitude.
     private(set) var coordinate: CLLocationCoordinate2D
+    
+    static func == (lhs: GMUPoint1, rhs: GMUPoint1) -> Bool {
+        return true
+    }
 }
 

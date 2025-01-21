@@ -23,10 +23,10 @@ import GoogleMaps
 public class HeatmapInterpolationPoints: NSObject {
     
     /// The input data set
-    private var data = [GMUWeightedLatLng]()
+    private var data = [GMUWeightedLatLng1]()
     
     /// The list of interpolated heat map points with weight
-    private var heatmapPoints = [GMUWeightedLatLng]()
+    private var heatmapPoints = [GMUWeightedLatLng1]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
     /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
@@ -58,14 +58,14 @@ public class HeatmapInterpolationPoints: NSObject {
     /// Adds a list of GMUWeightedLatLng objects to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
+    func addWeightedLatLngs(latlngs: [GMUWeightedLatLng1]) {
         data.append(contentsOf: latlngs)
     }
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
+    func addWeightedLatLng(latlng: GMUWeightedLatLng1) {
         data.append(latlng)
     }
     
@@ -307,10 +307,10 @@ public class HeatmapInterpolationPoints: NSObject {
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    public func generatePoints(
+    func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
-    ) throws -> [GMUWeightedLatLng] {
+    ) throws -> [GMUWeightedLatLng1] {
         
         // As documented above, we will throw an exception here if the n value is not in the
         // appropriate range
@@ -369,7 +369,7 @@ public class HeatmapInterpolationPoints: NSObject {
                     }
                     
                     // Set the intensity based on IDW
-                    let coords = GMUWeightedLatLng(
+                    let coords = GMUWeightedLatLng1(
                         coordinate: CLLocationCoordinate2DMake(
                             Double(i) * granularity,
                             Double(j) * granularity

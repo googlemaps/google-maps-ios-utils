@@ -13,6 +13,8 @@
 /// TO-DO: Rename the class to `GMUKMLParser` once the linking is done and remove the objective c class.
 /// This extension provides the delegate(`XMLParserDelegate`) implementations, of the `GMUKMLParser` class.
 /// 
+import Foundation
+
 extension GMUKMLParser1 {
 
     // MARK: - `didStartElement`

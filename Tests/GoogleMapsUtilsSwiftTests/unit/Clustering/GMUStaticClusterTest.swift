@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import XCTest
+import CoreLocation
 
 @testable import GoogleMapsUtils
 

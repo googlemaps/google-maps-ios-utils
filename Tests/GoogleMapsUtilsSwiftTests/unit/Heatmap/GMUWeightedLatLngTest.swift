@@ -14,6 +14,8 @@
  */
 
 import XCTest
+import CoreLocation
+import GoogleMaps
 
 @testable import GoogleMapsUtils
 

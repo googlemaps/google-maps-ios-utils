@@ -16,6 +16,8 @@
 /// Represents a mapping of intensity to color. Interpolates between a given set of intensities and
 /// color values to produce a full mapping for the range [0, 1].
 ///
+import UIKit
+
 final class GMUGradient1 {
 
     // MARK: - Properties

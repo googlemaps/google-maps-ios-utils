@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import XCTest
+import GoogleMaps
 
 @testable import GoogleMapsUtils
 

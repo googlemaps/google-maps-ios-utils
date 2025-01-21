@@ -16,6 +16,8 @@
 /// TO-DO: Rename the class to `GMUClusterIconGenerator` once the linking is done and remove the objective c class.
 /// Defines a contract for cluster icon generation.
 ///
+import UIKit
+
 protocol GMUClusterIconGenerator1 {
 
     /// Generates an icon with the given size.
