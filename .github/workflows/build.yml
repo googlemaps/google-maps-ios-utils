@@ -48,13 +48,13 @@ jobs:
       run: |
         xcodebuild clean build analyze \
           -scheme GoogleMapsUtils -configuration Debug \
-          -destination "platform=iOS Simulator,OS=17.3,name=iPhone 15" \
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" \
           -disableAutomaticPackageResolution | xcpretty
 
     - name: Run unit tests on Swift Package
       run: |
         xcodebuild test -scheme GoogleMapsUtils \
-          -destination "platform=iOS Simulator,OS=17.3,name=iPhone 15" \
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" \
           -disableAutomaticPackageResolution
 
     - name: Upload test results to CodeCov
@@ -102,7 +102,7 @@ jobs:
       run: |
         xcodebuild -workspace samples/SwiftDemoApp/SwiftDemoApp.xcworkspace \
           -scheme SwiftDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=17.3,name=iPhone 15" build | xcpretty
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" build | xcpretty
 
   build_objc_sample:
     name: Build Objective-C Sample App with CocoaPods locally
@@ -123,7 +123,7 @@ jobs:
       run: |
         xcodebuild -workspace samples/ObjCDemoApp/ObjCDemoApp.xcworkspace \
           -scheme ObjCDemoApp -configuration Debug \
-          -destination "platform=iOS Simulator,OS=17.3,name=iPhone 15" build | xcpretty
+          -destination "platform=iOS Simulator,OS=17.4,name=iPhone 15" build | xcpretty
 
   test: # used as required status check
     runs-on: ubuntu-latest
