@@ -41,7 +41,7 @@ jobs:
     - name: Set Xcode version
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: latest-stable
+        xcode-version: "16.1"
 
     # For as long as this is a mixed-language library, swift build will not support the Obj-C part of the code so we must use xcodebuild.
     - name: Build and analyze Swift Package with xcodebuild
