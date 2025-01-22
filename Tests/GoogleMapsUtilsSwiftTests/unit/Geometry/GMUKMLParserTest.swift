@@ -20,7 +20,7 @@ import GoogleMaps
 class GMUKMLParserTest: XCTestCase {
 
   // Helper function to load GeoJSON data
-  func parserWithResource(_ resource: String) -> GMUKMLParser1? {
+  func parserWithResource(_ resource: String) -> GMUKMLParser? {
     #if SWIFT_PACKAGE
     guard let path = Bundle.module.path(forResource: resource, ofType: "kml"),
           let fileContents = try? String(contentsOfFile: path, encoding: .utf8),
@@ -37,12 +37,12 @@ class GMUKMLParserTest: XCTestCase {
       return nil
     }
     #endif
-    let parser = GMUKMLParser1(data: data)
+    let parser = GMUKMLParser(data: data)
     parser.parse()
     return parser
   }
 
-  func placemarksWithResource(_ resource: String) -> [GMUPlacemark1] {
+  func placemarksWithResource(_ resource: String) -> [GMUPlacemark] {
     guard let resource = parserWithResource(resource) else {
       XCTFail("Geometry is not a GMUPlacemark")
       return []
@@ -50,7 +50,7 @@ class GMUKMLParserTest: XCTestCase {
     return resource.placemarksArray
   }
 
-  func stylesWithResource(_ resource: String) -> [GMUStyle1] {
+  func stylesWithResource(_ resource: String) -> [GMUStyle] {
     guard let resource = parserWithResource(resource) else {
      XCTFail("Geometry is not a GMUStyle.")
      return []
@@ -72,7 +72,7 @@ class GMUKMLParserTest: XCTestCase {
     }
     #endif
     let url = URL(fileURLWithPath: path)
-    guard let parser = GMUKMLParser1(url: url) else {
+    guard let parser = GMUKMLParser(url: url) else {
       XCTFail("Invalid URL")
       return
     }
@@ -96,7 +96,7 @@ class GMUKMLParserTest: XCTestCase {
     let file = try! String(contentsOfFile: path, encoding: .utf8)
     let data = file.data(using: .utf8)!
     let stream = InputStream(data: data)
-    let parser = GMUKMLParser1(stream: stream)
+    let parser = GMUKMLParser(stream: stream)
     parser.parse()
     XCTAssertEqual(parser.placemarksArray.count, 1)
   }
@@ -104,7 +104,7 @@ class GMUKMLParserTest: XCTestCase {
   func testParsePoint() {
     let placemarks = placemarksWithResource("KML_Point_Test")
     XCTAssertEqual(placemarks.count, 1)
-    let point = placemarks.first!.geometry as! GMUPoint1
+    let point = placemarks.first!.geometry as! GMUPoint
     XCTAssertEqual(point.coordinate.latitude, 0.5)
     XCTAssertEqual(point.coordinate.longitude, 102.0)
   }
@@ -115,7 +115,7 @@ class GMUKMLParserTest: XCTestCase {
     let path = GMSMutablePath()
     path.addLatitude(0.0, longitude: 102.0)
     path.addLatitude(1.0, longitude: 103.0)
-    let lineString = placemarks.first!.geometry as! GMULineString1
+    let lineString = placemarks.first!.geometry as! GMULineString
     XCTAssertEqual(lineString.path.encodedPath(), path.encodedPath())
   }
 
@@ -134,7 +134,7 @@ class GMUKMLParserTest: XCTestCase {
     innerPath.addLatitude(17.5, longitude: 17.5)
     innerPath.addLatitude(12.5, longitude: 17.5)
     innerPath.addLatitude(12.5, longitude: 12.5)
-    let polygon = placemarks.first!.geometry as! GMUPolygon1
+    let polygon = placemarks.first!.geometry as! GMUPolygon
     XCTAssertEqual(polygon.paths.first!.encodedPath(), outerPath.encodedPath())
     XCTAssertEqual(polygon.paths.last!.encodedPath(), innerPath.encodedPath())
   }
@@ -142,7 +142,7 @@ class GMUKMLParserTest: XCTestCase {
   func testParseGroundOverlay() {
     let placemarks = placemarksWithResource("KML_GroundOverlay_Test")
     XCTAssertEqual(placemarks.count, 1)
-    let groundOverlay = placemarks.first!.geometry as! GMUGroundOverlay1
+    let groundOverlay = placemarks.first!.geometry as! GMUGroundOverlay
     XCTAssertEqual(groundOverlay.northEast.latitude, 10)
     XCTAssertEqual(groundOverlay.northEast.longitude, 10)
     XCTAssertEqual(groundOverlay.southWest.latitude, -10)
@@ -155,9 +155,9 @@ class GMUKMLParserTest: XCTestCase {
   func testParseMultiGeometry() {
     let placemarks = placemarksWithResource("KML_MultiGeometry_Test")
     XCTAssertEqual(placemarks.count, 1)
-    let points = placemarks.first!.geometry as! GMUGeometryCollection1
-    let firstPoint = points.geometries.first as! GMUPoint1
-    let secondPoint = points.geometries.last as! GMUPoint1
+    let points = placemarks.first!.geometry as! GMUGeometryCollection
+    let firstPoint = points.geometries.first as! GMUPoint
+    let secondPoint = points.geometries.last as! GMUPoint
     XCTAssertEqual(firstPoint.coordinate.latitude, 1.0)
     XCTAssertEqual(firstPoint.coordinate.longitude, 10.0)
     XCTAssertEqual(secondPoint.coordinate.latitude, 2.0)
@@ -200,7 +200,7 @@ class GMUKMLParserTest: XCTestCase {
     XCTAssertEqual(style2.strokeColor, UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0))
   }
 
-  func findStyleWithName(_ name: String, in array: [GMUStyle1]) -> GMUStyle1 {
+  func findStyleWithName(_ name: String, in array: [GMUStyle]) -> GMUStyle {
     return array.first(where: { $0.styleID == name })!
   }
 

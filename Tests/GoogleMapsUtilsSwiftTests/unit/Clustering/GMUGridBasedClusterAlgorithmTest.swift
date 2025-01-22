@@ -16,18 +16,18 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-final class GMUGridBasedClusterAlgorithmTest: GMUClusterAlgorithmTest1 {
+final class GMUGridBasedClusterAlgorithmTest: GMUClusterAlgorithmTest {
 
     /// Test that at low zoom levels.
     ///
     func testClustersAtZoomLowZoomItemsGroupedIntoOneCluster() {
-        let algorithm = GMUGridBasedClusterAlgorithm1()
+        let algorithm = GMUGridBasedClusterAlgorithm()
         let items = simpleClusterItems()
         algorithm.addItems(items)
 
         // At low zoom, there should be 1 cluster.
         let clusters = algorithm.clusters(atZoom: 3.0)
-        guard let clusterItems = clusters[0] as? GMUStaticCluster1 else {
+        guard let clusterItems = clusters[0] as? GMUStaticCluster else {
             return XCTFail("Clusters are not equivalent to GMUStaticCluster class")
         }
         XCTAssertEqual(clusters.count, 1)
@@ -37,12 +37,12 @@ final class GMUGridBasedClusterAlgorithmTest: GMUClusterAlgorithmTest1 {
     /// Test that at high zoom levels.
     ///
     func testClustersAtZoomHighZoomItemsGroupedIntoMultipleClusters() {
-        let algorithm = GMUGridBasedClusterAlgorithm1()
+        let algorithm = GMUGridBasedClusterAlgorithm()
         let items = simpleClusterItems()
         algorithm.addItems(items)
 
         let clusters = algorithm.clusters(atZoom: 10)
-        guard let _ = clusters[0] as? GMUStaticCluster1 else {
+        guard let _ = clusters[0] as? GMUStaticCluster else {
             return XCTFail("Clusters are not equivalent to GMUStaticCluster class")
         }
         XCTAssertEqual(clusters.count, 4)

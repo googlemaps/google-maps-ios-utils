@@ -15,19 +15,18 @@
 @testable import GoogleMapsUtils
 
 // MARK: - GQTPointQuadTreeItem Mock
-/// TO-DO: Rename the class to `GQTPointQuadTreeItem` once the linking is done and remove the objective c class.
-final class GQTPointQuadTreeItemMock: GQTPointQuadTreeItem1 {
+final class GQTPointQuadTreeItemMock: GQTPointQuadTreeItem {
 
     // MARK: - Property
-    private var points: GQTPoint1
+    private var points: GQTPoint
 
     // MARK: - Init
-    init(points: GQTPoint1) {
+    init(points: GQTPoint) {
         self.points = points
     }
 
     // MARK: - Protocol moethod implementation
-    func point() -> GQTPoint1 {
+    func point() -> GQTPoint {
         return points
     }
 }

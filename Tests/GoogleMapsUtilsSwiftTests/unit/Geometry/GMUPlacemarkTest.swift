@@ -23,10 +23,10 @@ final class GMUPlacemarkTest: XCTestCase {
         let mockGeometry = MockGeometry()
 
         // 2. Create a GMUStyle instance
-        let style = GMUStyle1(styleID: "testStyle", width: 0, scale: 1, heading: 0, anchor: .zero, hasFill: false, hasStroke: false)
+        let style = GMUStyle(styleID: "testStyle", width: 0, scale: 1, heading: 0, anchor: .zero, hasFill: false, hasStroke: false)
 
         // 3. Create GMUPlacemark instance
-        let placemark = GMUPlacemark1(geometry: mockGeometry, style: style, title: "Placemark", snippet: "A test placemark.", styleUrl: "#test")
+        let placemark = GMUPlacemark(geometry: mockGeometry, style: style, title: "Placemark", snippet: "A test placemark.", styleUrl: "#test")
 
         // 4. Assert Properties
         XCTAssertIdentical(placemark.geometry as AnyObject, mockGeometry) // Use XCTAssertIdentical for object comparison
@@ -38,7 +38,7 @@ final class GMUPlacemarkTest: XCTestCase {
 }
 
 // Mock Geometry conforming to GMUGeometry protocol
-class MockGeometry: GMUGeometry1 {
+class MockGeometry: GMUGeometry {
   var type: String = ""
   
   func isEqual(_ object: Any?) -> Bool {

@@ -20,8 +20,8 @@ final class GMUWrappingDictionaryKeyTest: XCTestCase {
     
     func testEqualityAndHash() {
         let object = "Test object"
-        let key1 = GMUWrappingDictionaryKey1(object: object)
-        let key2 = GMUWrappingDictionaryKey1(object: object)
+        let key1 = GMUWrappingDictionaryKey(object: object)
+        let key2 = GMUWrappingDictionaryKey(object: object)
 
         // Testing reference inequality (since they are different instances)
         XCTAssertFalse(key1 === key2)
@@ -35,9 +35,9 @@ final class GMUWrappingDictionaryKeyTest: XCTestCase {
 
     func testUnequalityAndHash() {
         let object1 = "Test object1"
-        let key1 = GMUWrappingDictionaryKey1(object: object1)
+        let key1 = GMUWrappingDictionaryKey(object: object1)
         let object2 = "Test object2"
-        let key2 = GMUWrappingDictionaryKey1(object: object2)
+        let key2 = GMUWrappingDictionaryKey(object: object2)
 
         // Testing reference inequality
         XCTAssertFalse(key1 === key2)
@@ -51,8 +51,8 @@ final class GMUWrappingDictionaryKeyTest: XCTestCase {
 
     func testCopy() {
         let object = "Test object"
-        let key1 = GMUWrappingDictionaryKey1(object: object as AnyObject)
-        guard let key2 = key1.copy() as? GMUWrappingDictionaryKey1 else {
+        let key1 = GMUWrappingDictionaryKey(object: object as AnyObject)
+        guard let key2 = key1.copy() as? GMUWrappingDictionaryKey else {
             XCTFail("Copy failed to return a valid GMUWrappingDictionaryKey")
             return
         }

@@ -17,7 +17,7 @@ import CoreLocation
 @testable import GoogleMapsUtils
 
 /// Mock class for `GMUClusterItem`
-final class MockGMUClusterItem: GMUClusterItem1 {
+final class MockGMUClusterItem: GMUClusterItem {
 
     // MARK: - Properties
     /// Returns the position of the item.

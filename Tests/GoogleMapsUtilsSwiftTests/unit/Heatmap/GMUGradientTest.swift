@@ -41,7 +41,7 @@ class GMUGradientTest: XCTestCase {
 
     func testInitWithColors() {
         do {
-            let gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+            let gradient = try GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
             XCTAssertEqual(gradient.colors.count, gradient.startPoints.count)
         } catch {
             XCTFail("GMUGradient1 initialization failed with error: \(error)")
@@ -49,7 +49,7 @@ class GMUGradientTest: XCTestCase {
     }
 
     func testInitWithEmptyColors() {
-        XCTAssertThrowsError(try GMUGradient1(colors: [], startPoints: self.startPoints, colorMapSize: self.colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: [], startPoints: self.startPoints, colorMapSize: self.colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -64,7 +64,7 @@ class GMUGradientTest: XCTestCase {
             UIColor(red: 1.0, green: 0, blue: 0, alpha: 1),
             UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)
         ]
-        XCTAssertThrowsError(try GMUGradient1(colors: gradientColors, startPoints: self.startPoints, colorMapSize: self.colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: gradientColors, startPoints: self.startPoints, colorMapSize: self.colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -80,7 +80,7 @@ class GMUGradientTest: XCTestCase {
             UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)
         ]
         let nonDescendingStartPoints: [CGFloat] = [1.0, 1.2, 0.1]
-        XCTAssertThrowsError(try GMUGradient1(colors: gradientColors, startPoints: nonDescendingStartPoints, colorMapSize: self.colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: gradientColors, startPoints: nonDescendingStartPoints, colorMapSize: self.colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -91,7 +91,7 @@ class GMUGradientTest: XCTestCase {
 
     func testInitWithColorsAndMapSizeLessThanTwo() {
         let colorMapSize = 1
-        XCTAssertThrowsError(try GMUGradient1(colors: self.gradientColor, startPoints: self.startPoints, colorMapSize: colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: self.gradientColor, startPoints: self.startPoints, colorMapSize: colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -103,7 +103,7 @@ class GMUGradientTest: XCTestCase {
     func testInitWithColorsAndStartPointsLessThanZero() {
         let lessThanZeroStartPoints: [CGFloat]  = [-1.0, 1.2]
         
-        XCTAssertThrowsError(try GMUGradient1(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -114,7 +114,7 @@ class GMUGradientTest: XCTestCase {
 
     func testInitWithColorsAndStartPointsGreaterThanOne() {
         let lessThanZeroStartPoints: [CGFloat]  = [1.0, 2.0]
-        XCTAssertThrowsError(try GMUGradient1(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)) { error in
+        XCTAssertThrowsError(try GMUGradient(colors: self.gradientColor, startPoints: lessThanZeroStartPoints, colorMapSize: self.colorMapSize)) { error in
             guard let gradientError = error as? GMUGradientError else {
                 XCTFail("GMUGradient initialization failed with error: \(error)")
                 return
@@ -130,7 +130,7 @@ class GMUGradientTest: XCTestCase {
         ]
 
         do {
-            let gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+            let gradient = try GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
             XCTAssertEqual(gradient.generateColorMap().count, colorMapSize)
         } catch {
             XCTFail("GMUGradient1 initialization failed with error: \(error)")
@@ -146,7 +146,7 @@ class GMUGradientTest: XCTestCase {
         let startPoints: [CGFloat] = [0.0, 0.5, 1.0]
         
         do {
-            let gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+            let gradient = try GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
             XCTAssertEqual(gradient.generateColorMap().count, colorMapSize)
         } catch {
             XCTFail("GMUGradient initialization failed with error: \(error)")

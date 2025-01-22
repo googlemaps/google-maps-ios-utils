@@ -20,7 +20,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
 
     var buckets: [Int]!
     var backgroundImages: [UIImage]!
-    var generator: GMUDefaultClusterIconGenerator1!
+    var generator: GMUDefaultClusterIconGenerator!
     var sampleImage: UIImage!
 
     override func setUp() {
@@ -33,7 +33,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
             createTestImage(size: CGSize(width: 100, height: 100), color: .yellow),
             createTestImage(size: CGSize(width: 150, height: 150), color: .orange)
         ]
-        generator = GMUDefaultClusterIconGenerator1()
+        generator = GMUDefaultClusterIconGenerator()
         sampleImage = createTestImage(size: CGSize(width: 100, height: 100), color: .red)
     }
 
@@ -95,18 +95,18 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
     }
 
     func testIconForTextWithNotNilUIImage() {
-        XCTAssertNotNil(GMUDefaultClusterIconGenerator1().iconWithIndex(for: "1", with: 0))
+        XCTAssertNotNil(GMUDefaultClusterIconGenerator().iconWithIndex(for: "1", with: 0))
     }
 
     func testIconForTextWithBaseImageNilAndNilUIImage() {
-        XCTAssertNil(GMUDefaultClusterIconGenerator1().iconWithImage(for: "1000+", with: nil))
+        XCTAssertNil(GMUDefaultClusterIconGenerator().iconWithImage(for: "1000+", with: nil))
     }
 
     func testInitThrowsWhenBucketsAndBackgroundImagesAreOfDifferentSize() {
         let buckets = [10, 20, 50, 100, 1000]
         let backgroundImages = [UIImage(), UIImage(), UIImage()]
 
-        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator1(buckets: buckets, backgroundImages: backgroundImages)) { error in
+        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator(buckets: buckets, backgroundImages: backgroundImages)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError")
                 return
@@ -119,7 +119,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
         let buckets: [Int] = []
         let backgroundImages: [UIImage] = []
 
-        XCTAssertThrowsError(try  GMUDefaultClusterIconGenerator1(buckets: buckets, backgroundImages: backgroundImages)) { error in
+        XCTAssertThrowsError(try  GMUDefaultClusterIconGenerator(buckets: buckets, backgroundImages: backgroundImages)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError but got \(error)")
                 return
@@ -132,7 +132,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
         let buckets: [Int] = [10, 20, 50, 100, 1000]
         let backgroundColors = [UIColor(), UIColor(), UIColor()] // 3 colors
         
-        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator1(buckets: buckets, backgroundColors: backgroundColors)) { error in
+        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator(buckets: buckets, backgroundColors: backgroundColors)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError but got \(error)")
                 return
@@ -145,7 +145,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
         let buckets: [Int] = []
         let backgroundColors: [UIColor] = []
         
-        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator1(buckets: buckets, backgroundColors: backgroundColors)) { error in
+        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator(buckets: buckets, backgroundColors: backgroundColors)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError but got \(error)")
                 return
@@ -157,7 +157,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
     func testInitThrowsWhenBucketsAreNotStrictlyIncreasing() {
         let buckets:[Int] = [10, 10] // Not strictly increasing
 
-        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator1(buckets: buckets)) { error in
+        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator(buckets: buckets)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError but got \(error)")
                 return
@@ -169,7 +169,7 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
     func testInitThrowsWhenBucketsHaveNonNegativeValues() {
         let buckets: [Int] = [-10, 10] // Contains a negative value
 
-        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator1(buckets: buckets)) { error in
+        XCTAssertThrowsError(try GMUDefaultClusterIconGenerator(buckets: buckets)) { error in
             guard let iconGeneratorError = error as? GMUDefaultClusterIconGeneratorError else {
                 XCTFail("Expected InitializationError but got \(error)")
                 return

@@ -38,7 +38,7 @@ final class GMUPolygonTest: XCTestCase {
     }
     
     // MARK: - SUT
-    private func makeSUT() -> (GMUPolygon1, [GMSMutablePath]) {
+    private func makeSUT() -> (GMUPolygon, [GMSMutablePath]) {
         let firstCoordinate = CLLocationCoordinate2D(latitude: firstLatitude, longitude: firstLongitude)
         let secondCoordinate = CLLocationCoordinate2D(latitude: secondLatitude, longitude: secondLongitude)
         let thirdCoordinate = CLLocationCoordinate2D(latitude: thirdLatitude, longitude: thirdLongitude)
@@ -50,7 +50,7 @@ final class GMUPolygonTest: XCTestCase {
         path.add(firstCoordinate)  // Closing the polygon
         
         let paths: [GMSMutablePath] = [path]
-        let polygon: GMUPolygon1 = GMUPolygon1(type: type, paths: paths)
+        let polygon: GMUPolygon = GMUPolygon(type: type, paths: paths)
         return (polygon, paths)
     }
 }

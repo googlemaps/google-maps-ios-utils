@@ -30,20 +30,20 @@ final class GMULineStringTest: XCTestCase {
 
     // MARK: - Test Methods
     func testInitWithCoordinates() {
-        let lineString: GMULineString1 = makeSUT()
+        let lineString: GMULineString = makeSUT()
         
         XCTAssertEqual(lineString.type, type)
         XCTAssertEqual(lineString.path, path)
     }
 
     // MARK: - SUT
-    private func makeSUT() -> GMULineString1 {
+    private func makeSUT() -> GMULineString {
         let firstCoordinate = CLLocationCoordinate2D(latitude: firstLatitude, longitude: firstLongitude)
         let secondCoordinate = CLLocationCoordinate2D(latitude: secondLatitude, longitude: secondLongitude)
         path.add(firstCoordinate)
         path.add(secondCoordinate)
         
-        let lineString: GMULineString1 = GMULineString1(type: type, path: path)
+        let lineString: GMULineString = GMULineString(type: type, path: path)
         return lineString
     }
 }

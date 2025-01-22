@@ -16,7 +16,6 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-/// TO-DO: Rename the required linked classes once the linking is done and remove the objective c class.
 // A utility function to generate random numbers within a range
 func randd(min: Double, max: Double) -> Double {
     let range = max - min
@@ -25,17 +24,17 @@ func randd(min: Double, max: Double) -> Double {
 
 final class GQTPointQuadTreeTest: XCTestCase {
 
-    func item(at point: GQTPoint1) -> GQTPointQuadTreeItem1 {
+    func item(at point: GQTPoint) -> GQTPointQuadTreeItem {
         return GQTPointQuadTreeItemMock(points: point)
     }
 
     // MARK: - Tests
     func testRemoveNonExistingItemIgnored() {
-        let tree = GQTPointQuadTree1()
-        let item = item(at: GQTPoint1(x: 0.5, y: 0.5))
+        let tree = GQTPointQuadTree()
+        let item = item(at: GQTPoint(x: 0.5, y: 0.5))
         _ = tree.add(item: item)
 
-        let newItem = self.item(at: GQTPoint1(x: 0.5, y: 0.5))
+        let newItem = self.item(at: GQTPoint(x: 0.5, y: 0.5))
         let result = tree.remove(item: newItem)
 
         XCTAssertFalse(result)
@@ -43,8 +42,8 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testRemoveOutsideItemIgnored() {
-        let tree = GQTPointQuadTree1()
-        let item = item(at: GQTPoint1(x: 1.5, y: 1.5))
+        let tree = GQTPointQuadTree()
+        let item = item(at: GQTPoint(x: 1.5, y: 1.5))
         let result = tree.remove(item: item)
 
         XCTAssertFalse(result)
@@ -52,9 +51,9 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testClear() {
-        let tree = GQTPointQuadTree1()
-        _ = tree.add(item: item(at: GQTPoint1(x: 0.5, y: 0.5)))
-        _ = tree.add(item: item(at: GQTPoint1(x: 1.0, y: 1.0)))
+        let tree = GQTPointQuadTree()
+        _ = tree.add(item: item(at: GQTPoint(x: 0.5, y: 0.5)))
+        _ = tree.add(item: item(at: GQTPoint(x: 1.0, y: 1.0)))
         XCTAssertEqual(tree.count, 2)
 
         tree.clear()
@@ -63,68 +62,68 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testSearchWithBounds() {
-        let tree = GQTPointQuadTree1()
-        _ = tree.add(item: item(at: GQTPoint1(x: 0.5, y: 0.5)))
-        _ = tree.add(item: item(at: GQTPoint1(x: -0.5, y: 0.5)))
-        _ = tree.add(item: item(at: GQTPoint1(x: -0.5, y: -0.5)))
-        _ = tree.add(item: item(at: GQTPoint1(x: -0.5, y: -0.5)))
+        let tree = GQTPointQuadTree()
+        _ = tree.add(item: item(at: GQTPoint(x: 0.5, y: 0.5)))
+        _ = tree.add(item: item(at: GQTPoint(x: -0.5, y: 0.5)))
+        _ = tree.add(item: item(at: GQTPoint(x: -0.5, y: -0.5)))
+        _ = tree.add(item: item(at: GQTPoint(x: -0.5, y: -0.5)))
     
-        var items = tree.search(withBounds: GQTBounds1(minX: -1, minY: -1, maxX: 1, maxY: 1))
+        var items = tree.search(withBounds: GQTBounds(minX: -1, minY: -1, maxX: 1, maxY: 1))
         XCTAssertEqual(items.count, 4)
         
-        items = tree.search(withBounds: GQTBounds1(minX: -1, minY: -1, maxX: -0.6, maxY: -0.6))
+        items = tree.search(withBounds: GQTBounds(minX: -1, minY: -1, maxX: -0.6, maxY: -0.6))
         XCTAssertEqual(items.count, 0)
 
-        items = tree.search(withBounds: GQTBounds1(minX: 0.6, minY: 0.6, maxX: 1, maxY: 1))
+        items = tree.search(withBounds: GQTBounds(minX: 0.6, minY: 0.6, maxX: 1, maxY: 1))
         XCTAssertEqual(items.count, 0)
 
-        items = tree.search(withBounds: GQTBounds1(minX: 0, minY: 0, maxX: 0.6, maxY: 0.6))
+        items = tree.search(withBounds: GQTBounds(minX: 0, minY: 0, maxX: 0.6, maxY: 0.6))
         XCTAssertEqual(items.count, 1)
 
-        items = tree.search(withBounds: GQTBounds1(minX: -1, minY: -1, maxX: 1, maxY: 0))
+        items = tree.search(withBounds: GQTBounds(minX: -1, minY: -1, maxX: 1, maxY: 0))
         XCTAssertEqual(items.count, 2)
     }
 
     func testSearchWithBoundsRandomizedItems() {
-        let tree = GQTPointQuadTree1()
+        let tree = GQTPointQuadTree()
 
         // Adding items to the tree
-        for item in itemsFullyInside(bounds: GQTBounds1(minX: -1, minY: -1, maxX: 0, maxY: 0), count: 10) {
+        for item in itemsFullyInside(bounds: GQTBounds(minX: -1, minY: -1, maxX: 0, maxY: 0), count: 10) {
             _ = tree.add(item: item)
         }
 
-        for item in itemsFullyInside(bounds: GQTBounds1(minX: -1, minY: 0, maxX: 0, maxY: 1), count: 20) {
+        for item in itemsFullyInside(bounds: GQTBounds(minX: -1, minY: 0, maxX: 0, maxY: 1), count: 20) {
             _ = tree.add(item: item)
         }
 
-        for item in itemsFullyInside(bounds: GQTBounds1(minX: 0, minY: 0, maxX: 1, maxY: 1), count: 30) {
+        for item in itemsFullyInside(bounds: GQTBounds(minX: 0, minY: 0, maxX: 1, maxY: 1), count: 30) {
             _ = tree.add(item: item)
         }
 
-        for item in itemsFullyInside(bounds: GQTBounds1(minX: 0, minY: -1, maxX: 1, maxY: 0), count: 40) {
+        for item in itemsFullyInside(bounds: GQTBounds(minX: 0, minY: -1, maxX: 1, maxY: 0), count: 40) {
             _ = tree.add(item: item)
         }
 
         // Now perform the search
-        var items = tree.search(withBounds: GQTBounds1(minX: -1, minY: -1, maxX: 1, maxY: 1))
+        var items = tree.search(withBounds: GQTBounds(minX: -1, minY: -1, maxX: 1, maxY: 1))
         XCTAssertEqual(items.count, 100)  // Expecting 100 items
 
-        items = tree.search(withBounds: GQTBounds1(minX: -1, minY: -1, maxX: 0, maxY: 0))
+        items = tree.search(withBounds: GQTBounds(minX: -1, minY: -1, maxX: 0, maxY: 0))
         XCTAssertEqual(items.count, 10)   // Expecting 10 items
 
-        items = tree.search(withBounds: GQTBounds1(minX: -1, minY: 0, maxX: 0, maxY: 1))
+        items = tree.search(withBounds: GQTBounds(minX: -1, minY: 0, maxX: 0, maxY: 1))
         XCTAssertEqual(items.count, 20)   // Expecting 20 items
 
-        items = tree.search(withBounds: GQTBounds1(minX: 0, minY: 0, maxX: 1, maxY: 1))
+        items = tree.search(withBounds: GQTBounds(minX: 0, minY: 0, maxX: 1, maxY: 1))
         XCTAssertEqual(items.count, 30)   // Expecting 30 items
 
-        items = tree.search(withBounds: GQTBounds1(minX: 0, minY: -1, maxX: 1, maxY: 0))
+        items = tree.search(withBounds: GQTBounds(minX: 0, minY: -1, maxX: 1, maxY: 0))
         XCTAssertEqual(items.count, 40)   // Expecting 40 items
     }
     
     func testAddInsideItemAdded() {
-        let tree = GQTPointQuadTree1()
-        let item = item(at: GQTPoint1(x: 0.5, y: 0.5))
+        let tree = GQTPointQuadTree()
+        let item = item(at: GQTPoint(x: 0.5, y: 0.5))
         let result = tree.add(item: item)
 
         XCTAssertTrue(result)
@@ -132,8 +131,8 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testAddInsideItemIgnored() {
-        let tree = GQTPointQuadTree1(bounds: GQTBounds1(minX: -0.2, minY: -0.2, maxX: 0.2, maxY: 0.2))
-        let item = item(at: GQTPoint1(x: 0.5, y: 0.5))
+        let tree = GQTPointQuadTree(bounds: GQTBounds(minX: -0.2, minY: -0.2, maxX: 0.2, maxY: 0.2))
+        let item = item(at: GQTPoint(x: 0.5, y: 0.5))
         let result = tree.add(item: item)
 
         XCTAssertFalse(result)
@@ -141,8 +140,8 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testRemoveAddedItemRemoved() {
-        let tree = GQTPointQuadTree1()
-        let item = item(at: GQTPoint1(x: 0.5, y: 0.5))
+        let tree = GQTPointQuadTree()
+        let item = item(at: GQTPoint(x: 0.5, y: 0.5))
         _ = tree.add(item: item)
 
         let result = tree.remove(item: item)
@@ -152,7 +151,7 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     func testAddNilItemIgnored() {
-        let tree = GQTPointQuadTree1()
+        let tree = GQTPointQuadTree()
 
         let result = tree.add(item: nil)
 
@@ -161,10 +160,10 @@ final class GQTPointQuadTreeTest: XCTestCase {
     }
 
     // MARK: - Utilities
-    func itemsFullyInside(bounds: GQTBounds1, count: Int) -> [GQTPointQuadTreeItem1] {
-        var items = [GQTPointQuadTreeItem1]()
+    func itemsFullyInside(bounds: GQTBounds, count: Int) -> [GQTPointQuadTreeItem] {
+        var items = [GQTPointQuadTreeItem]()
         for _ in 0..<count {
-            let point = GQTPoint1(x: randd(min: bounds.minX + Double.ulpOfOne, max: bounds.maxX - Double.ulpOfOne),
+            let point = GQTPoint(x: randd(min: bounds.minX + Double.ulpOfOne, max: bounds.maxX - Double.ulpOfOne),
                                y: randd(min: bounds.minY + Double.ulpOfOne, max: bounds.maxY - Double.ulpOfOne))
             items.append(item(at: point))
         }

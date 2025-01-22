@@ -23,10 +23,10 @@ import GoogleMaps
 public class HeatmapInterpolationPoints: NSObject {
     
     /// The input data set
-    private var data = [GMUWeightedLatLng1]()
+    private var data = [GMUWeightedLatLng]()
     
     /// The list of interpolated heat map points with weight
-    private var heatmapPoints = [GMUWeightedLatLng1]()
+    private var heatmapPoints = [GMUWeightedLatLng]()
     
     /// Since IDW takes into account the distance an interpolated point is from the given points, it naturally begs the question: how
     /// much should distance affect the interpolated value? If we don't want distance to affect interpolated values at all (which is not a
@@ -58,14 +58,14 @@ public class HeatmapInterpolationPoints: NSObject {
     /// Adds a list of GMUWeightedLatLng objects to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    func addWeightedLatLngs(latlngs: [GMUWeightedLatLng1]) {
+    func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
         data.append(contentsOf: latlngs)
     }
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    func addWeightedLatLng(latlng: GMUWeightedLatLng1) {
+    func addWeightedLatLng(latlng: GMUWeightedLatLng) {
         data.append(latlng)
     }
     
@@ -310,7 +310,7 @@ public class HeatmapInterpolationPoints: NSObject {
     func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
-    ) throws -> [GMUWeightedLatLng1] {
+    ) throws -> [GMUWeightedLatLng] {
         
         // As documented above, we will throw an exception here if the n value is not in the
         // appropriate range
@@ -369,7 +369,7 @@ public class HeatmapInterpolationPoints: NSObject {
                     }
                     
                     // Set the intensity based on IDW
-                    let coords = GMUWeightedLatLng1(
+                    let coords = GMUWeightedLatLng(
                         coordinate: CLLocationCoordinate2DMake(
                             Double(i) * granularity,
                             Double(j) * granularity
