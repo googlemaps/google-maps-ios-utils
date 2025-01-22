@@ -29,7 +29,7 @@ final class GMUStaticClusterTest: XCTestCase {
         XCTAssertEqual(c1.longitude, c2.longitude, description)
     }
 
-    func XCTAssertItemsEqual(_ item1: GMUClusterItem1, _ item2: GMUClusterItem1, _ description: String = "") {
+    func XCTAssertItemsEqual(_ item1: GMUClusterItem, _ item2: GMUClusterItem, _ description: String = "") {
         XCTAssertEqual(item1.position.latitude, item2.position.latitude, description)
         XCTAssertEqual(item1.position.longitude, item2.position.longitude, description)
         XCTAssertEqual(item1.title, item2.title, description)
@@ -37,12 +37,12 @@ final class GMUStaticClusterTest: XCTestCase {
     }
 
     func testInitWithPosition() {
-        let cluster = GMUStaticCluster1(position: kClusterPosition)
+        let cluster = GMUStaticCluster(position: kClusterPosition)
         XCTAssertCoordsEqual(cluster.position, kClusterPosition, "Cluster position failed to initialize.")
     }
 
     func testAddItem() {
-        let cluster = GMUStaticCluster1(position: kClusterPosition)
+        let cluster = GMUStaticCluster(position: kClusterPosition)
 
         /// Add 1 item.
         /// Replace with appropriate mocking library.
@@ -62,7 +62,7 @@ final class GMUStaticClusterTest: XCTestCase {
     }
 
     func testRemoveItem() {
-        let cluster = GMUStaticCluster1(position: kClusterPosition)
+        let cluster = GMUStaticCluster(position: kClusterPosition)
 
         let item1 = MockGMUClusterItem(position: kClusterPosition, title: "Title1", snippet: "Snippet1")
         let item2 = MockGMUClusterItem(position: kClusterPosition, title: "Title2", snippet: "Snippet2")

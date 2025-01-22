@@ -15,21 +15,20 @@
 // MARK: - GQTPointQuadTreeChild
 /// The class manages the children and items in a quad tree node, 
 /// handling insertion, removal, splitting, and searching within specific bounds.
-/// 
-/// TO-DO: Rename the class to `GQTPointQuadTreeChild` once the linking is done and remove the objective c class.
-final class GQTPointQuadTreeChild1 {
+///
+final class GQTPointQuadTreeChild {
 
     // MARK: - Properties
     /// Top Right child quad. Nil until this node is split.
-    private var topRight: GQTPointQuadTreeChild1?
+    private var topRight: GQTPointQuadTreeChild?
     /// Top Left child quad. Nil until this node is split.
-    private var topLeft: GQTPointQuadTreeChild1?
+    private var topLeft: GQTPointQuadTreeChild?
     /// Bottom Right child quad. Nil until this node is split.
-    private var bottomRight: GQTPointQuadTreeChild1?
+    private var bottomRight: GQTPointQuadTreeChild?
     /// Top Right child quad. Nil until this node is split.
-    private var bottomLeft: GQTPointQuadTreeChild1?
+    private var bottomLeft: GQTPointQuadTreeChild?
     /// Bottom Left child quad. Nil until this node is split.
-    private var pointQuadTreeItems: [GQTPointQuadTreeItem1]?
+    private var pointQuadTreeItems: [GQTPointQuadTreeItem]?
 
     // MARK: - Init
     init() {
@@ -43,7 +42,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - item: The item to insert. Must not be nil.
     ///   - bounds: The bounds of this node.
     ///   - depth: The depth of this node.
-    func add(item: GQTPointQuadTreeItem1?, withOwnBounds bounds: GQTBounds1, atDepth depth: Int) {
+    func add(item: GQTPointQuadTreeItem?, withOwnBounds bounds: GQTBounds, atDepth depth: Int) {
         // Ensure the item is not nil, otherwise, raise a fatal error.
         guard let item else {
             fatalError("Invalid item argument, item must not be nil")
@@ -83,7 +82,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - item: The Point QuadTree item.
     ///   - bounds: The bounds of the node.
     ///   - depth: The depth of the node.
-    private func addItemToCorrectQuadrant(_ topRight: GQTPointQuadTreeChild1, item: GQTPointQuadTreeItem1, withOwnBounds bounds: GQTBounds1, atDepth depth: Int) {
+    private func addItemToCorrectQuadrant(_ topRight: GQTPointQuadTreeChild, item: GQTPointQuadTreeItem, withOwnBounds bounds: GQTBounds, atDepth depth: Int) {
         let itemPoint = item.point()
         let midPoint = boundsMidpoint(bounds)
         
@@ -101,7 +100,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - itemPoint: The point of the item.
     ///   - midPoint: The mid point of the item.
     /// - Returns: Bool
-    private func isItemInTopQuadrant(_ itemPoint: GQTPoint1, midPoint: GQTPoint1) -> Bool {
+    private func isItemInTopQuadrant(_ itemPoint: GQTPoint, midPoint: GQTPoint) -> Bool {
         return itemPoint.y > midPoint.y
     }
 
@@ -114,7 +113,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - midPoint: The mid point of the item.
     ///   - bounds: The bounds of the node.
     ///   - depth: The depth of the node.
-    private func addItemToTopQuadrant(_ topRight: GQTPointQuadTreeChild1, item: GQTPointQuadTreeItem1, itemPoint: GQTPoint1, midPoint: GQTPoint1, bounds: GQTBounds1, atDepth depth: Int) {
+    private func addItemToTopQuadrant(_ topRight: GQTPointQuadTreeChild, item: GQTPointQuadTreeItem, itemPoint: GQTPoint, midPoint: GQTPoint, bounds: GQTBounds, atDepth depth: Int) {
         if itemPoint.x > midPoint.x {
             /// Add to the top-right quadrant
             topRight.add(item: item, withOwnBounds: boundsTopRightChildBounds(bounds), atDepth: depth + 1)
@@ -132,7 +131,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - midPoint: The mid point of the item.
     ///   - bounds: The bounds of the node.
     ///   - depth: The depth of the node.
-    private func addItemToBottomQuadrant(_ item: GQTPointQuadTreeItem1, itemPoint: GQTPoint1, midPoint: GQTPoint1, bounds: GQTBounds1, atDepth depth: Int) {
+    private func addItemToBottomQuadrant(_ item: GQTPointQuadTreeItem, itemPoint: GQTPoint, midPoint: GQTPoint, bounds: GQTBounds, atDepth depth: Int) {
         if itemPoint.x > midPoint.x {
             /// Add to the bottom-right quadrant
             bottomRight?.add(item: item, withOwnBounds: boundsBottomRightChildBounds(bounds), atDepth: depth + 1)
@@ -148,12 +147,12 @@ final class GQTPointQuadTreeChild1 {
     /// - Parameters:
     ///   - ownBounds: The bounds of this node.
     ///   - depth: The depth of this node.
-    private func split(withOwnBounds ownBounds: GQTBounds1, atDepth depth: Int) {
+    private func split(withOwnBounds ownBounds: GQTBounds, atDepth depth: Int) {
         assert(pointQuadTreeItems != nil)
-        topRight = GQTPointQuadTreeChild1()
-        topLeft = GQTPointQuadTreeChild1()
-        bottomRight = GQTPointQuadTreeChild1()
-        bottomLeft = GQTPointQuadTreeChild1()
+        topRight = GQTPointQuadTreeChild()
+        topLeft = GQTPointQuadTreeChild()
+        bottomRight = GQTPointQuadTreeChild()
+        bottomLeft = GQTPointQuadTreeChild()
 
         /// Temporarily store the current items and clear the original array.
         let itemsToSplit = pointQuadTreeItems
@@ -174,7 +173,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - item: The item to delete.
     ///   - bounds: The bounds of this node.
     /// - Returns: `false` if the item was not found in the tree, `true` otherwise.
-    func remove(item: GQTPointQuadTreeItem1, withOwnBounds bounds: GQTBounds1) -> Bool {
+    func remove(item: GQTPointQuadTreeItem, withOwnBounds bounds: GQTBounds) -> Bool {
         if let topRight {
             return removeFromChild(topRight, item: item, withOwnBounds: bounds)
         }
@@ -189,7 +188,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - item: The item to remove.
     ///   - bounds: The bounds of the current node.
     /// - Returns: `true` if the item was successfully removed from a child, `false` otherwise.
-    private func removeFromChild(_ topRight: GQTPointQuadTreeChild1, item: GQTPointQuadTreeItem1, withOwnBounds bounds: GQTBounds1) -> Bool {
+    private func removeFromChild(_ topRight: GQTPointQuadTreeChild, item: GQTPointQuadTreeItem, withOwnBounds bounds: GQTBounds) -> Bool {
         let itemPoint = item.point()
         let midPoint = boundsMidpoint(bounds)
 
@@ -207,7 +206,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - itemPoint: The point of the item.
     ///   - midPoint: The midpoint of the current node's bounds.
     /// - Returns: `true` if the item is in one of the top quadrants, `false` otherwise.
-    private func isInTopQuadrant(_ itemPoint: GQTPoint1, midPoint: GQTPoint1) -> Bool {
+    private func isInTopQuadrant(_ itemPoint: GQTPoint, midPoint: GQTPoint) -> Bool {
         return itemPoint.y > midPoint.y
     }
 
@@ -220,7 +219,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - midPoint: The midpoint of the current node's bounds.
     ///   - bounds: The bounds of the current node.
     /// - Returns: `true` if the item was successfully removed, `false` otherwise.
-    private func removeFromTopQuadrant(_ topRight: GQTPointQuadTreeChild1, item: GQTPointQuadTreeItem1, itemPoint: GQTPoint1, midPoint: GQTPoint1, bounds: GQTBounds1) -> Bool {
+    private func removeFromTopQuadrant(_ topRight: GQTPointQuadTreeChild, item: GQTPointQuadTreeItem, itemPoint: GQTPoint, midPoint: GQTPoint, bounds: GQTBounds) -> Bool {
         if itemPoint.x > midPoint.x {
             // Remove from top-right quadrant
             return topRight.remove(item: item, withOwnBounds: boundsTopRightChildBounds(bounds))
@@ -240,7 +239,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - midPoint: The midpoint of the current node's bounds.
     ///   - bounds: The bounds of the current node.
     /// - Returns: `true` if the item was successfully removed, `false` otherwise.
-    private func removeFromBottomQuadrant(_ item: GQTPointQuadTreeItem1, itemPoint: GQTPoint1, midPoint: GQTPoint1, bounds: GQTBounds1) -> Bool {
+    private func removeFromBottomQuadrant(_ item: GQTPointQuadTreeItem, itemPoint: GQTPoint, midPoint: GQTPoint, bounds: GQTBounds) -> Bool {
         if let bottomRight, itemPoint.x > midPoint.x {
             // Remove from bottom-right quadrant
             return bottomRight.remove(item: item, withOwnBounds: boundsBottomRightChildBounds(bounds))
@@ -256,7 +255,7 @@ final class GQTPointQuadTreeChild1 {
     ///
     /// - Parameter item: The item to remove.
     /// - Returns: `true` if the item was found and removed, `false` otherwise.
-    private func removeFromCurrentNode(_ items: GQTPointQuadTreeItem1) -> Bool {
+    private func removeFromCurrentNode(_ items: GQTPointQuadTreeItem) -> Bool {
         // Attempt to find the index of the item in the array.
         guard var pointQuadTreeItems,
               let index = pointQuadTreeItems.firstIndex(where: { $0 === items }) else {
@@ -276,7 +275,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - searchBounds: The bounds of the search box.
     ///   - ownBounds: The bounds of this node.
     ///   - accumulator: The results of the search.
-    func search(withBounds searchBounds: GQTBounds1, withOwnBounds ownBounds: GQTBounds1, results accumulator: inout [GQTPointQuadTreeItem1]) {
+    func search(withBounds searchBounds: GQTBounds, withOwnBounds ownBounds: GQTBounds, results accumulator: inout [GQTPointQuadTreeItem]) {
         if let topRight = topRight {
             // Define bounds for each child quadrant.
             let topRightBounds = boundsTopRightChildBounds(ownBounds)
@@ -304,7 +303,7 @@ final class GQTPointQuadTreeChild1 {
     ///   - bottomRightBounds: The bounds of the bottom-right child quadrant.
     ///   - bottomLeftBounds: The bounds of the bottom-left child quadrant.
     ///   - accumulator: The results of the search.
-    private func searchInChildQuadrants(_ topRight: GQTPointQuadTreeChild1,_ searchBounds: GQTBounds1,_ ownBounds: GQTBounds1,_ topRightBounds: GQTBounds1,_ topLeftBounds: GQTBounds1,_ bottomRightBounds: GQTBounds1,_ bottomLeftBounds: GQTBounds1,_ accumulator: inout [GQTPointQuadTreeItem1]) {
+    private func searchInChildQuadrants(_ topRight: GQTPointQuadTreeChild,_ searchBounds: GQTBounds,_ ownBounds: GQTBounds,_ topRightBounds: GQTBounds,_ topLeftBounds: GQTBounds,_ bottomRightBounds: GQTBounds,_ bottomLeftBounds: GQTBounds,_ accumulator: inout [GQTPointQuadTreeItem]) {
         if boundsIntersectsBounds(topRightBounds, searchBounds) {
             topRight.search(withBounds: searchBounds, withOwnBounds: topRightBounds, results: &accumulator)
         }
@@ -324,13 +323,13 @@ final class GQTPointQuadTreeChild1 {
     /// - Parameters:
     ///   - searchBounds: The bounds of the search box.
     ///   - accumulator: The results of the search.
-    private func searchInCurrentNode(searchBounds: GQTBounds1, accumulator: inout [GQTPointQuadTreeItem1]) {
+    private func searchInCurrentNode(searchBounds: GQTBounds, accumulator: inout [GQTPointQuadTreeItem]) {
         guard let pointQuadTreeItems = pointQuadTreeItems else {
             return
         }
 
         // Filter items based on whether their points are within the search bounds.
-        let pointQuadFilteredTreeItems: [GQTPointQuadTreeItem1] = pointQuadTreeItems.filter { item in
+        let pointQuadFilteredTreeItems: [GQTPointQuadTreeItem] = pointQuadTreeItems.filter { item in
             let point = item.point()
             return point.x <= searchBounds.maxX &&
             point.x >= searchBounds.minX &&

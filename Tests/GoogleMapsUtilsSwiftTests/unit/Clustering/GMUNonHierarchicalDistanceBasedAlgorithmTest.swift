@@ -16,7 +16,7 @@ import XCTest
 
 @testable import GoogleMapsUtils
 
-class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest1 {
+class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest {
 
     /// Test that at low zoom levels, all items are grouped into one cluster.
     ///
@@ -24,7 +24,7 @@ class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest1 {
         let items = simpleClusterItems()
 
         /// Act
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm1()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         algorithm.addItems(items)
         let clusters = algorithm.clusters(atZoom: 4)
 
@@ -39,7 +39,7 @@ class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest1 {
         let items = simpleClusterItems()
 
         /// Act
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm1()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         algorithm.addItems(items)
         let clusters = algorithm.clusters(atZoom: 14)
 
@@ -56,7 +56,7 @@ class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest1 {
         let items = randomizedClusterItems()
 
         /// Act
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm1()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         algorithm.addItems(items)
         var clusters = algorithm.clusters(atZoom: 10)
 
@@ -84,7 +84,7 @@ class GMUNonHierarchicalDistanceBasedAlgorithmTest: GMUClusterAlgorithmTest1 {
         let items = randomizedClusterItems()
 
         /// Act
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm1()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         algorithm.addItems(items)
         let clusters = algorithm.clusters(atZoom: 18)
 

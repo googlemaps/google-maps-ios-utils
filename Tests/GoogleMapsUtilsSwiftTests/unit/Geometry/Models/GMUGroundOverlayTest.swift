@@ -29,7 +29,7 @@ final class GMUGroundOverlayTest: XCTestCase {
 
     // MARK: - Test Methods
     func testInitWithProperties() {
-        let groundOverlay: GMUGroundOverlay1 = makeSUT()
+        let groundOverlay: GMUGroundOverlay = makeSUT()
 
         XCTAssertEqual(groundOverlay.type, type)
         XCTAssertEqual(groundOverlay.northEast.longitude, northEast.longitude)
@@ -42,8 +42,8 @@ final class GMUGroundOverlayTest: XCTestCase {
     }
 
     // MARK: - SUT
-    private func makeSUT() -> GMUGroundOverlay1 {
-        let groundOverlay = GMUGroundOverlay1(
+    private func makeSUT() -> GMUGroundOverlay {
+        let groundOverlay = GMUGroundOverlay(
             type: type,
             northEast: northEast,
             southWest: southWest,

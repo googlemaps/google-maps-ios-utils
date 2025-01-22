@@ -25,8 +25,8 @@ class GMUHeatmapTileLayerTest: XCTestCase {
     private var gradientColor: [UIColor]!
     private var firstTestCoordinate: CLLocationCoordinate2D!
     private var secondTestCoordinate: CLLocationCoordinate2D!
-    private var mockTileCreationData: GMUHeatmapTileCreationData1!
-    private let heatmapTileLayer = GMUHeatmapTileLayer1()
+    private var mockTileCreationData: GMUHeatmapTileCreationData!
+    private let heatmapTileLayer = GMUHeatmapTileLayer()
     private let gmuTileSize: Int = 512
 
     override func setUp() {
@@ -41,16 +41,16 @@ class GMUHeatmapTileLayerTest: XCTestCase {
         secondTestCoordinate = CLLocationCoordinate2D(latitude: 10.556, longitude: 98.422)
         // Mock valid tile creation data
         let mockPoints = [
-            GQTPointQuadTreeItemMock(points: GQTPoint1(x: -0.5, y: 0.5)),
-            GQTPointQuadTreeItemMock(points: GQTPoint1(x: 0.2, y: 0.3))
+            GQTPointQuadTreeItemMock(points: GQTPoint(x: -0.5, y: 0.5)),
+            GQTPointQuadTreeItemMock(points: GQTPoint(x: 0.2, y: 0.3))
         ]
         let mockQuadTree = GQTPointQuadTreeMock()
         for point in mockPoints {
             _ = mockQuadTree.add(item: point)
         }
-        mockTileCreationData = GMUHeatmapTileCreationData1(
+        mockTileCreationData = GMUHeatmapTileCreationData(
             quadTree: mockQuadTree,
-            bounds: GQTBounds1(minX: -1.0, minY: -1.0, maxX: 0.5, maxY: 0.5),
+            bounds: GQTBounds(minX: -1.0, minY: -1.0, maxX: 0.5, maxY: 0.5),
             radius: 0,
             minimumZoomIntensity: nil,
             maximumZoomIntensity: nil,
@@ -72,7 +72,7 @@ class GMUHeatmapTileLayerTest: XCTestCase {
 
     func testInitWithValidGradientColorCount() {
         do {
-            let gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+            let gradient = try GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
             heatmapTileLayer.gradient = gradient
             XCTAssertEqual(gradientColor, heatmapTileLayer.gradient?.colors)
         } catch {
@@ -89,15 +89,15 @@ class GMUHeatmapTileLayerTest: XCTestCase {
         let mapsAPIKey: String = "randomGoogleMapsAPIKey"
         let cameraLatitude: Double = -33.8
         let cameraLongitude: Double = 151.2
-        let weightedData: [GMUWeightedLatLng1] = [GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: intensity), GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: intensity)]
+        let weightedData: [GMUWeightedLatLng] = [GMUWeightedLatLng(coordinate: secondTestCoordinate, intensity: intensity), GMUWeightedLatLng(coordinate: firstTestCoordinate, intensity: intensity)]
         GMSServices.provideAPIKey(mapsAPIKey)
-        let heatmapTileLayer = GMUHeatmapTileLayer1()
+        let heatmapTileLayer = GMUHeatmapTileLayer()
         do {
-            heatmapTileLayer.gradient = try GMUGradient1(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
+            heatmapTileLayer.gradient = try GMUGradient(colors: gradientColor, startPoints: startPoints, colorMapSize: colorMapSize)
         } catch {
             XCTFail("Failed to initialize GMUGradient1 with error: \(error)")
         }
-        heatmapTileLayer.weightedData = [GMUWeightedLatLng1(coordinate: firstTestCoordinate, intensity: modifiedIntensity), GMUWeightedLatLng1(coordinate: secondTestCoordinate, intensity: modifiedIntensity)]
+        heatmapTileLayer.weightedData = [GMUWeightedLatLng(coordinate: firstTestCoordinate, intensity: modifiedIntensity), GMUWeightedLatLng(coordinate: secondTestCoordinate, intensity: modifiedIntensity)]
         heatmapTileLayer.radius = 20
         heatmapTileLayer.minimumZoomIntensity = 5
         heatmapTileLayer.maximumZoomIntensity = 10

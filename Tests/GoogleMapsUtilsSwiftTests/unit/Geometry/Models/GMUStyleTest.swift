@@ -33,7 +33,7 @@ final class GMUStyleTest: XCTestCase {
 
     // MARK: - Test Methods
     func testInitWithProperties() {
-        let style: GMUStyle1 = makeSUT()
+        let style: GMUStyle = makeSUT()
 
         XCTAssertEqual(style.styleID, styleID)
         XCTAssertEqual(style.strokeColor, strokeColor)
@@ -50,8 +50,8 @@ final class GMUStyleTest: XCTestCase {
     }
 
     // MARK: - SUT
-    private func makeSUT() -> GMUStyle1 {
-        let style: GMUStyle1 = GMUStyle1(
+    private func makeSUT() -> GMUStyle {
+        let style: GMUStyle = GMUStyle(
             styleID: styleID,
             strokeColor: strokeColor,
             fillColor: fillColor,

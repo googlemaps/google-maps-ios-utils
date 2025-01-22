@@ -25,7 +25,7 @@ final class GMUPointTest: XCTestCase {
 
     // MARK: - Test Methods
     func testInitWithCoordinate() {
-        let point: GMUPoint1 = makeSUT()
+        let point: GMUPoint = makeSUT()
 
         XCTAssertEqual(point.type, type)
         XCTAssertEqual(point.coordinate.latitude, coordinate.latitude)
@@ -33,8 +33,8 @@ final class GMUPointTest: XCTestCase {
     }
 
     // MARK: - SUT
-    private func makeSUT() -> GMUPoint1 {
-        let point: GMUPoint1 = GMUPoint1(type: type, coordinate: coordinate)
+    private func makeSUT() -> GMUPoint {
+        let point: GMUPoint = GMUPoint(type: type, coordinate: coordinate)
         return point
     }
 }
