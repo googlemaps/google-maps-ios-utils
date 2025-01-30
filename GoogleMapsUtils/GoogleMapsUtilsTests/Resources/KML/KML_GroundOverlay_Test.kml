@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <GroundOverlay>
+    <drawOrder>1</drawOrder>
+    <Icon>
+      <href>https://www.google.com/intl/en/images/logo.gif</href>
+    </Icon>
+    <LatLonBox>
+      <north>10</north>
+      <south>-10</south>
+      <east>10</east>
+      <west>-10</west>
+      <rotation>45.0</rotation>
+    </LatLonBox>
+  </GroundOverlay>
+</kml>
