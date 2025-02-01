@@ -261,7 +261,7 @@
 			children = (
 				3EA5DC7E2D4DD853009463B7 /* GoogleMaps.bundle */,
 				3EA5DBC12D4DD6C5009463B7 /* Sources */,
-				3EA5DC0C2D4DD740009463B7 /* GoogleMapsUtilsTests */,
+				3EA5DC4C2D4DD755009463B7 /* Tests */,
 				3EA5DB442D4DD6B0009463B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -602,14 +602,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		3EA5DC0C2D4DD740009463B7 /* GoogleMapsUtilsTests */ = {
-			isa = PBXGroup;
-			children = (
-				3EA5DC4C2D4DD755009463B7 /* Tests */,
-			);
-			path = GoogleMapsUtilsTests;
-			sourceTree = "<group>";
-		};
 		3EA5DC0F2D4DD755009463B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -767,20 +759,20 @@
 			path = unit;
 			sourceTree = "<group>";
 		};
-		3EA5DC4B2D4DD755009463B7 /* GoogleMapsUtilsSwiftTests */ = {
+		3EA5DC4B2D4DD755009463B7 /* GoogleMapsUtilsTests */ = {
 			isa = PBXGroup;
 			children = (
 				3EA5DC102D4DD755009463B7 /* Common */,
 				3EA5DC242D4DD755009463B7 /* Resources */,
 				3EA5DC4A2D4DD755009463B7 /* unit */,
 			);
-			path = GoogleMapsUtilsSwiftTests;
+			path = GoogleMapsUtilsTests;
 			sourceTree = "<group>";
 		};
 		3EA5DC4C2D4DD755009463B7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3EA5DC4B2D4DD755009463B7 /* GoogleMapsUtilsSwiftTests */,
+				3EA5DC4B2D4DD755009463B7 /* GoogleMapsUtilsTests */,
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;

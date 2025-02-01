@@ -44,7 +44,7 @@ let package = Package(
         "GoogleMapsUtils",
         .product(name: "GoogleMaps", package: "ios-maps-sdk"),
       ],
-      path: "Tests/GoogleMapsUtilsSwiftTests",
+      path: "Tests/GoogleMapsUtilsTests",
       resources: [.process("Resources")]
     )
   ]
