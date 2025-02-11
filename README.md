@@ -196,7 +196,7 @@ func renderKml() {
 
 ## Contributing
 
-External contributions are not accepted for this repository. See [contributing guide] for more info.
+Contributions are welcome and encouraged! If you'd like to contribute, send us a [pull request] and refer to our [code of conduct] and [contributing guide].
 
 ## Terms of Service
 
@@ -214,7 +214,7 @@ If you find a bug, or have a feature request, please [file an issue] on GitHub. 
 
 You can also discuss this library on our [Discord server].
 
-[sdk]: https://developers.google.com/maps/documentation/ios-sdk
+[ios-sdk]: https://developers.google.com/maps/documentation/ios-sdk
 [customizing-markers]: docs/CustomMarkers.md
 [geometry-rendering]: docs/GeometryRendering.md
 [heatmap-rendering]: docs/HeatmapRendering.md
