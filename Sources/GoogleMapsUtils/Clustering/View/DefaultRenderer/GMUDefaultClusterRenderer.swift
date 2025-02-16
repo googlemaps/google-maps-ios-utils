@@ -214,14 +214,13 @@ final class GMUDefaultClusterRenderer: GMUClusterRenderer {
                 continue
             }
 
-            guard let itemToNewClusterMap else { return }
             /// Find a candidate cluster to animate to.
             var toCluster: GMUCluster?
             if let cluster = marker.userData as? GMUCluster {
                 toCluster = overlappingCluster(for: cluster, itemMap: itemToNewClusterMap)
             } else {
                 let key = GMUWrappingDictionaryKey(object: userData)
-                toCluster = itemToNewClusterMap[key]
+                toCluster = itemToNewClusterMap?[key]
             }
             
             /// If there is not near by cluster to animate to, do not perform animation.

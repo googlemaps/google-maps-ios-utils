@@ -122,6 +122,9 @@
 		3EA5DDB72D5BA6D0009463B7 /* MockClusterManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */; };
 		3EA5DDB92D5BA6FF009463B7 /* MockMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */; };
 		3EBE77B22D61854500408141 /* GMUSimpleClusterAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */; };
+		3EBE77B42D61A49900408141 /* GMUDefaultClusterRendererTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B32D61A49800408141 /* GMUDefaultClusterRendererTest.swift */; };
+		3EBE77B62D61CFAB00408141 /* MockGMSProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B52D61CFAA00408141 /* MockGMSProjection.swift */; };
+		3EBE77B82D61D04800408141 /* MockClusterIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B72D61D04700408141 /* MockClusterIconGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +253,9 @@
 		3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterManagerDelegate.swift; sourceTree = "<group>"; };
 		3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapDelegate.swift; sourceTree = "<group>"; };
 		3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUSimpleClusterAlgorithmTest.swift; sourceTree = "<group>"; };
+		3EBE77B32D61A49800408141 /* GMUDefaultClusterRendererTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUDefaultClusterRendererTest.swift; sourceTree = "<group>"; };
+		3EBE77B52D61CFAA00408141 /* MockGMSProjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSProjection.swift; sourceTree = "<group>"; };
+		3EBE77B72D61D04700408141 /* MockClusterIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterIconGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -678,6 +684,8 @@
 			isa = PBXGroup;
 			children = (
 				3E3ABBEF2D5BC28D00D42DE6 /* MockGMSMapView.swift */,
+				3EBE77B52D61CFAA00408141 /* MockGMSProjection.swift */,
+				3EBE77B72D61D04700408141 /* MockClusterIconGenerator.swift */,
 				3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */,
 				3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */,
 				3EA5DDB42D5BA6C1009463B7 /* MockClusterRenderer.swift */,
@@ -692,6 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA5DC262D4DD755009463B7 /* Mocks */,
+				3EBE77B32D61A49800408141 /* GMUDefaultClusterRendererTest.swift */,
 				3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */,
 				3EA5DDAE2D5BA5F8009463B7 /* GMUClusterManagerTests.swift */,
 				3EA5DC272D4DD755009463B7 /* GMUClusterAlgorithmTest.swift */,
@@ -1025,9 +1034,12 @@
 				3EA5DC5F2D4DD755009463B7 /* GMUGeometryCollectionTest.swift in Sources */,
 				3EA5DC602D4DD755009463B7 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.swift in Sources */,
 				3EA5DC612D4DD755009463B7 /* GMUKMLParserTest.swift in Sources */,
+				3EBE77B42D61A49900408141 /* GMUDefaultClusterRendererTest.swift in Sources */,
 				3E3ABBF02D5BC28F00D42DE6 /* MockGMSMapView.swift in Sources */,
 				3EA5DC622D4DD755009463B7 /* MockTest.swift in Sources */,
 				3EA5DC632D4DD755009463B7 /* GMUPointTest.swift in Sources */,
+				3EBE77B82D61D04800408141 /* MockClusterIconGenerator.swift in Sources */,
+				3EBE77B62D61CFAB00408141 /* MockGMSProjection.swift in Sources */,
 				3EA5DC642D4DD755009463B7 /* GMUFeatureTest.swift in Sources */,
 				3EA5DC652D4DD755009463B7 /* GMULineStringTest.swift in Sources */,
 				3EA5DDB32D5BA68D009463B7 /* MockCluster.swift in Sources */,

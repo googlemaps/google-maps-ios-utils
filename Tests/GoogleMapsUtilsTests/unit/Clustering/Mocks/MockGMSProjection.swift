@@ -14,23 +14,15 @@
 
 import GoogleMaps
 
-/// A mock subclass of `GMSMapView` used for testing purposes.
-final class MockGMSMapView: GMSMapView {
+/// A mock subclass of `GMSProjection` used for testing purposes.
+///
+final class MockGMSProjection: GMSProjection {
 
     // MARK: - Properties
-    /// A mock camera position to override the default camera.
-    var mockCamera: GMSCameraPosition?
-    var mockProjection: GMSProjection?
+    var mockVisibleRegion: GMSVisibleRegion?
 
     // MARK: - Overridden Properties
-    /// Overrides the `camera` property to return the mock camera if set, otherwise calls the superclass implementation.
-    override var camera: GMSCameraPosition {
-        get { return mockCamera ?? super.camera }
-        set { mockCamera = newValue }
-    }
-
-    /// Overrides the `projection` property to return the mock projection.
-    override var projection: GMSProjection {
-        return mockProjection ?? super.projection
+    override func visibleRegion() -> GMSVisibleRegion {
+        return mockVisibleRegion ?? super.visibleRegion()
     }
 }
