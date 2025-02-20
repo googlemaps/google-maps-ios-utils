@@ -23,6 +23,12 @@ final class GMUSimpleClusterAlgorithm: GMUClusterAlgorithm {
     private let clusterCount: Int = 10
     /// Internal array to store cluster items.
     private var clusterItems: [GMUClusterItem] = []
+    // MARK: - Testing
+    /// Returns the current cluster request count, primarily for testing purposes.
+    var testClusterItems: [GMUClusterItem] {
+        get { return clusterItems }
+        set { clusterItems = newValue }
+    }
 
     // MARK: - `GMUClusterAlgorithm` Methods
     /// Adds an array of items to the cluster algorithm.
@@ -60,12 +66,14 @@ final class GMUSimpleClusterAlgorithm: GMUClusterAlgorithm {
         }
 
         var clusterIndex: Int = 0
-        for i in clusterCount..<clusterItems.count {
-            let item = clusterItems[i]
-            if let cluster = clusters[clusterIndex % clusterCount] as? GMUStaticCluster {
-                cluster.addItem(item)
+        if clusterItems.count > clusterCount {
+            for i in clusterCount..<clusterItems.count {
+                let item = clusterItems[i]
+                if let cluster = clusters[clusterIndex % clusterCount] as? GMUStaticCluster {
+                    cluster.addItem(item)
+                }
+                clusterIndex += 1
             }
-            clusterIndex += 1
         }
 
         return clusters
