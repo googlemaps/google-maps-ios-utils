@@ -51,7 +51,7 @@ range of applications using the [Google Maps SDK for iOS][ios-sdk].
   ```
 
 > [!IMPORTANT]
-> You also need to install the Maps SDK for iOS, which is also supported in Swift Package Manager at the URL `https://github.com/googlemaps/google-maps-ios-utils`
+> You also need to install the Maps SDK for iOS, which is also supported in Swift Package Manager at the URL `https://github.com/googlemaps/ios-maps-sdk`
 
 3. Select the
     [version](https://github.com/googlemaps/google-maps-ios-utils/releases)
