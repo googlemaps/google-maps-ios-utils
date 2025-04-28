@@ -69,7 +69,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
   use_frameworks!
 
   target 'TARGET_NAME' do
-    pod 'GoogleMaps', '9.2.0'
+    pod 'GoogleMaps', '9.4.0'
     pod 'Google-Maps-iOS-Utils', '6.1.0' # x-release-please-version
   end
   ```
