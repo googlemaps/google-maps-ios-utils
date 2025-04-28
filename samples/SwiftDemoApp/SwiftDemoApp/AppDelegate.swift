@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError("Please provide an API Key using mapsAPIKey")
     }
     GMSServices.provideAPIKey(mapsAPIKey)
+    GMSServices.addInternalUsageAttributionID("gmp_library_iosmapsutils")
     let masterViewController = MasterViewController()
     let navigationController = UINavigationController(rootViewController: masterViewController)
     window?.rootViewController = navigationController
