@@ -25,6 +25,7 @@ static NSString *const kMapsAPIKey = @"";
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [GMSServices provideAPIKey:kMapsAPIKey];
+  [GMSServices addInternalUsageAttributionID:@"gmp_git_iosmapsutils_v6.2.0"];
   return YES;
 }
 
