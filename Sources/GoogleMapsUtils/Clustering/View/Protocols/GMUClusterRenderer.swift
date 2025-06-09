@@ -15,7 +15,7 @@
 // MARK: - `GMUClusterRenderer` Protocol
 /// Defines a common contract for a cluster renderer.
 ///
-protocol GMUClusterRenderer: AnyObject {
+public protocol GMUClusterRenderer: AnyObject {
     /// Renders a list of clusters.
     /// 
     func renderClusters(_ clusters: [GMUCluster])

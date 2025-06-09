@@ -17,7 +17,7 @@ import CoreLocation
 // MARK: - GMUCluster Protocol
 /// Defines a generic cluster object, with read-only properties.
 ///
-protocol GMUCluster {
+public protocol GMUCluster {
 
     /// Returns the position of the cluster.
     var position: CLLocationCoordinate2D { get }

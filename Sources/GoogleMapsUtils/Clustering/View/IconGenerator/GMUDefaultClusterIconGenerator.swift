@@ -19,7 +19,7 @@
 ///
 import UIKit
 
-final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
+public final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
 
     // MARK: - Properties
     private let iconCache = NSCache<NSString, UIImage>()
@@ -42,7 +42,7 @@ final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
     // MARK: - Init
     /// Initializes the object with default buckets and auto generated background images.
     ///
-    init() {
+    public init() {
         // Initialize the icon cache and default bucket sizes.
         buckets = [10, 50, 100, 200, 1000]
         backgroundColors = Self.bucketBackgroundColors
@@ -118,7 +118,7 @@ final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
     ///
     /// - Parameter size: The size for which the icon is generated.
     /// - Returns: A UIImage representing the icon for the specified size.
-    func iconForSize(_ size: Int) -> UIImage? {
+    public func iconForSize(_ size: Int) -> UIImage? {
         /// Calls a method to get the appropriate bucket index
         let bucketIndex = bucketIndex(for: size)
         let text: String

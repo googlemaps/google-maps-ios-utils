@@ -15,7 +15,7 @@
 
 /// Defines a generic geometry object.
 /// 
-protocol GMUGeometry {
+public protocol GMUGeometry {
     /// The type of the geometry.
     var type: String { get }
 }

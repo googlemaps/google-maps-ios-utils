@@ -16,7 +16,7 @@
 // MARK: - GMUClusterAlgorithm Protocol
 /// Generic protocol for arranging cluster items into groups.
 ///
-protocol GMUClusterAlgorithm {
+public protocol GMUClusterAlgorithm {
 
     /// Adds an array of items to the cluster algorithm.
     ///

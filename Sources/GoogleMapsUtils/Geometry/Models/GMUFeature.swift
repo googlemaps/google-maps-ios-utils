@@ -16,12 +16,12 @@ import GoogleMaps
 
 /// Instances of this class represent a GeoJSON Feature object.
 /// 
-struct GMUFeature: GMUGeometryContainer {
+public struct GMUFeature: GMUGeometryContainer {
     // MARK: - Properties
     /// The geometry object in the container.
-    var geometry: GMUGeometry
+    public var geometry: GMUGeometry
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle?
+    public var style: GMUStyle?
     /// The identifier of the feature.
     private(set) var identifier: String?
     /// The properties of the geometry in the feature.

@@ -18,7 +18,7 @@ import GoogleMaps
 /// There is logic to decide whether to expand a cluster or not depending on the number of items or the zoom level.
 /// There is also some performance optimization where only clusters within the visisble region are shown.
 ///
-final class GMUDefaultClusterRenderer: GMUClusterRenderer {
+public final class GMUDefaultClusterRenderer: GMUClusterRenderer {
 
     // MARK: - Properties
     // Map view to render clusters on.
@@ -101,7 +101,7 @@ final class GMUDefaultClusterRenderer: GMUClusterRenderer {
     ///
     /// - Returns: A new instance of `GMUDefaultClusterRenderer`.
     ///
-    init(mapView: GMSMapView, clusterIconGenerator: GMUClusterIconGenerator) {
+    public init(mapView: GMSMapView, clusterIconGenerator: GMUClusterIconGenerator) {
         // Initialize properties
         self.mapView = mapView
         self.mutableMarkers = []
@@ -141,7 +141,7 @@ final class GMUDefaultClusterRenderer: GMUClusterRenderer {
     ///
     /// - Parameter clusters: The clusters to be rendered on the map.
     ///
-    func renderClusters(_ clusters: [GMUCluster]) {
+    public func renderClusters(_ clusters: [GMUCluster]) {
         renderedClusters.removeAllObjects()
         renderedClusterItems.removeAllObjects()
 
@@ -246,7 +246,7 @@ final class GMUDefaultClusterRenderer: GMUClusterRenderer {
     /// Called when the camera is changed to reevaluate if new clusters need to be displayed
     /// because they have become visible.
     ///
-    func update() {
+    public func update() {
         if let clusters {
             // Adds or updates clusters without animation.
             addOrUpdateClusters(clusters, animated: false)

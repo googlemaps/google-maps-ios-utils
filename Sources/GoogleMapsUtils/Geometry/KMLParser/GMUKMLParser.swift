@@ -16,7 +16,7 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-final class GMUKMLParser: NSObject, XMLParserDelegate {
+public final class GMUKMLParser: NSObject, XMLParserDelegate {
     // MARK: - Properties
     /// The XML parser used to read the specified document.
     private var parser: XMLParser
@@ -37,11 +37,11 @@ final class GMUKMLParser: NSObject, XMLParserDelegate {
     /// The format that a pair in a style map may take.
     var pairAttributeRegex: NSRegularExpression?
     /// The list of placemarks that have been parsed.
-    private var placemarks: [GMUPlacemark]
+    public var placemarks: [GMUPlacemark]
     /// The list of styles that have been parsed.
-    private var styles: [GMUStyle]
+    public var styles: [GMUStyle]
     /// The list of style maps that have been parsed.
-    private var styleMaps: [GMUStyleMap]
+    public var styleMaps: [GMUStyleMap]
     /// The list of pairs that the currently parsed style map contains.
     private var pairs: [GMUPair]
     /// The characters contained within the element being parsed.
@@ -78,7 +78,7 @@ final class GMUKMLParser: NSObject, XMLParserDelegate {
     // MARK: - Initializers
     /// Initializes the parser with an XML parser.
     ///
-    init(parser: XMLParser) {
+    public init(parser: XMLParser) {
         self.parser = parser
         self.placemarks = []
         self.styles = []
@@ -108,7 +108,7 @@ final class GMUKMLParser: NSObject, XMLParserDelegate {
 
     /// Initializes the parser with a URL.
     ///
-    convenience init?(url: URL) {
+    public convenience init?(url: URL) {
         guard let parser = XMLParser(contentsOf: url) else {
             debugPrint("Invalid URL")
             return nil
@@ -153,7 +153,7 @@ final class GMUKMLParser: NSObject, XMLParserDelegate {
     /// This called to start the event-driven parse.
     /// This is called from Unit test class.
     ///
-    func parse() {
+    public func parse() {
         parser.parse()
     }
 

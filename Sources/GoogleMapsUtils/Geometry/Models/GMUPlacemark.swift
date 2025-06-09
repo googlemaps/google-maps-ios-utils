@@ -15,12 +15,12 @@
 /// Represents a placemark which is either a Point, LineString, Polygon, or MultiGeometry. Contains
 /// the properties and styles of the place.
 /// 
-struct GMUPlacemark: GMUGeometryContainer {
+public struct GMUPlacemark: GMUGeometryContainer {
     // MARK: - Properties
     /// The geometry object in the container.
-    var geometry: GMUGeometry
+    public var geometry: GMUGeometry
     /// Style information that should be applied to the contained geometry object.
-    var style: GMUStyle?
+    public var style: GMUStyle?
     /// The name element of the placemark.
     private(set) var title: String?
     /// The description element of the placemark.

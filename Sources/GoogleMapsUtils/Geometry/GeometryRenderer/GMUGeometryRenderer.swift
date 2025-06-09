@@ -15,7 +15,7 @@
 import GoogleMaps
 /// The class responsible for rendering parsed KML geometries onto a Google Map using the Google Maps SDK.
 /// 
- final class GMUGeometryRenderer {
+public final class GMUGeometryRenderer {
     // MARK: - Properties
     /// The Map overlays
     var mapOverlays: [GMSOverlay]
@@ -42,7 +42,7 @@ import GoogleMaps
     ///    - geometries: An array of geometries (`GMUGeometryContainer`) to be rendered on the map.
     ///    - styles: An array of styles (`GMUStyle`) to apply to the geometries.
     ///    - styleMaps: An array of style maps (`GMUStyleMap`) to map styles to geometries.
-    init(map: GMSMapView, geometries: [GMUGeometryContainer], styles: [GMUStyle]?, styleMaps: [GMUStyleMap]?) {
+    public init(map: GMSMapView, geometries: [GMUGeometryContainer], styles: [GMUStyle]?, styleMaps: [GMUStyleMap]?) {
         self.map = map
         self.geometryContainers = geometries
         self.styles = GMUGeometryRenderer.stylesDictionary(from: styles)
@@ -51,18 +51,18 @@ import GoogleMaps
         self.mapOverlays = []
     }
 
-    convenience init(map: GMSMapView, geometries: [GMUGeometryContainer]) {
+    public convenience init(map: GMSMapView, geometries: [GMUGeometryContainer]) {
         self.init(map: map, geometries: geometries, styles: nil)
     }
 
-    convenience init(map: GMSMapView, geometries: [GMUGeometryContainer], styles: [GMUStyle]?) {
+    public convenience init(map: GMSMapView, geometries: [GMUGeometryContainer], styles: [GMUStyle]?) {
         self.init(map: map, geometries: geometries, styles: styles, styleMaps: nil)
     }
 
     // MARK: - Test Helpers
     /// Renders the geometry containers onto the map.
     ///
-    func render() {
+    public func render() {
         isMapCleared = false
         renderGeometryContainers(geometryContainers)
     }

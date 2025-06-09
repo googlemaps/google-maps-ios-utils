@@ -17,7 +17,7 @@ import CoreLocation
 // MARK: - GMUClusterItem Protocol
 /// This protocol defines the contract for a cluster item, with read-only properties.
 ///
-protocol GMUClusterItem: AnyObject {
+public protocol GMUClusterItem: AnyObject {
 
     /// Returns the position of the item.
     var position: CLLocationCoordinate2D { get }

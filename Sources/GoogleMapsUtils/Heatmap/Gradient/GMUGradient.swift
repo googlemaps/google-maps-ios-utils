@@ -17,7 +17,7 @@ import UIKit
 /// Represents a mapping of intensity to color. Interpolates between a given set of intensities and
 /// color values to produce a full mapping for the range [0, 1].
 ///
-final class GMUGradient {
+public final class GMUGradient {
 
     // MARK: - Properties
     /// Number of entries in the generated color map.
@@ -37,7 +37,7 @@ final class GMUGradient {
     /// - Note: `colors` and `startPoints` must not be empty and must have the same number of elements.
     /// `startPoints` must be in non-descending order and within the range [0, 1]. `mapSize` must be at least 2.
     /// Using more than `256 * colors.count` is unlikely to provide any quality improvement.
-    init(colors: [UIColor], startPoints: [CGFloat], colorMapSize: Int) throws {
+    public init(colors: [UIColor], startPoints: [CGFloat], colorMapSize: Int) throws {
         guard !colors.isEmpty && colors.count == startPoints.count else {
             throw GMUGradientError.invalidArgumentException("colors' size: \(colors.count) is not equal to startPoints' size: \(startPoints.count)")
         }

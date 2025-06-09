@@ -14,7 +14,7 @@
 /// 
 import Foundation
 
-extension GMUKMLParser {
+public extension GMUKMLParser {
 
     // MARK: - `didStartElement`
     /// Called when the parser encounters the start of an XML element.

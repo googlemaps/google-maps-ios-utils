@@ -14,7 +14,7 @@
 
 /// Defines a generic geometry container.
 /// 
-protocol GMUGeometryContainer {
+public protocol GMUGeometryContainer {
     /// The geometry object in the container.
     var geometry: GMUGeometry { get }
     /// Style information that should be applied to the contained geometry object.

@@ -22,16 +22,16 @@ import GoogleMaps
 /// To change the values of a live layer, the `map` property must be reset.
 /// The default opacity is set to 0.7, and the tile size is fixed at 512.
 ///
-class GMUHeatmapTileLayer: GMSSyncTileLayer {
+public class GMUHeatmapTileLayer: GMSSyncTileLayer {
 
     /// Positions and individual intensities of the data used for smoothing the display on tiles.
-    var weightedData: [GMUWeightedLatLng]?
+    public var weightedData: [GMUWeightedLatLng]?
     /// Radius for smoothing.
     /// Larger values smooth the data over a larger area but increase tile generation cost.
     /// It is not recommended to set this to a value greater than 50.
-    var radius: Int = 20
+    public var radius: Int = 20
     /// Gradient used to map smoothed intensities to colors in the tiles.
-    var gradient: GMUGradient?
+    public var gradient: GMUGradient?
     /// Minimum zoom intensity for normalizing intensities, defaults to 5.
     var minimumZoomIntensity: Int = 5
     /// Maximum zoom intensity for normalizing intensities, defaults to 10.
@@ -43,7 +43,7 @@ class GMUHeatmapTileLayer: GMSSyncTileLayer {
     private let maxZoom: Int = 22
 
     /// Initializes the layer with default values.
-    override init() {
+    public override init() {
         let gradientColors: [UIColor] = [
             UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),
             UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)

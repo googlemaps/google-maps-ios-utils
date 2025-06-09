@@ -19,6 +19,11 @@ import GoogleMapsUtils
 
 /// Point of Interest Item which implements the GMUClusterItem protocol.
 class POIItem: NSObject, GMUClusterItem {
+    // TO DO:- Validate the change
+    var title: String?
+    
+    var snippet: String?
+    
   var position: CLLocationCoordinate2D
   var name: String!
 
@@ -53,7 +58,7 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
     let iconGenerator = GMUDefaultClusterIconGenerator()
     let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
     let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
-    clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
+    clusterManager = GMUClusterManager(mapView: mapView, algorithm: algorithm, renderer: renderer)
     
     // Register self to listen to GMSMapViewDelegate events.
     clusterManager.setMapDelegate(self)
@@ -89,7 +94,8 @@ class ClusteringViewController: UIViewController, GMSMapViewDelegate {
       let lng = kCameraLongitude + extent * randomScale()
       let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
       let marker = GMSMarker(position: position)
-      clusterManager.add(marker)
+        // TO DO:- Validate the change
+      // clusterManager.add(marker)
     }
   }
 

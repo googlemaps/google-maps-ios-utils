@@ -17,7 +17,7 @@ import GoogleMaps
 /// This class groups many items on a map based on zoom level.
 /// Cluster items should be added to the map via this class.
 ///
-final class GMUClusterManager: NSObject, GMSMapViewDelegate {
+public final class GMUClusterManager: NSObject, GMSMapViewDelegate {
 
     // MARK: - Properties
     /// Returns the clustering algorithm.
@@ -51,7 +51,7 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     // MARK: - Init
     /// Returns a new instance of the GMUClusterManager class defined by its `algorithm` and `renderer`.
     ///
-    init(mapView: GMSMapView, algorithm: GMUClusterAlgorithm, renderer: GMUClusterRenderer) {
+    public init(mapView: GMSMapView, algorithm: GMUClusterAlgorithm, renderer: GMUClusterRenderer) {
         self.algorithm = algorithm
         self.renderer = renderer
         self.mapView = mapView
@@ -72,7 +72,7 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     /// Sets a `mapDelegate` to listen to forwarded map events.
     ///
     /// - Parameter mapDelegate: The delegate for map-related events.
-    func setMapDelegate(_ mapDelegate: GMSMapViewDelegate?) {
+    public func setMapDelegate(_ mapDelegate: GMSMapViewDelegate?) {
         /// Set the map view's delegate to the GMUClusterManager to intercept events.
         self.mapView?.delegate = self
         /// Store the provided map delegate to forward events later.
@@ -108,21 +108,21 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
 
     /// Adds a single cluster item to the algorithm.
     ///
-    func addItem(_ item: GMUClusterItem) {
+    public func addItem(_ item: GMUClusterItem) {
         /// Adds the item to the clustering algorithm by wrapping it in an array.
         algorithm.addItems([item])
     }
 
     /// Adds multiple cluster items to the algorithm.
     ///
-    func addItems(_ items: [GMUClusterItem]) {
+    public func addItems(_ items: [GMUClusterItem]) {
         /// Adds multiple items directly to the clustering algorithm.
         algorithm.addItems(items)
     }
 
     /// Removes a single cluster item from the algorithm.
     ///
-    func removeItem(_ item: GMUClusterItem) {
+    public func removeItem(_ item: GMUClusterItem) {
         /// Removes the specified item from the clustering algorithm.
         algorithm.removeItem(item)
     }
@@ -140,7 +140,7 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     /// - This method will be automatically invoked when the map's zoom level changes.
     /// - Manually invoke this method when new items have been added to rearrange items.
     ///
-    func cluster() {
+    public func cluster() {
         guard let mapView else { return }
         /// Calculate the current zoom level, rounding it to the nearest integer.
         let integralZoom: Float = floor(mapView.camera.zoom + 0.5)
@@ -159,7 +159,7 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     ///   - mapView: The map view containing the marker.
     ///   - marker: The marker that was tapped.
     /// - Returns: `true` if the tap event was handled, `false` to pass the event to other handlers.
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+    public func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         /// Check if the delegate can handle cluster taps and if the marker represents a cluster.
         if let delegate = delegate,
            let cluster = marker.userData as? GMUCluster,
@@ -186,125 +186,125 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     // MARK: - Delegate Forwards
     /// Forwards the `willMove` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+    public func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, willMove: gesture)
     }
 
     /// Forwards the `didChangeCameraPosition` event to the map delegate.
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+    public func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didChange: position)
     }
 
     /// Forwards the `idleAtCameraPosition` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+    public func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, idleAt: position)
     }
 
     /// Forwards the `didTapAtCoordinate` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+    public func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didTapAt: coordinate)
     }
 
     /// Forwards the `didLongPressAtCoordinate` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+    public func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didLongPressAt: coordinate)
     }
 
     /// Forwards the `didTapInfoWindowOfMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didTapInfoWindowOf: marker)
     }
 
     /// Forwards the `didLongPressInfoWindowOfMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didLongPressInfoWindowOf: marker)
     }
 
     /// Forwards the `didTapOverlay` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
+    public func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didTap: overlay)
     }
 
     /// Forwards the `markerInfoWindow` event to the map delegate, returning a custom view if provided.
     ///
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+    public func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         guard let mapDelegate else { return nil }
         return mapDelegate.mapView?(mapView, markerInfoWindow: marker)
     }
 
     /// Forwards the `didTapPOIWithPlaceID` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
+    public func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didTapPOIWithPlaceID: placeID, name: name, location: location)
     }
 
     /// Forwards the `markerInfoContents` event to the map delegate, returning UIView content if provided.
     ///
-    func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+    public func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         guard let mapDelegate else { return nil }
         return mapDelegate.mapView?(mapView, markerInfoContents: marker)
     }
 
     /// Forwards the `didCloseInfoWindowOfMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didCloseInfoWindowOf: marker)
     }
 
     /// Forwards the `didBeginDraggingMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didBeginDragging: marker)
     }
 
     /// Forwards the `didEndDraggingMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didEndDragging: marker)
     }
 
     /// Forwards the `didDragMarker` event to the map delegate.
     ///
-    func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
+    public func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didDrag: marker)
     }
 
     /// Forwards the `didTapMyLocationButton` event to the map delegate and returns a Boolean result.
     ///
-    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+    public func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         guard let mapDelegate else { return false }
         return mapDelegate.didTapMyLocationButton?(for: mapView) ?? false
     }
 
     /// Forwards the `mapViewDidStartTileRendering` event to the map delegate.
     ///
-    func mapViewDidStartTileRendering(_ mapView: GMSMapView) {
+    public func mapViewDidStartTileRendering(_ mapView: GMSMapView) {
         guard let mapDelegate else { return }
         mapDelegate.mapViewDidStartTileRendering?(mapView)
     }
 
     /// Forwards the `mapViewDidFinishTileRendering` event to the map delegate.
     ///
-    func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
+    public func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
         guard let mapDelegate else { return }
         mapDelegate.mapViewDidFinishTileRendering?(mapView)
     }
@@ -317,7 +317,7 @@ final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     ///   - object: The object whose property changed.
     ///   - change: The dictionary containing the details of the change.
     ///   - context: The context for the observer (if any).
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let mapView else { return }
         /// Calculate previous and current zoom levels, rounded to the nearest integer.
         let previousIntegralZoom = floor(previousCamera.zoom + 0.5)

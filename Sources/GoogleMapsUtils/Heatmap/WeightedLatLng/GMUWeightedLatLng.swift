@@ -16,7 +16,7 @@ import GoogleMaps
 
 /// A class that represents a weighted geographical point on the earth's surface, implementing the `GQTPointQuadTreeItem` protocol.
 ///
-final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
+public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
 
     // MARK: - Properties
     /// The intensity of the data point. The scale is arbitrary, assumed to be linear.
@@ -31,7 +31,7 @@ final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     /// - Parameters:
     ///   - coordinate: The geographical coordinate (latitude and longitude) of the data point.
     ///   - intensity: The intensity of the data point.
-    init(coordinate: CLLocationCoordinate2D, intensity: Float) {
+    public init(coordinate: CLLocationCoordinate2D, intensity: Float) {
         self.intensity = intensity
         let mapPoint = GMSProject(coordinate)
         self.pointValue = GQTPoint(x: mapPoint.x, y: mapPoint.y)
@@ -48,7 +48,7 @@ final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     ///
     /// - The `==` operator compares two instances of `GMUWeightedLatLng`.
     /// - Currently, it returns `true` for all comparisons, which is **incorrect** and should be avoided in most cases.
-    static func == (lhs: GMUWeightedLatLng, rhs: GMUWeightedLatLng) -> Bool {
+    public static func == (lhs: GMUWeightedLatLng, rhs: GMUWeightedLatLng) -> Bool {
         return true
     }
 }

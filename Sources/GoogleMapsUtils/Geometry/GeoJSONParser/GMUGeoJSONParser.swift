@@ -18,7 +18,7 @@ import CoreLocation
 /// Instances of this class parse GeoJSON data. The parsed features are stored in NSArray objects
 /// which can then be passed to a GMUGeometryRenderer to display on a Google Map.
 ///
-final class GMUGeoJSONParser {
+public final class GMUGeoJSONParser {
 
     // MARK: - Properties
     /// The data object containing the GeoJSON to be parsed.
@@ -39,7 +39,7 @@ final class GMUGeoJSONParser {
     /// The list of parsed Features.
     private var gmuFeatures: [GMUFeature] = []
     /// Retrive parsed features
-    var features: [GMUFeature] {
+    public var features: [GMUFeature] {
         return gmuFeatures
     }
 
@@ -47,7 +47,7 @@ final class GMUGeoJSONParser {
     /// Initializes a GMUGeoJSONParser with GeoJSON data.
     ///
     /// - Parameter data: The GeoJSON data.
-    init(data: Data) {
+    public init(data: Data) {
         self.data = data
         sharedInit()
     }
@@ -55,7 +55,7 @@ final class GMUGeoJSONParser {
     /// Initializes a GMUGeoJSONParser with GeoJSON data contained in an input stream.
     ///
     /// - Parameter stream: The stream to use to access GeoJSON data.
-    init(stream: InputStream) {
+    public init(stream: InputStream) {
         self.stream = stream
         sharedInit()
     }
@@ -63,7 +63,7 @@ final class GMUGeoJSONParser {
     /// Initializes a GMUGeoJSONParser with GeoJSON data contained in a URL.
     ///
     /// - Parameter url: The url containing GeoJSON data.
-    init(url: URL) {
+    public init(url: URL) {
         do {
             data = try Data(contentsOf: url)
         } catch {
@@ -84,7 +84,7 @@ final class GMUGeoJSONParser {
 
     // MARK: - Parse
     /// Parses the stored GeoJSON data.
-    func parse() {
+    public func parse() {
         guard !isParsed else {
             debugPrint("Data and Input Stream is already parsed")
             return

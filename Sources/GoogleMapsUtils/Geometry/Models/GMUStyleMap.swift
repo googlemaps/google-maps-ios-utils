@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-struct GMUStyleMap {
+public struct GMUStyleMap {
     // MARK: - Properties
     /// The styleMapId of the geometry.
     private(set) var styleMapId: String

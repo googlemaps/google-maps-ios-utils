@@ -24,7 +24,7 @@ import GoogleMaps
 /// 5. Remove those items from the list of candidate clusters.
 /// Clusters have the center of the first element (not the centroid of the items within it).
 ///
-final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
+public final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
 
     // MARK: - Properties
     /// MapPoint is in a [-1,1]x[-1,1] space.
@@ -47,7 +47,7 @@ final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
     
     /// Convenience init with default(100) `clusterDistancePoints`
     ///
-    convenience init() {
+    public convenience init() {
         self.init(clusterDistancePoints: 100)
     }
 
@@ -55,7 +55,7 @@ final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
     /// Adds an array of items to the non-hierarchical distance based cluster algorithm and quad tree.
     ///
     /// - Parameter items: Array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem]) {
+    public func addItems(_ items: [GMUClusterItem]) {
         clusterItems.append(contentsOf: items)
         for item in items {
             let quadItem = GMUClusterItemQuadItem(clusterItem: item)
@@ -66,14 +66,14 @@ final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
     /// Removes a specific item from the non-hierarchical distance based cluster algorithm and quad tree.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem) {
+    public func removeItem(_ item: GMUClusterItem) {
         clusterItems.removeAll { $0 === item }
         let quadItem = GMUClusterItemQuadItem(clusterItem: item)
         _ = quadTree.remove(item: quadItem)
     }
 
     /// Clears all items from the non-hierarchical distance based cluster algorithm and quad tree.
-    func clearItems() {
+    public func clearItems() {
         clusterItems.removeAll()
         quadTree.clear()
     }
@@ -82,7 +82,7 @@ final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster] {
+    public func clusters(atZoom zoom: Float) -> [GMUCluster] {
         var clusters: [GMUCluster] = []
         var itemToClusterMap: [GMUWrappingDictionaryKey: GMUCluster] = [:]
         var itemToClusterDistanceMap: [GMUWrappingDictionaryKey: Double] = [:]

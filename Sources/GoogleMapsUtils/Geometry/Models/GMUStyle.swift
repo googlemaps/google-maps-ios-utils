@@ -17,7 +17,7 @@ import UIKit
 /// Instances of this class represent a geometry Style. It is used to define the
 /// stylings of any number of GMUGeometry objects.
 ///
-struct GMUStyle: Equatable {
+public struct GMUStyle: Equatable {
     // MARK: - Properties
     /// The unique identifier of the style
     private(set) var styleID: String
