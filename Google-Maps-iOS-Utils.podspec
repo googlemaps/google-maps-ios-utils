@@ -35,7 +35,8 @@ Pod::Spec.new do |s|
     ]
     unit_tests.resources = [
       "Tests/GoogleMapsUtilsTests/Resources/GeoJSON/*.geojson",
-      "Tests/GoogleMapsUtilsTests/Resources/KML/*.kml"
+      "Tests/GoogleMapsUtilsTests/Resources/KML/*.kml",
+      "GoogleMaps.bundle"
     ]
     unit_tests.dependency 'GoogleMaps'
     unit_tests.dependency 'OCMock'
