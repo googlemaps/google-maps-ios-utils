@@ -30,7 +30,8 @@ Pod::Spec.new do |s|
 
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
-      "Tests/GoogleMapsUtilsTests/unit/**/*.swift"
+      "Tests/GoogleMapsUtilsTests/unit/**/*.swift",
+      "Tests/GoogleMapsUtilsTests/Common/**/*.swift"
     ]
     unit_tests.resources = [
       "Tests/GoogleMapsUtilsTests/Resources/GeoJSON/*.geojson",
