@@ -38,6 +38,19 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+          <TestableReference
+              skipped = "NO"
+              parallelizable = "YES">
+              <BuildableReference
+                  BuildableIdentifier = "primary"
+                  BlueprintIdentifier = "3EA5DC002D4DD73B009463B7"
+                  BuildableName = "GoogleMapsUtilsTests.xctest"
+                  BlueprintName = "GoogleMapsUtilsTests"
+                  ReferencedContainer = "container:GoogleMapsUtils.xcodeproj">
+              </BuildableReference>
+          </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
