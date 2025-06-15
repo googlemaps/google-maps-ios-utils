@@ -10,6 +10,7 @@
 		3E3ABBF02D5BC28F00D42DE6 /* MockGMSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ABBEF2D5BC28D00D42DE6 /* MockGMSMapView.swift */; };
 		3E6C370B2DFE9FDC002490C7 /* GMSPolygonGeometryUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C370A2DFE9FDA002490C7 /* GMSPolygonGeometryUtilsTest.swift */; };
 		3E6C370D2DFEA30A002490C7 /* GMSPolylineGeometryUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C370C2DFEA304002490C7 /* GMSPolylineGeometryUtilsTest.swift */; };
+		3E6C370F2DFEA90A002490C7 /* GMUClusterItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C370E2DFEA908002490C7 /* GMUClusterItemTests.swift */; };
 		3EA5DBC22D4DD6C5009463B7 /* LatLngRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DBA02D4DD6C5009463B7 /* LatLngRadians.swift */; };
 		3EA5DBC32D4DD6C5009463B7 /* GMUClusterIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DB822D4DD6C5009463B7 /* GMUClusterIconGenerator.swift */; };
 		3EA5DBC42D4DD6C5009463B7 /* GMUPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DB942D4DD6C5009463B7 /* GMUPair.swift */; };
@@ -143,6 +144,7 @@
 		3E3ABBEF2D5BC28D00D42DE6 /* MockGMSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSMapView.swift; sourceTree = "<group>"; };
 		3E6C370A2DFE9FDA002490C7 /* GMSPolygonGeometryUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSPolygonGeometryUtilsTest.swift; sourceTree = "<group>"; };
 		3E6C370C2DFEA304002490C7 /* GMSPolylineGeometryUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSPolylineGeometryUtilsTest.swift; sourceTree = "<group>"; };
+		3E6C370E2DFEA908002490C7 /* GMUClusterItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUClusterItemTests.swift; sourceTree = "<group>"; };
 		3EA5DB432D4DD6B0009463B7 /* GoogleMapsUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleMapsUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA5DB682D4DD6C5009463B7 /* GMUGridBasedClusterAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUGridBasedClusterAlgorithm.swift; sourceTree = "<group>"; };
 		3EA5DB6A2D4DD6C5009463B7 /* GMUNonHierarchicalDistanceBasedAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUNonHierarchicalDistanceBasedAlgorithm.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				3EA5DC2A2D4DD755009463B7 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.swift */,
 				3EA5DC2B2D4DD755009463B7 /* GMUStaticClusterTest.swift */,
 				3EA5DC2C2D4DD755009463B7 /* GMUWrappingDictionaryKeyTest.swift */,
+				3E6C370E2DFEA908002490C7 /* GMUClusterItemTests.swift */,
 			);
 			path = Clustering;
 			sourceTree = "<group>";
@@ -1048,6 +1051,7 @@
 				3EBE77BE2D67852700408141 /* GMUDefaultClusterRendererTest.swift in Sources */,
 				3EBE77BC2D67851200408141 /* MockClusterIconGenerator.swift in Sources */,
 				3E6C370D2DFEA30A002490C7 /* GMSPolylineGeometryUtilsTest.swift in Sources */,
+				3E6C370F2DFEA90A002490C7 /* GMUClusterItemTests.swift in Sources */,
 				3EA5DC642D4DD755009463B7 /* GMUFeatureTest.swift in Sources */,
 				3EA5DC652D4DD755009463B7 /* GMULineStringTest.swift in Sources */,
 				3EA5DDB32D5BA68D009463B7 /* MockCluster.swift in Sources */,
