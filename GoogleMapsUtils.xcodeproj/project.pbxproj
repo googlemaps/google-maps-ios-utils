@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E3ABBF02D5BC28F00D42DE6 /* MockGMSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ABBEF2D5BC28D00D42DE6 /* MockGMSMapView.swift */; };
+		3E6C370B2DFE9FDC002490C7 /* GMSPolygon+GeometryUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C370A2DFE9FDA002490C7 /* GMSPolygon+GeometryUtilsTest.swift */; };
 		3EA5DBC22D4DD6C5009463B7 /* LatLngRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DBA02D4DD6C5009463B7 /* LatLngRadians.swift */; };
 		3EA5DBC32D4DD6C5009463B7 /* GMUClusterIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DB822D4DD6C5009463B7 /* GMUClusterIconGenerator.swift */; };
 		3EA5DBC42D4DD6C5009463B7 /* GMUPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DB942D4DD6C5009463B7 /* GMUPair.swift */; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		3E3ABBEF2D5BC28D00D42DE6 /* MockGMSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSMapView.swift; sourceTree = "<group>"; };
+		3E6C370A2DFE9FDA002490C7 /* GMSPolygon+GeometryUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSPolygon+GeometryUtilsTest.swift"; sourceTree = "<group>"; };
 		3EA5DB432D4DD6B0009463B7 /* GoogleMapsUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleMapsUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA5DB682D4DD6C5009463B7 /* GMUGridBasedClusterAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUGridBasedClusterAlgorithm.swift; sourceTree = "<group>"; };
 		3EA5DB6A2D4DD6C5009463B7 /* GMUNonHierarchicalDistanceBasedAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUNonHierarchicalDistanceBasedAlgorithm.swift; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 				3EA5DC3D2D4DD755009463B7 /* CLLocationCoordinate2D+GeometryUtilsTest.swift */,
 				3EA5DC3E2D4DD755009463B7 /* GMSPath+GeometryUtilsTest.swift */,
 				3EA5DC3F2D4DD755009463B7 /* MapPointTest.swift */,
+				3E6C370A2DFE9FDA002490C7 /* GMSPolygon+GeometryUtilsTest.swift */,
 			);
 			path = GeometryUtils;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				3EA5DC5D2D4DD755009463B7 /* GMUWrappingDictionaryKeyTest.swift in Sources */,
 				3EA5DDB12D5BA632009463B7 /* MockClusterAlgorithm.swift in Sources */,
 				3EA5DDAF2D5BA5F9009463B7 /* GMUClusterManagerTests.swift in Sources */,
+				3E6C370B2DFE9FDC002490C7 /* GMSPolygon+GeometryUtilsTest.swift in Sources */,
 				3EA5DC5E2D4DD755009463B7 /* GMUStaticClusterTest.swift in Sources */,
 				3EA5DC5F2D4DD755009463B7 /* GMUGeometryCollectionTest.swift in Sources */,
 				3EA5DC602D4DD755009463B7 /* GMUNonHierarchicalDistanceBasedAlgorithmTest.swift in Sources */,
