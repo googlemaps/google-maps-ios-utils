@@ -58,14 +58,14 @@ public class HeatmapInterpolationPoints: NSObject {
     /// Adds a list of GMUWeightedLatLng objects to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
+    public func addWeightedLatLngs(latlngs: [GMUWeightedLatLng]) {
         data.append(contentsOf: latlngs)
     }
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
     /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
-    func addWeightedLatLng(latlng: GMUWeightedLatLng) {
+    public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
         data.append(latlng)
     }
     
@@ -307,7 +307,7 @@ public class HeatmapInterpolationPoints: NSObject {
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
-    func generatePoints(
+    public func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
     ) throws -> [GMUWeightedLatLng] {

@@ -41,10 +41,14 @@ class HeatmapViewController: UIViewController, GMSMapViewDelegate {
     heatmapLayer = GMUHeatmapTileLayer()
     heatmapLayer.radius = 80
     heatmapLayer.opacity = 0.8
-    // TO DO:- Validate the change
-    heatmapLayer.gradient = try? GMUGradient(colors: gradientColors,
-                                        startPoints: gradientStartPoints,
-                                        colorMapSize: 256)
+    // Create gradient with proper error handling
+    do {
+      heatmapLayer.gradient = try GMUGradient(colors: gradientColors,
+                                            startPoints: gradientStartPoints,
+                                            colorMapSize: 256)
+    } catch {
+      print("Failed to create gradient: \(error.localizedDescription)")
+    }
     addHeatmap()
 
     // Set the heatmap to the mapview.
