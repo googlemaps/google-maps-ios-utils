@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '15.0'
   s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
                      :tag => "v#{s.version.to_s}" }
-  s.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
+  s.source_files = "Sources/GoogleMapsUtils/**/*.{swift}"
   s.exclude_files = "Sources/GoogleMapsUtils/Exports.swift"
   s.requires_arc = true
   s.module_name = "GoogleMapsUtils"
@@ -30,18 +30,14 @@ Pod::Spec.new do |s|
 
   s.test_spec 'Tests' do |unit_tests|
     unit_tests.source_files = [
-      "Tests/GoogleMapsUtilsObjCTests/unit/**/*.{h,m}",
-      "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
-      "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
+      "Tests/GoogleMapsUtilsTests/unit/**/*.swift",
+      "Tests/GoogleMapsUtilsTests/Common/**/*.swift"
     ]
-    unit_tests.exclude_files = "Tests/GoogleMapsUtilsTestsHelper/include/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.resources = [
-      "Tests/GoogleMapsUtilsSwiftTests/Resources/GeoJSON/*.geojson",
-      "Tests/GoogleMapsUtilsSwiftTests/Resources/KML/*.kml"
+      "Tests/GoogleMapsUtilsTests/Resources/GeoJSON/*.geojson",
+      "Tests/GoogleMapsUtilsTests/Resources/KML/*.kml",
+      "GoogleMaps.bundle"
     ]
-    unit_tests.pod_target_xcconfig = {
-      'SWIFT_OBJC_BRIDGING_HEADER' => "$(PODS_TARGET_SRCROOT)/Tests/GoogleMapsUtilsTestsHelper/include/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
-    }
     unit_tests.dependency 'GoogleMaps'
     unit_tests.dependency 'OCMock'
   end
