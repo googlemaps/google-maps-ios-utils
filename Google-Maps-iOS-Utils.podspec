@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.changelog    = "https://github.com/googlemaps/google-maps-ios-utils/blob/main/CHANGELOG.md"
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.authors      = "Google Inc."
-  s.platform     = :ios, '15.0'
+  s.platform     = :ios, '16.0'
   s.source       = { :git => "https://github.com/googlemaps/google-maps-ios-utils.git",
                      :tag => "v#{s.version.to_s}" }
   s.source_files = "Sources/GoogleMapsUtilsObjC/include/*.{h,m}", "Sources/GoogleMapsUtils/**/*.{swift}"
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.module_name = "GoogleMapsUtils"
   s.swift_version = '5.9'
 
-  s.dependency 'GoogleMaps', '~> 9.0'
+  s.dependency 'GoogleMaps', '~> 10.0'
   s.static_framework = true
 
   s.test_spec 'Tests' do |unit_tests|
