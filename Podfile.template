@@ -1,10 +1,10 @@
 # [START maps_ios_utils_podfile_template]
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '15.0'
+platform :ios, '16.0'
 
 target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
   use_frameworks!
-  pod 'GoogleMaps', '9.0.0'
+  pod 'GoogleMaps', '10.0.0'
   pod 'Google-Maps-iOS-Utils', '6.1.0' # x-release-please-version
 end
 # [END maps_ios_utils_podfile_template]

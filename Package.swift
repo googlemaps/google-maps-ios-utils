@@ -19,7 +19,7 @@ import PackageDescription
 let package = Package(
   name: "GoogleMapsUtils",
   platforms: [
-    .iOS(.v15),
+    .iOS(.v16),
   ],
   products: [
     .library(
@@ -29,7 +29,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/googlemaps/ios-maps-sdk",
-      from: "9.4.0"),
+      from: "10.0.0"),
     .package(
       url: "https://github.com/erikdoe/ocmock.git",
       revision: "fe1661a3efed11831a6452f4b1a0c5e6ddc08c3d"),
