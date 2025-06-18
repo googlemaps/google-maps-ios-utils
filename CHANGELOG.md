@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.0...v6.1.1) (2025-06-18)
+
+
+### Bug Fixes
+
+* Update iOS deployment target to 16.0 and GoogleMaps dependency to 10.0 ([#546](https://github.com/googlemaps/google-maps-ios-utils/issues/546)) ([b564e7a](https://github.com/googlemaps/google-maps-ios-utils/commit/b564e7aed2813712c623b807e18d3277600f2c81))
+
 ## [6.1.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.0.0...v6.1.0) (2024-11-07)
 
 
