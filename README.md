@@ -70,7 +70,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
   target 'TARGET_NAME' do
     pod 'GoogleMaps', '10.0.0'
-    pod 'Google-Maps-iOS-Utils', '6.1.0' # x-release-please-version
+    pod 'Google-Maps-iOS-Utils', '6.1.1' # x-release-please-version
   end
   ```
 
