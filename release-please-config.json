@@ -10,7 +10,8 @@
       "changelog-path": "CHANGELOG.md",
       "extra-files": [
         "Google-Maps-iOS-Utils.podspec",
-        "Podfile.template"
+        "Podfile.template",
+        "README.md"
       ]
     }
   }
