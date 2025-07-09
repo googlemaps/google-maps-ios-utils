@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.2](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.1...v6.1.2) (2025-07-09)
+
+
+### Bug Fixes
+
+* Release workflow, which fails publish step & auto update readme by release-please-config ([#551](https://github.com/googlemaps/google-maps-ios-utils/issues/551)) ([c57575e](https://github.com/googlemaps/google-maps-ios-utils/commit/c57575e0b4e1650b60aa082ab87cc52e43aa8f41))
+
 ## [6.1.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.0...v6.1.1) (2025-06-18)
 
 
