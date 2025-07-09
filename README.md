@@ -201,6 +201,7 @@ This library uses Google Maps Platform services. Use of Google Maps Platform ser
 
 If your billing address is in the European Economic Area, effective on 8 July 2025, the [Google Maps Platform EEA Terms of Service](https://cloud.google.com/terms/maps-platform/eea) will apply to your use of the Services. [Learn more](https://developers.devsite.corp.google.com/maps/comms/eea/faq). In addition, certain content from the Map Tiles API will no longer be returned. [Learn more](https://developers.google.com/maps/comms/eea/map-tiles).
 
+
 This library is not a Google Maps Platform Core Service. Therefore, the Google Maps Platform Terms of Service (e.g. Technical Support Services, Service Level Agreements, and Deprecation Policy) do not apply to the code in this library.
 
 ## Support
