@@ -87,7 +87,7 @@ jobs:
 
     # Validate the library for CocoaPods locally
     - name: CocoaPods lib lint
-      run: pod lib lint Google-Maps-iOS-Utils.podspec
+      run: pod lib lint Google-Maps-iOS-Utils.podspec --verbose
 
   build_swift_sample:
     name: Build Swift Sample App with CocoaPods locally
