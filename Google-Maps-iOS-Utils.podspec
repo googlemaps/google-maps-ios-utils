@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
       "Tests/GoogleMapsUtilsSwiftTests/unit/**/*.swift",
       "Tests/GoogleMapsUtilsTestsHelper/include/*.{h,m}"
     ]
+    unit_tests.exclude_files = "Tests/GoogleMapsUtilsTestsHelper/include/GoogleMapsUtilsSwiftTests-Bridging-Header.h"
     unit_tests.resources = [
       "Tests/GoogleMapsUtilsSwiftTests/Resources/GeoJSON/*.geojson",
       "Tests/GoogleMapsUtilsSwiftTests/Resources/KML/*.kml"
