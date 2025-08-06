@@ -14,17 +14,6 @@
   "testTargets" : [
     {
       "parallelizable" : true,
-      "skippedTests" : [
-        "GMUKMLParserTest\/testInitWithStream"
-      ],
-      "target" : {
-        "containerPath" : "container:",
-        "identifier" : "GoogleMapsUtilsTests",
-        "name" : "GoogleMapsUtilsTests"
-      }
-    },
-    {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:",
         "identifier" : "GoogleMapsUtilsSwiftTests",
