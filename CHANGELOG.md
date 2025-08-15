@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.1.3](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.2...v6.1.3) (2025-08-15)
+
+
+### Bug Fixes
+
+* resolve podspec conflict & set xcode version [@build](https://github.com/build)_test_cocoapod stage & update README with EEA terms links ([#554](https://github.com/googlemaps/google-maps-ios-utils/issues/554)) ([ff42018](https://github.com/googlemaps/google-maps-ios-utils/commit/ff420185b5df0a3043ae26aa0b263323f8fb5d7c))
+* Update CI iOS version. ([#557](https://github.com/googlemaps/google-maps-ios-utils/issues/557)) ([628bfae](https://github.com/googlemaps/google-maps-ios-utils/commit/628bfaee1fff1ccff9e84ac4eb0626d1fe494903))
+
 ## [6.1.2](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.1...v6.1.2) (2025-07-09)
 
 
