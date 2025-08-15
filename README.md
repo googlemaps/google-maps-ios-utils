@@ -70,7 +70,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
   target 'TARGET_NAME' do
     pod 'GoogleMaps', '10.0.0'
-    pod 'Google-Maps-iOS-Utils', '6.1.2' # x-release-please-version
+    pod 'Google-Maps-iOS-Utils', '6.1.3' # x-release-please-version
   end
   ```
 
@@ -93,12 +93,12 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 <details>
-<summary>Only supported if using Maps SDK v6.1.2 or earlier</summary>
+<summary>Only supported if using Maps SDK v6.1.3 or earlier</summary>
 
 In your `Cartfile`:
 
 ```
-github "googlemaps/google-maps-ios-utils" ~> 6.1.2
+github "googlemaps/google-maps-ios-utils" ~> 6.1.3
 ```
 
 See the [Carthage doc] for further installation instructions.
