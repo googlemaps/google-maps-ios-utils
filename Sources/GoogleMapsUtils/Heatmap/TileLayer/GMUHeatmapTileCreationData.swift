@@ -16,23 +16,31 @@ import UIKit
 
 /// Holder for data that must be consistent when accessed from tile creation threads.
 ///
-struct GMUHeatmapTileCreationData {
+/// This struct holds configuration data that must remain consistent
+/// during background tile creation operations.
+public struct GMUHeatmapTileCreationData {
     
-    /// Public variables for the heatmap tile creation data.
-    /// QuadTree structure for spatial indexing.
+    /// Spatial indexing structure for efficient data queries.
     var quadTree: GQTPointQuadTree?
-    /// Bounds of the heatmap.
+    
+    /// Geographic bounds of the heatmap data.
     var bounds: GQTBounds
-    /// Smoothing radius for the heatmap.
+    
+    /// Smoothing radius in pixels.
     var radius: Int
-    /// Minimum zoom intensity for normalizing data.
+    
+    /// Minimum zoom intensity for data normalization.
     var minimumZoomIntensity: Int?
-    /// Maximum zoom intensity for normalizing data.
+    
+    /// Maximum zoom intensity for data normalization.
     var maximumZoomIntensity: Int?
-    /// Color map for intensity-to-color mapping.
+    
+    /// Precomputed color map for intensity-to-color conversion.
     var colorMap: [UIColor]
-    /// Maximum intensities at different zoom levels.
+    
+    /// Maximum intensity values at different zoom levels.
     var maxIntensities: [Float]
-    /// Kernel for applying smoothing to data points.
+    
+    /// Smoothing kernel for data point processing.
     var kernel: [Float]
 }

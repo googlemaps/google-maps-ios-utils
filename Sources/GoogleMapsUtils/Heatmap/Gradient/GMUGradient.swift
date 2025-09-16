@@ -17,6 +17,23 @@ import UIKit
 /// Represents a mapping of intensity to color. Interpolates between a given set of intensities and
 /// color values to produce a full mapping for the range [0, 1].
 ///
+///
+/// ```swift
+/// let gradient = try GMUGradient(
+///     colors: [.blue, .green, .yellow, .red],
+///     startPoints: [0.0, 0.3, 0.7, 1.0],
+///     colorMapSize: 256
+/// )
+/// heatmapLayer.gradient = gradient
+/// ```
+///
+/// ## Topics
+///
+/// ### Creating Gradients
+/// - ``init(colors:startPoints:colorMapSize:)``
+///
+/// ### Color Mapping
+/// - ``generateColorMap()``
 public final class GMUGradient {
 
     // MARK: - Properties
@@ -28,15 +45,13 @@ public final class GMUGradient {
     let startPoints: [CGFloat]
 
     // MARK: - Init
-    /// Designated initializer.
+    /// Creates a color gradient for heatmap visualization.
     ///
     /// - Parameters:
-    ///   - colors: Array of UIColor objects that correspond to the intensities.
-    ///   - startPoints: Array of intensities that correspond to the specific colors.
-    ///   - mapSize: The number of entries in the generated color map.
-    /// - Note: `colors` and `startPoints` must not be empty and must have the same number of elements.
-    /// `startPoints` must be in non-descending order and within the range [0, 1]. `mapSize` must be at least 2.
-    /// Using more than `256 * colors.count` is unlikely to provide any quality improvement.
+    ///   - colors: Array of colors to interpolate between
+    ///   - startPoints: Intensity values (0.0-1.0) for each color, in ascending order
+    ///   - colorMapSize: Resolution of the color map (minimum: 2, recommended: 256)
+    /// - Throws: `GMUGradientError` if parameters are invalid
     public init(colors: [UIColor], startPoints: [CGFloat], colorMapSize: Int) throws {
         guard !colors.isEmpty && colors.count == startPoints.count else {
             throw GMUGradientError.invalidArgumentException("colors' size: \(colors.count) is not equal to startPoints' size: \(startPoints.count)")
@@ -67,7 +82,7 @@ public final class GMUGradient {
     ///  lower values interpolate towards transparent black and higher values repeat the last provided color.
     ///
     /// - Returns: An array of UIColor objects interpolated based on the intensity values.
-    func generateColorMap() -> [UIColor] {
+    public func generateColorMap() -> [UIColor] {
         var colorMap: [UIColor] = []
         var curStartPoint: Int = 0
 

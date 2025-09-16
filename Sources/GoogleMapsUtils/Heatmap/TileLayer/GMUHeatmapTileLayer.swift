@@ -22,27 +22,47 @@ import GoogleMaps
 /// To change the values of a live layer, the `map` property must be reset.
 /// The default opacity is set to 0.7, and the tile size is fixed at 512.
 ///
+/// ```swift
+/// let heatmapLayer = GMUHeatmapTileLayer()
+/// heatmapLayer.weightedData = [GMUWeightedLatLng(coordinate: location, intensity: 1.0)]
+/// heatmapLayer.map = mapView
+/// ```
+///
+/// ## Topics
+///
+/// ### Configuration
+/// - ``weightedData``
+/// - ``radius``
+/// - ``gradient``
+/// - ``minimumZoomIntensity``
+/// - ``maximumZoomIntensity``
 public class GMUHeatmapTileLayer: GMSSyncTileLayer {
 
-    /// Positions and individual intensities of the data used for smoothing the display on tiles.
+    /// Positions and individual intensities of the data which will be smoothed for display on the
+    /// tiles.
     public var weightedData: [GMUWeightedLatLng]?
-    /// Radius for smoothing.
-    /// Larger values smooth the data over a larger area but increase tile generation cost.
+    
+    /// Radius of smoothing.
+    /// Larger values smooth the data out over a larger area, but also have a greater cost for generating
+    /// tiles.
     /// It is not recommended to set this to a value greater than 50.
     public var radius: Int = 20
-    /// Gradient used to map smoothed intensities to colors in the tiles.
+    
+    /// The gradient used to map smoothed intensities to colors in the tiles.
     public var gradient: GMUGradient?
-    /// Minimum zoom intensity for normalizing intensities, defaults to 5.
-    var minimumZoomIntensity: Int = 5
-    /// Maximum zoom intensity for normalizing intensities, defaults to 10.
-    var maximumZoomIntensity: Int = 10
+    
+    /// The minimum zoom intensity used for normalizing intensities, defaults to 5
+    public var minimumZoomIntensity: Int = 5
+    
+    /// The maximum zoom intensity used for normalizing intensities, defaults to 10
+    public var maximumZoomIntensity: Int = 10
     private var dirty: Bool = true
     var tileCreationData: GMUHeatmapTileCreationData?
     /// Static constants for tile size and maximum zoom level.
     private let gmuTileSize: Int = 512
     private let maxZoom: Int = 22
 
-    /// Initializes the layer with default values.
+    /// Creates a new heatmap tile layer with default gradient and settings.
     public override init() {
         let gradientColors: [UIColor] = [
             UIColor(red: 102.0 / 255.0, green: 225.0 / 255.0, blue: 0, alpha: 1),

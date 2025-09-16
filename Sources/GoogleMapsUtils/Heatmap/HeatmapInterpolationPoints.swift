@@ -18,8 +18,10 @@ import GoogleMaps
 /// This class will create artificial points in surrounding locations with appropriate intensities interpolated by neighboring intensity values.
 /// The algorithm used for this class is heavily inspired by inverse distance weights to figure out intensities and k-means clustering to
 /// both improve the heat map search bounds as well as the runtime.
-/// IDW: https://mgimond.github.io/Spatial/spatial-interpolation.html
-/// Clustering: https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
+///
+/// ## References
+/// - [IDW](https://mgimond.github.io/Spatial/spatial-interpolation.html)
+/// - [Clustering](https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68)
 public class HeatmapInterpolationPoints: NSObject {
     
     /// The input data set
@@ -64,7 +66,7 @@ public class HeatmapInterpolationPoints: NSObject {
     
     /// Adds a single GMUWeightedLatLng object to the input data set
     ///
-    /// - Parameter latlngs: The list of GMUWeightedLatLng objects to add.
+    /// - Parameter latlng: The GMUWeightedLatLng object to add.
     public func addWeightedLatLng(latlng: GMUWeightedLatLng) {
         data.append(latlng)
     }
@@ -99,7 +101,7 @@ public class HeatmapInterpolationPoints: NSObject {
         return GMSGeometryDistance(point1, point2) / normalizingFactor
     }
     
-    /// Finds the average latitude and longitude values; see http://mathforum.org/library/drmath/view/63491.html
+    /// Finds the average latitude and longitude values; see [Math Forum](http://mathforum.org/library/drmath/view/63491.html)
     ///
     /// - Parameter points: The list of points to take the average from.
     /// - Returns: A CLLocationCoordinate2D object resembling the average value.
@@ -126,7 +128,7 @@ public class HeatmapInterpolationPoints: NSObject {
     
     /// A helper function that utilizes the k-cluster algorithm to cluster the input data points together into reasonable sets; the number of
     /// clusters is set so that the maximum distance between the center and any point is less than a set constant value. For more
-    /// details, please visit https://stanford.edu/~cpiech/cs221/handouts/kmeans.html
+    /// details, please visit [K-means Algorithm](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html)
     ///
     /// - Returns: A list of clusters, each of which is a list of CLLocationCoordinate2D objects.
     private func kcluster() -> [[CLLocationCoordinate2D]] {
@@ -241,7 +243,7 @@ public class HeatmapInterpolationPoints: NSObject {
     }
     
     /// A helper function that finds the intensity of a given point, represented by realLat and realLong, based on the input data set; this is
-    /// calculated via formula here: https://gisgeography.com/inverse-distance-weighting-idw-interpolation/
+    /// calculated via formula here: [IDW Interpolation](https://gisgeography.com/inverse-distance-weighting-idw-interpolation/)
     ///
     /// - Parameters:
     ///   - lat: The latitude value of the point.
@@ -274,8 +276,8 @@ public class HeatmapInterpolationPoints: NSObject {
     /// intensity that it should be included in the data set
     ///
     /// - Parameters:
-    ///     - input: A list of points that are in a cluster.
-    ///     - granularity: The granularity of the search, influencing many points between 1 degree we should visit.
+    ///   - input: A list of points that are in a cluster.
+    ///   - granularity: The granularity of the search, influencing many points between 1 degree we should visit.
     /// - Returns: A list of four integers representing the minimum and maximum longitude and latitude values
     private func findBounds(
         input: [CLLocationCoordinate2D],
@@ -296,17 +298,19 @@ public class HeatmapInterpolationPoints: NSObject {
     
     /// Generates several heat maps based on the clusters with points not found in the data set interpolated by the inverse distance
     /// means interpolation algorithm and displays the heat maps on the given map; for more details, please visit
-    /// https://en.wikipedia.org/wiki/Inverse_distance_weighting. I used the basic form.
+    /// [Inverse Distance Weighting](https://en.wikipedia.org/wiki/Inverse_distance_weighting). I used the basic form.
     /// For this feature, It doesn't make too much sense to do interpolation on an n-value of less than 2 or greater than 2.5; when n is
     /// higher, the denominator increases quicker, meaning the overall value falls quicker as the distances increase, implying that a low
     /// n value will query far too many points.
     ///
     /// - Parameters:
-    ///   - n: The n-value, determining the range of influence the intensities found in the given data set has (see
+    ///   - influence: The n-value, determining the range of influence the intensities found in the given data set has (see
     ///   HeatmapInterpolationInfluence comment for more details).
     ///   - granularity: How coarse the search range is WRT to lat/long and must be larger than 0 but smaller than 1 (as
     ///   granularity approaches 0, the runtime will increase and as granularity approaches 1, the heat map becomes quite sparse); a
     ///   value of 0.1 is a good sweet spot.
+    /// - Returns: Array of interpolated weighted points for heatmap visualization.
+    /// - Throws: `IncorrectInfluence.outOfRange` if influence is not between 2.0 and 2.5.
     public func generatePoints(
         influence: HeatmapInterpolationInfluence,
         granularity: Double = 0.1
