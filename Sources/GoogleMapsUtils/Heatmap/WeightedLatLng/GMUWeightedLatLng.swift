@@ -40,7 +40,7 @@ public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     // MARK: - `GQTPointQuadTreeItem`
     /// Getter for the `GQTPoint` representation of the coordinate in the projected 2D space.
     ///
-    func point() -> GQTPoint {
+    public func point() -> GQTPoint {
         return pointValue
     }
 

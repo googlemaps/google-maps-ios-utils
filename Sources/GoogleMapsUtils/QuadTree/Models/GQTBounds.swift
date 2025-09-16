@@ -12,14 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//MARK: - GQTBounds
-/// The struct defines a rectangular boundary 
-/// using minimum and maximum X and Y coordinates.
-/// 
-struct GQTBounds {
-    //MARK: - Properties
-    var minX: Double
-    var minY: Double
-    var maxX: Double
-    var maxY: Double
+// MARK: - GQTBounds
+
+/// A rectangular boundary defined by corner coordinates.
+///
+/// ```swift
+/// let bounds = GQTBounds(minX: -122.5, minY: 37.7, maxX: -122.3, maxY: 37.8)
+/// ```
+public struct GQTBounds {
+    
+    // MARK: - Properties
+    
+    /// The minimum x-coordinate (left edge).
+    public var minX: Double
+    
+    /// The minimum y-coordinate (bottom edge).
+    public var minY: Double
+    
+    /// The maximum x-coordinate (right edge).
+    public var maxX: Double
+    
+    /// The maximum y-coordinate (top edge).
+    public var maxY: Double
 }

@@ -12,10 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//MARK: - GQTPointQuadTreeItem
-/// The protocol defines a method point() that returns the `GQTPoint`
-///  representing the item's location in the quad tree.
-///  
-protocol GQTPointQuadTreeItem: AnyObject {
+// MARK: - GQTPointQuadTreeItem
+
+/// Protocol for items that can be stored in a quad tree.
+///
+/// Implement `point()` to return the item's location.
+///
+/// ```swift
+/// class MapMarker: GQTPointQuadTreeItem {
+///     func point() -> GQTPoint {
+///         return GQTPoint(x: longitude, y: latitude)
+///     }
+/// }
+/// ```
+public protocol GQTPointQuadTreeItem: AnyObject {
+    
+    /// Returns the item's location.
     func point() -> GQTPoint
 }
