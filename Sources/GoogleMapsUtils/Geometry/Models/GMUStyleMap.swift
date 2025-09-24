@@ -12,10 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/// Style state mapping.
 public struct GMUStyleMap {
-    // MARK: - Properties
-    /// The styleMapId of the geometry.
-    private(set) var styleMapId: String
-    /// The array of pairs for the GMUPair
-    private(set) var pairs: [GMUPair]
+    /// Style map ID.
+    public private(set) var styleMapId: String
+
+    /// State-style pairs.
+    public private(set) var pairs: [GMUPair]
+
+    /// Creates a style map.
+    public init(styleMapId: String, pairs: [GMUPair]) {
+        self.styleMapId = styleMapId
+        self.pairs = pairs
+    }
 }

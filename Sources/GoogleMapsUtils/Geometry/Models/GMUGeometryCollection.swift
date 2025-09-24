@@ -13,13 +13,23 @@
 // limitations under the License.
 
 
-/// Instances of this class represent a GeometryCollection object.
-/// 
-struct GMUGeometryCollection: GMUGeometry {
-    // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "GeometryCollection"
-    /// The array of geometry objects for the GeometryCollection.
-    private(set) var geometries: [GMUGeometry]
+/// Collection of geometry objects.
+public struct GMUGeometryCollection: GMUGeometry {
+    /// Geometry type identifier.
+    public var type: String = "GeometryCollection"
+
+    /// Contained geometries.
+    public private(set) var geometries: [GMUGeometry]
+    
+    /// Creates a collection with geometries.
+    public init(geometries: [GMUGeometry] = []) {
+        self.geometries = geometries
+    }
+    
+    /// Creates a collection with custom type.
+    public init(type: String, geometries: [GMUGeometry]) {
+        self.type = type
+        self.geometries = geometries
+    }
 }
 

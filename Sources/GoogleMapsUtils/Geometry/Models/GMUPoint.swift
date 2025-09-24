@@ -13,17 +13,23 @@
 // limitations under the License.
 import CoreLocation
 
-/// Instances of this class represent a GeoJSON Feature object.
-/// 
-struct GMUPoint: GMUGeometry, Equatable {
-    // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "Point"
-    /// The 2D coordinate of the Point, containing a latitude and longitude.
-    private(set) var coordinate: CLLocationCoordinate2D
-    
-    static func == (lhs: GMUPoint, rhs: GMUPoint) -> Bool {
-        return true
+/// Point geometry.
+public struct GMUPoint: GMUGeometry, Equatable {
+    /// Geometry type identifier.
+    public var type: String = "Point"
+
+    /// Location coordinate.
+    public private(set) var coordinate: CLLocationCoordinate2D
+
+    /// Creates a point at coordinate.
+    public init(type: String = "", coordinate: CLLocationCoordinate2D) {
+        self.type = type
+        self.coordinate = coordinate
+    }
+
+    public static func == (lhs: GMUPoint, rhs: GMUPoint) -> Bool {
+        return lhs.coordinate.latitude == rhs.coordinate.latitude &&
+               lhs.coordinate.longitude == rhs.coordinate.longitude
     }
 }
 

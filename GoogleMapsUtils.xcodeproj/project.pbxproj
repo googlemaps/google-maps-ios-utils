@@ -125,6 +125,8 @@
 		3EA5DDB72D5BA6D0009463B7 /* MockClusterManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */; };
 		3EA5DDB92D5BA6FF009463B7 /* MockMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */; };
 		3EB2238C2E641771007D6105 /* QuadTreeDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */; };
+		3EB4A0EE2E7FC99D00D7031B /* GeometryUtilsDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB4A0ED2E7FC99D00D7031B /* GeometryUtilsDocumentation.swift */; };
+		3EB4A0F12E7FC9B900D7031B /* GeometryDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB4A0F02E7FC9B900D7031B /* GeometryDocumentation.swift */; };
 		3EBC96662E79B123003C8A15 /* HeatmapDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC96652E79B11F003C8A15 /* HeatmapDocumentation.swift */; };
 		3EBE77B22D61854500408141 /* GMUSimpleClusterAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */; };
 		3EBE77BA2D6784FB00408141 /* MockGMSProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */; };
@@ -261,6 +263,8 @@
 		3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterManagerDelegate.swift; sourceTree = "<group>"; };
 		3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapDelegate.swift; sourceTree = "<group>"; };
 		3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTreeDocumentation.swift; sourceTree = "<group>"; };
+		3EB4A0ED2E7FC99D00D7031B /* GeometryUtilsDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryUtilsDocumentation.swift; sourceTree = "<group>"; };
+		3EB4A0F02E7FC9B900D7031B /* GeometryDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryDocumentation.swift; sourceTree = "<group>"; };
 		3EBC96652E79B11F003C8A15 /* HeatmapDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatmapDocumentation.swift; sourceTree = "<group>"; };
 		3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUSimpleClusterAlgorithmTest.swift; sourceTree = "<group>"; };
 		3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSProjection.swift; sourceTree = "<group>"; };
@@ -491,6 +495,7 @@
 		3EA5DB9E2D4DD6C5009463B7 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				3EB4A0EF2E7FC9A500D7031B /* Documentation */,
 				3EA5DB892D4DD6C5009463B7 /* GeoJSONParser */,
 				3EA5DB8B2D4DD6C5009463B7 /* GeometryRenderer */,
 				3EA5DB8F2D4DD6C5009463B7 /* KMLParser */,
@@ -512,11 +517,9 @@
 		3EA5DBA82D4DD6C5009463B7 /* GeometryUtils */ = {
 			isa = PBXGroup;
 			children = (
+				3EB4A0F22E7FD5D400D7031B /* Extensions */,
+				3EB4A0EC2E7FC94C00D7031B /* Documentation */,
 				3EA5DBA12D4DD6C5009463B7 /* Internal */,
-				3EA5DBA22D4DD6C5009463B7 /* CLLocationCoordinate2D+GeometryUtils.swift */,
-				3EA5DBA32D4DD6C5009463B7 /* GMSPath+GeometryUtils.swift */,
-				3EA5DBA42D4DD6C5009463B7 /* GMSPolygon+GeometryUtils.swift */,
-				3EA5DBA52D4DD6C5009463B7 /* GMSPolyline+GeometryUtils.swift */,
 				3EA5DBA62D4DD6C5009463B7 /* MapPoint.swift */,
 				3EA5DBA72D4DD6C5009463B7 /* Math.swift */,
 			);
@@ -825,6 +828,33 @@
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
+		3EB4A0EC2E7FC94C00D7031B /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				3EB4A0ED2E7FC99D00D7031B /* GeometryUtilsDocumentation.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		3EB4A0EF2E7FC9A500D7031B /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				3EB4A0F02E7FC9B900D7031B /* GeometryDocumentation.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		3EB4A0F22E7FD5D400D7031B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3EA5DBA22D4DD6C5009463B7 /* CLLocationCoordinate2D+GeometryUtils.swift */,
+				3EA5DBA32D4DD6C5009463B7 /* GMSPath+GeometryUtils.swift */,
+				3EA5DBA42D4DD6C5009463B7 /* GMSPolygon+GeometryUtils.swift */,
+				3EA5DBA52D4DD6C5009463B7 /* GMSPolyline+GeometryUtils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3EBC96632E790CB7003C8A15 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,11 +1014,13 @@
 				3EA5DBC72D4DD6C5009463B7 /* GMUDefaultClusterIconGenerator.swift in Sources */,
 				3EA5DBC82D4DD6C5009463B7 /* GMUPolygon.swift in Sources */,
 				3EA5DBC92D4DD6C5009463B7 /* GMUKMLParser+Delegates.swift in Sources */,
+				3EB4A0F12E7FC9B900D7031B /* GeometryDocumentation.swift in Sources */,
 				3EA5DBCA2D4DD6C5009463B7 /* GMUStaticCluster.swift in Sources */,
 				3EA5DBCB2D4DD6C5009463B7 /* GMUGradientError.swift in Sources */,
 				3EA5DBCC2D4DD6C5009463B7 /* GMUGeoJSONParser.swift in Sources */,
 				3EA5DBCD2D4DD6C5009463B7 /* GMUGeoJSONParserConstants.swift in Sources */,
 				3EB2238C2E641771007D6105 /* QuadTreeDocumentation.swift in Sources */,
+				3EB4A0EE2E7FC99D00D7031B /* GeometryUtilsDocumentation.swift in Sources */,
 				3EA5DBCE2D4DD6C5009463B7 /* GMUStyleMap.swift in Sources */,
 				3EA5DBCF2D4DD6C5009463B7 /* GMUHeatmapTileLayer.swift in Sources */,
 				3EA5DBD02D4DD6C5009463B7 /* GMUClusterRendererDelegate.swift in Sources */,

@@ -37,7 +37,7 @@ public extension CLLocationCoordinate2D {
 }
 
 public extension MapPoint {
-  /// Unprojects this point from the map
+  /// Converts to geographic coordinates.
   var location: CLLocationCoordinate2D {
     return CLLocationCoordinate2D(
       latitude: Math.inverseMercatorLatitudeDegrees(y),

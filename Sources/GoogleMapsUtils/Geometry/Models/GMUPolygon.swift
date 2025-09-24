@@ -14,12 +14,22 @@
 
 import GoogleMaps
 
-/// Instances of this class represent a Polygon object.
-/// 
-struct GMUPolygon: GMUGeometry {
-    // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "Polygon"
-    /// The array of LinearRing paths for the Polygon. The first is the exterior ring of the Polygon; any subsequent rings are holes.
-    private(set) var paths: [GMSPath]
+/// Polygon geometry.
+public struct GMUPolygon: GMUGeometry, Equatable {
+    /// Geometry type identifier.
+    public var type: String = "Polygon"
+
+    /// Paths (first is boundary, rest are holes).
+    public private(set) var paths: [GMSPath]
+
+    /// Creates a polygon with paths.
+    public init(paths: [GMSPath]) {
+        self.paths = paths
+    }
+    
+    /// Creates a polygon with custom type.
+    public init(type: String, paths: [GMSPath]) {
+        self.type = type
+        self.paths = paths
+    }
 }

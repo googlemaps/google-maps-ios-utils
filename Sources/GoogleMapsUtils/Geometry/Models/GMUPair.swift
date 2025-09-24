@@ -13,11 +13,17 @@
 // limitations under the License.
 
 
-/// Instances of this class represent a geometry Style. It is used to define the
-/// stylings of any number of GMUGeometry objects.
-/// 
-struct GMUPair {
-    // MARK: - Properties
-    private(set) var key: String
-    private(set) var styleUrl: String
+/// Style state mapping.
+public struct GMUPair {
+    /// State key (e.g., "normal", "highlight").
+    public private(set) var key: String
+
+    /// Style URL reference.
+    public private(set) var styleUrl: String
+
+    /// Creates a style state pair.
+    public init(key: String, styleUrl: String) {
+        self.key = key
+        self.styleUrl = styleUrl
+    }
 }
