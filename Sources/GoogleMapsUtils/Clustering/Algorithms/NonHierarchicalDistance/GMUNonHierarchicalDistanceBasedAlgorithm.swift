@@ -37,8 +37,8 @@ public final class GMUNonHierarchicalDistanceBasedAlgorithm: GMUClusterAlgorithm
     /// Initializes this GMUNonHierarchicalDistanceBasedAlgorithm with clusterDistancePoints
     /// for the distance it uses to cluster items (default is 100).
     /// 
-    /// - Parameter clusterDistancePoints: Int
-    init(clusterDistancePoints: Int) {
+    /// - Parameter clusterDistancePoints: The distance in points used for clustering.
+    public init(clusterDistancePoints: Int) {
         self.clusterItems = []
         let bounds = GQTBounds(minX: -1, minY: -1, maxX: 1, maxY: 1)
         self.quadTree = GQTPointQuadTree(bounds: bounds)

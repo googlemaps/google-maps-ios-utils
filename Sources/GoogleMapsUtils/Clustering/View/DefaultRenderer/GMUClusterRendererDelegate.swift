@@ -16,7 +16,7 @@ import GoogleMaps
 
 /// Delegate for GMUClusterRenderer to provide extra functionality to the default renderer.
 ///
-protocol GMUClusterRendererDelegate: AnyObject {
+public protocol GMUClusterRendererDelegate: AnyObject {
         
     /// Returns a marker for an |object|. The |object| can be either an GMUCluster or an GMUClusterItem.
     /// Use this delegate to control of the life cycle of the marker. Any properties set on the returned marker will be honoured except for: .position, .icon, .groundAnchor, .zIndex and .userData.

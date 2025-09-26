@@ -14,10 +14,10 @@
 
 import GoogleMaps
 
-/// A simple algorithm which devides the map into a grid where a cell has fixed dimension in screen space.
+/// A simple algorithm which divides the map into a grid where a cell has fixed dimension in screen space.
 ///
 
-final class GMUGridBasedClusterAlgorithm: GMUClusterAlgorithm {
+public final class GMUGridBasedClusterAlgorithm: GMUClusterAlgorithm {
 
     // MARK: - Properties
     /// Internal array to store cluster items.
@@ -26,7 +26,8 @@ final class GMUGridBasedClusterAlgorithm: GMUClusterAlgorithm {
     private let gmuGridCellSizePoints: Float = 100.0
 
     // MARK: - Initializers
-    init() {
+    /// Initializes a new grid-based cluster algorithm.
+    public init() {
         clusterItems = []
     }
 
@@ -34,19 +35,19 @@ final class GMUGridBasedClusterAlgorithm: GMUClusterAlgorithm {
     /// Adds an array of items to the grid based cluster algorithm.
     ///
     /// - Parameter items: Array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem]) {
+    public func addItems(_ items: [GMUClusterItem]) {
         clusterItems.append(contentsOf: items)
     }
 
     /// Removes a specific item from the grid based cluster algorithm.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem) {
+    public func removeItem(_ item: GMUClusterItem) {
         clusterItems.removeAll { $0 === item }
     }
 
     /// Clears all items from the grid based cluster algorithm.
-    func clearItems() {
+    public func clearItems() {
         clusterItems.removeAll()
     }
 
@@ -54,7 +55,7 @@ final class GMUGridBasedClusterAlgorithm: GMUClusterAlgorithm {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster] {
+    public func clusters(atZoom zoom: Float) -> [GMUCluster] {
         var clusters: [Int : GMUCluster] = [:]
 
         // Divide the whole map into a numCells x numCells grid and assign items to them.

@@ -34,19 +34,19 @@ final class GMUSimpleClusterAlgorithm: GMUClusterAlgorithm {
     /// Adds an array of items to the cluster algorithm.
     ///
     /// - Parameter items: Array of items conforming to `GMUClusterItem` protocol.
-    func addItems(_ items: [GMUClusterItem]) {
+    public func addItems(_ items: [GMUClusterItem]) {
         clusterItems.append(contentsOf: items)
     }
 
     /// Removes a specific item from the cluster algorithm.
     ///
     /// - Parameter item: The item conforming to `GMUClusterItem` protocol to be removed.
-    func removeItem(_ item: GMUClusterItem) {
+    public func removeItem(_ item: GMUClusterItem) {
         clusterItems.removeAll { $0 === item }
     }
 
     /// Clears all items from the cluster algorithm.
-    func clearItems() {
+    public func clearItems() {
         clusterItems.removeAll()
     }
 
@@ -54,7 +54,7 @@ final class GMUSimpleClusterAlgorithm: GMUClusterAlgorithm {
     ///
     /// - Parameter zoom: The zoom level at which to compute clusters.
     /// - Returns: An array of clusters conforming to `GMUCluster` protocol.
-    func clusters(atZoom zoom: Float) -> [GMUCluster] {
+    public func clusters(atZoom zoom: Float) -> [GMUCluster] {
         var clusters: [GMUCluster] = []
 
         for i in 0..<clusterCount {
