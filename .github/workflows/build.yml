@@ -38,7 +38,7 @@ jobs:
     - name: Checkout google-maps-ios-utils
       uses: actions/checkout@v4
 
-    # Specify a stable Xcode version that supports iOS 17.5
+    # Specify a stable Xcode version
     - name: Set Xcode version
       uses: maxim-lobanov/setup-xcode@v1
       with:
