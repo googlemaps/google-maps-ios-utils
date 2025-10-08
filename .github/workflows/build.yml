@@ -38,11 +38,11 @@ jobs:
     - name: Checkout google-maps-ios-utils
       uses: actions/checkout@v4
 
-    # Specify a stable Xcode version
+    # Specify the latest stable Xcode version, since the default for macos-latest might not meet SDK minimum Xcode requirements.
     - name: Set Xcode version
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '16.4'
+        xcode-version: latest-stable
 
     # For as long as this is a mixed-language library, swift build will not support the Obj-C part of the code so we must use xcodebuild.
     - name: Build and analyze Swift Package with xcodebuild
