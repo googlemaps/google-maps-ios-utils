@@ -12,11 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//MARK: - GQTPoint
-/// The struct represents a point with x and y coordinates.
+// MARK: - GQTPoint
+
+/// A 2D point with x and y coordinates.
 ///
-struct GQTPoint {
-    //MARK: - Properties
-    var x: Double
-    var y: Double
+/// ```swift
+/// let point = GQTPoint(x: 10.5, y: 20.3)
+/// ```
+public struct GQTPoint {
+    
+    // MARK: - Properties
+    
+    /// The x-coordinate of the point.
+    public var x: Double
+    
+    /// The y-coordinate of the point.
+    public var y: Double
 }

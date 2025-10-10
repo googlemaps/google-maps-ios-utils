@@ -13,36 +13,102 @@
 // limitations under the License.
 
 // MARK: - GQTPointQuadTreeChild
-/// The class manages the children and items in a quad tree node, 
-/// handling insertion, removal, splitting, and searching within specific bounds.
+/// Internal quad tree node.
 ///
-final class GQTPointQuadTreeChild {
+/// This class manages the hierarchical subdivision of space into quadrants.
+/// It's public for advanced use cases but typically handled internally.
+///
+/// ## Topics
+///
+/// ### Item Management
+/// - ``add(item:withOwnBounds:atDepth:)``
+/// - ``remove(item:withOwnBounds:)``
+///
+/// ### Spatial Queries
+/// - ``search(withBounds:withOwnBounds:results:)``
+public final class GQTPointQuadTreeChild {
 
     // MARK: - Properties
-    /// Top Right child quad. Nil until this node is split.
+    
+    /// The top-right child quadrant. `nil` until this node subdivides.
+    ///
+    /// When a node splits, this quadrant contains items with coordinates greater than
+    /// the node's center point in both X and Y dimensions.
     private var topRight: GQTPointQuadTreeChild?
-    /// Top Left child quad. Nil until this node is split.
+    
+    /// The top-left child quadrant. `nil` until this node subdivides.
+    ///
+    /// When a node splits, this quadrant contains items with X coordinates less than
+    /// the center X and Y coordinates greater than the center Y.
     private var topLeft: GQTPointQuadTreeChild?
-    /// Bottom Right child quad. Nil until this node is split.
+    
+    /// The bottom-right child quadrant. `nil` until this node subdivides.
+    ///
+    /// When a node splits, this quadrant contains items with X coordinates greater than
+    /// the center X and Y coordinates less than the center Y.
     private var bottomRight: GQTPointQuadTreeChild?
-    /// Top Right child quad. Nil until this node is split.
+    
+    /// The bottom-left child quadrant. `nil` until this node subdivides.
+    ///
+    /// When a node splits, this quadrant contains items with coordinates less than
+    /// the node's center point in both X and Y dimensions.
     private var bottomLeft: GQTPointQuadTreeChild?
-    /// Bottom Left child quad. Nil until this node is split.
+    
+    /// Items stored in this node when it's a leaf. `nil` after subdivision.
+    ///
+    /// This array contains the actual ``GQTPointQuadTreeItem`` objects when the node
+    /// is in leaf state. Once the node splits into child quadrants, this becomes `nil`
+    /// and items are distributed among the child nodes.
     private var pointQuadTreeItems: [GQTPointQuadTreeItem]?
 
-    // MARK: - Init
+    // MARK: - Initialization
+    
+    /// Creates a new leaf node ready to store items.
+    ///
+    /// The node starts as a leaf with an empty items array. It will remain in this state
+    /// until the number of items exceeds ``GQTPointQuadTreeChildConstants/maxElements``
+    /// and the depth is below ``GQTPointQuadTreeChildConstants/maxDepth``.
     init() {
         pointQuadTreeItems = []
     }
 
-    // MARK: - `add`
-    /// Insert an item into this PointQuadTreeChild
+    // MARK: - Item Management
+    
+    /// Inserts an item into this quad tree node, handling automatic subdivision if necessary.
+    ///
+    /// This method adds an item to the appropriate location in the quad tree hierarchy:
+    /// - If the node is a leaf and has capacity, the item is stored directly
+    /// - If the node is a leaf but at capacity, it subdivides and redistributes all items
+    /// - If the node has children, the item is routed to the appropriate child quadrant
+    ///
+    /// ## Subdivision Behavior
+    ///
+    /// Subdivision occurs when:
+    /// - Current item count ≥ ``GQTPointQuadTreeChildConstants/maxElements``
+    /// - Current depth < ``GQTPointQuadTreeChildConstants/maxDepth``
+    ///
+    /// When subdivision happens, the node:
+    /// 1. Creates four child quadrants
+    /// 2. Redistributes existing items to appropriate children
+    /// 3. Adds the new item to the correct child
     ///
     /// - Parameters:
-    ///   - item: The item to insert. Must not be nil.
-    ///   - bounds: The bounds of this node.
-    ///   - depth: The depth of this node.
-    func add(item: GQTPointQuadTreeItem?, withOwnBounds bounds: GQTBounds, atDepth depth: Int) {
+    ///   - item: The item to insert. Must not be `nil`.
+    ///   - bounds: The spatial bounds of this node.
+    ///   - depth: The current depth in the tree (0 = root).
+    ///
+    /// - Precondition: `item` must not be `nil`.
+    ///
+    /// ## Example
+    ///
+    /// ```swift
+    /// let node = GQTPointQuadTreeChild()
+    /// let bounds = GQTBounds(minX: 0, minY: 0, maxX: 100, maxY: 100)
+    /// 
+    /// // Add item to leaf node
+    /// node.add(item: myItem, withOwnBounds: bounds, atDepth: 0)
+    /// ```
+    public func add(item: GQTPointQuadTreeItem?, withOwnBounds bounds: GQTBounds, atDepth depth: Int) {
         // Ensure the item is not nil, otherwise, raise a fatal error.
         guard let item else {
             fatalError("Invalid item argument, item must not be nil")
@@ -166,14 +232,32 @@ final class GQTPointQuadTreeChild {
         }
     }
 
-    // MARK: - `remove`
-    /// Delete an item from this PointQuadTree.
+    /// Removes an item from this quad tree node and its subtree.
+    ///
+    /// This method searches for the specified item in the quad tree hierarchy and removes it:
+    /// - If the node has children, it determines the correct child quadrant and delegates removal
+    /// - If the node is a leaf, it searches the items array and removes the matching item
+    ///
+    /// The removal process uses object identity (`===`) to match items, ensuring that
+    /// the exact same object instance is removed from the tree.
     ///
     /// - Parameters:
-    ///   - item: The item to delete.
-    ///   - bounds: The bounds of this node.
-    /// - Returns: `false` if the item was not found in the tree, `true` otherwise.
-    func remove(item: GQTPointQuadTreeItem, withOwnBounds bounds: GQTBounds) -> Bool {
+    ///   - item: The item to remove from the tree.
+    ///   - bounds: The spatial bounds of this node, used for quadrant determination.
+    ///
+    /// - Returns: `true` if the item was found and removed, `false` if not found.
+    ///
+    /// ## Example
+    ///
+    /// ```swift
+    /// let success = node.remove(item: myItem, withOwnBounds: bounds)
+    /// if success {
+    ///     print("Item removed successfully")
+    /// } else {
+    ///     print("Item not found in tree")
+    /// }
+    /// ```
+    public func remove(item: GQTPointQuadTreeItem, withOwnBounds bounds: GQTBounds) -> Bool {
         if let topRight {
             return removeFromChild(topRight, item: item, withOwnBounds: bounds)
         }
@@ -268,14 +352,43 @@ final class GQTPointQuadTreeChild {
         return true
     }
 
-    // MARK: - `search`
-    /// Retrieve all pointQuadTreeItems in this PointQuadTree within a bounding box.
+    // MARK: - Spatial Queries
+    
+    /// Performs a spatial range query to find all items within the specified bounds.
+    ///
+    /// This method efficiently searches the quad tree hierarchy to collect all items
+    /// whose coordinates fall within the search bounds:
+    ///
+    /// - **Internal Nodes**: Tests each child quadrant for intersection with search bounds
+    ///   and recursively searches intersecting children
+    /// - **Leaf Nodes**: Filters stored items by coordinate containment within search bounds
+    ///
+    /// The search uses spatial pruning to avoid examining quadrants that don't intersect
+    /// with the search area, providing efficient O(log n + k) performance where k is
+    /// the number of results.
     ///
     /// - Parameters:
-    ///   - searchBounds: The bounds of the search box.
-    ///   - ownBounds: The bounds of this node.
-    ///   - accumulator: The results of the search.
-    func search(withBounds searchBounds: GQTBounds, withOwnBounds ownBounds: GQTBounds, results accumulator: inout [GQTPointQuadTreeItem]) {
+    ///   - searchBounds: The rectangular area to search within.
+    ///   - ownBounds: The spatial bounds of this node (used for child bound calculations).
+    ///   - accumulator: An in-out array that collects matching items during traversal.
+    ///
+    /// ## Search Process
+    ///
+    /// 1. **Intersection Test**: Check if child quadrants intersect search bounds
+    /// 2. **Recursive Search**: Visit only intersecting child quadrants
+    /// 3. **Item Filtering**: Test leaf items for coordinate containment
+    /// 4. **Result Collection**: Add matching items to accumulator array
+    ///
+    /// ## Example
+    ///
+    /// ```swift
+    /// var results: [GQTPointQuadTreeItem] = []
+    /// let searchArea = GQTBounds(minX: 10, minY: 10, maxX: 50, maxY: 50)
+    /// 
+    /// node.search(withBounds: searchArea, withOwnBounds: nodeBounds, results: &results)
+    /// print("Found \(results.count) items in search area")
+    /// ```
+    public func search(withBounds searchBounds: GQTBounds, withOwnBounds ownBounds: GQTBounds, results accumulator: inout [GQTPointQuadTreeItem]) {
         if let topRight = topRight {
             // Define bounds for each child quadrant.
             let topRightBounds = boundsTopRightChildBounds(ownBounds)

@@ -124,6 +124,7 @@
 		3EA5DDB52D5BA6C3009463B7 /* MockClusterRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB42D5BA6C1009463B7 /* MockClusterRenderer.swift */; };
 		3EA5DDB72D5BA6D0009463B7 /* MockClusterManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */; };
 		3EA5DDB92D5BA6FF009463B7 /* MockMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */; };
+		3EB2238C2E641771007D6105 /* QuadTreeDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */; };
 		3EBE77B22D61854500408141 /* GMUSimpleClusterAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */; };
 		3EBE77BA2D6784FB00408141 /* MockGMSProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */; };
 		3EBE77BC2D67851200408141 /* MockClusterIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77BB2D67851000408141 /* MockClusterIconGenerator.swift */; };
@@ -258,6 +259,7 @@
 		3EA5DDB42D5BA6C1009463B7 /* MockClusterRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterRenderer.swift; sourceTree = "<group>"; };
 		3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterManagerDelegate.swift; sourceTree = "<group>"; };
 		3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapDelegate.swift; sourceTree = "<group>"; };
+		3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTreeDocumentation.swift; sourceTree = "<group>"; };
 		3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUSimpleClusterAlgorithmTest.swift; sourceTree = "<group>"; };
 		3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSProjection.swift; sourceTree = "<group>"; };
 		3EBE77BB2D67851000408141 /* MockClusterIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterIconGenerator.swift; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 		3EA5DBBF2D4DD6C5009463B7 /* QuadTree */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC96632E790CB7003C8A15 /* Documentation */,
 				3EA5DBB72D4DD6C5009463B7 /* Models */,
 				3EA5DBB92D4DD6C5009463B7 /* PointQuadTree */,
 				3EA5DBBC2D4DD6C5009463B7 /* PointQuadTreeChild */,
@@ -819,6 +822,14 @@
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
+		3EBC96632E790CB7003C8A15 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -966,6 +977,7 @@
 				3EA5DBCB2D4DD6C5009463B7 /* GMUGradientError.swift in Sources */,
 				3EA5DBCC2D4DD6C5009463B7 /* GMUGeoJSONParser.swift in Sources */,
 				3EA5DBCD2D4DD6C5009463B7 /* GMUGeoJSONParserConstants.swift in Sources */,
+				3EB2238C2E641771007D6105 /* QuadTreeDocumentation.swift in Sources */,
 				3EA5DBCE2D4DD6C5009463B7 /* GMUStyleMap.swift in Sources */,
 				3EA5DBCF2D4DD6C5009463B7 /* GMUHeatmapTileLayer.swift in Sources */,
 				3EA5DBD02D4DD6C5009463B7 /* GMUClusterRendererDelegate.swift in Sources */,
@@ -1083,6 +1095,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
+				DOCC_HOSTING_BASE_PATH = "google-maps-ios-utils";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1116,6 +1129,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
+				DOCC_HOSTING_BASE_PATH = "google-maps-ios-utils";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
