@@ -21,7 +21,7 @@ public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     // MARK: - Properties
     /// The intensity of the data point. The scale is arbitrary, assumed to be linear.
     /// Intensity of 3 is equivalent to three co-located points with intensity 1.
-    let intensity: Float
+    public let intensity: Float
     /// Internal storage for the projected 2D point.
     private var pointValue: GQTPoint
 
@@ -49,6 +49,8 @@ public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     /// - The `==` operator compares two instances of `GMUWeightedLatLng`.
     /// - Currently, it returns `true` for all comparisons, which is **incorrect** and should be avoided in most cases.
     public static func == (lhs: GMUWeightedLatLng, rhs: GMUWeightedLatLng) -> Bool {
-        return true
+        return lhs.intensity == rhs.intensity && 
+               lhs.pointValue.x == rhs.pointValue.x && 
+               lhs.pointValue.y == rhs.pointValue.y
     }
 }

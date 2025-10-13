@@ -125,6 +125,7 @@
 		3EA5DDB72D5BA6D0009463B7 /* MockClusterManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */; };
 		3EA5DDB92D5BA6FF009463B7 /* MockMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */; };
 		3EB2238C2E641771007D6105 /* QuadTreeDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */; };
+		3EBC96662E79B123003C8A15 /* HeatmapDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC96652E79B11F003C8A15 /* HeatmapDocumentation.swift */; };
 		3EBE77B22D61854500408141 /* GMUSimpleClusterAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */; };
 		3EBE77BA2D6784FB00408141 /* MockGMSProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */; };
 		3EBE77BC2D67851200408141 /* MockClusterIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77BB2D67851000408141 /* MockClusterIconGenerator.swift */; };
@@ -260,6 +261,7 @@
 		3EA5DDB62D5BA6CF009463B7 /* MockClusterManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterManagerDelegate.swift; sourceTree = "<group>"; };
 		3EA5DDB82D5BA6FE009463B7 /* MockMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapDelegate.swift; sourceTree = "<group>"; };
 		3EB2238B2E641771007D6105 /* QuadTreeDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTreeDocumentation.swift; sourceTree = "<group>"; };
+		3EBC96652E79B11F003C8A15 /* HeatmapDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatmapDocumentation.swift; sourceTree = "<group>"; };
 		3EBE77B12D61854400408141 /* GMUSimpleClusterAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMUSimpleClusterAlgorithmTest.swift; sourceTree = "<group>"; };
 		3EBE77B92D6784FA00408141 /* MockGMSProjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGMSProjection.swift; sourceTree = "<group>"; };
 		3EBE77BB2D67851000408141 /* MockClusterIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClusterIconGenerator.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 		3EA5DBB22D4DD6C5009463B7 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC96642E79B117003C8A15 /* Documentation */,
 				3EA5DBAB2D4DD6C5009463B7 /* Gradient */,
 				3EA5DBAE2D4DD6C5009463B7 /* TileLayer */,
 				3EA5DBB02D4DD6C5009463B7 /* WeightedLatLng */,
@@ -830,6 +833,14 @@
 			path = Documentation;
 			sourceTree = "<group>";
 		};
+		3EBC96642E79B117003C8A15 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC96652E79B11F003C8A15 /* HeatmapDocumentation.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1003,6 +1014,7 @@
 				3EA5DBE42D4DD6C5009463B7 /* GMUFeature.swift in Sources */,
 				3EA5DBE52D4DD6C5009463B7 /* GMUClusterManagerDelegate.swift in Sources */,
 				3EA5DBE62D4DD6C5009463B7 /* GMULineString.swift in Sources */,
+				3EBC96662E79B123003C8A15 /* HeatmapDocumentation.swift in Sources */,
 				3EA5DBE72D4DD6C5009463B7 /* CartesianPoint.swift in Sources */,
 				3EA5DBE82D4DD6C5009463B7 /* GMSPolyline+GeometryUtils.swift in Sources */,
 				3EA5DBE92D4DD6C5009463B7 /* CLLocationCoordinate2D+GeometryUtils.swift in Sources */,
