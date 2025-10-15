@@ -30,10 +30,10 @@
 /// ## Topics
 ///
 /// ### Coordinate Extensions
-/// - ``CLLocationCoordinate2D``
-/// - ``GMSPath``
-/// - ``GMSPolygon``
-/// - ``GMSPolyline``
+/// - ``GoogleMaps/GMSPath``
+/// - ``GoogleMaps/GMSPolygon``
+/// - ``GoogleMaps/GMSPolyline``
+///
 ///
 /// ### Utilities
 /// - ``MapPoint``

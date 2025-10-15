@@ -108,7 +108,7 @@
 ///
 /// ## See Also
 ///
-/// - ``GMUClusterManager`` - Uses quad trees internally for marker clustering
+/// - ``GMUClusterManager``
 ///
 public struct QuadTreeDocumentation {
     
