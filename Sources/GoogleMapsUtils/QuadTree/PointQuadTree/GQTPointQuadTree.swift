@@ -52,8 +52,6 @@
 /// ### Protocols (from `/Protocols/` folder)  
 /// - ``GQTPointQuadTreeItem`` - Interface for storable items
 ///
-/// ## See Also
-/// - <doc:QuadTree> - Complete QuadTree module documentation
 public class GQTPointQuadTree {
 
     // MARK: - Properties
@@ -145,7 +143,6 @@ public class GQTPointQuadTree {
     /// }
     /// ```
     ///
-    /// - Complexity: O(log n) average case, O(n) worst case where n is the number of items.
     public func add(item: GQTPointQuadTreeItem?) -> Bool {
         // Ensure the item is not nil and within the bounds of the tree.
         guard let item = item, isItemWithinBounds(item) else {
@@ -185,7 +182,6 @@ public class GQTPointQuadTree {
     /// }
     /// ```
     ///
-    /// - Complexity: O(log n) average case, O(n) worst case where n is the number of items.
     public func remove(item: GQTPointQuadTreeItem) -> Bool {
         // Ensure the item within the bounds of the tree.
         guard isItemWithinBounds(item) else {
@@ -228,7 +224,6 @@ public class GQTPointQuadTree {
     /// print("Items after clear: \(quadTree.count)") // Prints: 0
     /// ```
     ///
-    /// - Complexity: O(1)
     public func clear() {
         root = GQTPointQuadTreeChild()
         count = 0
@@ -261,7 +256,6 @@ public class GQTPointQuadTree {
     /// print("Found \(itemsInRegion.count) items in the region")
     /// ```
     ///
-    /// - Complexity: O(log n + k) where n is the total number of items and k is the number of results.
     public func search(withBounds searchBounds: GQTBounds) -> [GQTPointQuadTreeItem] {
         var results: [GQTPointQuadTreeItem] = []
         root.search(withBounds: searchBounds, withOwnBounds: bounds, results: &results)
@@ -285,7 +279,6 @@ public class GQTPointQuadTree {
     /// print("Tree contains \(quadTree.getCount()) items") // Prints: 2
     /// ```
     ///
-    /// - Complexity: O(1)
     public func getCount() -> Int {
         return count
     }

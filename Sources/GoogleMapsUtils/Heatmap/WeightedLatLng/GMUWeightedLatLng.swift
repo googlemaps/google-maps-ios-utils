@@ -14,21 +14,8 @@
 
 import GoogleMaps
 
-/// A quad tree item which represents a data point of given intensity at a given point on the earth's
-/// surface.
-/// 
-/// ```swift
-/// let point = GMUWeightedLatLng(coordinate: location, intensity: 1.5)
-/// heatmapLayer.weightedData = [point]
-/// ```
+/// A class that represents a weighted geographical point on the earth's surface, implementing the `GQTPointQuadTreeItem` protocol.
 ///
-/// ## Topics
-///
-/// ### Properties
-/// - ``intensity``
-///
-/// ### Protocol Conformance
-/// - ``point()``
 public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
 
     // MARK: - Properties
@@ -39,11 +26,11 @@ public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     private var pointValue: GQTPoint
 
     // MARK: - Initializers
-    /// Creates a weighted point for heatmap data.
+    /// Designated initializer to create an instance of `GMUWeightedLatLng`.
     ///
     /// - Parameters:
-    ///   - coordinate: The geographic location
-    ///   - intensity: The intensity value (higher = hotter)
+    ///   - coordinate: The geographical coordinate (latitude and longitude) of the data point.
+    ///   - intensity: The intensity of the data point.
     public init(coordinate: CLLocationCoordinate2D, intensity: Float) {
         self.intensity = intensity
         let mapPoint = GMSProject(coordinate)
@@ -51,7 +38,8 @@ public final class GMUWeightedLatLng: GQTPointQuadTreeItem, Equatable {
     }
 
     // MARK: - `GQTPointQuadTreeItem`
-    /// Returns the point's location for spatial indexing.
+    /// Getter for the `GQTPoint` representation of the coordinate in the projected 2D space.
+    ///
     public func point() -> GQTPoint {
         return pointValue
     }
