@@ -46,11 +46,11 @@
 /// ## Related Types
 ///
 /// ### Models (from `/Models/` folder)
-/// - ``GQTPoint`` - 2D coordinate representation
-/// - ``GQTBounds`` - Rectangular boundary definition
+/// - ``GQTPoint``
+/// - ``GQTBounds``
 ///
 /// ### Protocols (from `/Protocols/` folder)  
-/// - ``GQTPointQuadTreeItem`` - Interface for storable items
+/// - ``GQTPointQuadTreeItem``
 ///
 public class GQTPointQuadTree {
 

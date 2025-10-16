@@ -13,20 +13,40 @@
 // limitations under the License.
 import CoreLocation
 
-/// Instances of this class represent a Ground Overlay object.
-/// 
-struct GMUGroundOverlay: GMUGeometry {
-    // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "GroundOverlay"
-    /// The North-East corner of the overlay.
-    private(set) var northEast: CLLocationCoordinate2D
-    /// The South-West corner of the overlay.
-    private(set) var southWest: CLLocationCoordinate2D
-    /// The Z-Index of the overlay.
-    private(set) var zIndex: Int
-    /// The rotation of the overlay on the map.
-    private(set) var rotation: Double
-    /// The image to be rendered on the overlay.
-    private(set) var href: String
+/// Image overlay on map.
+public struct GMUGroundOverlay: GMUGeometry {
+    /// Geometry type identifier.
+    public var type: String = "GroundOverlay"
+
+    /// Northeast corner.
+    public private(set) var northEast: CLLocationCoordinate2D
+
+    /// Southwest corner.
+    public private(set) var southWest: CLLocationCoordinate2D
+
+    /// Drawing order.
+    public private(set) var zIndex: Int
+
+    /// Rotation in degrees.
+    public private(set) var rotation: Double
+
+    /// Image URL or path.
+    public private(set) var href: String
+
+    /// Creates an overlay with bounds and image.
+    public init(
+        type: String = "",
+        northEast: CLLocationCoordinate2D,
+        southWest: CLLocationCoordinate2D,
+        zIndex: Int = 0,
+        rotation: Double = 0,
+        href: String
+    ) {
+        self.type = type
+        self.northEast = northEast
+        self.southWest = southWest
+        self.zIndex = zIndex
+        self.rotation = rotation
+        self.href = href
+    }
 }

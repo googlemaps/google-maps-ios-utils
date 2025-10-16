@@ -13,8 +13,9 @@
 // limitations under the License.
 import CoreLocation
 
-class Math {
-  /// Computes the initial bearing between `from` and `to` in radians
+/// Mathematical utilities for geometric calculations.
+internal class Math {
+  /// Initial bearing between two points in radians.
   static func initialBearing(_ from: LatLngRadians, _ to: LatLngRadians) -> LocationRadians {
     let delta = to - from
     let cosLatTo = cos(to.latitude)

@@ -14,16 +14,30 @@
 
 import GoogleMaps
 
-/// Instances of this class represent a LineString object.
-/// 
-struct GMULineString: GMUGeometry, Equatable {
-    // MARK: - Properties
-    /// The type of the geometry.
-    var type: String = "LineString"
-    /// The path of the LineString.
-    private(set) var path: GMSPath
-    
-    static func == (lhs: GMULineString, rhs: GMULineString) -> Bool {
+/// Line geometry.
+public struct GMULineString: GMUGeometry, Equatable {
+    /// Geometry type identifier.
+    public var type: String = "LineString"
+
+    /// Path coordinates.
+    public private(set) var path: GMSPath
+
+    /// Creates a line with a path.
+    public init(type: String = "", path: GMSPath) {
+        self.type = type
+        self.path = path
+    }
+
+    public static func == (lhs: GMULineString, rhs: GMULineString) -> Bool {
+        guard lhs.path.count() == rhs.path.count() else { return false }
+
+        for i in 0..<lhs.path.count() {
+            let lhsCoord = lhs.path.coordinate(at: i)
+            let rhsCoord = rhs.path.coordinate(at: i)
+            if lhsCoord.latitude != rhsCoord.latitude || lhsCoord.longitude != rhsCoord.longitude {
+                return false
+            }
+        }
         return true
     }
 }
