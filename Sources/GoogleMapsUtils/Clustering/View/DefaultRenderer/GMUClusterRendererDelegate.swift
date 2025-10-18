@@ -19,7 +19,7 @@ import GoogleMaps
 public protocol GMUClusterRendererDelegate: AnyObject {
         
     /// Returns a marker for an |object|. The |object| can be either an GMUCluster or an GMUClusterItem.
-    /// Use this delegate to control of the life cycle of the marker. Any properties set on the returned marker will be honoured except for: .position, .icon, .groundAnchor, .zIndex and .userData.
+    /// Use this delegate to control the life cycle of the marker. Any properties set on the returned marker will be honoured except for: .position, .icon, .groundAnchor, .zIndex and .userData.
     /// To customize these properties use `renderer:willRenderMarker`.
     /// Note that changing a marker's position is not recommended because it will interfere with the marker animation.
     /// - Parameters:

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // MARK: - GQTPointQuadTreeChild
-/// Internal quad tree node. Most developers should use ``GQTPointQuadTree`` instead.
+/// Internal quad tree node.
 ///
 /// This class manages the hierarchical subdivision of space into quadrants.
 /// It's public for advanced use cases but typically handled internally.
