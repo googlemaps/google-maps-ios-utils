@@ -22,9 +22,13 @@ import UIKit
 public final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
 
     // MARK: - Properties
+    /// Cache for generated icons to improve performance.
     private let iconCache = NSCache<NSString, UIImage>()
+    /// Array of bucket sizes for clustering.
     private var buckets: [Int]
+    /// Background images for cluster icons.
     var backgroundImages: [UIImage]?
+    /// Background colors for cluster icons when no images are provided.
     private var backgroundColors: [UIColor]?
     /// Default bucket background colors when no background images are set.
     private var kGMUBucketBackgroundColors: [UIColor] = []

@@ -14,7 +14,7 @@
 
 /// Delegate for events on the GMUClusterManager.
 /// 
-protocol GMUClusterManagerDelegate: AnyObject {
+public protocol GMUClusterManagerDelegate: AnyObject {
 
     /// Called when the user taps on a cluster marker.
     /// - Parameters:

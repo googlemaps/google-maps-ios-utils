@@ -97,7 +97,7 @@ public final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     /// - Parameters:
     ///   - delegate: The delegate to handle GMUClusterManager events.
     ///   - mapDelegate: The delegate to handle map events.
-    func setDelegate(_ delegate: GMUClusterManagerDelegate?, mapDelegate: GMSMapViewDelegate?) {
+    public func setDelegate(_ delegate: GMUClusterManagerDelegate?, mapDelegate: GMSMapViewDelegate?) {
         /// Set the GMUClusterManager delegate.
         self.delegate = delegate
         /// Set the map view's delegate to the GMUClusterManager to intercept events.
@@ -192,6 +192,10 @@ public final class GMUClusterManager: NSObject, GMSMapViewDelegate {
     }
 
     /// Forwards the `didChangeCameraPosition` event to the map delegate.
+    ///
+    /// - Parameters:
+    ///   - mapView: The map view whose camera position changed.
+    ///   - position: The new camera position.
     public func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         guard let mapDelegate else { return }
         mapDelegate.mapView?(mapView, didChange: position)

@@ -21,7 +21,7 @@ import GoogleMaps
 public final class GMUDefaultClusterRenderer: GMUClusterRenderer {
 
     // MARK: - Properties
-    // Map view to render clusters on.
+    /// Map view to render clusters on.
     private weak var mapView: GMSMapView?
     /// Collection of markers added to the map.
     private var mutableMarkers: [GMSMarker]
@@ -29,7 +29,7 @@ public final class GMUDefaultClusterRenderer: GMUClusterRenderer {
     private var clusterIconGenerator: GMUClusterIconGenerator
     /// Current clusters being rendered.
     private var clusters: [GMUCluster]?
-    // Tracks clusters that have been rendered to the map.
+    /// Tracks clusters that have been rendered to the map.
     private var renderedClusters: NSMutableSet
     /// Tracks cluster items that have been rendered to the map.
     private var renderedClusterItems: NSMutableSet

@@ -16,27 +16,27 @@
 ///
 import CoreLocation
 
-final class GMUStaticCluster: GMUCluster {
+public final class GMUStaticCluster: GMUCluster {
 
     // MARK: - Properties
     /// The position of the cluster, which is set during initialization and cannot be changed.
-    private(set) var position: CLLocationCoordinate2D
+    public private(set) var position: CLLocationCoordinate2D
     /// Private mutable array to store the items in the cluster.
     private var clusterItems: [GMUClusterItem]
     /// The number of items in the cluster, which is derived from the internal items array.
-    var count: Int {
+    public var count: Int {
         return clusterItems.count
     }
     /// Returns a copy of the list of items in the cluster.
     /// This is a copy of the internal array to ensure immutability.
-    var items: [GMUClusterItem] {
+    public var items: [GMUClusterItem] {
         return clusterItems
     }
 
     // MARK: - Initializers
     /// Initializes a new instance of `GMUStaticCluster` with a specific position.
     /// - Parameter position: The position of the cluster.
-    init(position: CLLocationCoordinate2D) {
+    public init(position: CLLocationCoordinate2D) {
         self.position = position
         self.clusterItems = []
     }
@@ -45,14 +45,14 @@ final class GMUStaticCluster: GMUCluster {
     /// Adds an item to the cluster.
     ///
     /// - Parameter item: The item to be added to the cluster.
-    func addItem(_ item: GMUClusterItem) {
+    public func addItem(_ item: GMUClusterItem) {
         clusterItems.append(item)
     }
 
     /// Removes an item from the cluster.
     ///
     /// - Parameter item: The item to be removed from the cluster.
-    func removeItem(_ item: GMUClusterItem) {
+    public func removeItem(_ item: GMUClusterItem) {
         clusterItems.removeAll { $0 === item }
     }
 }
