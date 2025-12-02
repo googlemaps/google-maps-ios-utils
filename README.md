@@ -23,7 +23,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Requirements
 
-- iOS 15.0+
+- iOS 16.0+
 - Xcode 15.0+
 - [Maps SDK for iOS][sdk] (see [Releases](https://github.com/googlemaps/google-maps-ios-utils/releases) for minimum compatible version)
 - A Google Maps Platform [API key](https://developers.google.com/maps/documentation/ios-sdk/get-api-key) from a project with the **Maps SDK for iOS** enabled.
