@@ -14,7 +14,7 @@
  */
 
 #import "GMUGeometryRenderer.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 #import "GMUFeature.h"
 #import "GMUGeometryCollection.h"
 #import "GMUGroundOverlay.h"
@@ -23,6 +23,7 @@
 #import "GMUPoint.h"
 #import "GMUPolygon.h"
 #import "GMUStyle.h"
+#import "GMUVersion.h"
 
 static NSString *const kStyleMapDefaultState = @"normal";
 
@@ -76,6 +77,8 @@ static NSString *const kStyleMapDefaultState = @"normal";
                      styles:(NSArray<GMUStyle *> *)styles
                   styleMaps:(NSArray<GMUStyleMap *> *)styleMaps {
   if (self = [super init]) {
+    NSString *attributionID = [NSString stringWithFormat:@"gmp_git_iosmapsutils_v%@_geometry", GMU_VERSION];
+    [GMSServices addInternalUsageAttributionID:attributionID];
     _map = map;
     _geometryContainers = geometries;
     _styles = [[self class] stylesDictionaryFromArray:styles];

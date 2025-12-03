@@ -14,6 +14,7 @@
 */
 
 import GoogleMaps
+import GoogleMapsUtils
 import UIKit
 
 // Change this key to a valid key registered with the demo app bundle id.
@@ -29,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError("Please provide an API Key using mapsAPIKey")
     }
     GMSServices.provideAPIKey(mapsAPIKey)
-    GMSServices.addInternalUsageAttributionID("gmp_git_iosmapsutils_v6.2.0")
+    let attributionID = "gmp_git_iosmapsutils_v\(GMUCurrentVersion())"
+    GMSServices.addInternalUsageAttributionID(attributionID)
     let masterViewController = MasterViewController()
     let navigationController = UINavigationController(rootViewController: masterViewController)
     window?.rootViewController = navigationController

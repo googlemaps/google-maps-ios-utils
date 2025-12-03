@@ -11,7 +11,8 @@
       "extra-files": [
         "Google-Maps-iOS-Utils.podspec",
         "Podfile.template",
-        "README.md"
+        "README.md",
+        "Sources/GoogleMapsUtilsObjC/include/GMUVersion.h"
       ]
     }
   }
