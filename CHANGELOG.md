@@ -1,5 +1,20 @@
 # Changelog
 
+## [7.0.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.3...v7.0.0) (2025-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changes in v6.1.1 were breaking and should have been v7.0.0:
+    - iOS deployment target: 15.0 → 16.0
+    - GoogleMaps dependency: ~> 9.0 → ~> 10.0
+    - PR: https://github.com/googlemaps/google-maps-ios-utils/pull/546
+    - Release PR: https://github.com/googlemaps/google-maps-ios-utils/pull/547
+
+### Features
+
+* fix semantic versioning issue and update README.md ([#565](https://github.com/googlemaps/google-maps-ios-utils/issues/565)) ([c5f6e74](https://github.com/googlemaps/google-maps-ios-utils/commit/c5f6e749688d48354fc7cd0348c3b824f7ad47b7)), closes [#563](https://github.com/googlemaps/google-maps-ios-utils/issues/563)
+
 ## [6.1.3](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.2...v6.1.3) (2025-08-15)
 
 
