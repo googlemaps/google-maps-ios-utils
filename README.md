@@ -19,8 +19,6 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 - **Quadtree data structure** - indexes 2D geometry points and performs
 2D range queries
 
-<p align="center"><img width=“80%" vspace=“10" src="https://cloud.githubusercontent.com/assets/4.2.2feeb4.2.2c-4.2.2ec4.2.2a7fb3ae.png"></p>
-
 ## Requirements
 
 - iOS 16.0+
