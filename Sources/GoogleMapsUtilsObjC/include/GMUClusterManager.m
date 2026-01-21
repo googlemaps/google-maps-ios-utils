@@ -14,9 +14,10 @@
  */
 
 #import "GMUClusterManager+Testing.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 #import "GMUClusterRenderer.h"
 #import "GMUSimpleClusterAlgorithm.h"
+#import "GMUVersion.h"
 
 static NSString *const kGMUCameraKeyPath = @"camera";
 
@@ -42,6 +43,8 @@ static const double kGMUClusterWaitIntervalSeconds = 0.2;
                   algorithm:(id<GMUClusterAlgorithm>)algorithm
                    renderer:(id<GMUClusterRenderer>)renderer {
   if ((self = [super init])) {
+    NSString *attributionID = [NSString stringWithFormat:@"gmp_git_iosmapsutils_v%@_cluster", GMU_VERSION];
+    [GMSServices addInternalUsageAttributionID:attributionID];
     _algorithm = [[GMUSimpleClusterAlgorithm alloc] init];
     _mapView = mapView;
     _previousCamera = _mapView.camera;

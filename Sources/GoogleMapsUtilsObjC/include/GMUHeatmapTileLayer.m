@@ -18,9 +18,10 @@
 #endif
 
 #import "GMUHeatmapTileLayer.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 #import "GQTBounds.h"
 #import "GQTPointQuadTree.h"
+#import "GMUVersion.h"
 
 static const int kGMUTileSize = 512;
 static const int kGMUMaxZoom = 22;
@@ -51,6 +52,8 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
 
 - (instancetype)init {
   if ((self = [super init])) {
+    NSString *attributionID = [NSString stringWithFormat:@"gmp_git_iosmapsutils_v%@_heatmap", GMU_VERSION];
+    [GMSServices addInternalUsageAttributionID:attributionID];
     _radius = 20;
     _minimumZoomIntensity = 5;
     _maximumZoomIntensity = 10;

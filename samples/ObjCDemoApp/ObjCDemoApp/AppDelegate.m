@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 
 @import GoogleMaps;
+@import GoogleMapsUtils;
 
 //#error Change this key to a valid key registered with the demo app bundle id. Then delete this line.
 static NSString *const kMapsAPIKey = @"";
@@ -25,7 +26,8 @@ static NSString *const kMapsAPIKey = @"";
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [GMSServices provideAPIKey:kMapsAPIKey];
-  [GMSServices addInternalUsageAttributionID:@"gmp_git_iosmapsutils_v6.2.0"];
+  NSString *attributionID = [NSString stringWithFormat:@"gmp_git_iosmapsutils_v%@", GMU_VERSION];
+  [GMSServices addInternalUsageAttributionID:attributionID];
   return YES;
 }
 

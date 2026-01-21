@@ -19,6 +19,8 @@
 
 #import "GQTPointQuadTree.h"
 #import "GQTPointQuadTreeChild.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "GMUVersion.h"
 
 @implementation GQTPointQuadTree {
   /**
@@ -39,6 +41,8 @@
 
 - (id)initWithBounds:(GQTBounds)bounds {
   if (self = [super init]) {
+    NSString *attributionID = [NSString stringWithFormat:@"gmp_git_iosmapsutils_v%@_quadtree", GMU_VERSION];
+    [GMSServices addInternalUsageAttributionID:attributionID];
     bounds_ = bounds;
     [self clear];
   }
