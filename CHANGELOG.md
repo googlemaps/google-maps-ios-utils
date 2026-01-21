@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v7.0.0...v7.1.0) (2026-01-21)
+
+
+### Features
+
+* add API-level usage attribution for component tracking. ([#568](https://github.com/googlemaps/google-maps-ios-utils/issues/568)) ([fc89ac2](https://github.com/googlemaps/google-maps-ios-utils/commit/fc89ac25a6be1c0c31c7f23d1f0464bf2174374b))
+
 ## [7.0.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v6.1.3...v7.0.0) (2025-12-15)
 
 

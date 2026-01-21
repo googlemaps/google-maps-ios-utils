@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Google Maps iOS Utils library version.
  * This version string is used for internal usage attribution.
  */
-#define GMU_VERSION @"7.0.0" // x-release-please-version
+#define GMU_VERSION @"7.1.0" // x-release-please-version
 
 /**
  * Google Maps iOS Utils library version as NSString constant.
