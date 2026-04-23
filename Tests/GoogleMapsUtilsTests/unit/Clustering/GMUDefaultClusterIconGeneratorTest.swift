@@ -56,40 +56,40 @@ final class GMUDefaultClusterIconGeneratorTest: XCTestCase {
     }
 
     func testIconForSizeSmallerThanFirstBucket() {
-        let result = generator.iconForSize(5)
+        let result = generator.icon(forSize: 5)
         XCTAssertNotNil(result, "Expected a valid image to be returned for size smaller than the first bucket.")
         XCTAssertEqual(generator.iconWithImage(for: "5", with: backgroundImages[0]), result)
     }
 
     func testIconForSizeMatchingBucketValue() {
-        let result = generator.iconForSize(11)
+        let result = generator.icon(forSize: 11)
         XCTAssertNotNil(result, "Expected a valid image to be returned for size matching the bucket value.")
         XCTAssertEqual(generator.iconWithImage(for: "10+", with: backgroundImages[1]), result)
     }
 
     func testIconForSizeExceedingBucketValue() {
-        let result = generator.iconForSize(51)
+        let result = generator.icon(forSize: 51)
         XCTAssertNotNil(result, "Expected a valid image to be returned for size exceeding a bucket value.")
         XCTAssertEqual(generator.iconWithImage(for: "50+", with: backgroundImages[2]), result)
     }
 
     func testIconForSizeWithBackgroundImages() {
         generator.backgroundImages = backgroundImages
-        let result = generator.iconForSize(100)
+        let result = generator.icon(forSize: 100)
         XCTAssertNotNil(result, "Expected a valid image to be returned when no background images are provided.")
         XCTAssertEqual(generator.iconWithIndex(for: "100+", with: 3), result)
     }
 
     func testIconForSizeWithNoBackgroundImages() {
         generator.backgroundImages = nil
-        let result = generator.iconForSize(100)
+        let result = generator.icon(forSize: 100)
         XCTAssertNotNil(result, "Expected a valid image to be returned when no background images are provided.")
         XCTAssertEqual(generator.iconWithIndex(for: "100+", with: 3), result)
     }
 
     func testIconForSizeSmallerThanFirstBucketNoBackgroundImages() {
         generator.backgroundImages = nil
-        let result = generator.iconForSize(5)
+        let result = generator.icon(forSize: 5)
         XCTAssertNotNil(result, "Expected a valid image to be returned for size smaller than the first bucket without background images.")
         XCTAssertEqual(generator.iconWithIndex(for: "5", with: 0), result)
     }

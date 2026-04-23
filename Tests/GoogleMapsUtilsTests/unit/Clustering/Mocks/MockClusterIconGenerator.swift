@@ -22,7 +22,7 @@ final class MockClusterIconGenerator: GMUClusterIconGenerator {
 
     // MARK: - Method
     /// Generates an icon with the given size.
-    func iconForSize(_ size: Int) -> UIImage? {
+    func icon(forSize size: Int) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: size, height: size))
         return renderer.image { context in
             UIColor.red.setFill()

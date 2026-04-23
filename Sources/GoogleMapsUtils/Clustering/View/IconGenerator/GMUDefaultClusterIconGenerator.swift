@@ -122,7 +122,7 @@ public final class GMUDefaultClusterIconGenerator: GMUClusterIconGenerator {
     ///
     /// - Parameter size: The size for which the icon is generated.
     /// - Returns: A UIImage representing the icon for the specified size.
-    public func iconForSize(_ size: Int) -> UIImage? {
+    public func icon(forSize size: Int) -> UIImage? {
         /// Calls a method to get the appropriate bucket index
         let bucketIndex = bucketIndex(for: size)
         let text: String
