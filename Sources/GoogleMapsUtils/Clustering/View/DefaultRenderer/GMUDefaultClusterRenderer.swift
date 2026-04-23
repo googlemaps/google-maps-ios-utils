@@ -357,7 +357,7 @@ public final class GMUDefaultClusterRenderer: GMUClusterRenderer {
                 }
             }
 
-            guard let icon: UIImage = clusterIconGenerator.iconForSize(cluster.count) else {
+            guard let icon: UIImage = clusterIconGenerator.icon(forSize: cluster.count) else {
                 return
             }
             let marker: GMSMarker = markerWithPosition(cluster.position, from: fromPosition, userData: cluster, clusterIcon: icon, animated: animated)

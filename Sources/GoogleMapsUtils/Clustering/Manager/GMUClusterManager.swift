@@ -129,7 +129,7 @@ public final class GMUClusterManager: NSObject, GMSMapViewDelegate {
 
     /// Clears all cluster items from the algorithm and requests clustering.
     ///
-    func clearItems() {
+    public func clearItems() {
         /// Clears all items from the clustering algorithm.
         algorithm.clearItems()
         /// Requests the clustering process to run after clearing items.

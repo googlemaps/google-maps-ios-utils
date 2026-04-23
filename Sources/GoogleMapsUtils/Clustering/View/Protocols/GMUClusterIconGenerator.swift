@@ -20,5 +20,5 @@ import UIKit
 public protocol GMUClusterIconGenerator {
 
     /// Generates an icon with the given size.
-    func iconForSize(_ size: Int) -> UIImage?
+    func icon(forSize size: Int) -> UIImage?
 }
