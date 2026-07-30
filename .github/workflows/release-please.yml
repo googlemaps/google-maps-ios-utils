@@ -29,7 +29,6 @@ jobs:
         run: echo '${{ toJson(steps.release) }}'
         continue-on-error: true
 
-  # Call the Publish workflow to publish to CocoaPods when a release is cut.
   # Note the "if" statement makes sure that publishing
   # only happens when a release is cut.
   publish:
