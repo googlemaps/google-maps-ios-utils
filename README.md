@@ -1,5 +1,4 @@
 ![Run unit tests](https://github.com/googlemaps/google-maps-ios-utils/workflows/Build%20and%20Test/badge.svg)
-[![pod](https://img.shields.io/cocoapods/v/Google-Maps-iOS-Utils.svg)](https://cocoapods.org/pods/Google-Maps-iOS-Utils)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/google-maps-ios-utils)
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
@@ -30,7 +29,7 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 ## Installation
 
-1. [Include the `GoogleMaps` dependency](https://developers.google.com/maps/documentation/ios-sdk/config#download-sdk) using one of the available installation options (Swift Package Manager, CocoaPods, or manual).
+1. [Include the `GoogleMaps` dependency](https://developers.google.com/maps/documentation/ios-sdk/config#download-sdk) using one of the available installation options (Swift Package Manager or manual).
 
 1. Add this utility library using one of the options below:
 
@@ -61,45 +60,6 @@ range of applications using the [Google Maps SDK for iOS][sdk].
 
 5. See the [Importing](#importing) section for import statements specific to SPM installation.
 
-### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
-
-1. In your `Podfile`:
-
-  ```ruby
-  use_frameworks!
-
-  target 'TARGET_NAME' do
-    pod 'GoogleMaps', '10.0.0'
-    pod 'Google-Maps-iOS-Utils', '7.1.0' # x-release-please-version
-  end
-  ```
-
-  (You can omit the comment "x-release-please-start-version" which is used for release automation.)
-  Replace `TARGET_NAME` and save the `Podfile`.
-
-2. At the command line in directory containing your `Podfile`, run:
-
-  ```bash
-  pod install
-  ```
-
-3. Open the `.xcworkspace` file that is created.
-
-4. Follow the
-    [instructions](https://developers.google.com/maps/documentation/ios-sdk/config#get-key) to add your API key to your app.
-
-5. See the [Importing](#importing) section for import statements specific to CocoaPods installation.
-
-### [Carthage](https://github.com/Carthage/Carthage)
-
-<details>
-<summary>Only supported if using Maps SDK v7.1.0 or earlier</summary>
-
-In your `Cartfile`:
-
-```
-github "googlemaps/google-maps-ios-utils" ~> 7.1.0
-```
 
 See the [Carthage doc] for further installation instructions.
 </details>

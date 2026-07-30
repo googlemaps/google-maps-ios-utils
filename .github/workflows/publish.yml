@@ -34,11 +34,3 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install CocoaPods
-        run: sudo gem install cocoapods
-
-      - name: pod trunk push
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-        run: pod trunk push Google-Maps-iOS-Utils.podspec
-
