@@ -345,7 +345,8 @@ static void FreeDataProviderData(void *info, const void *data, size_t size) { fr
 
   CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
   CGImageRef imageRef = CGImageCreate(kGMUTileSize, kGMUTileSize, 8, 32, 4 * kGMUTileSize,
-                                      colorSpaceRef, kCGBitmapByteOrder32Big | kCGImageAlphaLast,
+                                      colorSpaceRef,
+                                      kCGBitmapByteOrder32Big | (CGBitmapInfo)kCGImageAlphaLast,
                                       provider, NULL, NO, kCGRenderingIntentDefault);
   UIImage *newImage = [UIImage imageWithCGImage:imageRef];
   CGImageRelease(imageRef);
