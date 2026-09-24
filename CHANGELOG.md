@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v7.1.0...v7.1.1) (2026-09-24)
+
+
+### Bug Fixes
+
+* cast `kCGImageAlphaLast` to `CGBitmapInfo` to fix pod lib lint on Xcode 26.6 ([#578](https://github.com/googlemaps/google-maps-ios-utils/issues/578)) ([bd3ee35](https://github.com/googlemaps/google-maps-ios-utils/commit/bd3ee35df6ed9241fa1e3e0a14e3189ef445f7cf))
+* Update GMUGridBasedClusterAlgorithm.m & GMUNonHierarchicalDistanceBasedAlgorithm.m to use Umbrella Header ([#577](https://github.com/googlemaps/google-maps-ios-utils/issues/577)) ([410db00](https://github.com/googlemaps/google-maps-ios-utils/commit/410db00447a4aeba3a71b076d22ff00c9aaa8737))
+
 ## [7.1.0](https://github.com/googlemaps/google-maps-ios-utils/compare/v7.0.0...v7.1.0) (2026-01-21)
 
 
