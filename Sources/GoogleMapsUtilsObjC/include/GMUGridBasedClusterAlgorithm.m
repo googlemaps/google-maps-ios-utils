@@ -19,7 +19,7 @@
 
 #import "GMUGridBasedClusterAlgorithm.h"
 
-#import <GoogleMaps/GMSGeometryUtils.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #import "GMUStaticCluster.h"
 #import "GMUClusterItem.h"
