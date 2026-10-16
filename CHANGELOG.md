@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.2](https://github.com/googlemaps/google-maps-ios-utils/compare/v7.1.1...v7.1.2) (2026-10-16)
+
+
+### Bug Fixes
+
+* allow Maps SDK for iOS 11.x in Swift Package dependency range ([#580](https://github.com/googlemaps/google-maps-ios-utils/issues/580)) ([e17d3c6](https://github.com/googlemaps/google-maps-ios-utils/commit/e17d3c67193b288ca1326166d3fe85f67b96a14f))
+
 ## [7.1.1](https://github.com/googlemaps/google-maps-ios-utils/compare/v7.1.0...v7.1.1) (2026-09-24)
 
 
