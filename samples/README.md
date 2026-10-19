@@ -10,9 +10,8 @@ Note that you will need an API key to run the samples. See the [documentation](h
 To view the Swift samples:
 
 ```
-cd SwiftDemoApp
-pod install 
-open SwiftDemoApp.xcworkspace
+cd SwiftDemoApp 
+open SwiftDemoApp.xcodeproj
 ```
 
 Lastly, copy and paste the API key that you created and replace the value of `mapsAPIKey` in `AppDelegate.swift`
@@ -23,8 +22,7 @@ To view the Objective-C samples:
 
 ```
 cd ObjCDemoApp
-pod install 
-open ObjCDemoApp.xcworkspace
+open ObjCDemoApp.xcodeproj
 ```
 
 Lastly, copy and paste the API key that you created and replace the value of `kMapsAPIKey` in `AppDelegate.m`
